@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.GL30;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
+// test 2
 public class HelloWorld implements ApplicationListener {
     private SpriteBatch batch;
     private BitmapFont font;
