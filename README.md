@@ -64,10 +64,23 @@ It's usually smart to change Eclipse's Maven settings so that it'll automaticall
 
 
 # 1. Organisering av teamet
-## 1.1 Roller
+I denne delen av oppgaven vil vi gjennomgå (1) en kartlegging av gruppens kompetanse, (2) en rollefordeling mellom gruppens medlemmer og (3) et project board som gir oversikt på prosjektets status.  
 
-## 1.2 Project board
+## 1.1 Kartlegging av kompetanse  
+Følgende komtanse er kartlagt mellom gruppens medlemmer:
+| Navn  | Kompetanse programmering |
+|---|---|
+| Thomas | Java, Python, SQL |
+| Magnus | Java, Python, SQL |
+| Karl | Java, Python, SQL |
+| Jonas | Usikker her |
+| Jon | Python |
 
+## 1.2 Roller
+
+
+## 1.3 Project board
+viser oversikt på arbeidsoppgavene.  
 
 # 2. Prosess for laget
 ## 2.1 Prosjektmetodikk
