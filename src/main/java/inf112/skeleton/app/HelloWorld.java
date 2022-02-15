@@ -12,12 +12,14 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 public class HelloWorld implements ApplicationListener {
     private SpriteBatch batch;
     private BitmapFont font;
-
+   
     @Override
     public void create() {
         batch = new SpriteBatch();
         font = new BitmapFont();
         font.setColor(Color.RED);
+        //testingtesting
+      
     }
 
     @Override
@@ -47,4 +49,5 @@ public class HelloWorld implements ApplicationListener {
     @Override
     public void resume() {
     }
+    
 }
