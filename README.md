@@ -62,6 +62,7 @@ It's usually smart to change Eclipse's Maven settings so that it'll automaticall
 
 # Introduksjon
 
+[[_TOC_]]
 
 # 1. Organisering av teamet
 I denne delen av oppgaven vil vi gjennomgå (1) en kartlegging av gruppens kompetanse, (2) en rollefordeling mellom gruppens medlemmer og (3) et project board som gir oversikt på prosjektets status.  
@@ -78,9 +79,6 @@ Følgende komtanse er kartlagt mellom gruppens medlemmer: (kan endre/legge til m
 
 ## 1.2 Roller  
 Som utgangspunkt for rollefordelingen har vi valgt å tildele roller basert på hvilke ansvarsområder vi har behov for å dekke. Rollefordelingen er også basert på kompetansen som vi har kartlagt i 1.1. Følgende roller er fordelt på gruppens medlemmer:  
-
-Skriv en kort begrunnelse for hvilke
-roller dere bestemmer dere for og hvorfor. 
 
 | Navn  | Rolle | Begrunnelse |
 |---|---|---|
