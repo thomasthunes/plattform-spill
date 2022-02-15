@@ -56,7 +56,7 @@ It's usually smart to change Eclipse's Maven settings so that it'll automaticall
 ![Turn on Download Sources and Javadoc](https://git.app.uib.no/inf112/22v/lectures/-/raw/master/img/eclipse-maven.png)
 
 
-
+Markdown guide: https://docs.gitlab.com/ee/user/markdown.html
 
 # Obligatorisk oppgave 1
 
@@ -88,8 +88,17 @@ Som utgangspunkt for rollefordelingen har vi valgt å tildele roller basert på 
 | Jonas | Testansvarlig | Testansvarlig tester kode og ser om den fungerer uten feil og bugs. Å skrive gode tester er viktig for å sikre at prosjektet holder en viss kvalitet, og at spillet innfrir de krav og forventninger som stilles. Testene er også viktig for å sikre at spillet ikke mister viktig funksjonalitet etter hvert som det utvikles og endres ved fremtidige innleveringer.  |
 | Jon | Kundekontakt | Kundekontakten opprettholder tett kontakt med kunden, slik at produktet holder seg innenfor avtalt rammeverk. God kundekontakt muliggjør at spillet bedre kan tilpasses kundens ønske og behov, slik at sluttresultatet blir best mulig.  |
 
-## 1.3 Project board
-viser oversikt på arbeidsoppgavene.  
+## 1.3 Project Board
+Project Board viser oversikt på prosessen i prosjektet og arbeidsoppgavene. Den er delt inn i fire lister:
+1. *Spørsmål til neste møte:* Neste møtetidspunkt spesifiseres her. Eventuelle spørsmål/saker som bør gjennomgås på møtet kan legges til i denne kategorien.  
+2. *Backlog:* Alle funksjonaliteter ved spillet som kan/skal implementeres plasseres i kø her. Når vi begynner å jobbe med en gitt funksjonalitet i denne køen flyttes den over til "Pågående".  
+3. *Pågående/Sprint:* Oppgaver som jobbes med i den pågående iterasjonen plasseres her. Dette gjelder spesielt nært forestående arbeid. Tidsfrist og hvem som arbeider med oppgaven kan også tagges på hver oppgave.  
+4. *Fullført:* Fullførte arbeidsoppgaver flyttes over hit etter hvert som de blir ferdig.  
+
+Bilde:  
+![alt text](img/projectBoard.png)
+Link: https://trello.com/b/phyvJKO5/project-board 
+
 
 # 2. Prosess for laget
 ## 2.1 Prosjektmetodikk
