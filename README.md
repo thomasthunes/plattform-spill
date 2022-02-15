@@ -67,7 +67,7 @@ It's usually smart to change Eclipse's Maven settings so that it'll automaticall
 I denne delen av oppgaven vil vi gjennomgå (1) en kartlegging av gruppens kompetanse, (2) en rollefordeling mellom gruppens medlemmer og (3) et project board som gir oversikt på prosjektets status.  
 
 ## 1.1 Kartlegging av kompetanse  
-Følgende komtanse er kartlagt mellom gruppens medlemmer:
+Følgende komtanse er kartlagt mellom gruppens medlemmer: (kan endre/legge til mer på denne)
 | Navn  | Kompetanse programmering |
 |---|---|
 | Thomas | Java, Python, SQL |
@@ -76,7 +76,8 @@ Følgende komtanse er kartlagt mellom gruppens medlemmer:
 | Jonas | Usikker her |
 | Jon | Python |
 
-## 1.2 Roller
+## 1.2 Roller  
+Som utgangspunkt for rollefordelingen har vi valgt å tildele roller basert på hvilke ansvarsområder vi har behov for å dekke. Rollefordelingen er også basert på kompetansen som vi har kartlagt i 1.1. Følgende roller er fordelt på gruppens medlemmer:  
 
 
 ## 1.3 Project board
