@@ -54,3 +54,42 @@ Run Jar files with, for example, `java -jar target/javafx-app-1.0-SNAPSHOT-fat.j
 It's usually smart to change Eclipse's Maven settings so that it'll automatically download Javadocs and the source code for your dependencies:
 
 ![Turn on Download Sources and Javadoc](https://git.app.uib.no/inf112/22v/lectures/-/raw/master/img/eclipse-maven.png)
+
+
+
+
+# Obligatorisk oppgave 1
+
+# Introduksjon
+
+
+# 1. Organisering av teamet
+## 1.1 Roller
+
+## 1.2 Project board
+
+
+# 2. Prosess for laget
+## 2.1 Prosjektmetodikk
+
+## 2.2 Organsiering av prosjektet
+
+# 3. Forventet produkt
+## 3.1 Produktspesifikasjon
+
+## 3.2 Brukerhistorier
+### 3.2.1 2D spillbrett
+
+### 3.2.2 Vegger
+
+### 3.2.3 Blokker
+
+### 3.2.4 Spiller
+
+
+# 4. Kode
+## 4.1 
+
+# 5. Oppsummering
+
+
