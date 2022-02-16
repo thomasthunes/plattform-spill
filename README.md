@@ -74,7 +74,7 @@ Følgende komtanse er kartlagt mellom gruppens medlemmer: (kan endre/legge til m
 | Thomas | Java, Python, SQL |
 | Magnus | Java, Python, SQL |
 | Karl | Java, Python, SQL |
-| Jonas | Usikker her |
+| Jonas | Java, Python, SQL |
 | Jon | Python |
 
 ## 1.2 Roller  
