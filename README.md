@@ -101,7 +101,12 @@ Link: https://trello.com/b/phyvJKO5/project-board
 
 
 # 2. Prosess for laget
+I denne delen av oppgaven vil vi gjennomgå hvilken prosess for laget som vi har valgt (2.1), og hvordan vi ønsker å organisere prosjektet (2.2).  
+
 ## 2.1 Prosjektmetodikk
+For å finne frem fram til en passende prosjektmetodikk har vi diskutert ulike hensyn og metoder som vi mener vil være viktig for å utvikle en velfungerende og godt dokumentert programvare. For det første fant vi det viktig å ha et rammeverk som legger til rette for intensive arbeidsøkter over flere iterasjoner. Dette mener vi er viktig ettersom prosjektet vil foregå over totalt 4 innleveringer, der det skal legges til ny funksjonalitet til hver innlevering. Videre ønsket vi også å ha en prosjektmetodikk som legger til rette for at prosjektet kan tilpasses endrede kundebehov underveis i utviklingsprosessen. Dette mener vi er en viktig forutsetning for at det ferdige produktet imøtekommer de krav og forventninger som kunden måtte ha. Til sist fant vi det også viktig å ha en prosjektmetodikk som sikrer god kvalitet i koden med lite feil. Basert på disse drøftelsene fant vi det hensiktsmessig å bruke Scrum-rammeverket som vår proskektmetodikk. Dette rammeverket favner om nettopp disse hensynene i en gjentakende arbeidsprosess.  
+
+Scrum-rammeverket iterer over arbeidsprosessene planlegging, implementering, evaluering underveis og et retrospektivt møte for å identifisere hva som gikk bra og mulige forbedringspotensialer til neste iterasjon. Hver iterasjon har konkrete 
 
 ## 2.2 Organsiering av prosjektet
 
