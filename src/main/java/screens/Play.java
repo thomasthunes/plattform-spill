@@ -36,12 +36,12 @@ public class Play implements Screen {
 
         TiledMapTileLayer layer1 = (TiledMapTileLayer) map.getLayers().get("Board");
 
-        camera.setToOrtho(false,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        //camera.setToOrtho(false,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         //cam.position.set(cam.viewportWidth/2f, cam.viewportHeight/2f, 0);
         
 
         player = new Player(new Sprite(new Texture("assets/maps/mario.png")), (TiledMapTileLayer)map.getLayers().get(0));
-        player.setPosition(11 * player.getCollisionLayer().getTileWidth(), 38 * player.getCollisionLayer().getTileHeight());
+        player.setPosition(7   * player.getCollisionLayer().getTileWidth(), 39 * player.getCollisionLayer().getTileHeight());
         camera.update();
 
         renderer.setView(camera);
@@ -55,7 +55,6 @@ public class Play implements Screen {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         
         batch.begin();
-        batch.draw(player, 0, 0);
         renderer.setView(camera);
         renderer.render();
         batch.end();
