@@ -11,8 +11,8 @@ public class app extends Game {
     }
 
     @Override
-    public void resize(int i, int i1) {
-        super.resize(i, i1);
+    public void resize(int width, int height) {
+        super.resize(width, height);
     }
 
     @Override

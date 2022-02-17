@@ -43,7 +43,7 @@ public class Player extends Sprite {
 		
 		//move on x
 		setX(getX() + velocity.x * delta);
-		
+
 		
 		if(velocity.x < 0) {
 			//top left
@@ -87,7 +87,7 @@ public class Player extends Sprite {
 		if(velocity.y < 0) {
 			//bottom left
 			
-			collisionY = collisionLayer.getCell((int)(getX() / tileWidth), 
+			collisionY = collisionLayer.getCell((int)(getX() / tileWidth),
 					(int)(getY() / tileHeight)).getTile().getProperties().containsKey("blocked");
 			
 			//bottom middle
@@ -112,7 +112,7 @@ public class Player extends Sprite {
 				collisionY = collisionLayer.getCell((int) ((getX() + getWidth() / 2) / tileWidth), 
 						(int)((getY() + getHeight() / 2) / tileHeight)).getTile().getProperties().containsKey("blocked");
 			
-			//bottom left
+			//top right
 			if (!collisionY) {
 				collisionY = collisionLayer.getCell((int) ((getX() + getWidth()) / tileWidth), 
 						(int)((getY() + getHeight()) / tileHeight)).getTile().getProperties().containsKey("blocked");
@@ -121,7 +121,7 @@ public class Player extends Sprite {
 			// react to y collision 
 			if (collisionY) {
 				setY(oldY);
-				velocity.x = 0;
+				velocity.y = 0;
 			}
 		}
 		
