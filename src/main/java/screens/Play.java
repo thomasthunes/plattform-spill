@@ -3,9 +3,14 @@ package screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
+
+import inf112.skeleton.app.Player;
+
 import org.lwjgl.opengl.GL20;
 
 import javax.swing.*;
@@ -15,6 +20,7 @@ public class Play implements Screen {
     private TiledMap map;
     private OrthogonalTiledMapRenderer renderer;
     private OrthographicCamera camera;
+    private Player player;
 
 
     @Override
@@ -25,6 +31,8 @@ public class Play implements Screen {
         renderer = new OrthogonalTiledMapRenderer(map);
 
         camera = new OrthographicCamera();
+        
+        player = new Player(new Sprite(new Texture("img/player.png")));
 
     }
 
@@ -35,6 +43,10 @@ public class Play implements Screen {
 
         renderer.setView(camera);
         renderer.render();
+        
+        renderer.getBatch().begin();
+        player.draw(renderer.getBatch());
+        renderer.getBatch().end();
     }
 
     @Override

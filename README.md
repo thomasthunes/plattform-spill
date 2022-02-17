@@ -90,10 +90,10 @@ Som utgangspunkt for rollefordelingen har vi valgt å tildele roller basert på 
 
 ## 1.3 Project Board
 Project Board viser oversikt på prosessen i prosjektet og arbeidsoppgavene. Den er delt inn i fire lister:
-1. *Spørsmål til neste møte:* Neste møtetidspunkt spesifiseres her. Eventuelle spørsmål/saker som bør gjennomgås på møtet kan legges til i denne kategorien.  
-2. *Backlog:* Alle funksjonaliteter ved spillet som kan/skal implementeres plasseres i kø her. Når vi begynner å jobbe med en gitt funksjonalitet i denne køen flyttes den over til "Pågående".  
-3. *Pågående/Sprint:* Oppgaver som jobbes med i den pågående iterasjonen plasseres her. Dette gjelder spesielt nært forestående arbeid. Tidsfrist og hvem som arbeider med oppgaven kan også tagges på hver oppgave.  
-4. *Fullført:* Fullførte arbeidsoppgaver flyttes over hit etter hvert som de blir ferdig.  
+1. **Spørsmål til neste møte:** Neste møtetidspunkt spesifiseres her. Eventuelle spørsmål/saker som bør gjennomgås på møtet kan legges til i denne kategorien.  
+2. **Backlog:** Alle funksjonaliteter ved spillet som kan/skal implementeres plasseres i kø her. Når vi begynner å jobbe med en gitt funksjonalitet i denne køen flyttes den over til "Pågående".  
+3. **Pågående/Sprint:** Oppgaver som jobbes med i den pågående iterasjonen plasseres her. Dette gjelder spesielt nært forestående arbeid. Tidsfrist og hvem som arbeider med oppgaven kan også tagges på hver oppgave.  
+4. **Fullført:** Fullførte arbeidsoppgaver flyttes over hit etter hvert som de blir ferdig.  
 
 Bilde:  
 ![alt text](img/projectBoard.png)
@@ -104,11 +104,17 @@ Link: https://trello.com/b/phyvJKO5/project-board
 I denne delen av oppgaven vil vi gjennomgå hvilken prosess for laget som vi har valgt (2.1), og hvordan vi ønsker å organisere prosjektet (2.2).  
 
 ## 2.1 Prosjektmetodikk
-For å finne frem fram til en passende prosjektmetodikk har vi diskutert ulike hensyn og metoder som vi mener vil være viktig for å utvikle en velfungerende og godt dokumentert programvare. For det første fant vi det viktig å ha et rammeverk som legger til rette for intensive arbeidsøkter over flere iterasjoner. Dette mener vi er viktig ettersom prosjektet vil foregå over totalt 4 innleveringer, der det skal legges til ny funksjonalitet til hver innlevering. Videre ønsket vi også å ha en prosjektmetodikk som legger til rette for at prosjektet kan tilpasses endrede kundebehov underveis i utviklingsprosessen. Dette mener vi er en viktig forutsetning for at det ferdige produktet imøtekommer de krav og forventninger som kunden måtte ha. Til sist fant vi det også viktig å ha en prosjektmetodikk som sikrer god kvalitet i koden med lite feil. Basert på disse drøftelsene fant vi det hensiktsmessig å bruke Scrum-rammeverket som vår proskektmetodikk. Dette rammeverket favner om nettopp disse hensynene i en gjentakende arbeidsprosess.  
+For å finne frem fram til en passende prosjektmetodikk har vi diskutert ulike hensyn og metoder som vi mener vil være viktig for å utvikle en velfungerende og godt dokumentert programvare. For det første fant vi det viktig å ha et rammeverk som legger til rette for intensive arbeidsøkter over flere iterasjoner. Dette mener vi er viktig ettersom prosjektet vil foregå over totalt 4 innleveringer, der det skal legges til ny funksjonalitet til hver innlevering. Videre ønsket vi også å ha en prosjektmetodikk som legger til rette for at prosjektet kan tilpasses endrede kundebehov underveis i utviklingsprosessen. Dette mener vi er en viktig forutsetning for at det ferdige produktet imøtekommer de krav og forventninger som kunden måtte ha. Til sist fant vi det også viktig å ha en prosjektmetodikk som sikrer god kvalitet i koden med lite feil. Dette er også viktig da oppgaveteksten krever grundig testing for å sikre god kvalitet. Basert på disse drøftelsene fant vi det hensiktsmessig å bruke Scrum-rammeverket som vår proskektmetodikk. Dette rammeverket favner om nettopp disse hensynene for programvareutvikling. I neste avsnitt vil vi kort gjennomgå de viktigste hovedtrekkene i Scrum-rammeverket.  
 
-Scrum-rammeverket iterer over arbeidsprosessene planlegging, implementering, evaluering underveis og et retrospektivt møte for å identifisere hva som gikk bra og mulige forbedringspotensialer til neste iterasjon. Hver iterasjon har konkrete 
+### 2.1.1 Scrum
+Scrum-rammeverket er en arbeidsmetodikk som brukes til å utvikle, levere og opprettholde produkter. Det bryter ned arbeidet i mindre sprintkøer med spesifikke mål som skal fullføres innenfor en gitt tidsperiode, som oftest to uker. Medlemmene i utviklingsteamet velger en arbeidsoppgavene fra sprintkøen og setter den til ferdig når oppgaven er fullført. På denne måten blir ansvar fordelt og de tilgjengelige ressursene i gruppen godt utnyttet. Underveis holdes det teammøter der medlemmene deler hvor langt de er kommet, hva som gjenstår og hvilke eventuelle utfordringer som står i veien for å fullføre arbeidsoppgaven. En fordel med  teammøtene er at gruppen oppnår effektiv kommunikasjonsflyt som sikrer god oversikt, samt muliggjør tidlig identifisering av eventuelle utfordringer. Mot slutten av sprinten avholdes det et sprint review møte der en evalurer det foreløpige arbeidet som er ferdig, og foretar vurderinger på om det er ytterligere oppgaver som bør legges til og fullføres innenfor den samme sprinten. Dette er viktig ettersom sentrale idéer til implementasjoner ofte kan komme underveis mens en jobber med en oppgave. Til slutt avholdes det et retrospektivt møte for å identifisere hva som gikk bra under denne sprinten og mulige forbedringspotensialer til neste sprint. Dersom det er nødvendig settes det også opp en tiltaksplan for å utnytte forbedringspotensialene til neste sprint.  
 
-## 2.2 Organsiering av prosjektet
+Kilde:  
+ - https://www.visma.no/blogg/en-kort-introduksjon-til-scrum/ 
+ - https://no.wikipedia.org/wiki/Scrum 
+
+## 2.2 Organsiering av prosjektet  
+
 
 # 3. Forventet produkt
 ## 3.1 Produktspesifikasjon
