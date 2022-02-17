@@ -3,36 +3,38 @@ package screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.tiled.TiledMap;
+import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
-import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
-
-import inf112.skeleton.app.Player;
-
+import com.badlogic.gdx.maps.tiled.renderers.OrthoCachedTiledMapRenderer;
 import org.lwjgl.opengl.GL20;
-
-import javax.swing.*;
 
 public class Play implements Screen {
 
     private TiledMap map;
-    private OrthogonalTiledMapRenderer renderer;
+    private OrthoCachedTiledMapRenderer renderer;
     private OrthographicCamera camera;
-    private Player player;
+    private SpriteBatch batch;
 
 
     @Override
     public void show() {
+    	batch = new SpriteBatch();
         TmxMapLoader loader = new TmxMapLoader();
         map = loader.load("assets/maps/map1.tmx");
 
-        renderer = new OrthogonalTiledMapRenderer(map);
+        renderer = new OrthoCachedTiledMapRenderer(map, 1, 3000);
 
         camera = new OrthographicCamera();
+
+        TiledMapTileLayer layer1 = (TiledMapTileLayer) map.getLayers().get("Board");
+
+        camera.setToOrtho(false,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        //cam.position.set(cam.viewportWidth/2f, cam.viewportHeight/2f, 0);
+        camera.update();
         
-        player = new Player(new Sprite(new Texture("img/player.png")));
+        renderer.setView(camera);
 
     }
 
@@ -40,13 +42,11 @@ public class Play implements Screen {
     public void render(float v) {
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
+        
+        batch.begin();
         renderer.setView(camera);
         renderer.render();
-        
-        renderer.getBatch().begin();
-        player.draw(renderer.getBatch());
-        renderer.getBatch().end();
+        batch.end();
     }
 
     @Override
