@@ -124,7 +124,7 @@ For å organisere prodsjektet har vi vurdert følgende momenter:
  - **Møter og hyppighet av dem:** Møter planlegges etter nærmere behov. 
  - **Kommunikasjon mellom møter:** Kommunikasjon foregår i egen discord-kanal eller i Messenger-gruppe (facebook).
  - **Arbeidsfordeling:** Arbeidsfordelingen tar utgangspunkt i rollefordelingen i 1.2, og tilpasses ved behov. Vi ser for oss at mye av arbeidsfordelingen vil skje på første møte i starten av en ny sprint, men at dette kan tilpasses underveis dersom en ser at enkelte arbeidsoppgaver krever flere ressurser en først antatt. 
- - **Oppfølging av arbeid:** Vi planlegger for å ha ukentlige møter der vi kan følge hverandre opp på arbeidet, såkalt *sprint review* møter (se avsnitt 2.1.1). 
+ - **Oppfølging av arbeid:** Vi planlegger å ha ukentlige møter der vi kan følge hverandre opp på arbeidet, såkalt *sprint review*-møter (se avsnitt 2.1.1). 
  - **Deling og oppbevaring av felles dokumenter, diagram og kodebase:** Her bruker vi egen gruppe på git til deling av all kode og rapport som tilhører prosjektet. Mindre filer kan også deles på kommunikasjonskanalene Messenger/Discord dersom dette er mer hensiktsmessig, men selve prosjektkoden lastes opp til felles git.
  - **Programvareutviklingsaktiviteter:** Aktiviteter relatert til programvareutvikling bestemmes på teammøtene. Dette ser vi for oss vil variere i omfang basert på hvilke oppgaver som ligger i sprintkøen. Ved spesielt vanskelige programmeringsoppgaver vil vi benytte parprogrammering der én person skriver kode mens den andre forteller hva som skal skrives. På denne måten involverer en flere personer til å løse vanskelige programmeringsoppgaver. 
 
@@ -135,10 +135,10 @@ I denne delen av oppgaven vil vi gjennomgå (1) produktspesifikasjoner og (2) br
 Det overordnede målet for applikasjonen er å utvikle et spill som kan spilles av flere spillere, og som fungerer på alle plattformer. I spillet vektlegger vi å ha en spillfigur som kan styres i en todimensjonal verden, fiender og hindringer for spilleren og muligheten til å plukke opp gjenstander for å samle poeng. Aspektene ved spillet utdypes nærmere i neste del av oppgaven. 
 
 ## 3.2 Brukerhistorier
-Brukerhistorier er spesifikasjoner av konkrete implemtasjoner vi mener er viktig å ha med i applikasjonen. Disse spesifikasjonene muliggjør at rollene i prosjektet oppnår en felles forståelse for applikasjonen. I utformingen av brukerhistoriene har vi vektlagt funksjonalitet og nytteverdi. Brukerhistoriene er oppsummert i tabellen under. Videre følger det også en prioritert liste over hvilke brukerhistorier vi ønsker å ha med i første sprint/iterasjon.  
+Brukerhistorier er spesifikasjoner av konkrete implemtasjoner vi mener er viktig å ha med i applikasjonen. Disse spesifikasjonene muliggjør at rollene i prosjektet oppnår en felles forståelse for applikasjonen. I utformingen av brukerhistoriene har vi vektlagt funksjonalitet og nytteverdi. Videre har vi satt opp akseptansekriterier som spesifiserer hvilke egenskaper applikasjonen må ha for å imøtekomme kravene gitt i brukerhistorien. Til sist har vi satt opp arbeidsoppgaver som spesifiserer hvilke metoder som må implementeres i koden for å imøtekomme akseptansekriteriene, og hvordan ansvaret blir fordelt til de ulike arbeidsoppgavene. Brukerhistoriene, akseptansekriteriene og arbeidsoppgavene er oppsummert i tabellen under. Etter tabellen følger det også en prioritert liste over hvilke brukerhistorier vi ønsker å ha med i første sprint/iterasjon.  
 
 --------
-Format (fjernes før innlevering):  
+Mulig format (fjernes før innlevering):  
 Brukeristorien (verdiforslaget): 
  - "Som rolle trenger jeg funksjonalitet for å oppnå nytteverdi. (bruker, funksjon, verdi)"
  - "få frem verdien og hvem som skal få den verdien"
@@ -154,37 +154,50 @@ Løsningsbeskrivelse:
  - "Hvert kriterium skal skrives på en slik måte at en kan bekrefte eller avkrefte om det er oppfylt."
 --------
 
-| Brukerhistorie  | Løsningsbeskrivelse | Akseptansekriterie |
+| Brukerhistorier  | Akseptansekriterier | Arbeidsoppgaver |
 |---|---|---|
-| **2D spillebrett:** Som spiller ønsker jeg å se et spillebrett, slik at jeg kan orientere meg. | Når programmet kjøres vises et vindu med grafikk til spillebrettet. |  |
-| **Spiller:** Som utvikler (kan være spiller her?) ønsker jeg å kunne bevege spillebrikken i spillet med piltastene og space for å teste funksjonene til spillebrettet og se om disse fungere slik det skal. (kan gjøres om til brukerorientert?) | Når en piltast trykkes beveges spillebrikken den retningen piltasten har blitt trykket, eller hvis man trykker på space skal spillebrikken hoppe. |  |
-| **Vegger:** Som utvikler ønsker jeg vegger som skiller seg fra resten av spillebrettet, slik at jeg kan implementere funksjoner som sørger for at en spiller ikke kan bevege seg gjennom disse objektene. | Når en spiller beveger seg bort mot en vegg, kan den ikke gå videre gjennom veggen. |  |
-| **Blokker:** Som utvikler ønsker jeg blokker som skiller seg fra resten av spillebrettet, slik at jeg kan implementere funksjoner som sørger for at en spiller ikke kan bevege seg gjennom disse objektene. | Når en spiller beveger seg mot en blokk, kan den ikke gå videre gjennom blokken, men den kan hoppe oppå blokken for å passere den. |  |
-| **Fiender:** Som spiller ønsker jeg å spille mot fiender som prøver å drepe meg slik at det er en utfordring å komme til mål å vinne spillet. | Hvis en spiller kommer nær en fiende dør spilleren, så spilleren må bevege seg rundt fienden for å overleve |    ||
-| **Antall liv:** Som utvikler ønsker jeg å kunne gi forskjellig antall liv til spiller og fiender slik at spillet oppleves som underholdene og spennende for spilleren men ikke altfor vanskelig. | En spiller skal ha flere liv enn en fiende siden det er flere fiender enn spillere. |  |
-| **Fiender/Hindringer:** Som spiller ønsker jeg å kunne drepe/kjempe mot fiender så det er elementer som prøver å stoppe meg på min vei til mål. | En spiller skal kunne drepe fiender og da skal disse fiendene forsvinne bort fra spillebrettet. |  |
+| **2D spillebrett:** Som spiller ønsker jeg å se et spillebrett, slik at jeg kan orientere meg. | Når programmet kjøres vises et vindu med grafikk til spillebrettet. | Følgende klasser i koden må ferdigstilles for å oppnå akseptansekriteriene: ... Klassene må ... |
+| **Spiller:** Som utvikler (kan være spiller her?) ønsker jeg å kunne bevege spillebrikken i spillet med piltastene og space for å teste funksjonene til spillebrettet og se om disse fungere slik det skal. (kan gjøres om til brukerorientert?) | Når en piltast trykkes beveges spillebrikken den retningen piltasten peker, og dersom en trykker *space* skal spillebrikken hoppe. | For å imøtekomme akseptansekriteriene må klassene ... implementeres. Disse klassene sørger for at når ... så vil ... slik at ... |
+| **Vegger:** Som utvikler ønsker jeg vegger som skiller seg fra resten av spillebrettet, slik at jeg kan implementere funksjoner som sørger for at en spiller ikke kan bevege seg gjennom disse objektene. | Når en spiller beveger seg bort mot en vegg, kan den ikke gå videre gjennom veggen. | For å imøtekomme akseptansekriteriene må klassene ... implementeres. Disse klassene sørger for at når ... så vil ... slik at ... |
+| **Blokker:** Som utvikler ønsker jeg blokker som skiller seg fra resten av spillebrettet, slik at jeg kan implementere funksjoner som sørger for at en spiller ikke kan bevege seg gjennom disse objektene. | Når en spiller beveger seg mot en blokk, kan den ikke gå videre gjennom blokken, men den kan hoppe oppå blokken for å passere den. | For å imøtekomme akseptansekriteriene må klassene ... implementeres. Disse klassene sørger for at når ... så vil ... slik at ... |
+| **Fiender:** Som spiller ønsker jeg å spille mot fiender som prøver å drepe meg slik at det er en utfordring å komme til mål å vinne spillet. | Hvis en spiller kommer nær en fiende dør spilleren, så spilleren må bevege seg rundt fienden for å overleve. | For å imøtekomme akseptansekriteriene må klassene ... implementeres. Disse klassene sørger for at når ... så vil ... slik at ... |
+| **Antall liv:** Som utvikler ønsker jeg å kunne gi forskjellig antall liv til spiller og fiender slik at spillet oppleves som underholdene og spennende for spilleren men ikke altfor vanskelig. | En spiller skal ha flere liv enn en fiende siden det er flere fiender enn spillere. | For å imøtekomme akseptansekriteriene må klassene ... implementeres. Disse klassene sørger for at når ... så vil ... slik at ... |
 |  |  |  |
 |  |  |  |
 
 ### 3.2.1 Prioritert liste på brukerhistorier
-1. 
-2. 
-3. 
+1. 2D spillebrett
+2. Vegger
+3. Blokker
+4. Spiller
 
-### 3.2.1 2D spillbrett
-
-### 3.2.2 Vegger
-
-### 3.2.3 Blokker
-
-### 3.2.4 Spiller
 
 Kilde:
  - https://design.entur.org/kom-i-gang/for-designere/brukerhistorier
 
 # 4. Kode
-## 4.1 
+Den foreløpige koden inneholder implementasjoner for et 2D spillebrett, vegger og blokker.
 
 # 5. Oppsummering
+
+## 5.1 Retrospektiv vurdering
+Prosjektet frem til første innlevering har fungert bra for gruppen. Vi ser blant annet at den opprinnelige organiseringen av gruppen har vært hensiktsmessig for arbeidet. Med utgangspunkt i kartlegging av kompetanse og fordeling av roller har vi oppnådd en effektiv ressursutnyttelse i gruppen. Vi har blant annet brukt project boardet aktivt for å holde oversikt på prosessene i utviklingsarbeidet.  
+
+Når det gjelder den retrospektive vurderingen av metodikk har vi fulgt scrum-rammeverket nøye, slik som planlagt. Vi har blant annet satt opp arbeidsoppgaver i backloggen, flyttet dem over til listen Pågående/Sprint etter hvert som vi tar fatt på oppgaven og deretter flyttet dem over til Fullført så snart vi er ferdig med en arbeidsoppgave. Dette har vi brukt aktivt fordi det gir oss bedre oversikt på hvor langt vi er kommet i utviklingsprosessen, og hvem som arbeider med hva. Videre har vi også hatt review-møte for å legge frem hva hver enkelt har gjort, og diskutert hvordan vi skal løse utfordringer som har dukket opp underveis.  
+
+Det ferdige produktet samsvarer/samsvarer ikke med de forventningene vi har satt. Blant annet har vi fullført punkt ... på prioriteringslisten over brukerhistorier (se 3.2). Vi tror at grunnen til at vi klarte/ikke klarte målene vi har satt oss er fordi ... 
+
+Når det gjelder kommunikasjonen i gruppen så har denne fungert bra. Vi har brukt kommunikasjonskanalene effektivt for å koordinere arbeid og møter. På møtene har vi hatt et jevnt bidrag fra alle medlemmer og åpenhet om å lytte til alle meninger. 
+
+### Fra retteskjema:
+Retrospektiv vurdering: må inneholde: beskrivelse av hva som var planlagt å bruke av metodikk, hva vi faktisk bruker og hvorfor  
+Kommentarer om kommunikasjon i gruppen:  
+Meeting minutes(?):  
+
+
+Må også ha:  
+Dokumentasjon om teknisk produktoppsett (hvordan bygge og kjøre programmet):  
+Beskrivelse av prosjektet (koden):  
+
 
 
