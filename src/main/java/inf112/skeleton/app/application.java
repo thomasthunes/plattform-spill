@@ -21,13 +21,8 @@ public class application extends InputAdapter implements ApplicationListener {
     private OrthoCachedTiledMapRenderer renderer;
     private OrthographicCamera cam;
 
-    private int mapWidth;
-    private int mapHeight;
-
     @Override
     public void create() {
-        mapWidth = 50;
-        mapHeight = 50;
         batch = new SpriteBatch();
 
         mapLoader = new TmxMapLoader();
@@ -36,12 +31,12 @@ public class application extends InputAdapter implements ApplicationListener {
 
         layer1 = (TiledMapTileLayer) map.getLayers().get("Board");
 
-        cam.setToOrtho(false, mapWidth, mapHeight);
+        cam.setToOrtho(false,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        //cam.position.set(cam.viewportWidth/2f, cam.viewportHeight/2f, 0);
         cam.update();
-
-        renderer = new OrthoCachedTiledMapRenderer(map, 1/300f);
+        
+        renderer = new OrthoCachedTiledMapRenderer(map, 1, 3000);
         renderer.setView(cam);
-        Gdx.input.setInputProcessor(this);
     }
 
     @Override
@@ -54,11 +49,13 @@ public class application extends InputAdapter implements ApplicationListener {
 
     @Override
     public void render() {
-
-        Gdx.gl.glClearColor(1, 1, 1, 1);
+    	cam.update();
+    	
+        Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL30.GL_COLOR_BUFFER_BIT);
 
         batch.begin();
+        renderer.render();
         batch.end();
     }
 
