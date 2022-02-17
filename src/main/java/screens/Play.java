@@ -32,7 +32,7 @@ public class Play implements Screen {
 
         camera = new OrthographicCamera();
         
-        player = new Player(new Sprite(new Texture("assets/maps/mario.png")));
+        player = new Player(new Sprite(new Texture("img/player.png")));
 
     }
 

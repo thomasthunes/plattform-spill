@@ -56,6 +56,10 @@ It's usually smart to change Eclipse's Maven settings so that it'll automaticall
 ![Turn on Download Sources and Javadoc](https://git.app.uib.no/inf112/22v/lectures/-/raw/master/img/eclipse-maven.png)
 
 
+
+
+
+
 Markdown guide: https://docs.gitlab.com/ee/user/markdown.html
 
 # Obligatorisk oppgave 1
@@ -83,10 +87,10 @@ Som utgangspunkt for rollefordelingen har vi valgt å tildele roller basert på 
 | Navn  | Rolle | Begrunnelse |
 |---|---|---|
 | Thomas | Teamleader | Teamleder har oversikt på hele uviklingsprosessen. Dette er viktig for at prosjektet og gruppen skal ha den progresjonen som kreves til hver innlevering. |
-| Magnus | Prosjektansvarlig | Prosjektansvarlig har ansvar for å sørge for at prosjektet følger standarden og kravene som er gitt i oppgaven, og de forventningene som gruppen har formulert under deloppgave 3. Dette er viktig for å unngå at vi glemmer enkelte implementasjoner ved spillet eller gjør implementasjoner som er feil.  |
+| Magnus | Prosjektansvarlig | Prosjektansvarlig har ansvar for å sørge for at prosjektet følger standarden og kravene som er gitt i oppgaven, og de forventningene som gruppen har formulert under deloppgave 3. Dette er viktig for å unngå at vi glemmer enkelte implementasjoner ved spillet eller gjør implementasjoner som er feil. |
 | Karl | Scrum Master | Scrum Master har ansvar for å følge opp prosjektmetodikken som står beskrevet i deloppgave 2.1. Dette er viktig for å sikre en effektiv og oversiktlig utviklingsprosess. |
-| Jonas | Testansvarlig | Testansvarlig tester kode og ser om den fungerer uten feil og bugs. Å skrive gode tester er viktig for å sikre at prosjektet holder en viss kvalitet, og at spillet innfrir de krav og forventninger som stilles. Testene er også viktig for å sikre at spillet ikke mister viktig funksjonalitet etter hvert som det utvikles og endres ved fremtidige innleveringer.  |
-| Jon | Kundekontakt | Kundekontakten opprettholder tett kontakt med kunden, slik at produktet holder seg innenfor avtalt rammeverk. God kundekontakt muliggjør at spillet bedre kan tilpasses kundens ønske og behov, slik at sluttresultatet blir best mulig.  |
+| Jonas | Testansvarlig | Testansvarlig tester kode og ser om den fungerer uten feil og bugs. Å skrive gode tester er viktig for å sikre at prosjektet holder en viss kvalitet, og at spillet innfrir de krav og forventninger som stilles. Testene er også viktig for å sikre at spillet ikke mister viktig funksjonalitet etter hvert som det utvikles og endres ved fremtidige innleveringer. |
+| Jon | Kundekontakt | Kundekontakten opprettholder tett kontakt med kunden, slik at produktet holder seg innenfor avtalt rammeverk. God kundekontakt muliggjør at spillet bedre kan tilpasses kundens ønske og behov, slik at sluttresultatet blir best mulig. |
 
 ## 1.3 Project Board
 Project Board viser oversikt på prosessen i prosjektet og arbeidsoppgavene. Den er delt inn i fire lister:
@@ -101,7 +105,7 @@ Link: https://trello.com/b/phyvJKO5/project-board
 
 
 # 2. Prosess for laget
-I denne delen av oppgaven vil vi gjennomgå hvilken prosess for laget som vi har valgt (2.1), og hvordan vi ønsker å organisere prosjektet (2.2).  
+I denne delen av oppgaven vil vi gjennomgå (1) hvilken prosjektmetodikk vi har valgt, og (2) hvordan vi ønsker å organisere prosjektet.  
 
 ## 2.1 Prosjektmetodikk
 For å finne frem fram til en passende prosjektmetodikk har vi diskutert ulike hensyn og metoder som vi mener vil være viktig for å utvikle en velfungerende og godt dokumentert programvare. For det første fant vi det viktig å ha et rammeverk som legger til rette for intensive arbeidsøkter over flere iterasjoner. Dette mener vi er viktig ettersom prosjektet vil foregå over totalt 4 innleveringer, der det skal legges til ny funksjonalitet til hver innlevering. Videre ønsket vi også å ha en prosjektmetodikk som legger til rette for at prosjektet kan tilpasses endrede kundebehov underveis i utviklingsprosessen. Dette mener vi er en viktig forutsetning for at det ferdige produktet imøtekommer de krav og forventninger som kunden måtte ha. Til sist fant vi det også viktig å ha en prosjektmetodikk som sikrer god kvalitet i koden med lite feil. Dette er også viktig da oppgaveteksten krever grundig testing for å sikre god kvalitet. Basert på disse drøftelsene fant vi det hensiktsmessig å bruke Scrum-rammeverket som vår proskektmetodikk. Dette rammeverket favner om nettopp disse hensynene for programvareutvikling. I neste avsnitt vil vi kort gjennomgå de viktigste hovedtrekkene i Scrum-rammeverket.  
@@ -109,17 +113,60 @@ For å finne frem fram til en passende prosjektmetodikk har vi diskutert ulike h
 ### 2.1.1 Scrum
 Scrum-rammeverket er en arbeidsmetodikk som brukes til å utvikle, levere og opprettholde produkter. Det bryter ned arbeidet i mindre sprintkøer med spesifikke mål som skal fullføres innenfor en gitt tidsperiode, som oftest to uker. Medlemmene i utviklingsteamet velger en arbeidsoppgavene fra sprintkøen og setter den til ferdig når oppgaven er fullført. På denne måten blir ansvar fordelt og de tilgjengelige ressursene i gruppen godt utnyttet. Underveis holdes det teammøter der medlemmene deler hvor langt de er kommet, hva som gjenstår og hvilke eventuelle utfordringer som står i veien for å fullføre arbeidsoppgaven. En fordel med  teammøtene er at gruppen oppnår effektiv kommunikasjonsflyt som sikrer god oversikt, samt muliggjør tidlig identifisering av eventuelle utfordringer. Mot slutten av sprinten avholdes det et sprint review møte der en evalurer det foreløpige arbeidet som er ferdig, og foretar vurderinger på om det er ytterligere oppgaver som bør legges til og fullføres innenfor den samme sprinten. Dette er viktig ettersom sentrale idéer til implementasjoner ofte kan komme underveis mens en jobber med en oppgave. Til slutt avholdes det et retrospektivt møte for å identifisere hva som gikk bra under denne sprinten og mulige forbedringspotensialer til neste sprint. Dersom det er nødvendig settes det også opp en tiltaksplan for å utnytte forbedringspotensialene til neste sprint.  
 
-Kilde:  
+[Sette inn scrum-bilde her]
+
+Kilde:
  - https://www.visma.no/blogg/en-kort-introduksjon-til-scrum/ 
  - https://no.wikipedia.org/wiki/Scrum 
 
-## 2.2 Organsiering av prosjektet  
-
+## 2.2 Organsiering av prosjektet
+For å organisere prodsjektet har vi vurdert følgende momenter:
+ - **Møter og hyppighet av dem:** Møter planlegges etter nærmere behov. 
+ - **Kommunikasjon mellom møter:** Kommunikasjon foregår i egen discord-kanal eller i Messenger-gruppe (facebook).
+ - **Arbeidsfordeling:** Arbeidsfordelingen tar utgangspunkt i rollefordelingen i 1.2, og tilpasses ved behov. Vi ser for oss at mye av arbeidsfordelingen vil skje på første møte i starten av en ny sprint, men at dette kan tilpasses underveis dersom en ser at enkelte arbeidsoppgaver krever flere ressurser en først antatt. 
+ - **Oppfølging av arbeid:** Vi planlegger for å ha ukentlige møter der vi kan følge hverandre opp på arbeidet, såkalt *sprint review* møter (se avsnitt 2.1.1). 
+ - **Deling og oppbevaring av felles dokumenter, diagram og kodebase:** Her bruker vi egen gruppe på git til deling av all kode og rapport som tilhører prosjektet. Mindre filer kan også deles på kommunikasjonskanalene Messenger/Discord dersom dette er mer hensiktsmessig, men selve prosjektkoden lastes opp til felles git.
+ - **Programvareutviklingsaktiviteter:** Aktiviteter relatert til programvareutvikling bestemmes på teammøtene. Dette ser vi for oss vil variere i omfang basert på hvilke oppgaver som ligger i sprintkøen. Ved spesielt vanskelige programmeringsoppgaver vil vi benytte parprogrammering der én person skriver kode mens den andre forteller hva som skal skrives. På denne måten involverer en flere personer til å løse vanskelige programmeringsoppgaver. 
 
 # 3. Forventet produkt
+I denne delen av oppgaven vil vi gjennomgå (1) produktspesifikasjoner og (2) brukerhistorier. Mens produktspesifikasjonen tar for seg det overordnede målet for applikasjonen, så vil brukerhistoriene utdype de ulike implementasjonene vi mener er viktig å ha med for å oppnå det overordnede målet.
+
 ## 3.1 Produktspesifikasjon
+Det overordnede målet for applikasjonen er å utvikle et spill som kan spilles av flere spillere, og som fungerer på alle plattformer. I spillet vektlegger vi å ha en spillfigur som kan styres i en todimensjonal verden, fiender og hindringer for spilleren og muligheten til å plukke opp gjenstander for å samle poeng. Aspektene ved spillet utdypes nærmere i neste del av oppgaven. 
 
 ## 3.2 Brukerhistorier
+Brukerhistorier er spesifikasjoner av konkrete implemtasjoner vi mener er viktig å ha med i applikasjonen. Disse spesifikasjonene muliggjør at rollene i prosjektet oppnår en felles forståelse for applikasjonen. I utformingen av brukerhistoriene har vi vektlagt funksjonalitet og nytteverdi. Brukerhistoriene er oppsummert i følgende tabell:  
+
+--------
+Format (fjernes før innlevering):
+Brukeristorien (verdiforslaget): 
+ - "Som rolle trenger jeg funksjonalitet for å oppnå nytteverdi. (bruker, funksjon, verdi)"
+ - "få frem verdien og hvem som skal få den verdien"
+ - "raskt kan få et overblikk over hva historien løser"
+
+Løsningsbeskrivelse: 
+ - "en enkel og spesifikk forklaring/oppsummering av hvordan en løser oppgaven"
+ - "kan for eksempel bruke løsningsbeskrivelsen til å oppsummere akseptansekriteriene"
+
+ Akseptansekriterier:
+ - "skal fortelle utvikler og tester spesifikt hva som skal lages og testes"
+ - "lite rom for tolkning"
+ - "Hvert kriterium skal skrives på en slik måte at en kan bekrefte eller avkrefte om det er oppfylt."
+--------
+
+| Brukerhistorie  | Løsningsbeskrivelse | Akseptansekriterie |
+|---|---|---|
+| *2D spillbrett:* Som spiller ønsker jeg å se et spillbrett, slik at jeg kan orientere meg. | Når programmet kjøres vises et vindu med grafikk til spillebrettet. |  |
+| *Spiller:* Som en utvikler (kan være spiller her?) ønsker jeg å kunne bevege spillebrikken i spillet med piltastene og space for å teste funksjonene til spillebrettet og se om disse fungere slik det skal. | Når en piltast trykkes beveges spillebrikken den retningen piltasten har blitt trykket, eller hvis man trykker på space skal spillebrikken hoppe. |  |
+| *Vegger:* Som utvikler ønsker jeg vegger som skiller seg fra resten av spillebrettet, slik at jeg kan implementere funksjoner som sørger for at en spiller ikke kan bevege seg gjennom disse objektene. | Når en spiller beveger seg bort mot en vegg, kan den ikke gå videre gjennom veggen. |  |
+| *Blokker:* Som utvikler ønsker jeg blokker som skiller seg fra resten av spillebrettet, slik at jeg kan implementere funksjoner som sørger for at en spiller ikke kan bevege seg gjennom disse objektene. | Når en spiller beveger seg mot en blokk, kan den ikke gå videre gjennom blokken, men den kan hoppe oppå blokken for å passere den. |  |
+| *Fiender:* Som spiller ønsker jeg å spille mot fiender som prøver å drepe meg slik at det er en utfordring å komme til mål å vinne spillet. | Hvis en spiller kommer nær en fiende dør spilleren, så spilleren må bevege seg rundt fienden for å overleve |  |
+| *Antall liv:* Som utvikler ønsker jeg å kunne gi forskjellig antall liv til spiller og fiender slik at spillet oppleves som underholdene og spennende for spilleren men ikke altfor vanskelig. | En spiller skal ha flere liv enn en fiende siden det er flere fiender enn spillere. |  |
+| *Fiender/Hindringer:* Som spiller ønsker jeg å kunne drepe/kjempe mot fiender så det er elementer som prøver å stoppe meg på min vei til mål. | En spiller skal kunne drepe fiender og da skal disse fiendene forsvinne bort fra spillebrettet. |  |
+|  |  |  |
+|  |  |  |
+
+
 ### 3.2.1 2D spillbrett
 
 ### 3.2.2 Vegger
@@ -128,6 +175,8 @@ Kilde:
 
 ### 3.2.4 Spiller
 
+Kilde:
+ - https://design.entur.org/kom-i-gang/for-designere/brukerhistorier
 
 # 4. Kode
 ## 4.1 
