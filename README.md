@@ -109,12 +109,20 @@ For å finne frem fram til en passende prosjektmetodikk har vi diskutert ulike h
 ### 2.1.1 Scrum
 Scrum-rammeverket er en arbeidsmetodikk som brukes til å utvikle, levere og opprettholde produkter. Det bryter ned arbeidet i mindre sprintkøer med spesifikke mål som skal fullføres innenfor en gitt tidsperiode, som oftest to uker. Medlemmene i utviklingsteamet velger en arbeidsoppgavene fra sprintkøen og setter den til ferdig når oppgaven er fullført. På denne måten blir ansvar fordelt og de tilgjengelige ressursene i gruppen godt utnyttet. Underveis holdes det teammøter der medlemmene deler hvor langt de er kommet, hva som gjenstår og hvilke eventuelle utfordringer som står i veien for å fullføre arbeidsoppgaven. En fordel med  teammøtene er at gruppen oppnår effektiv kommunikasjonsflyt som sikrer god oversikt, samt muliggjør tidlig identifisering av eventuelle utfordringer. Mot slutten av sprinten avholdes det et sprint review møte der en evalurer det foreløpige arbeidet som er ferdig, og foretar vurderinger på om det er ytterligere oppgaver som bør legges til og fullføres innenfor den samme sprinten. Dette er viktig ettersom sentrale idéer til implementasjoner ofte kan komme underveis mens en jobber med en oppgave. Til slutt avholdes det et retrospektivt møte for å identifisere hva som gikk bra under denne sprinten og mulige forbedringspotensialer til neste sprint. Dersom det er nødvendig settes det også opp en tiltaksplan for å utnytte forbedringspotensialene til neste sprint.  
 
-Kilde:  
+[Sette inn scrum-bilde her]
+
+Kilde:
  - https://www.visma.no/blogg/en-kort-introduksjon-til-scrum/ 
  - https://no.wikipedia.org/wiki/Scrum 
 
-## 2.2 Organsiering av prosjektet  
-
+## 2.2 Organsiering av prosjektet
+For å organisere prodsjektet har vi vurdert følgende momenter:
+ - **Møter og hyppighet av dem:** Møter planlegges etter nærmere behov. 
+ - **Kommunikasjon mellom møter:** Kommunikasjon foregår i egen discord-kanal eller i Messenger-gruppe (facebook).
+ - **Arbeidsfordeling:** Arbeidsfordelingen tar utgangspunkt i rollefordelingen i 1.2, og tilpasses ved behov. Vi ser for oss at mye av arbeidsfordelingen vil skje på første møte i starten av en ny sprint, men at dette kan tilpasses underveis dersom en ser at enkelte arbeidsoppgaver krever flere ressurser en først antatt. 
+ - **Oppfølging av arbeid:** Vi planlegger for å ha ukentlige møter der vi kan følge hverandre opp på arbeidet, såkalt *sprint review* møter (se avsnitt 2.1.1). 
+ - **Deling og oppbevaring av felles dokumenter, diagram og kodebase:** Her bruker vi egen gruppe på git til deling av all kode og rapport som tilhører prosjektet. Mindre filer kan også deles på kommunikasjonskanalene Messenger/Discord dersom dette er mer hensiktsmessig, men selve prosjektkoden lastes opp til felles git.
+ - **Programvareutviklingsaktiviteter:** Aktiviteter relatert til programvareutvikling bestemmes på teammøtene. Dette ser vi for oss vil variere i omfang basert på hvilke oppgaver som ligger i sprintkøen. Ved spesielt vanskelige programmeringsoppgaver vil vi benytte parprogrammering der én person skriver kode mens den andre forteller hva som skal skrives. På denne måten involverer en flere personer til å løse vanskelige programmeringsoppgaver. 
 
 # 3. Forventet produkt
 ## 3.1 Produktspesifikasjon
