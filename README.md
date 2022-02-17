@@ -135,10 +135,10 @@ I denne delen av oppgaven vil vi gjennomgå (1) produktspesifikasjoner og (2) br
 Det overordnede målet for applikasjonen er å utvikle et spill som kan spilles av flere spillere, og som fungerer på alle plattformer. I spillet vektlegger vi å ha en spillfigur som kan styres i en todimensjonal verden, fiender og hindringer for spilleren og muligheten til å plukke opp gjenstander for å samle poeng. Aspektene ved spillet utdypes nærmere i neste del av oppgaven. 
 
 ## 3.2 Brukerhistorier
-Brukerhistorier er spesifikasjoner av konkrete implemtasjoner vi mener er viktig å ha med i applikasjonen. Disse spesifikasjonene muliggjør at rollene i prosjektet oppnår en felles forståelse for applikasjonen. I utformingen av brukerhistoriene har vi vektlagt funksjonalitet og nytteverdi. Brukerhistoriene er oppsummert i følgende tabell:  
+Brukerhistorier er spesifikasjoner av konkrete implemtasjoner vi mener er viktig å ha med i applikasjonen. Disse spesifikasjonene muliggjør at rollene i prosjektet oppnår en felles forståelse for applikasjonen. I utformingen av brukerhistoriene har vi vektlagt funksjonalitet og nytteverdi. Brukerhistoriene er oppsummert i tabellen under. Videre følger det også en prioritert liste over hvilke brukerhistorier vi ønsker å ha med i første sprint/iterasjon.  
 
 --------
-Format (fjernes før innlevering):
+Format (fjernes før innlevering):  
 Brukeristorien (verdiforslaget): 
  - "Som rolle trenger jeg funksjonalitet for å oppnå nytteverdi. (bruker, funksjon, verdi)"
  - "få frem verdien og hvem som skal få den verdien"
@@ -156,16 +156,20 @@ Løsningsbeskrivelse:
 
 | Brukerhistorie  | Løsningsbeskrivelse | Akseptansekriterie |
 |---|---|---|
-| *2D spillbrett:* Som spiller ønsker jeg å se et spillbrett, slik at jeg kan orientere meg. | Når programmet kjøres vises et vindu med grafikk til spillebrettet. |  |
-| *Spiller:* Som en utvikler (kan være spiller her?) ønsker jeg å kunne bevege spillebrikken i spillet med piltastene og space for å teste funksjonene til spillebrettet og se om disse fungere slik det skal. | Når en piltast trykkes beveges spillebrikken den retningen piltasten har blitt trykket, eller hvis man trykker på space skal spillebrikken hoppe. |  |
-| *Vegger:* Som utvikler ønsker jeg vegger som skiller seg fra resten av spillebrettet, slik at jeg kan implementere funksjoner som sørger for at en spiller ikke kan bevege seg gjennom disse objektene. | Når en spiller beveger seg bort mot en vegg, kan den ikke gå videre gjennom veggen. |  |
-| *Blokker:* Som utvikler ønsker jeg blokker som skiller seg fra resten av spillebrettet, slik at jeg kan implementere funksjoner som sørger for at en spiller ikke kan bevege seg gjennom disse objektene. | Når en spiller beveger seg mot en blokk, kan den ikke gå videre gjennom blokken, men den kan hoppe oppå blokken for å passere den. |  |
-| *Fiender:* Som spiller ønsker jeg å spille mot fiender som prøver å drepe meg slik at det er en utfordring å komme til mål å vinne spillet. | Hvis en spiller kommer nær en fiende dør spilleren, så spilleren må bevege seg rundt fienden for å overleve |  |
-| *Antall liv:* Som utvikler ønsker jeg å kunne gi forskjellig antall liv til spiller og fiender slik at spillet oppleves som underholdene og spennende for spilleren men ikke altfor vanskelig. | En spiller skal ha flere liv enn en fiende siden det er flere fiender enn spillere. |  |
-| *Fiender/Hindringer:* Som spiller ønsker jeg å kunne drepe/kjempe mot fiender så det er elementer som prøver å stoppe meg på min vei til mål. | En spiller skal kunne drepe fiender og da skal disse fiendene forsvinne bort fra spillebrettet. |  |
+| **2D spillebrett:** Som spiller ønsker jeg å se et spillebrett, slik at jeg kan orientere meg. | Når programmet kjøres vises et vindu med grafikk til spillebrettet. |  |
+| **Spiller:** Som utvikler (kan være spiller her?) ønsker jeg å kunne bevege spillebrikken i spillet med piltastene og space for å teste funksjonene til spillebrettet og se om disse fungere slik det skal. (kan gjøres om til brukerorientert?) | Når en piltast trykkes beveges spillebrikken den retningen piltasten har blitt trykket, eller hvis man trykker på space skal spillebrikken hoppe. |  |
+| **Vegger:** Som utvikler ønsker jeg vegger som skiller seg fra resten av spillebrettet, slik at jeg kan implementere funksjoner som sørger for at en spiller ikke kan bevege seg gjennom disse objektene. | Når en spiller beveger seg bort mot en vegg, kan den ikke gå videre gjennom veggen. |  |
+| **Blokker:** Som utvikler ønsker jeg blokker som skiller seg fra resten av spillebrettet, slik at jeg kan implementere funksjoner som sørger for at en spiller ikke kan bevege seg gjennom disse objektene. | Når en spiller beveger seg mot en blokk, kan den ikke gå videre gjennom blokken, men den kan hoppe oppå blokken for å passere den. |  |
+| **Fiender:** Som spiller ønsker jeg å spille mot fiender som prøver å drepe meg slik at det er en utfordring å komme til mål å vinne spillet. | Hvis en spiller kommer nær en fiende dør spilleren, så spilleren må bevege seg rundt fienden for å overleve |    ||
+| **Antall liv:** Som utvikler ønsker jeg å kunne gi forskjellig antall liv til spiller og fiender slik at spillet oppleves som underholdene og spennende for spilleren men ikke altfor vanskelig. | En spiller skal ha flere liv enn en fiende siden det er flere fiender enn spillere. |  |
+| **Fiender/Hindringer:** Som spiller ønsker jeg å kunne drepe/kjempe mot fiender så det er elementer som prøver å stoppe meg på min vei til mål. | En spiller skal kunne drepe fiender og da skal disse fiendene forsvinne bort fra spillebrettet. |  |
 |  |  |  |
 |  |  |  |
 
+### 3.2.1 Prioritert liste på brukerhistorier
+1. 
+2. 
+3. 
 
 ### 3.2.1 2D spillbrett
 
