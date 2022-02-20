@@ -25,8 +25,21 @@ public class Player extends Sprite {
 	
 		super.draw(batch);
 	}
+
+	public Boolean inBounds(){
+		if (getX() < 0 || getX() >= getWidth())
+			return false;
+		if (getY() < 0 || getX() >= getHeight())
+			return false;
+		return true;
+	}
+
 	//Applies gravity
 	private void update(float delta) {
+		if (!inBounds()){
+			return;
+		}
+
 		velocity.y -= gravity * delta;
 		
 		//clamp velocity

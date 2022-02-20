@@ -8,6 +8,7 @@ public class app extends Game {
     @Override
     public void create() {
         setScreen(new Play());
+
     }
 
     @Override
