@@ -130,12 +130,12 @@ public class Player extends Sprite {
 				collisionY = collisionLayer.getCell((int) ((getX() + getWidth()) / tileWidth), 
 						(int)((getY() + getHeight()) / tileHeight)).getTile().getProperties().containsKey("blocked");
 			}
-			
-			// react to y collision 
-			if (collisionY) {
-				setY(oldY);
-				velocity.y = 0;
-			}
+
+		}
+		// react to y collision
+		if (collisionY) {
+			setY(oldY);
+			velocity.y = 0;
 		}
 		
 	}
