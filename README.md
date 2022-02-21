@@ -29,7 +29,7 @@ Som utgangspunkt for rollefordelingen har vi valgt å tildele roller basert på 
 | Jon | Kundekontakt | Kundekontakten opprettholder tett kontakt med kunden, slik at produktet holder seg innenfor avtalt rammeverk. God kundekontakt muliggjør at spillet bedre kan tilpasses etter kundens ønske og behov, slik at sluttresultatet blir best mulig. |
 
 ## 1.3 Project Board
-Project Board viser oversikt på prosessen i prosjektet og arbeidsoppgavene. Den er delt inn i fire lister:
+For å få en bedre oversikt på prosessene og arbeidsoppgavene i prosjektet har vi satt opp et Project Board. Dette er en platform som viser lister med arbeidsoppgaver sortert etter hvilket stadie i utviklingsprosessen de ulike arbeidsoppgavene tilhører. Her kan en også vise prioritert, tidsfrister og ansvarsfordeling. Alle gruppemedlemmene har tilgang til denne platformen og kan oppdatere den underveis. Vi har valgt å dele vårt Project Board inn i fire lister:
 1. **Spørsmål til neste møte:** Neste møtetidspunkt spesifiseres her. Eventuelle spørsmål/saker som bør gjennomgås på møtet kan legges til i denne kategorien.  
 2. **Backlog:** Alle funksjonaliteter ved spillet som kan/skal implementeres plasseres i kø her. Når vi begynner å jobbe med en gitt funksjonalitet i denne køen flyttes den over til "Pågående".  
 3. **Pågående/Sprint:** Oppgaver som jobbes med i den pågående iterasjonen plasseres her. Dette gjelder spesielt nært forestående arbeid. Tidsfrist og hvem som arbeider med oppgaven kan også tagges på hver oppgave.  
