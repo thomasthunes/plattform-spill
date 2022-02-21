@@ -47,7 +47,7 @@ public class Play implements Screen {
 
         //renderer.setView(camera);
 
-
+        Gdx.input.setInputProcessor(player);
     }
 
 
