@@ -2,6 +2,7 @@ package inf112.skeleton.app;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
@@ -175,14 +176,27 @@ public class Player extends Sprite implements InputProcessor {
 
 	@Override
 	public boolean keyDown(int keycode) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		switch(keycode) {
+		case Keys.W:
+			break;
+		case Keys.A:
+			velocity.x = -speed;
+			break;
+		case Keys.D:
+			velocity.x = speed;
+		}
+		return true;
 	}
 
 	@Override
 	public boolean keyUp(int keycode) {
-		// TODO Auto-generated method stub
-		return false;
+		switch(keycode) {
+		case Keys.A:
+		case Keys.D:
+			velocity.x = 0;
+		}
+		return true;
 	}
 
 	@Override
