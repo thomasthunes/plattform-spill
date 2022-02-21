@@ -76,19 +76,14 @@ Brukerhistorier er spesifikasjoner av konkrete implemtasjoner vi mener er viktig
 
 | Brukerhistorier  | Akseptansekriterier | Arbeidsoppgaver |
 |---|---|---|
-| **2D spillebrett:** Som spiller ønsker jeg å se et spillebrett, slik at jeg kan orientere meg. | Krav: Vise et 2D spillebrett.  Kriterie: Når programmet kjøres vises et vindu med grafikk til spillebrettet. | For å imøtekomme akseptansekriteriene må klassen *Play* implementeres. Denne klassen implementerer interfacet *Screen*. Videre så vil klassen *Play* sørge for at når koden kjøres så vil et map rendres, sette posisjonen til en spiller (spilleren kommer fra klassen *Player*) og sette opp *Orthographic camera* som følger skjermen. |
-| **Spiller:** Som utvikler (kan være spiller her?) ønsker jeg å kunne bevege spillebrikken i spillet med piltastene og space for å teste funksjonene til spillebrettet og se om disse fungere slik det skal. (kan gjøres om til brukerorientert?) | Krav: Spilleren må kunne bevege seg.  Kriterie: Når en piltast trykkes beveges spillebrikken den retningen piltasten peker, og dersom en trykker *space* skal spillebrikken hoppe. | For å imøtekomme akseptansekriteriene må klassen *Player* implementeres. Denne klassen utvider den abstrakte klassen *Sprite* fra LibGDX-biblioteket. I klassen *Player* vil en spiller opprettes som et objekt av typen *Player*. Videre vil feltvariablene *Speed*, *Gravity* og *Velocity* i klassen *Player* settes. Disse feltvariablene beskriver hvordan spilleren beveger seg med tanke på hurtighet (*Speed*), tyngdekraft (*Gravity*) og i hvilken retning (*Velocity*). Klassen *Player* vil også inneholde en metode *Update* som endrer på posisjonen til spiller-objektet avhenigig av verdien på feltvariabelen *Velocity*. *Update* sjekker også om spilleren treffer en celle som er *blocked*, og i så fall vil *Velocity* settes til 0. |
-| **Vegger/blokker:** Som utvikler ønsker jeg vegger og blokker slik at jeg kan implementere funksjoner som sørger for at en spiller ikke kan bevege seg gjennom disse objektene. | Krav: Spilleren må stoppe når den treffer en vegg eller blokk.  Kriterie: Når en spiller beveger seg bort mot en vegg eller blokk, kan den ikke passere veggen eller blokken. Spilleren kan imidlertid hoppe over eller på blokken for å passere den. | Her bruker vi *Tiled* for å implementere akseptansekriteriene. Først setter vi egenskapen *blocked* til celle-objektet i det rette tiled-layeret til å være *blocked*. Videre sjekker vi i metoden *Update* fra klassen *Player* om spilleren treffer en celle som er blocked. Hvis spilleren treffer en celle som er *blocked* vil feltvariabelen *Velocity* endres til 0. Som konsekvens vil da vil spilleren stoppe. |
+| **2D spillebrett:** Som spiller ønsker jeg å se et spillebrett, slik at jeg kan orientere meg. | **Krav:** Vise et 2D spillebrett.  **Kriterie:** Når programmet kjøres vises et vindu med grafikk til spillebrettet. | For å imøtekomme akseptansekriteriene må klassen *Play* implementeres. Denne klassen implementerer interfacet *Screen*. Videre så vil klassen *Play* sørge for at når koden kjøres så vil et map rendres, sette posisjonen til en spiller (spilleren kommer fra klassen *Player*) og sette opp *Orthographic camera* som følger skjermen. |
+| **Spiller:** Som utvikler ønsker jeg å kunne bevege spillebrikken i spillet med piltastene og space for å teste funksjonene til spillebrettet og se om disse fungerer slik det skal. | **Krav:** Spilleren må kunne bevege seg.  **Kriterie:** Når en piltast trykkes beveges spillebrikken den retningen piltasten peker, og dersom en trykker *space* skal spillebrikken hoppe. | For å imøtekomme akseptansekriteriene må klassen *Player* implementeres. Denne klassen utvider den abstrakte klassen *Sprite* fra LibGDX-biblioteket. I klassen *Player* vil en spiller opprettes som et objekt av typen *Player*. Videre vil feltvariablene *Speed*, *Gravity* og *Velocity* i klassen *Player* settes. Disse feltvariablene beskriver hvordan spilleren beveger seg med tanke på hurtighet (*Speed*), tyngdekraft (*Gravity*) og i hvilken retning (*Velocity*). Klassen *Player* vil også inneholde en metode *Update* som endrer på posisjonen til spiller-objektet avhenigig av verdien på feltvariabelen *Velocity*. *Update* sjekker også om spilleren treffer en celle som er *blocked*, og i så fall vil *Velocity* settes til 0. |
+| **Vegger/blokker:** Som utvikler ønsker jeg vegger og blokker slik at jeg kan implementere funksjoner som sørger for at en spiller ikke kan bevege seg gjennom disse objektene. | **Krav:** Spilleren må stoppe når den treffer en vegg eller blokk.  **Kriterie:** Når en spiller beveger seg bort mot en vegg eller blokk, kan den ikke passere veggen eller blokken. Spilleren kan imidlertid hoppe over eller på blokken for å passere den. | Her bruker vi *Tiled* for å implementere akseptansekriteriene. Først setter vi egenskapen *blocked* til celle-objektet i det rette tiled-layeret til å være *blocked*. Videre sjekker vi i metoden *Update* fra klassen *Player* om spilleren treffer en celle som er blocked. Hvis spilleren treffer en celle som er *blocked* vil feltvariabelen *Velocity* endres til 0. Som konsekvens vil da vil spilleren stoppe. |
 
 ### 3.2.1 Prioritert liste på brukerhistorier
 1. 2D spillebrett
-2. Vegger
-3. Blokker
-4. Spiller
-
-
-Kilde:
- - https://design.entur.org/kom-i-gang/for-designere/brukerhistorier
+2. Vegger/Blokker
+3. Spiller  
 
 # 4. Kode
 Den foreløpige koden inneholder implementasjoner for et 2D spillebrett, vegger og blokker.
@@ -96,23 +91,14 @@ Den foreløpige koden inneholder implementasjoner for et 2D spillebrett, vegger 
 # 5. Oppsummering
 
 ## 5.1 Retrospektiv vurdering
-Prosjektet frem til første innlevering har fungert bra for gruppen. Vi ser blant annet at den opprinnelige organiseringen av gruppen har vært hensiktsmessig for arbeidet. Med utgangspunkt i kartlegging av kompetanse og fordeling av roller har vi oppnådd en effektiv ressursutnyttelse i gruppen. Vi har blant annet brukt project boardet aktivt for å holde oversikt på prosessene i utviklingsarbeidet.  
+Prosjektet frem til første innlevering har fungert bra for gruppen. Vi ser blant annet at den opprinnelige organiseringen av gruppen har vært hensiktsmessig for arbeidet. Med utgangspunkt i kartlegging av kompetanse og fordeling av roller har vi oppnådd en effektiv ressursutnyttelse i gruppen. Vi har blant annet brukt project-boardet aktivt for å holde oversikt på prosessene i utviklingsarbeidet.  
 
-Når det gjelder den retrospektive vurderingen av metodikk har vi fulgt scrum-rammeverket nøye, slik som planlagt. Vi har blant annet satt opp arbeidsoppgaver i backloggen, flyttet dem over til listen Pågående/Sprint etter hvert som vi tar fatt på oppgaven og deretter flyttet dem over til Fullført så snart vi er ferdig med en arbeidsoppgave. Dette har vi brukt aktivt fordi det gir oss bedre oversikt på hvor langt vi er kommet i utviklingsprosessen, og hvem som arbeider med hva. Videre har vi også hatt review-møte for å legge frem hva hver enkelt har gjort, og diskutert hvordan vi skal løse utfordringer som har dukket opp underveis.  
+Når det gjelder den retrospektive vurderingen av metodikk har vi fulgt scrum-rammeverket nøye som planlagt. Det har gjort at vi har lyktes med å ha oversikt på hvilke arbeidsoppgaver som må fullføres innen første sprint. En viktig grunn til at vi tror at vi har lyktes med dette er at vi har satt opp arbeidsoppgaver i backloggen, flyttet dem over til listen Pågående/Sprint etter hvert som vi tar fatt på oppgaven og deretter flyttet dem over til Fullført. På denne måten har vi oppnådd en bedre oversikt på hvor langt vi er kommet i utviklingsprosessen, og hvem som arbeider med hva. 
 
-Det ferdige produktet samsvarer/samsvarer ikke med de forventningene vi har satt. Blant annet har vi fullført punkt ... på prioriteringslisten over brukerhistorier (se 3.2). Vi tror at grunnen til at vi klarte/ikke klarte målene vi har satt oss er fordi ... 
+Videre har vi også hatt review-møte for å legge frem hva hver enkelt har gjort, og diskutert hvordan vi skal løse utfordringer som har dukket opp underveis. Her ser vi blant annet at vi hadde utfordringer med å få koden til å kompilere i starten, hvilket tok mye tid for å løse. Vi hadde ikke forventet å bruke så mye tid på å rette opp en liten feil, og innser at små bugs i programmet kan være kilde til mye mer ressursbruk enn planlagt. For å lære av dette så vil sette av mer tid til testing og debugging i neste sprint slik at vi reduserer utfordringer med planlegging av tid.  
 
-Når det gjelder kommunikasjonen i gruppen så har denne fungert bra. Vi har brukt kommunikasjonskanalene effektivt for å koordinere arbeid og møter. På møtene har vi hatt et jevnt bidrag fra alle medlemmer og åpenhet om å lytte til alle meninger. 
+Vurdering av hvordan vi traff på oppgaven: Det ferdige produktet samsvarer/samsvarer ikke med de forventningene vi har satt. Blant annet har vi fullført punkt 1-3 på prioriteringslisten over brukerhistorier (se 3.2). Vi tror at grunnen til at vi klarte å nå målene vi har satt oss er fordi vi har fulgt planen vi har satt oss, hatt en effektiv kommunikasjon i gruppen og et godt samarbeid. Spesielt kommunikasjonen i gruppen har fungert bra. Vi har brukt kommunikasjonskanalene effektivt for å koordinere arbeid og møter. På møtene har vi hatt et jevnt bidrag fra alle medlemmer og åpenhet om å lytte til alle meninger. En viktig årsak til at vi har oppnådd dette er at vi har vektlagt forståelse, kontekst, kroppspråk og respekt i kommunikasjonen. Vi ser at dette har vært en forutsetning for å nå de målene vi har satt oss, og komme i mål med oppgaven.  
 
-### Fra retteskjema:
-Retrospektiv vurdering: må inneholde: beskrivelse av hva som var planlagt å bruke av metodikk, hva vi faktisk bruker og hvorfor  
-Kommentarer om kommunikasjon i gruppen:  
-Meeting minutes(?):  
-
-
-Må også ha:  
-Dokumentasjon om teknisk produktoppsett (hvordan bygge og kjøre programmet):  
-Beskrivelse av prosjektet (koden):  
-
-
+## 5.2 Annet
+Dokumentasjon om teknisk produktoppsett (hvordan bygge og kjøre programmet): For å kjøre programmet må du velge en editor til å åpne koden med, og kjøre filen *Main*. Denne ligger i package *inf112.skeleton.app*.
 
