@@ -8,7 +8,7 @@
 I denne delen av oppgaven vil vi gjennomgå (1) en kartlegging av gruppens kompetanse, (2) en rollefordeling mellom gruppens medlemmer og (3) et project board som gir oversikt på prosjektets status.  
 
 ## 1.1 Kartlegging av kompetanse  
-Følgende komtanse er kartlagt mellom gruppens medlemmer: (kan endre/legge til mer på denne)
+Følgende komtanse er kartlagt mellom gruppens medlemmer:  
 | Navn  | Kompetanse programmering |
 |---|---|
 | Thomas | Java, Python, SQL |
