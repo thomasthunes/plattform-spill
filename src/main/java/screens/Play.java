@@ -50,6 +50,10 @@ public class Play implements Screen {
         Gdx.input.setInputProcessor(player);
     }
 
+    public Player getPlayer(){
+        return player;
+    }
+
 
     @Override
     public void render(float v) {
