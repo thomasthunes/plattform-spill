@@ -82,7 +82,7 @@ Brukerhistorier er spesifikasjoner av konkrete implemtasjoner vi mener er viktig
 3. Spiller  
 
 # 4. Kode
-Den foreløpige koden inneholder implementasjoner for et 2D spillebrett, vegger og blokker.
+Den foreløpige koden inneholder implementasjoner for et 2D spillebrett, vegger og blokker, og spiller.
 
 # 5. Oppsummering  
 I denne delen av oppgaven vil vi (1) gi en retrospektiv vurdering av oppgaven, (2) gi øvrige kommentarer til oppgaven og (3) liste opp vår kildebruk.   
