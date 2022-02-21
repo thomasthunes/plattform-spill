@@ -36,7 +36,7 @@ Project Board viser oversikt på prosessen i prosjektet og arbeidsoppgavene. Den
 4. **Fullført:** Fullførte arbeidsoppgaver flyttes over hit etter hvert som de blir ferdig.  
 
 Bilde:  
-![alt text](img/projectBoard.png)
+![alt text](plattform-spill/assets/maps/trello.png)
 Link: https://trello.com/b/phyvJKO5/project-board 
 
 
