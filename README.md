@@ -71,24 +71,8 @@ I denne delen av oppgaven vil vi gjennomgå (1) produktspesifikasjoner og (2) br
 Det overordnede målet for applikasjonen er å utvikle et spill som kan spilles av flere spillere, og som fungerer på alle plattformer. I spillet vektlegger vi å ha en spillfigur som kan styres i en todimensjonal verden, fiender og hindringer for spilleren og muligheten til å plukke opp gjenstander for å samle poeng. Aspektene ved spillet utdypes nærmere i neste del av oppgaven. 
 
 ## 3.2 Brukerhistorier
-Brukerhistorier er spesifikasjoner av konkrete implemtasjoner vi mener er viktig å ha med i applikasjonen. Disse spesifikasjonene muliggjør at rollene i prosjektet oppnår en felles forståelse for applikasjonen. I utformingen av brukerhistoriene har vi vektlagt funksjonalitet og nytteverdi. Videre har vi satt opp akseptansekriterier som spesifiserer hvilke egenskaper applikasjonen må ha for å imøtekomme kravene gitt i brukerhistorien. Til sist har vi satt opp arbeidsoppgaver som spesifiserer hvilke metoder som må implementeres i koden for å imøtekomme akseptansekriteriene, og hvordan ansvaret blir fordelt til de ulike arbeidsoppgavene. Brukerhistoriene, akseptansekriteriene og arbeidsoppgavene er oppsummert i tabellen under. Etter tabellen følger det også en prioritert liste over hvilke brukerhistorier vi ønsker å ha med i første sprint/iterasjon.  
+Brukerhistorier er spesifikasjoner av konkrete implemtasjoner vi mener er viktig å ha med i applikasjonen. Disse spesifikasjonene muliggjør at rollene i prosjektet oppnår en felles forståelse for applikasjonen. I utformingen av brukerhistoriene har vi vektlagt funksjonalitet og nytteverdi. Videre har vi satt opp akseptansekriterier som spesifiserer hvilke egenskaper applikasjonen må ha for å imøtekomme kravene gitt i brukerhistorien. Til sist har vi satt opp arbeidsoppgaver som spesifiserer hvilke metoder som må implementeres i koden for å imøtekomme akseptansekriteriene, og hvordan ansvaret blir fordelt til de ulike arbeidsoppgavene. Brukerhistoriene, akseptansekriteriene og arbeidsoppgavene er oppsummert i tabellen under. Etter tabellen følger det også en prioritert liste over hvilke brukerhistorier vi ønsker å ha med i første sprint/iterasjon.    
 
---------
-Mulig format (fjernes før innlevering):  
-Brukeristorien (verdiforslaget): 
- - "Som rolle trenger jeg funksjonalitet for å oppnå nytteverdi. (bruker, funksjon, verdi)"
- - "få frem verdien og hvem som skal få den verdien"
- - "raskt kan få et overblikk over hva historien løser"
-
-Løsningsbeskrivelse: 
- - "en enkel og spesifikk forklaring/oppsummering av hvordan en løser oppgaven"
- - "kan for eksempel bruke løsningsbeskrivelsen til å oppsummere akseptansekriteriene"
-
- Akseptansekriterier:
- - "skal fortelle utvikler og tester spesifikt hva som skal lages og testes"
- - "lite rom for tolkning"
- - "Hvert kriterium skal skrives på en slik måte at en kan bekrefte eller avkrefte om det er oppfylt."
---------
 
 | Brukerhistorier  | Akseptansekriterier | Arbeidsoppgaver |
 |---|---|---|
