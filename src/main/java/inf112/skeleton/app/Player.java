@@ -14,6 +14,8 @@ public class Player extends Sprite implements InputProcessor {
 	
 	private float speed = 60 * 2, gravity = 60 * 1.8f;
 	
+	private boolean canJump;
+	
 	private TiledMapTileLayer collisionLayer;
 	
 	public Player(Sprite sprite, TiledMapTileLayer collisionLayer) {
@@ -114,8 +116,9 @@ public class Player extends Sprite implements InputProcessor {
 			if (!collisionY) 
 				collisionY = collisionLayer.getCell((int)((getX() + getWidth()) / tileWidth), 
 						(int)(getY() / tileHeight)).getTile().getProperties().containsKey("blocked");
-				
-				
+			
+			//If collisionY (if we have been moving downwards) is true then canJump is true.
+			canJump = collisionY;
 		}
 		else if(velocity.y > 0) {
 			// top left
@@ -179,6 +182,10 @@ public class Player extends Sprite implements InputProcessor {
 		
 		switch(keycode) {
 		case Keys.W:
+			if(canJump) {
+				velocity.y = speed;
+				canJump = false;
+			}
 			break;
 		case Keys.A:
 			velocity.x = -speed;
