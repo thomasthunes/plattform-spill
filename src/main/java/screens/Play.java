@@ -43,9 +43,8 @@ public class Play implements Screen {
         //camera.update();
 
         player = new Player(new Sprite(new Texture("assets/maps/mario.png")), (TiledMapTileLayer) map.getLayers().get(0));
-        player.setPosition(7 * player.getCollisionLayer().getTileWidth(), 39 * player.getCollisionLayer().getTileHeight());
+        player.setPosition(7 * player.getCollisionLayer().getTileWidth(), (player.getCollisionLayer().getHeight() - 33) * player.getCollisionLayer().getTileHeight());
 
-        System.out.println(map.getLayers().get("Board"));
         //renderer.setView(camera);
 
 
