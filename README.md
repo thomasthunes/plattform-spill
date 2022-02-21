@@ -35,7 +35,7 @@ Project Board viser oversikt på prosessen i prosjektet og arbeidsoppgavene. Den
 3. **Pågående/Sprint:** Oppgaver som jobbes med i den pågående iterasjonen plasseres her. Dette gjelder spesielt nært forestående arbeid. Tidsfrist og hvem som arbeider med oppgaven kan også tagges på hver oppgave.  
 4. **Fullført:** Fullførte arbeidsoppgaver flyttes over hit etter hvert som de blir ferdig.  
 
-Bilde:  
+Nåværende Prjoct Board:  
 ![alt text](/assets/maps/trello.png)
 Link: https://trello.com/b/phyvJKO5/project-board 
 
@@ -49,11 +49,8 @@ For å finne frem fram til en passende prosjektmetodikk har vi diskutert ulike h
 ### 2.1.1 Scrum
 Scrum-rammeverket er en arbeidsmetodikk som brukes til å utvikle, levere og opprettholde produkter. Det bryter ned arbeidet i mindre sprintkøer med spesifikke mål som skal fullføres innenfor en gitt tidsperiode, som oftest to uker. Medlemmene i utviklingsteamet velger en arbeidsoppgavene fra sprintkøen og setter den til ferdig når oppgaven er fullført. På denne måten blir ansvar fordelt og de tilgjengelige ressursene i gruppen godt utnyttet. Underveis holdes det teammøter der medlemmene deler hvor langt de er kommet, hva som gjenstår og hvilke eventuelle utfordringer som står i veien for å fullføre arbeidsoppgaven. En fordel med  teammøtene er at gruppen oppnår effektiv kommunikasjonsflyt som sikrer god oversikt, samt muliggjør tidlig identifisering av eventuelle utfordringer. Mot slutten av sprinten avholdes det et sprint review møte der en evalurer det foreløpige arbeidet som er ferdig, og foretar vurderinger på om det er ytterligere oppgaver som bør legges til og fullføres innenfor den samme sprinten. Dette er viktig ettersom sentrale idéer til implementasjoner ofte kan komme underveis mens en jobber med en oppgave. Til slutt avholdes det et retrospektivt møte for å identifisere hva som gikk bra under denne sprinten og mulige forbedringspotensialer til neste sprint. Dersom det er nødvendig settes det også opp en tiltaksplan for å utnytte forbedringspotensialene til neste sprint.  
 
-[Sette inn scrum-bilde her]
-
-Kilde:
- - https://www.visma.no/blogg/en-kort-introduksjon-til-scrum/ 
- - https://no.wikipedia.org/wiki/Scrum 
+![alt text](/assets/maps/Scrum_process.svg)
+Bildekilde: https://no.wikipedia.org/wiki/Scrum (hentet den 21.02)
 
 ## 2.2 Organsiering av prosjektet
 For å organisere prodsjektet har vi vurdert følgende momenter:
@@ -65,14 +62,13 @@ For å organisere prodsjektet har vi vurdert følgende momenter:
  - **Programvareutviklingsaktiviteter:** Aktiviteter relatert til programvareutvikling bestemmes på teammøtene. Dette ser vi for oss vil variere i omfang basert på hvilke oppgaver som ligger i sprintkøen. Ved spesielt vanskelige programmeringsoppgaver vil vi benytte parprogrammering der én person skriver kode mens den andre forteller hva som skal skrives. På denne måten involverer en flere personer til å løse vanskelige programmeringsoppgaver. 
 
 # 3. Forventet produkt
-I denne delen av oppgaven vil vi gjennomgå (1) produktspesifikasjoner og (2) brukerhistorier. Mens produktspesifikasjonen tar for seg det overordnede målet for applikasjonen, så vil brukerhistoriene utdype de ulike implementasjonene vi mener er viktig å ha med for å oppnå det overordnede målet.
+I denne delen av oppgaven vil vi gjennomgå (1) produktspesifikasjoner og (2) brukerhistorier. Mens produktspesifikasjonen tar for seg det overordnede målet for applikasjonen, så vil brukerhistoriene utdype de ulike implementasjonene vi mener er viktig å ha med for å oppnå det overordnede målet.  
 
 ## 3.1 Produktspesifikasjon
-Det overordnede målet for applikasjonen er å utvikle et spill som kan spilles av flere spillere, og som fungerer på alle plattformer. I spillet vektlegger vi å ha en spillfigur som kan styres i en todimensjonal verden, fiender og hindringer for spilleren og muligheten til å plukke opp gjenstander for å samle poeng. Aspektene ved spillet utdypes nærmere i neste del av oppgaven. 
+Det overordnede målet for applikasjonen er å utvikle et spill som kan spilles av flere spillere, og som fungerer på alle plattformer. I spillet vektlegger vi å ha en spillfigur som kan styres i en todimensjonal verden, fiender og hindringer for spilleren og muligheten til å plukke opp gjenstander for å samle poeng. Aspektene ved spillet utdypes nærmere i neste del av oppgaven.  
 
 ## 3.2 Brukerhistorier
-Brukerhistorier er spesifikasjoner av konkrete implemtasjoner vi mener er viktig å ha med i applikasjonen. Disse spesifikasjonene muliggjør at rollene i prosjektet oppnår en felles forståelse for applikasjonen. I utformingen av brukerhistoriene har vi vektlagt funksjonalitet og nytteverdi. Videre har vi satt opp akseptansekriterier som spesifiserer hvilke egenskaper applikasjonen må ha for å imøtekomme kravene gitt i brukerhistorien. Til sist har vi satt opp arbeidsoppgaver som spesifiserer hvilke metoder som må implementeres i koden for å imøtekomme akseptansekriteriene, og hvordan ansvaret blir fordelt til de ulike arbeidsoppgavene. Brukerhistoriene, akseptansekriteriene og arbeidsoppgavene er oppsummert i tabellen under. Etter tabellen følger det også en prioritert liste over hvilke brukerhistorier vi ønsker å ha med i første sprint/iterasjon.    
-
+Brukerhistorier er spesifikasjoner av konkrete implemtasjoner vi mener er viktig å ha med i applikasjonen. Disse spesifikasjonene muliggjør at rollene i prosjektet oppnår en felles forståelse for applikasjonen. I utformingen av brukerhistoriene har vi vektlagt funksjonalitet og nytteverdi. Videre har vi satt opp akseptansekriterier som spesifiserer hvilke egenskaper applikasjonen må ha for å imøtekomme kravene gitt i brukerhistorien. Til sist har vi satt opp arbeidsoppgaver som spesifiserer hvilke metoder som må implementeres i koden for å imøtekomme akseptansekriteriene, og hvordan ansvaret blir fordelt til de ulike arbeidsoppgavene. Brukerhistoriene, akseptansekriteriene og arbeidsoppgavene er oppsummert i tabellen under. Etter tabellen følger det også en prioritert liste over hvilke brukerhistorier vi ønsker å ha med i første sprint/iterasjon.  
 
 | Brukerhistorier  | Akseptansekriterier | Arbeidsoppgaver |
 |---|---|---|
@@ -88,7 +84,8 @@ Brukerhistorier er spesifikasjoner av konkrete implemtasjoner vi mener er viktig
 # 4. Kode
 Den foreløpige koden inneholder implementasjoner for et 2D spillebrett, vegger og blokker.
 
-# 5. Oppsummering
+# 5. Oppsummering  
+I denne delen av oppgaven vil vi (1) gi en retrospektiv vurdering av oppgaven, (2) gi øvrige kommentarer til oppgaven og (3) liste opp vår kildebruk.   
 
 ## 5.1 Retrospektiv vurdering
 Prosjektet frem til første innlevering har fungert bra for gruppen. Vi ser blant annet at den opprinnelige organiseringen av gruppen har vært hensiktsmessig for arbeidet. Med utgangspunkt i kartlegging av kompetanse og fordeling av roller har vi oppnådd en effektiv ressursutnyttelse i gruppen. Vi har blant annet brukt project-boardet aktivt for å holde oversikt på prosessene i utviklingsarbeidet.  
@@ -101,4 +98,8 @@ Vurdering av hvordan vi traff på oppgaven: Det ferdige produktet samsvarer/sams
 
 ## 5.2 Annet
 Dokumentasjon om teknisk produktoppsett (hvordan bygge og kjøre programmet): For å kjøre programmet må du velge en editor til å åpne koden med, og kjøre filen *Main*. Denne ligger i package *inf112.skeleton.app*.
+
+## 5.3 Kilder
+ - https://www.visma.no/blogg/en-kort-introduksjon-til-scrum/ 
+ - https://no.wikipedia.org/wiki/Scrum 
 
