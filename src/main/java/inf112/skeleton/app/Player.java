@@ -179,7 +179,7 @@ public class Player extends Sprite implements InputProcessor {
 	public void setCollisionLayer(TiledMapTileLayer collisionLayer) {
 		this.collisionLayer = collisionLayer;
 	}
-
+//
 	@Override
 	public boolean keyDown(int keycode) {
 		
