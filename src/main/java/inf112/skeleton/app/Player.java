@@ -14,6 +14,8 @@ public class Player extends Sprite implements InputProcessor {
 	
 	private float speed = 60 * 2, gravity = 60 * 1.8f;
 	
+	private boolean canJump;
+	
 	private TiledMapTileLayer collisionLayer;
 	
 	public Player(Sprite sprite, TiledMapTileLayer collisionLayer) {
@@ -183,11 +185,21 @@ public class Player extends Sprite implements InputProcessor {
 		
 		switch(keycode) {
 		case Keys.W:
-			velocity.y = speed;
-			gravity = 0;
+			if(getY() <= 161)
+				canJump = true;
+			else
+				canJump = false;
+			if(canJump)
+				setY(280);
+			
 		case Keys.SPACE:
-			velocity.y = speed;
-			gravity = 0;
+			if(getY() <= 161)
+				canJump = true;
+			else
+				canJump = false;
+			if(canJump)
+				setY(280);
+			
 			break;
 		
 		case Keys.A:
