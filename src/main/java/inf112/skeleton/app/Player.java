@@ -50,7 +50,7 @@ public abstract class Player extends Sprite implements InputProcessor {
 			velocity.x = 0;
 			return;
 		}
-
+//Rescueline heihei
 		velocity.y -= gravity * delta;
 		
 		//clamp velocity

@@ -54,7 +54,7 @@ public class Play implements Screen {
         Gdx.input.setInputProcessor(player);
     }
 
-    public Player getPlayer(){
+    public Player getPlayer(){ 
         return player;
     }
 
