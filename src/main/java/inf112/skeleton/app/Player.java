@@ -132,6 +132,7 @@ public abstract class Player extends Sprite implements InputProcessor {
 		return false;
 	}
 
+	// collidesTop() is true if player collides with collision layer at top
 	public boolean collidesTop(int increment) {
 		for(float step = 0; step <= getWidth(); step += increment)
 			if(isCellBlocked(getX() + step, getY() + getHeight())) // getHeight() to check at top of player
@@ -140,7 +141,7 @@ public abstract class Player extends Sprite implements InputProcessor {
 
 	}
 
-	public boolean collidesBottom(int increment) {
+	public boolean collidesBottom(double increment) {
 		for(float step = 0; step <= getWidth(); step += increment)
 			if(isCellBlocked(getX() + step, getY())) // getY() without any additional increment to check on bottom
 				return true; // collidesBottom() is true if player collides with collision layer
@@ -191,21 +192,13 @@ public abstract class Player extends Sprite implements InputProcessor {
 	//
 	@Override
 	public boolean keyDown(int keycode) {
-		
+		int increment = collisionLayer.getTileWidth()/2;
 		switch(keycode) {
 		case Keys.W:
-			if(getY() <= 161)
-				canJump = true;
-			else
-				canJump = false;
 			if(canJump)
 				setY(280);
 			
 		case Keys.SPACE:
-			if(getY() <= 161)
-				canJump = true;
-			else
-				canJump = false;
 			if(canJump)
 				setY(280);
 			
