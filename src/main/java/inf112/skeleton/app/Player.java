@@ -18,7 +18,6 @@ public abstract class Player extends Sprite implements InputProcessor {
 
 	private int health = 100;
 
-	private String message = "";
 	
 	private TiledMapTileLayer collisionLayer;
 	
@@ -276,12 +275,5 @@ public abstract class Player extends Sprite implements InputProcessor {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
-	public void setMessage(String newMessage){
-		message = newMessage;
-	}
-
-	public String getMessage() {
-		return message;
-	}
+	public abstract String getMessage();
 }

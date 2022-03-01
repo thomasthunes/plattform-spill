@@ -68,21 +68,19 @@ public class Play implements Screen {
         renderer.render();
         //batch.end();
 
+
         camera.position.set(player.getX(), player.getY(), 0);
         camera.update();
         
         renderer.getBatch().begin();
         player.draw(renderer.getBatch());
         player.draw(renderer.getBatch());
-        font.draw(renderer.getBatch(), "Current Health: " + player.getHealth(), 30, 30);
-        font.draw(renderer.getBatch(), getMessage(), 200, 30);
+        font.draw(renderer.getBatch(), "Current Health: " + player.getHealth(), player.getX(), 30);
+        font.draw(renderer.getBatch(), player.getMessage(), player.getX()+200, 30);
 
         renderer.getBatch().end();
     }
 
-    public String getMessage(){
-        return player.getMessage();
-    }
 
     @Override
     public void resize(int width, int height) {
