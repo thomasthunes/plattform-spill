@@ -15,7 +15,7 @@ public class mainPlayer extends Player {
     }
 
     public void dieFromFall(){
-        if (getY() >= getCollisionLayer().getHeight()){
+        if (!collidesBottom(getCollisionLayer().getTileWidth()/2) && getSpeed() == 0.0){
             setMessage("You died from falling");
             loseHealth(100);
         }
