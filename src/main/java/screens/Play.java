@@ -14,6 +14,7 @@ import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 
 import inf112.skeleton.app.Player;
 
+import objects.mainPlayer;
 import org.lwjgl.opengl.GL20;
 
 import javax.swing.*;
@@ -45,7 +46,7 @@ public class Play implements Screen {
         //cam.position.set(cam.viewportWidth/2f, cam.viewportHeight/2f, 0);
         //camera.update();
 
-        player = new Player(new Sprite(new Texture("assets/maps/mario.png")), (TiledMapTileLayer) map.getLayers().get(0));
+        player = new mainPlayer(new Sprite(new Texture("assets/maps/mario.png")), (TiledMapTileLayer) map.getLayers().get(0));//new Player(new Sprite(new Texture("assets/maps/mario.png")), (TiledMapTileLayer) map.getLayers().get(0));
         player.setPosition(7 * player.getCollisionLayer().getTileWidth(), (player.getCollisionLayer().getHeight() - 33) * player.getCollisionLayer().getTileHeight());
 
         //renderer.setView(camera);
