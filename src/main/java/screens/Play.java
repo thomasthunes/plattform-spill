@@ -47,7 +47,7 @@ public class Play implements Screen {
         //camera.update();
 
         player = new mainPlayer(new Sprite(new Texture("assets/maps/mario.png")), (TiledMapTileLayer) map.getLayers().get(0));//new Player(new Sprite(new Texture("assets/maps/mario.png")), (TiledMapTileLayer) map.getLayers().get(0));
-        player.setPosition(7 * player.getCollisionLayer().getTileWidth(), (player.getCollisionLayer().getHeight() - 33) * player.getCollisionLayer().getTileHeight());
+        player.setPosition(7 * player.getCollisionLayer().getTileWidth(), (player.getCollisionLayer().getHeight() - 38) * player.getCollisionLayer().getTileHeight());
 
         //renderer.setView(camera);
 
@@ -63,18 +63,25 @@ public class Play implements Screen {
     public void render(float v) {
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        
         //batch.begin();
         renderer.setView(camera);
         renderer.render();
         //batch.end();
+
+        camera.position.set(player.getX(), player.getY(), 0);
+        camera.update();
         
         renderer.getBatch().begin();
         player.draw(renderer.getBatch());
         player.draw(renderer.getBatch());
         font.draw(renderer.getBatch(), "Current Health: " + player.getHealth(), 30, 30);
+        font.draw(renderer.getBatch(), getMessage(), 200, 30);
 
         renderer.getBatch().end();
+    }
+
+    public String getMessage(){
+        return player.getMessage();
     }
 
     @Override
