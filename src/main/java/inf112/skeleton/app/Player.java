@@ -194,7 +194,6 @@ public abstract class Player extends Sprite implements InputProcessor {
 	//
 	@Override
 	public boolean keyDown(int keycode) {
-		
 		switch(keycode) {
 		case Keys.W:
 			if(canJump)
