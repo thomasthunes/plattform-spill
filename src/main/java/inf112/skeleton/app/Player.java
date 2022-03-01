@@ -25,6 +25,7 @@ public abstract class Player extends Sprite implements InputProcessor {
 	public Player(Sprite sprite, TiledMapTileLayer collisionLayer) {
 		super(sprite);
 		this.collisionLayer = collisionLayer;
+		setSize((float) (getWidth()*0.2), (float) (getHeight()*0.2));
 	}
 	
 	@Override
@@ -77,7 +78,7 @@ public abstract class Player extends Sprite implements InputProcessor {
 		if(velocity.x < 0) {
 			collisionX = collidesLeft(increment);
 		}
-		//Test
+
 		// Going right: collisionX will be true if player collides with blocked tile to the right
 		else if(velocity.x > 0) {
 			collisionX = collidesRight(increment);
@@ -90,7 +91,9 @@ public abstract class Player extends Sprite implements InputProcessor {
 		}
 
 		//move on y
-		setY(getY() + velocity.y * delta);
+		//setY(getY() + velocity.y * delta);
+		setY(getY() + velocity.y * delta * 5f);
+
 
 		// Calculate increment
 		int incrementY = collisionLayer.getTileHeight()/2;
@@ -107,6 +110,8 @@ public abstract class Player extends Sprite implements InputProcessor {
 			setY(oldY);
 			velocity.y = 0;
 		}
+
+		// Update animation
 	}
 
 
@@ -195,12 +200,15 @@ public abstract class Player extends Sprite implements InputProcessor {
 	//
 	@Override
 	public boolean keyDown(int keycode) {
-		int increment = collisionLayer.getTileWidth()/2;
 		switch(keycode) {
 		case Keys.W:
-			if(canJump)
-				setY(280);
-			
+			if(canJump) {
+				velocity.y = speed / 1.8f;
+				canJump = false;
+				//setY(280);
+			}
+			break;
+
 		case Keys.SPACE:
 			if(canJump)
 				setY(280);
