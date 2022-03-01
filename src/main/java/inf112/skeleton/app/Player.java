@@ -195,7 +195,7 @@ public abstract class Player extends Sprite implements InputProcessor {
 	//
 	@Override
 	public boolean keyDown(int keycode) {
-		int increment = collisionLayer.getTileWidth()/2;
+		
 		switch(keycode) {
 		case Keys.W:
 			if(canJump)
