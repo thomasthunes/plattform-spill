@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 //import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.tiled.TiledMap;
@@ -24,6 +25,7 @@ public class Play implements Screen {
     private OrthographicCamera camera;
     //private SpriteBatch batch;
     private Player player;
+    private BitmapFont font;
 
 
     @Override
@@ -35,6 +37,7 @@ public class Play implements Screen {
         renderer = new OrthogonalTiledMapRenderer(map);
 
         camera = new OrthographicCamera();
+        font = new BitmapFont();
 
         //TiledMapTileLayer layer1 = (TiledMapTileLayer) map.getLayers().get("Board");
 
@@ -67,6 +70,9 @@ public class Play implements Screen {
         
         renderer.getBatch().begin();
         player.draw(renderer.getBatch());
+        player.draw(renderer.getBatch());
+        font.draw(renderer.getBatch(), "Current Health: " + player.getHealth(), 30, 30);
+
         renderer.getBatch().end();
     }
 

@@ -8,13 +8,15 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.math.Vector2;
 
-public class Player extends Sprite implements InputProcessor {
+public abstract class Player extends Sprite implements InputProcessor {
 
 	private Vector2 velocity = new Vector2();
 	
 	private float speed = 60 * 2, gravity = 60 * 1.8f;
 	
 	private boolean canJump;
+
+	private int health = 100;
 	
 	private TiledMapTileLayer collisionLayer;
 	
@@ -176,7 +178,17 @@ public class Player extends Sprite implements InputProcessor {
 	public void setCollisionLayer(TiledMapTileLayer collisionLayer) {
 		this.collisionLayer = collisionLayer;
 	}
-//
+
+	public int getHealth() {
+		return health;
+	}
+
+	public void loseHealth(int damage){
+		int newHealth = health - damage;
+		health = newHealth;
+	}
+
+	//
 	@Override
 	public boolean keyDown(int keycode) {
 		
