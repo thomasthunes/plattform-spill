@@ -191,7 +191,7 @@ public abstract class Player extends Sprite implements InputProcessor {
 	}
 
 
-	//
+	//test
 	@Override
 	public boolean keyDown(int keycode) {
 		switch(keycode) {
