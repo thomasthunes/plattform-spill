@@ -17,6 +17,8 @@ public abstract class Player extends Sprite implements InputProcessor {
 	private boolean canJump;
 
 	private int health = 100;
+
+	private String message = "";
 	
 	private TiledMapTileLayer collisionLayer;
 	
@@ -189,6 +191,7 @@ public abstract class Player extends Sprite implements InputProcessor {
 		health = newHealth;
 	}
 
+
 	//
 	@Override
 	public boolean keyDown(int keycode) {
@@ -266,6 +269,12 @@ public abstract class Player extends Sprite implements InputProcessor {
 		// TODO Auto-generated method stub
 		return false;
 	}
-	
-	
+
+	public void setMessage(String newMessage){
+		message = newMessage;
+	}
+
+	public String getMessage() {
+		return message;
+	}
 }
