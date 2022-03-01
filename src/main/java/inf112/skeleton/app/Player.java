@@ -218,6 +218,7 @@ public abstract class Player extends Sprite implements InputProcessor {
 		case Keys.RIGHT:
 			velocity.x = speed;
 		}
+		
 		return true;
 	}
 
