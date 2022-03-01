@@ -69,6 +69,7 @@ public class Play implements Screen {
 
         camera.position.set(player.getX(), player.getY(), 0);
         camera.update();
+        player.dieFromFall();
         
         renderer.getBatch().begin();
         player.draw(renderer.getBatch());

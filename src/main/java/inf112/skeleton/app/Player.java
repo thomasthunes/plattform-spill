@@ -186,8 +186,10 @@ public abstract class Player extends Sprite implements InputProcessor {
 	}
 
 	public void loseHealth(int damage){
-		int newHealth = health - damage;
-		health = newHealth;
+		if (health != 0) {
+			int newHealth = health - damage;
+			health = newHealth;
+		}
 	}
 
 
@@ -266,4 +268,6 @@ public abstract class Player extends Sprite implements InputProcessor {
 		return false;
 	}
 	public abstract String getMessage();
+
+	public abstract void dieFromFall();
 }
