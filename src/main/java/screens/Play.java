@@ -63,11 +63,9 @@ public class Play implements Screen {
     public void render(float v) {
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        //batch.begin();
+
         renderer.setView(camera);
         renderer.render();
-        //batch.end();
-
 
         camera.position.set(player.getX(), player.getY(), 0);
         camera.update();
