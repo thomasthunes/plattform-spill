@@ -77,7 +77,7 @@ public abstract class Player extends Sprite implements InputProcessor {
 		if(velocity.x < 0) {
 			collisionX = collidesLeft(increment);
 		}
-
+		//Test
 		// Going right: collisionX will be true if player collides with blocked tile to the right
 		else if(velocity.x > 0) {
 			collisionX = collidesRight(increment);
