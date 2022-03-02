@@ -18,6 +18,7 @@ public abstract class Player extends Sprite implements InputProcessor {
 
 	private int health = 100;
 
+	private String message = "";
 	
 	private TiledMapTileLayer collisionLayer;
 	
@@ -90,7 +91,9 @@ public abstract class Player extends Sprite implements InputProcessor {
 		}
 
 		//move on y
-		setY(getY() + velocity.y * delta);
+		//setY(getY() + velocity.y * delta);
+		setY(getY() + velocity.y * delta * 5f);
+
 
 		// Calculate increment
 		int incrementY = collisionLayer.getTileHeight()/2;
@@ -107,6 +110,8 @@ public abstract class Player extends Sprite implements InputProcessor {
 			setY(oldY);
 			velocity.y = 0;
 		}
+
+		// Update animation
 	}
 
 
@@ -187,21 +192,26 @@ public abstract class Player extends Sprite implements InputProcessor {
 	}
 
 	public void loseHealth(int damage){
-		if (health != 0) {
-			int newHealth = health - damage;
-			health = newHealth;
-		}
+		int newHealth = health - damage;
+		health = newHealth;
 	}
 
 
-	//test
+	//
 	@Override
 	public boolean keyDown(int keycode) {
 		switch(keycode) {
-			
+		case Keys.W:
+			if(canJump) {
+				velocity.y = speed / 1.8f;
+				canJump = false;
+				//setY(280);
+			}
+			break;
+
 		case Keys.SPACE:
 			if(canJump)
-				setY(getY()+150);
+				setY(280);
 			
 			break;
 		
@@ -216,7 +226,6 @@ public abstract class Player extends Sprite implements InputProcessor {
 		case Keys.RIGHT:
 			velocity.x = speed;
 		}
-		
 		return true;
 	}
 
@@ -268,7 +277,12 @@ public abstract class Player extends Sprite implements InputProcessor {
 		// TODO Auto-generated method stub
 		return false;
 	}
-	public abstract String getMessage();
 
-	public abstract void dieFromFall();
+	public void setMessage(String newMessage){
+		message = newMessage;
+	}
+
+	public String getMessage() {
+		return message;
+	}
 }
