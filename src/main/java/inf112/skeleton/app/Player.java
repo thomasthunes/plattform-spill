@@ -92,7 +92,7 @@ public abstract class Player extends Sprite implements InputProcessor {
 
 		//move on y
 		//setY(getY() + velocity.y * delta);
-		setY(getY() + velocity.y * delta * 5f);
+		setY(getY() + velocity.y * delta);
 
 
 		// Calculate increment
@@ -192,8 +192,11 @@ public abstract class Player extends Sprite implements InputProcessor {
 	}
 
 	public void loseHealth(int damage){
-		int newHealth = health - damage;
-		health = newHealth;
+		if (health != 0) {
+			int newHealth = health - damage;
+			health = newHealth;
+		}
+
 	}
 
 
@@ -201,17 +204,10 @@ public abstract class Player extends Sprite implements InputProcessor {
 	@Override
 	public boolean keyDown(int keycode) {
 		switch(keycode) {
-		case Keys.W:
-			if(canJump) {
-				velocity.y = speed / 1.8f;
-				canJump = false;
-				//setY(280);
-			}
-			break;
 
 		case Keys.SPACE:
 			if(canJump)
-				setY(280);
+				setY(getY() + 150);
 			
 			break;
 		
@@ -285,4 +281,6 @@ public abstract class Player extends Sprite implements InputProcessor {
 	public String getMessage() {
 		return message;
 	}
+	
+	public abstract void dieFromFall();
 }
