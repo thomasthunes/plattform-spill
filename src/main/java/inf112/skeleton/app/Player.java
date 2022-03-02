@@ -24,6 +24,7 @@ public abstract class Player extends Sprite implements InputProcessor {
 	public Player(Sprite sprite, TiledMapTileLayer collisionLayer) {
 		super(sprite);
 		this.collisionLayer = collisionLayer;
+		setSize((float) (getWidth()*0.2), (float) (getHeight()*0.2));
 	}
 	
 	@Override
