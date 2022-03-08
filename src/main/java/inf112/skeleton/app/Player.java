@@ -12,7 +12,7 @@ public abstract class Player extends Sprite implements InputProcessor {
 
 	private Vector2 velocity = new Vector2();
 	
-	private float speed = 60 * 2, gravity = 60 * 1.8f;
+	private float speed = 60 * 2, gravity = 60 * 1f;
 	
 	private boolean canJump;
 
@@ -58,7 +58,7 @@ public abstract class Player extends Sprite implements InputProcessor {
 		//clamp velocity
 		if(velocity.y > speed)
 			velocity.y = speed;
-		else if(velocity.y < speed)
+		else if(velocity.y < -speed)
 			velocity.y = -speed;
 		
 		//save old positions
@@ -207,8 +207,9 @@ public abstract class Player extends Sprite implements InputProcessor {
 
 		case Keys.SPACE:
 			if(canJump)
-				setY(getY() + 150);
-			
+				velocity.y = speed+250 / 1.8f;
+				canJump = false;
+
 			break;
 		
 		case Keys.A:
