@@ -209,6 +209,7 @@ public abstract class Player extends Sprite implements InputProcessor {
 			if(canJump)
 				velocity.y = speed+250 / 1.8f;
 				canJump = false;
+
 			break;
 		
 		case Keys.A:
