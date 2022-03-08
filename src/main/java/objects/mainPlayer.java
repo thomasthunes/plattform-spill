@@ -30,7 +30,7 @@ public class mainPlayer extends Player implements IMainPlayer, InputProcessor {
     }
 
     @Override
-    public String getMessage() {
+    public String getMessage() { 
         return message;
     }
 
@@ -47,15 +47,19 @@ public class mainPlayer extends Player implements IMainPlayer, InputProcessor {
                 break;
 
             case Input.Keys.A:
-                getVelocity().x = -getSpeed();
             case Input.Keys.LEFT:
-                getVelocity().x = -getSpeed();
+            	if(!GetCanJump())
+            		getVelocity().x = -getSpeed() + 50;
+            	else
+            		getVelocity().x = -getSpeed();
 
                 break;
             case Input.Keys.D:
-                getVelocity().x = getSpeed();
             case Input.Keys.RIGHT:
-                getVelocity().x = getSpeed();
+            	if(!GetCanJump())
+            		getVelocity().x = getSpeed() - 50;
+            	else
+            		getVelocity().x = getSpeed();
         }
         return true;
     }
