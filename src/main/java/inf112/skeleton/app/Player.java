@@ -8,7 +8,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.math.Vector2;
 
-public abstract class Player extends Sprite implements InputProcessor {
+public abstract class Player extends Sprite {
 
 	private Vector2 velocity = new Vector2();
 	
@@ -199,79 +199,12 @@ public abstract class Player extends Sprite implements InputProcessor {
 
 	}
 
-
-	//
-	@Override
-	public boolean keyDown(int keycode) {
-		switch(keycode) {
-
-		case Keys.SPACE:
-			if(canJump)
-				velocity.y = speed+250 / 1.8f;
-				canJump = false;
-			break;
-		
-		case Keys.A:
-			velocity.x = -speed;
-		case Keys.LEFT:
-			velocity.x = -speed;
-		
-			break;
-		case Keys.D:
-			velocity.x = speed;
-		case Keys.RIGHT:
-			velocity.x = speed;
-		}
-		return true;
+	public boolean GetCanJump(){
+		return canJump;
 	}
 
-	@Override
-	public boolean keyUp(int keycode) {
-		switch(keycode) {
-		case Keys.A:
-		case Keys.LEFT:
-		
-		case Keys.D:
-		case Keys.RIGHT:
-			velocity.x = 0;
-		}
-		return true;
-	}
-
-	@Override
-	public boolean keyTyped(char character) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean touchUp(int screenX, int screenY, int pointer, int button) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean touchDragged(int screenX, int screenY, int pointer) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean mouseMoved(int screenX, int screenY) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean scrolled(float amountX, float amountY) {
-		// TODO Auto-generated method stub
-		return false;
+	public void SetCanJump(boolean value){
+		canJump = value;
 	}
 
 	public void setMessage(String newMessage){
