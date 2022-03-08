@@ -1,6 +1,7 @@
 package screens;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -51,7 +52,7 @@ public class Play implements Screen {
 
         //renderer.setView(camera);
 
-        Gdx.input.setInputProcessor(player);
+        Gdx.input.setInputProcessor((InputProcessor) player);
     }
 
     public Player getPlayer(){
