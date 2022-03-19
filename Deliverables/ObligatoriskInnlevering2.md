@@ -24,11 +24,11 @@ I denne delen av oppgaven vil vi gjennomgå (1) ..., (2) ... og (3) ...
 ## 1.2 Oppsummering av team og prosjekt  
 **Roller:** Rollene har til nå fungert bra slik som tiltenkt. Her har alle bidratt med sine styrker, og vi merker at kvaliteten i arbeidet øker når vi fordeler ansvarsområdene på ulike personer.  
 **Erfaringer og valg:**  
-**Gruppedynamikk:**
-**Kommunikasjon:**
-**Retrospektiv vurdering av prosjektstruktur:**
-**Forskjeller i commits**: parkoding her
-**Forbedring:** 3 punkter for forbedring til neste sprint, basert på retrospektiv vurdering
+**Gruppedynamikk:**  
+**Kommunikasjon:**  
+**Retrospektiv vurdering av prosjektstruktur:**  
+**Forskjeller i commits**: parkoding her  
+**Forbedring:** 3 punkter for forbedring til neste sprint, basert på retrospektiv vurdering  
 
 
 # 1.2 
