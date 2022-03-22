@@ -12,7 +12,7 @@ public abstract class Player extends Sprite {
 
 	private Vector2 velocity = new Vector2();
 	
-	private float speed = 60 * 2, gravity = 60 * 1f;
+	private float speed = 105, gravity = 60 * 1f;
 	
 	private boolean canJump;
 

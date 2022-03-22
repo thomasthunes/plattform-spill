@@ -48,18 +48,20 @@ public class mainPlayer extends Player implements IMainPlayer, InputProcessor {
 
             case Input.Keys.A:
             case Input.Keys.LEFT:
-            	if(!GetCanJump())
-            		getVelocity().x = -getSpeed() + 50;
-            	else
-            		getVelocity().x = -getSpeed();
+//            	if(!GetCanJump())
+//            		getVelocity().x = -getSpeed() + 50; 
+//            	else
+//            		getVelocity().x = -getSpeed();
+            	getVelocity().x = -getSpeed();
 
                 break;
             case Input.Keys.D:
             case Input.Keys.RIGHT:
-            	if(!GetCanJump())
-            		getVelocity().x = getSpeed() - 50;
-            	else
-            		getVelocity().x = getSpeed();
+//            	if(!GetCanJump())
+//            		getVelocity().x = getSpeed() - 50;
+//            	else
+//            		getVelocity().x = getSpeed();
+            	getVelocity().x = getSpeed();
         }
         return true;
     }
