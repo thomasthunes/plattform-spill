@@ -103,14 +103,31 @@ Kommunikasjonen i gruppen har fungert bra. Vi har blant annet brukt informasjons
 Vi har hatt noe forskjeller commits mellom teammedlemmer underveis i prosjektet. Dette skyldes at vi har brukt mye parkoding slik at det ofte kun er én av to som comitter koden til git. Videre har vi også fordelt arbeidet slik at noen fokuserer mer på å skrive rapport. Dette bidrar også til ulikheter i commits.  
 
 ### 1.2.7 Forbedring
-Basert på den retrospektive vurderingen ([1.2.5](#1.2.5-retrospektiv-vurdering-av-prosjektstruktur)) har vi satt opp følgende liste med forbedringspotensiaer til neste sprint:  
+Basert på den retrospektive vurderingen ([1.2.5](#1.2.5-retrospektiv-vurdering-av-prosjektstruktur)) har vi satt opp følgende liste med forbedringspotensialer til neste sprint:  
 1. Bli flinkere på å ha kontroll på git (push/pull)  
 2. Bli flinkere på å fordele arbeidsoppgaver mellom teammøter slik at alle har noe å gjøre  
-3. Bli flinkere på å bestemme tidsintervaller ved implentasjon av ny funksjonalitet  
+3. Bli flinkere på å bestemme tidsintervaller ved implementasjon av ny funksjonalitet  
 
 # 2. Krav
 
-## 2.1 MVP
+## 2.1 "Stretch goal"
+Her vi valgt å fokusere på å oppnå målene fra MVP-listen som er gitt i oppgaveteksten til første innlevering. Dette gjelder spesielt å ha høy kvalitet på koden, godt design og klare abstraksjoner. Vi har imidlertid gjort noe endringer på grafikken slik som å endre utseende på map'et.  
+
+## 2.2 MVP og annet
+
+### 2.2.1 Krav og funksjonalitet
+*Hele 2.2.1 bør vurderes å sette inn under 2.2.2*
+
+*"Oppgave: Oppdater hvilke krav dere har prioritert, hvor langt dere har kommet og hva dere har gjort siden forrige gang. Er dere kommet forbi MVP? Forklar hvordan dere prioriterer ny funksjonalitet"*  
+
+**Prioritert liste på krav:** 
+
+**Hvor langt vi har kommet og hva vi har gjort siden forrige gang:**  
+
+**Hvordan ny funksjonalitet prioriteres:**  
+
+### 2.2.2 Brukerhistorier
+
  - Vise fiender/monstre; de skal interagere med terreng og spiller  
  - Fikse jump (lande raskere ved å justere farten på vei ned, bestemme én fart som gjelder for hopp og på bakken)  
  - Spiller har poeng og interagerer med poenggjenstander  
@@ -120,5 +137,27 @@ Basert på den retrospektive vurderingen ([1.2.5](#1.2.5-retrospektiv-vurdering-
  - Spiller kan dø (ved kontakt med fiender, eller ved å falle utfor skjermen)   
  - Mål for spillbrett (enten et sted, en mengde poeng, drepe alle fiender e.l.)   
 
+ **Hvordan oppgavene fremover blir prioritert:**  
+
+ **Endringer i rekkefølge på MVP utfra det som er gitt fra kunde:** "hvorfor er dette gjort?"  
+
+ **Bugs i koden/kravene som er utført:**  
+
+
 # 3. Produkt og kode
+## 3.1 Utbedring av feil 
+**Feil fikset fra forrige innlevering:**  
+ - 
+
+## 3.2 Annet
+Denne må utvides:
+Dokumentasjon om teknisk produktoppsett (hvordan bygge og kjøre programmet): For å kjøre programmet må du velge en editor til å åpne koden med og kjøre filen Main. Filen Main ligger i package inf112.skeleton.app.
+
+
+Bilde av oppdatert project board her
+
+Bilde av klassediagram her (kan muligens droppes til denne innleveringen)
+
+
+
 
