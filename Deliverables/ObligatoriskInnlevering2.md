@@ -19,11 +19,10 @@ I denne delen av oppgaven vil vi gjennomgå (1) møtereferater og (2) en oppsumm
 Møtereferatene oppsummerer hva som har blitt disuktert på de ulike møtene, eventuelle avgjørelser som er tatt og hvilke arbeidsoppgaver vi har fordelt frem til neste møte.  
 | Nr. | Dato | Deltakere | Diskusjon | Avgjørelser | Arbeidsoppgaver til neste møte |
 |---|---|---|---|---|---|
-| 1 | 01.03 | Alle |  |  |  |
-| 2 | 08.03 | Alle |  |  |  |
-| 3 | 15.03 | Alle |  |  |  |
-| 4 | 22.03 | Alle |  |  |  |
-| 5 |  |  |  |  |  |  
+| 1 | 01.03 | Alle | På dette møtet diskuterte vi hvordan vi skulle sette rammene for prosjektet vårt frem mot neste innlevering. Vi identifiserte fire hovedutfordringer som vi mener vil kreve ekstra fokus, deriblant (1) legge til fiender/monstre, (2) la spilleren ha liv og mulighet til å miste liv når den treffer for eksempel fiender, (3) fikse hoppe-funksjonen slik at spilleren hopper realistisk og (4) legge til tester for koden. Videre diskuterer vi også utfordringer knyttet til organiseringen av prosjektet. Dette gjelder spesielt kodebasen i git der vi opplever mye *merge conflicts* ved pushing/pulling av kode. Dette diskuterer vi også med studentassistenten og får veiledning på hvordan dette kan løses. | På dette møtet tok vi en avgjørelse om at spilleren skal ha en egen fart når den er i luften og gi den gravitet når den beveger seg oppover i hoppet. På denne måten ser vi for oss å kunne simulere en mer realistisk hoppefunksjon. Vi ble også enige om at Jon skriver møtereferater for alle møter frem mot neste innlevering.  | Thomas starter på å legge til liv til spilleren og mulighet for at spilleren kan miste liv og dø. Karl og Magnus vil forsøke å fikse hoppe-funksjonen, Jonas jobber med tester og Jon bistår på hoppe-funksjonen i tillegg til å skrive møtereferat. Vi forventer ikke at funksjonene og testene skal være ferdig implementert til neste møte, men vi forventer noe progresjon. |
+| 2 | 08.03 | Alle | På dette møtet oppdaterte vi hverandre på hva vi hadde gjort fra forrige møte. Karl og Magnus har implementert hoppefunksjonen, men merker at spilleren har mulighet til å ta løpefart. Dette ser urealistisk ut og vi finner ut at vi kan sette ned farten på spilleren og bruke den samme farten når den hopper. Thomas bemerker også at *collision*-funksjonaliteten til spilleren inneholder overflødig kode og kan forkortes. Jon sier at han kan se nærmere på dette. Vi diskuterer også hvordan vi synes at prosjektmetodikken fungerer. Her kommenterer Magnus at ikke alle sprinter trenger å vare i 14 dager, da for eksempel hoppefunksjonen er ferdig implementert allerede nå. Dette gjør oss mer oppmerksom på hvordan vi skal fordele ressurser fremover, og at vi kan planlegge å starte på noen oppgaver fra backloggen tidligere enn antatt.  | Vi bestemte oss også å sette ned farten til spilleren og la den ha samme fart når den hopper, da dette ser mer realistisk ut (spiller kan da ikke ta «løpefart»). Vi tar også en beslutning om å korte ned sprintene på enkelte arbeidsoppgaver der vi finner det hensiktsmessig. | Jon jobber med å forkorte collision-funksjonen og gjøre den mer dynamisk. Karl og Magnus setter ned farten på spilleren. Thomas starter på funksjonalitet for fiender, og Jonas ser på testing av koden. |
+| 3 | 15.03 | Alle | På dette møtet blir vi enige om å ikke fordele noe særlig med arbeidsoppgaver til neste møte, da flertallet er opptatt med andre innleveringer denne uken. Vi blir dermed enige om å ha lave forventninger til progresjon på prosjektet frem mot neste møte. Videre gikk vi gjennom hva vi ser for oss rapporten til neste innlevering skal inneholde, og Jon sier han kan starte på denne da han ikke har andre innleveringer denne uken.  | Forventningsavklaring om lite progresjon frem mot neste møte. | Jon jobber med rapporten frem mot neste møte. |
+| 4 | 22.03 | Alle | På dette møtet diskuterte vi hvordan vi skal jobbe frem mot innleveringen på fredag. Vi går gjennom evalueringen vi fikk på forrige innlevering og ser på mulige forbedringspotensialer. Vi diskuterer også hovedutfordringene som vi identifiserte på første møte og ser at det kun er fiender/monstre og tester som gjenstår. Thomas har til nå startet litt på klassen for fiender (Enemy), men merker at han bruker mye gjenbruk av tidligere kode. Her diskuterer vi oss frem til at vi kan lage en abstrakt klasse som gjelder for både spiller og fiende, slik at vi reduserer gjenbruk av kode. | På dette møtet tok vi en avgjørelse om å ha en abstrakt klasse som gjelder for både main player og enemy. | Jon jobber med å ferdigstille rapporten, Karl begynner på å lage en Menu-screen, Thomas jobber med å legge til fiender og utvide map’et og Jonas jobber med tester. Magnus avlaster de andre på programmeringsoppgaver der det er behov. |  
 
 ## 1.2 Oppsummering av team og prosjekt  
 I denne delen av oppgaven oppsummerer vi hvordan arbeidet i gruppen har vært og reflekterer over utviklingen i vårt prosjekt.  
@@ -67,7 +66,8 @@ Kommunikasjonen i gruppen har fungert bra. Vi har blant annet brukt informasjons
 
 **Vurdering av hva vi har klart til nå:** Frem til nå har vi jobbet effektivt og hatt god kommunikasjon i gruppen. Vi drar godt nytte av styrkene i Scrum-rammeverket slik som Project Board med backlogg og sprinter, i tillegg til ukentlige oppfølgingsmøter. For å jobbe effektivt med koden har vi blant annet benyttet oss av parkoding der den ene skriver kode mens den andre bidrar med å fortelle hva som skal skrives. På denne måten får vi fram flere tanker og idéer som igjen øker kvaliteten i koden. Se forøvrig svar under de andre deloppgavene over på hvordan vi reflekterer over kommunikasjon og arbeid i gruppen.  
 
-**Hva vi mener kan forbedres:** Når det gjelder hva vi mener kan forbedres så merker vi at vi kan bli flinkere på å fordele arbeidsoppgaver slik at alle har noe å gjøre til neste teammøte. 
+**Hva vi mener kan forbedres:** Når det gjelder hva vi mener kan forbedres så merker vi at vi kan bli flinkere på å fordele arbeidsoppgaver slik at alle har noe å gjøre til neste teammøte.  
+Push/pull i git  
 
 ### 1.2.6 Forskjeller i commits
 Vi har hatt forskjeller i antall commits mellom teammedlemmer underveis i prosjektet. Dette skyldes at vi har brukt mye parkoding slik at det kun er én av to som comitter koden til git. Videre har vi også fordelt arbeidet slik at noen fokuserer mer på å skrive rapport. Dette bidrar også til ulikheter i commits.   
@@ -77,13 +77,13 @@ Vi har hatt forskjeller i antall commits mellom teammedlemmer underveis i prosje
 Basert på den retrospektive vurderingen (1.2.5) har vi satt opp følgende liste med forbedringspotensiaer til neste sprint:
 1. Sørge for å fordele arbeidsoppgaver til alle på gruppen  
 2. Sørge for mer gjevn fordeling av commits  
-3. 
+3. Bli flinkere på å ha kontroll på git (push/pull)
 
  
 
 # 2. Krav
 
-# 2.1 MVP
+## 2.1 MVP
  - Vise fiender/monstre; de skal interagere med terreng og spiller  
  - Fikse jump (lande raskere ved å justere farten på vei ned, bestemme én fart som gjelder for hopp og på bakken)  
  - Spiller har poeng og interagerer med poenggjenstander  
