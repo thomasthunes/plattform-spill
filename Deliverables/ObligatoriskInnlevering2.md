@@ -17,6 +17,31 @@ I denne delen av oppgaven vil vi gjennomgå (1) møtereferater og (2) en oppsumm
 
 ## 1.1 Møtereferater  
 Møtereferatene oppsummerer hva som har blitt disuktert på de ulike møtene, eventuelle avgjørelser som er tatt og hvilke arbeidsoppgaver vi har fordelt frem til neste møte.  
+
+### 1.1.1 Møte 1
+**Dato:** 01.03  
+
+**Deltakere:** Alle  
+
+**Diskusjon:** På dette møtet diskuterte vi hvordan vi skulle sette rammene for prosjektet vårt frem mot neste innlevering. Vi identifiserte fire hovedutfordringer som vi mener vil kreve ekstra fokus, deriblant (1) legge til fiender/monstre, (2) la spilleren ha liv og mulighet til å miste liv når den treffer for eksempel fiender, (3) fikse hoppe-funksjonen slik at spilleren hopper realistisk og (4) legge til tester for koden. Videre diskuterer vi også utfordringer knyttet til organiseringen av prosjektet. Dette gjelder spesielt kodebasen i git der vi opplever mye *merge conflicts* ved pushing/pulling av kode. Dette diskuterer vi også med studentassistenten og får veiledning på hvordan dette kan løses.  
+
+**Avgjørelser:** På dette møtet tok vi en avgjørelse om at spilleren skal ha en egen fart når den er i luften og gi den gravitet når den beveger seg oppover i hoppet. På denne måten ser vi for oss å kunne simulere en mer realistisk hoppefunksjon. Vi ble også enige om at Jon skriver møtereferater for alle møter frem mot neste innlevering.  
+
+** Arbeidsoppgaver til neste møte:** Thomas starter på å legge til liv til spilleren og mulighet for at spilleren kan miste liv og dø. Karl og Magnus vil forsøke å fikse hoppe-funksjonen, Jonas jobber med tester og Jon bistår på hoppe-funksjonen i tillegg til å skrive møtereferat. Vi forventer ikke at funksjonene og testene skal være ferdig implementert til neste møte, men vi forventer noe progresjon.  
+
+
+### 1.1.2 Møte 2
+**Dato:**  
+
+**Deltakere:** Alle  
+
+**Diskusjon:**  
+
+**Avgjørelser:**  
+
+** Arbeidsoppgaver til neste møte:**  
+
+
 | Nr. | Dato | Deltakere | Diskusjon | Avgjørelser | Arbeidsoppgaver til neste møte |
 |---|---|---|---|---|---|
 | 1 | 01.03 | Alle | På dette møtet diskuterte vi hvordan vi skulle sette rammene for prosjektet vårt frem mot neste innlevering. Vi identifiserte fire hovedutfordringer som vi mener vil kreve ekstra fokus, deriblant (1) legge til fiender/monstre, (2) la spilleren ha liv og mulighet til å miste liv når den treffer for eksempel fiender, (3) fikse hoppe-funksjonen slik at spilleren hopper realistisk og (4) legge til tester for koden. Videre diskuterer vi også utfordringer knyttet til organiseringen av prosjektet. Dette gjelder spesielt kodebasen i git der vi opplever mye *merge conflicts* ved pushing/pulling av kode. Dette diskuterer vi også med studentassistenten og får veiledning på hvordan dette kan løses. | På dette møtet tok vi en avgjørelse om at spilleren skal ha en egen fart når den er i luften og gi den gravitet når den beveger seg oppover i hoppet. På denne måten ser vi for oss å kunne simulere en mer realistisk hoppefunksjon. Vi ble også enige om at Jon skriver møtereferater for alle møter frem mot neste innlevering.  | Thomas starter på å legge til liv til spilleren og mulighet for at spilleren kan miste liv og dø. Karl og Magnus vil forsøke å fikse hoppe-funksjonen, Jonas jobber med tester og Jon bistår på hoppe-funksjonen i tillegg til å skrive møtereferat. Vi forventer ikke at funksjonene og testene skal være ferdig implementert til neste møte, men vi forventer noe progresjon. |
