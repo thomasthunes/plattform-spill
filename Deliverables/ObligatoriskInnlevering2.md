@@ -103,7 +103,7 @@ Kommunikasjonen i gruppen har fungert bra. Vi har blant annet brukt informasjons
 Vi har hatt noe forskjeller commits mellom teammedlemmer underveis i prosjektet. Dette skyldes at vi har brukt mye parkoding slik at det ofte kun er én av to som comitter koden til git. Videre har vi også fordelt arbeidet slik at noen fokuserer mer på å skrive rapport. Dette bidrar også til ulikheter i commits.  
 
 ### 1.2.7 Forbedring
-Basert på den retrospektive vurderingen ([1.2.5]) har vi satt opp følgende liste med forbedringspotensiaer til neste sprint:  
+Basert på den retrospektive vurderingen ([1.2.5](#1.2.5-retrospektiv-vurdering-av-prosjektstruktur)) har vi satt opp følgende liste med forbedringspotensiaer til neste sprint:  
 1. Bli flinkere på å ha kontroll på git (push/pull)  
 2. Bli flinkere på å fordele arbeidsoppgaver mellom teammøter slik at alle har noe å gjøre  
 3. Bli flinkere på å bestemme tidsintervaller ved implentasjon av ny funksjonalitet  
