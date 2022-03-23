@@ -31,7 +31,7 @@ Møtereferatene oppsummerer hva som har blitt disuktert på de ulike møtene, ev
 
 
 ### 1.1.2 Møte 2
-**Dato:**  
+**Dato:** 08.03  
 
 **Deltakere:** Alle  
 
@@ -43,7 +43,7 @@ Møtereferatene oppsummerer hva som har blitt disuktert på de ulike møtene, ev
 
 
 ### 1.1.3 Møte 3
-**Dato:** 08.03  
+**Dato:** 15.03  
 
 **Deltakere:** Alle  
 
