@@ -1,11 +1,13 @@
 # Obligatorisk oppgave 2 - *navn på prosjektet her*
 **Team**: *gruppenavn her* (Gruppe 3)  
-**Gruppemedlemmer**:  
+**Gruppemedlemmer:**  
  - Thomas Thunes
  - Karl Martin Helset
  - Magnus Brodtkorb
  - Jonas Holgersen
  - Jon Kvinnsland  
+
+**Prosjektbeskrivelse:**  
 
 ## Innholdsfortegnelse  
 [[_TOC_]]  
@@ -26,7 +28,7 @@ Møtereferatene oppsummerer hva som har blitt disuktert på de ulike møtene, ev
 ## 1.2 Oppsummering av team og prosjekt  
 I denne delen av oppgaven oppsummerer vi hvordan arbeidet i gruppen har vært og reflekterer over utviklingen i vårt prosjekt.  
 ### 1.2.1 Roller
-Rollene har til nå fungert slik som tiltenkt. Alle bidratt med sine styrker og vi merker at kvaliteten i arbeidet øker når vi fordeler ansvarsområder på ulike personer. Når det gjelder hva de ulike rollene faktisk innebærer for oss har vi merket oss følgende:  
+Rollene har til nå fungert slik som tiltenkt. Alle bidratt med sine styrker og vi merker at kvaliteten i arbeidet øker når vi fordeler ansvarsområder på ulike personer. Vi opplever at rollene vi har nå er godt dekkende for alle arbeidsoppgavene i prosjektet, og vi har dermed ikke behov for andre roller. Når det gjelder hva de ulike rollene faktisk innebærer for oss har vi merket oss følgende:  
 
 *Oppgave: Skriv ned noen linjer om hva de ulike rollene faktisk innebærer for dere.*  
 
@@ -42,7 +44,7 @@ Jonas har merket at sin rolle som testansvarlig innebærer at han må ha god for
 Jon har merket at sin rolle som kundekontakt innebærer at han må være aktiv i dialogen med kunden for å hele tiden være observant på eventuelle endringer. Det innebærer også at han må gi rask tilbakemelding til gruppen slik at de får tid til å tilpasse seg. Frem til nå har ikke kunden kommet med nye vesentlige endringer.  
 
 ### 1.2.2 Erfaringer og valg
-**Erfaringer team:** Når det gjelder erfaringer i teamet har vi merket at flere av rollene glir over i hverandre, og vi merker at vi i noen tilfeller drar fordel av å samarbeide på enkelte ansvarsområder. Det kan for eksempel være å holde oversikt på Project Boardet og å skrive tester. Vi merker oss også at arbeidsmåten med parprogrammering har fungert bra, og at uktentlige teammøter har bidratt til at alle kan holde god oversikt på utviklingen i prosjektet.  
+**Erfaringer team:** Når det gjelder erfaringer i teamet har vi merket at noen av rollene kan gli over i hverandre ved enkelte arbeidsoppgaver, og vi merker at vi i slike tilfeller drar fordel av å samarbeide på enkelte ansvarsområder. Det kan for eksempel være å holde oversikt på Project Boardet og å skrive tester. Vi merker oss også at arbeidsmåten med parprogrammering har fungert bra, og at uktentlige teammøter har bidratt til at alle kan holde god oversikt på utviklingen i prosjektet.  
 
 **Erfaringer prosjektmetodikk:** Når det gjelder erfaringer relatert til prosjektmetodikk har vi merket at oppdelingen av konkrete arbeidsoppgaver i backloggen har fungert bra da dette gir oss en bedre forståelse av hvilke funksjoner som må legges til i koden for at vi skal oppnå et delmål/brukerhistorie. Vi merker oss imidlertid at enkelte arbeidsoppgaver kan settes opp på kortere sprinter enn 14 dager og at ressursfordelingen dermed kan forbedres på denne måten. Kravet til testing som Scrum-rammeverket legger opp til har også fungert bra og ført til at vi har fått en kvalitetssikker kode. Gjennom ukentlige Scrum-møter tidlig identifisering av eventuelle utfordringer, slik som ...   
 
@@ -56,14 +58,16 @@ fungerer på*
 For å sikre en god gruppedynamikk har vi hatt ukentlige team-møter der vi diskuterer relevante saker for gruppearbeidet. Samtlige av gruppemedlemmene har vært tolmodige og åpne for å lytte til andres synspunkter, og dette merker vi har ført til en god gruppedynamikk. Gjennom Project Boardet vårt har vi blant annet avklart forventninger til hverandre og arbeidet som skal gjøres. Slike forventningsavklaringer mener vi har bidratt til redusere konflikter til et minimum og dermed forbedret gruppedynamikken.  
 
 ### 1.2.4 Kommunikasjon
+*Fra retteskjema: "alle meningher blir hørt, tonen er god, alle bidrar jevnt"*  
+
 Kommunikasjonen i gruppen har fungert bra. Vi har blant annet brukt informasjonskanaler som Messenger til å holde kontakt utenom de fysiske gruppemøtene. Vi har også hatt åpenhet for at alle skal få dele sine meninger og hjulpet hverandre når noen står fast med for eksempel kodingen.  
 
 ### 1.2.5 Retrospektiv vurdering av prosjektstruktur
 *Oppgave: Gjør et kort retrospektiv hvor dere vurderer hva dere har klart til nå, og hva som kan forbedres. Dette skal handle om prosjektstruktur, ikke kode. Dere kan selvsagt diskutere kode, men dette handler ikke om feilretting, men om hvordan man jobber og kommuniserer*  
 
-Frem til nå har vi jobbet effektivt og hatt god kommunikasjon i gruppen. Vi drar godt nytte av styrkene i Scrum-rammeverket slik som Project Board med backlogg og sprinter, i tillegg til ukentlige oppfølgingsmøter. For å jobbe effektivt med koden har vi blant annet benyttet oss av parkoding der den ene skriver kode mens den andre bidrar med å fortelle hva som skal skrives. På denne måten får vi fram flere tanker og idéer som igjen øker kvaliteten i koden. Se forøvrig svar under de andre deloppgavene over på hvordan vi reflekterer over kommunikasjon og arbeid i gruppen.  
+**Vurdering av hva vi har klart til nå:** Frem til nå har vi jobbet effektivt og hatt god kommunikasjon i gruppen. Vi drar godt nytte av styrkene i Scrum-rammeverket slik som Project Board med backlogg og sprinter, i tillegg til ukentlige oppfølgingsmøter. For å jobbe effektivt med koden har vi blant annet benyttet oss av parkoding der den ene skriver kode mens den andre bidrar med å fortelle hva som skal skrives. På denne måten får vi fram flere tanker og idéer som igjen øker kvaliteten i koden. Se forøvrig svar under de andre deloppgavene over på hvordan vi reflekterer over kommunikasjon og arbeid i gruppen.  
 
-Når det gjelder hva vi mener kan forbedres så merker vi at vi kan bli flinkere på å fordele arbeidsoppgaver slik at alle har noe å gjøre til neste teammøte. 
+**Hva vi mener kan forbedres:** Når det gjelder hva vi mener kan forbedres så merker vi at vi kan bli flinkere på å fordele arbeidsoppgaver slik at alle har noe å gjøre til neste teammøte. 
 
 ### 1.2.6 Forskjeller i commits
 Vi har hatt forskjeller i antall commits mellom teammedlemmer underveis i prosjektet. Dette skyldes at vi har brukt mye parkoding slik at det kun er én av to som comitter koden til git. Videre har vi også fordelt arbeidet slik at noen fokuserer mer på å skrive rapport. Dette bidrar også til ulikheter i commits.   
@@ -78,6 +82,16 @@ Basert på den retrospektive vurderingen (1.2.5) har vi satt opp følgende liste
  
 
 # 2. Krav
+
+# 2.1 MVP
+ - Vise fiender/monstre; de skal interagere med terreng og spiller  
+ - Fikse jump (lande raskere ved å justere farten på vei ned, bestemme én fart som gjelder for hopp og på bakken)  
+ - Spiller har poeng og interagerer med poenggjenstander  
+ - Legge inn tester  
+
+(*kan droppes*)  
+ - Spiller kan dø (ved kontakt med fiender, eller ved å falle utfor skjermen)   
+ - Mål for spillbrett (enten et sted, en mengde poeng, drepe alle fiender e.l.)   
 
 # 3. Produkt og kode
 
