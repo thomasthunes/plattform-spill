@@ -15,19 +15,28 @@ import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 
 import inf112.skeleton.app.Player;
 
-import objects.mainPlayer;
+import objects.*;
 import org.lwjgl.opengl.GL20;
 
-import javax.swing.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class Play implements Screen {
+
+    // CONSTANTS
+    private final int STARTPOSITION = 38;
 
     private TiledMap map;
     private OrthogonalTiledMapRenderer renderer;
     private OrthographicCamera camera;
     //private SpriteBatch batch;
-    private Player player;
+    private mainPlayer player;
+    private medKit medKit;
+    //private Enemy enemy;
     private BitmapFont font;
+    private List<Enemy> enemies = new ArrayList<>();
+    private List<Item> items = new ArrayList<>();
 
 
     @Override
@@ -47,16 +56,66 @@ public class Play implements Screen {
         //cam.position.set(cam.viewportWidth/2f, cam.viewportHeight/2f, 0);
         //camera.update();
 
-        player = new mainPlayer(new Sprite(new Texture("assets/maps/mario.png")), (TiledMapTileLayer) map.getLayers().get(0));//new Player(new Sprite(new Texture("assets/maps/mario.png")), (TiledMapTileLayer) map.getLayers().get(0));
-        player.setPosition(7 * player.getCollisionLayer().getTileWidth(), (player.getCollisionLayer().getHeight() - 38) * player.getCollisionLayer().getTileHeight());
+        player = new mainPlayer(new Sprite(new Texture("assets/maps/mario.png")), (TiledMapTileLayer) map.getLayers().get(0), this);//new Player(new Sprite(new Texture("assets/maps/mario.png")), (TiledMapTileLayer) map.getLayers().get(0));
+        player.setPosition(7 * player.getCollisionLayer().getTileWidth(), (player.getCollisionLayer().getHeight() - STARTPOSITION) * player.getCollisionLayer().getTileHeight());
 
-        //renderer.setView(camera);
+        int numberOfEnemies = 50;
+        Random rand = new Random();
+        for (int n = 0; n < numberOfEnemies; n++) {
+            int xPos = rand.nextInt(317);
+            monster monster = new monster(new Sprite(new Texture("assets/maps/monster.png")), (TiledMapTileLayer) map.getLayers().get(0), this);
+            monster.setPosition(xPos * monster.getCollisionLayer().getTileWidth(), (monster.getCollisionLayer().getHeight() - 4) * monster.getCollisionLayer().getTileHeight());
+            enemies.add(monster);
+        }
+
+        bombs bombs = new bombs(new Sprite(new Texture("assets/maps/bomb.png")), (TiledMapTileLayer) map.getLayers().get(0), this);//new Player(new Sprite(new Texture("assets/maps/mario.png")), (TiledMapTileLayer) map.getLayers().get(0));
+        bombs.setPosition(14 * bombs.getCollisionLayer().getTileWidth(), (bombs.getCollisionLayer().getHeight() - STARTPOSITION) * bombs.getCollisionLayer().getTileHeight());
+
+        enemies.add(bombs);
+
+
+        medKit = new medKit(new Sprite(new Texture("assets/maps/medkit.png")), (TiledMapTileLayer) map.getLayers().get(0));
+        medKit.setPosition(17 * medKit.getCollisionLayer().getTileWidth(), (player.getCollisionLayer().getHeight() - STARTPOSITION) * player.getCollisionLayer().getTileHeight());
+        items.add(medKit);
+
 
         Gdx.input.setInputProcessor((InputProcessor) player);
+        createNewItems(medKit, "assets/maps/medkit.png");
+    }
+
+    /*private <T> void createNewItems(Item<T> object, String picture){
+        int numberOfEnemies = 50;
+        Random rand = new Random();
+        for (int n = 0; n < numberOfEnemies; n++) {
+            int xPos = rand.nextInt(317);
+            object = new Item<T>(new Sprite(new Texture(picture)), (TiledMapTileLayer) map.getLayers().get(0));
+            object.setPosition(xPos * object.getCollisionLayer().getTileWidth(), (object.getCollisionLayer().getHeight() - 4) * object.getCollisionLayer().getTileHeight());
+            items.add(object);
+        }
+
+    }*/
+    private <T> void createNewItems(medKit object, String picture){
+        int numberOfItems = 20;
+        Random rand = new Random();
+        for (int n = 0; n < numberOfItems; n++) {
+            int xPos = rand.nextInt(3,317);
+            object = new medKit(new Sprite(new Texture(picture)), (TiledMapTileLayer) map.getLayers().get(0));
+            object.setPosition(xPos * object.getCollisionLayer().getTileWidth(), (object.getCollisionLayer().getHeight() - 4) * object.getCollisionLayer().getTileHeight());
+            items.add(object);
+        }
+
     }
 
     public Player getPlayer(){ 
         return player;
+    }
+
+    public List<Enemy> getEnemies(){
+        return enemies;
+    }
+
+    public List<Item> getItems(){
+        return items;
     }
 
 
@@ -70,15 +129,66 @@ public class Play implements Screen {
 
         camera.position.set(player.getX(), player.getY(), 0);
         camera.update();
-        player.dieFromFall();
+        player.update();
         
         renderer.getBatch().begin();
         player.draw(renderer.getBatch());
         player.draw(renderer.getBatch());
-        font.draw(renderer.getBatch(), "Current Health: " + player.getHealth(), player.getX(), 30);
-        font.draw(renderer.getBatch(), player.getMessage(), player.getX()+200, 30);
+
+        //medKit.draw(renderer.getBatch());
+        drawItems();
+
+        List<Enemy> enemiesToBeRemoved = new ArrayList<>();
+        for (Enemy enemy : enemies) {
+            if (enemy.isAlive()) {
+                enemy.draw(renderer.getBatch());
+            }
+            else {
+                enemiesToBeRemoved.add(enemy);
+            }
+        }
+        removeDeadEnemies(enemiesToBeRemoved);
+
+
+        font.draw(renderer.getBatch(), "Current Health: " + player.getHealth(), player.getX(), player.getY() - 30);
+        font.draw(renderer.getBatch(), player.getMessage(), player.getX() + 200, player.getY() - 30);
+
+
+        /*System.out.println("PLayer y: " + player.getY());
+        System.out.println("enemy y: " + enemy.getY());*/
+
 
         renderer.getBatch().end();
+
+    }
+
+    private void drawItems(){
+        List<Item> usedItems = new ArrayList<>();
+        for (Item object : items) {
+            if (object.isAlive()) {
+                object.draw(renderer.getBatch());
+            }
+            else {
+                usedItems.add(object);
+            }
+        }
+        removeUsedItems(usedItems);
+    }
+
+    /**
+     * removes the dead enemies
+     * @param enemiesToBeRemoved
+     */
+    private void removeDeadEnemies(List<Enemy> enemiesToBeRemoved){
+        enemies.removeAll(enemiesToBeRemoved);
+    }
+
+    /**
+     * removes the dead enemies
+     * @param usedItems
+     */
+    private void removeUsedItems(List<Item> usedItems){
+        enemies.removeAll(usedItems);
     }
 
 

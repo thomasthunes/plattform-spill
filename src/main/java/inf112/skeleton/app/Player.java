@@ -1,34 +1,33 @@
 package inf112.skeleton.app;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.InputProcessor;
-import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.math.Vector2;
+import objects.Item;
 
-public abstract class Player extends Sprite {
+public abstract class Player<T> extends Item /*Sprite*/ {
 
-	private Vector2 velocity = new Vector2();
+	/*private Vector2 velocity = new Vector2();
 	
-	private float speed = 60 * 2, gravity = 60 * 1f;
+	private float speed = 60 * 2, gravity = 60 * 1f;*/
 	
-	private boolean canJump;
+	//private boolean canJump;
 
-	private int health = 100;
 
 	private String message = "";
 	
 	private TiledMapTileLayer collisionLayer;
 	
 	public Player(Sprite sprite, TiledMapTileLayer collisionLayer) {
-		super(sprite);
+		super(sprite, collisionLayer);
 		this.collisionLayer = collisionLayer;
-		setSize((float) (getWidth()*0.2), (float) (getHeight()*0.2));
+		//setSize((float) (getWidth()*0.2), (float) (getHeight()*0.2));
 	}
-	
-	@Override
+
+
+	/*@Override
 	public void draw(Batch batch) {
 		update(Gdx.graphics.getDeltaTime());
 	
@@ -52,7 +51,7 @@ public abstract class Player extends Sprite {
 			velocity.x = 0;
 			return;
 		}
-//Rescueline heihei
+// Rescueline heihei
 		velocity.y -= gravity * delta;
 		
 		//clamp velocity
@@ -155,9 +154,22 @@ public abstract class Player extends Sprite {
 		return false; // false if player do not collide with collision layer
 	}
 
+	/*public ArrayList<TiledMapTileLayer.Cell> getBlockedCells(){
+		int widths = collisionLayer.getWidth();
+		int heights = collisionLayer.getHeight();
+		for (int width = 0; width < widths; width++){
+			for (int height = 0; height < heights; height++){
+				blockedCells.add(collisionLayer.getCell(width, height));
+			}
+		}
+		return blockedCells;
+	}*/
+
+/*
 	public Vector2 getVelocity() {
 		return velocity;
 	}
+
 
 	public void setVelocity(Vector2 velocity) {
 		this.velocity = velocity;
@@ -183,29 +195,23 @@ public abstract class Player extends Sprite {
 		return collisionLayer;
 	}
 
+
+
 	public void setCollisionLayer(TiledMapTileLayer collisionLayer) {
 		this.collisionLayer = collisionLayer;
-	}
+	}*/
 
-	public int getHealth() {
-		return health;
-	}
+	public abstract int getHealth();
 
-	public void loseHealth(int damage){
-		if (health != 0) {
-			int newHealth = health - damage;
-			health = newHealth;
-		}
+	public abstract void loseHealth(int damage);
 
-	}
-
-	public boolean GetCanJump(){
+	/*public boolean GetCanJump(){
 		return canJump;
 	}
 
 	public void SetCanJump(boolean value){
 		canJump = value;
-	}
+	}*/
 
 	public void setMessage(String newMessage){
 		message = newMessage;
@@ -215,5 +221,8 @@ public abstract class Player extends Sprite {
 		return message;
 	}
 	
-	public abstract void dieFromFall();
+	public abstract void update();
+
+	public abstract int getDamage();
+
 }
