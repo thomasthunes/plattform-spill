@@ -1,12 +1,8 @@
 package objects;
 
-public interface IMainPlayer {
+import java.util.List;
 
-    /**
-     * shows message on screen when a MainPlayer falls off map
-     * reduce life with 100
-     */
-    public void dieFromFall();
+public interface IMainPlayer {
 
     /**
      * shows a message on the screen, given as a param
@@ -19,5 +15,22 @@ public interface IMainPlayer {
      * @return the message given
      */
     public String getMessage();
+
+    /**
+     *
+     * @return the damage given in an attack
+     */
+    public int getDamage();
+
+    /**
+     * adds an Item to the inventory
+     */
+    public void addItem(IItem item);
+
+    /**
+     * the inventory
+     * @return a list containing items
+     */
+    public List<IItem> getInventory();
 
 }
