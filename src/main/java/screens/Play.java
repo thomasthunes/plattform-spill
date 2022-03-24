@@ -98,7 +98,7 @@ public class Play implements Screen {
         int numberOfItems = 20;
         Random rand = new Random();
         for (int n = 0; n < numberOfItems; n++) {
-            int xPos = rand.nextInt(3,317);
+            int xPos = rand.nextInt(317);
             object = new medKit(new Sprite(new Texture(picture)), (TiledMapTileLayer) map.getLayers().get(0));
             object.setPosition(xPos * object.getCollisionLayer().getTileWidth(), (object.getCollisionLayer().getHeight() - 4) * object.getCollisionLayer().getTileHeight());
             items.add(object);
