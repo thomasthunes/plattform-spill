@@ -44,7 +44,7 @@ public class Item<T> extends Sprite implements IItem<T>{
         double thisY = Math.floor(this.getY());
         double enemyY = Math.floor(item.getY());
 
-        if (thisY == enemyY + 30){
+        if (thisY == enemyY + 40){
             return true;
         }
         return false;

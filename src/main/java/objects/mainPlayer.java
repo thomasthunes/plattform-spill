@@ -50,7 +50,8 @@ public class mainPlayer extends Player implements IMainPlayer, InputProcessor {
             double enemyY = Math.floor(enemy.getY());
 
             if (collidesWithActorFromSide(this, enemy) && thisY == enemyY && enemy.isAlive()){
-                loseHealth(enemy.getDamage());
+                //loseHealth(enemy.getDamage());
+                enemy.getAttack();
                 return true;
             }
         }
@@ -140,7 +141,9 @@ public class mainPlayer extends Player implements IMainPlayer, InputProcessor {
 
     public void pickUpItem(){
         for (Item item : game.getItems()) {
-            if (collidesWithActorFromSide(this, item)) {
+            double thisY = Math.floor(this.getY());
+            double itemY = Math.floor(item.getY());
+            if (collidesWithActorFromSide(this, item) && thisY == itemY) {
                 addItem(item);
             }
         }

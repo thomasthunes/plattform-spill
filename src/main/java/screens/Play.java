@@ -15,10 +15,7 @@ import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 
 import inf112.skeleton.app.Player;
 
-import objects.Enemy;
-import objects.Item;
-import objects.mainPlayer;
-import objects.medKit;
+import objects.*;
 import org.lwjgl.opengl.GL20;
 
 import java.util.ArrayList;
@@ -66,10 +63,16 @@ public class Play implements Screen {
         Random rand = new Random();
         for (int n = 0; n < numberOfEnemies; n++) {
             int xPos = rand.nextInt(317);
-            Enemy enemy = new Enemy(new Sprite(new Texture("assets/maps/mario.png")), (TiledMapTileLayer) map.getLayers().get(0), this);
-            enemy.setPosition(xPos * enemy.getCollisionLayer().getTileWidth(), (enemy.getCollisionLayer().getHeight() - 4) * enemy.getCollisionLayer().getTileHeight());
-            enemies.add(enemy);
+            monster monster = new monster(new Sprite(new Texture("assets/maps/monster.png")), (TiledMapTileLayer) map.getLayers().get(0), this);
+            monster.setPosition(xPos * monster.getCollisionLayer().getTileWidth(), (monster.getCollisionLayer().getHeight() - 4) * monster.getCollisionLayer().getTileHeight());
+            enemies.add(monster);
         }
+
+        bombs bombs = new bombs(new Sprite(new Texture("assets/maps/bomb.png")), (TiledMapTileLayer) map.getLayers().get(0), this);//new Player(new Sprite(new Texture("assets/maps/mario.png")), (TiledMapTileLayer) map.getLayers().get(0));
+        bombs.setPosition(14 * bombs.getCollisionLayer().getTileWidth(), (bombs.getCollisionLayer().getHeight() - STARTPOSITION) * bombs.getCollisionLayer().getTileHeight());
+
+        enemies.add(bombs);
+
 
         medKit = new medKit(new Sprite(new Texture("assets/maps/medkit.png")), (TiledMapTileLayer) map.getLayers().get(0));
         medKit.setPosition(17 * medKit.getCollisionLayer().getTileWidth(), (player.getCollisionLayer().getHeight() - STARTPOSITION) * player.getCollisionLayer().getTileHeight());
@@ -92,10 +95,10 @@ public class Play implements Screen {
 
     }*/
     private <T> void createNewItems(medKit object, String picture){
-        int numberOfEnemies = 50;
+        int numberOfItems = 20;
         Random rand = new Random();
-        for (int n = 0; n < numberOfEnemies; n++) {
-            int xPos = rand.nextInt(317);
+        for (int n = 0; n < numberOfItems; n++) {
+            int xPos = rand.nextInt(3,317);
             object = new medKit(new Sprite(new Texture(picture)), (TiledMapTileLayer) map.getLayers().get(0));
             object.setPosition(xPos * object.getCollisionLayer().getTileWidth(), (object.getCollisionLayer().getHeight() - 4) * object.getCollisionLayer().getTileHeight());
             items.add(object);

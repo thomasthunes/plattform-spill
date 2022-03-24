@@ -7,23 +7,26 @@ import screens.Play;
 
 import java.util.Random;
 
-public class Enemy extends Player implements IEnemy{
+public abstract class Enemy extends Player implements IEnemy{
 
     private final int damage = 1;
     private int health = 25;
-    private final float initialX;
     private Play game;
 
     public Enemy(Sprite sprite, TiledMapTileLayer collisionLayer, Play play) {
         super(sprite, collisionLayer);
-        this.initialX = this.getX();
         this.game = play;
+        setSize((float) (getWidth()*0.4), (float) (getHeight()*0.3));
 
     }
 
     @Override
     public int getHealth() {
         return health;
+    }
+
+    public Play getGame(){
+        return game;
     }
 
     @Override
@@ -49,19 +52,15 @@ public class Enemy extends Player implements IEnemy{
     }
 
     @Override
-    public int getDamage(){
-        return damage;
-    }
+    public abstract int getDamage();
 
     @Override
-    public int getAmount() {
-        return 0;
-    }
+    public abstract int getAmount();
 
     @Override
-    public String getName() {
-        return null;
-    }
+    public abstract String getName();
+
+    public abstract void getAttack();
 
     @Override
     public void moveRight() {
@@ -99,6 +98,6 @@ public class Enemy extends Player implements IEnemy{
     }
 
     public void setHealth(int newHealth) {
-        health = newHealth;
+
     }
 }
