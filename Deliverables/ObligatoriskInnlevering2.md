@@ -131,9 +131,10 @@ For beskrivelse av hva en brukerhistorie er og hvordan vi har satt dem opp se [i
 
 | Brukerhistorier  | Akseptansekriterier | Arbeidsoppgaver |
 |---|---|---|
-| **Funksjonalitet her:**  | **Krav:** test  
-**Kriterie:** test  
-|  |  
+| **Poeng og poenggjenstander:** Som spiller/utvikler ønsker jeg å ... slik at ... Spiller har poeng og interagerer med poenggjenstander | **Krav:** test  **Kriterie:** test  |  |
+| **Fiender/monstre:** Som spiller ønsker jeg å kunne møte på fiender slik at spillet har utfordringer som gjør det spennende å spille. | **Krav:** Må kunne se en fiende som et objekt på spillebrettet.  **Kriterie:** Når spilleren treffer en fiende så mister den liv. Dersom den treffer en fiende mange nok ganger vil den til slutt dø. | For å imøtekomme akseptansekriteriene må følgende funksjonaliteter implementeres: <ul><li>test</li><li>test</li></ul> |
+| **Spiller kan dø:** Som spiller ønsker jeg mulighet til å kunne dø slik at implementasjonen av fiender blir meningsfull. Dette gir da et insentiv til å overkomme fiendene og gjør dermed spillet mer spennende. | **Krav:** test  **Kriterie:** test  |  |
+| **Funksjonalitet her:** Som spiller/utvikler ønsker jeg å ... slik at ... | **Krav:** test  **Kriterie:** test  |  |
 
  - Vise fiender/monstre; de skal interagere med terreng og spiller  
  - Fikse jump (lande raskere ved å justere farten på vei ned, bestemme én fart som gjelder for hopp og på bakken)  
