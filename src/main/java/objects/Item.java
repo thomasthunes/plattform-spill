@@ -16,6 +16,8 @@ public class Item<T> extends Sprite implements IItem<T>{
 
     private boolean canJump;
 
+    private boolean gameFinished = false;
+
     public Item(Sprite sprite, TiledMapTileLayer collisionLayer) {
         super(sprite);
         this.collisionLayer = collisionLayer;
@@ -154,13 +156,34 @@ public class Item<T> extends Sprite implements IItem<T>{
         // Update animation
     }
 
+    /*public boolean isCellFinish(float x, float y){
+        TiledMapTileLayer.Cell cell = collisionLayer.getCell((int) (x / collisionLayer.getTileWidth()), (int) (y / collisionLayer.getTileHeight()));
+        return cell.getTile().getProperties().containsKey("finish");
+    }
 
+    public boolean finishZone() {
+        int increment = collisionLayer.getTileHeight()/2;
+        for(float step = 0; step <= getWidth(); step += increment)
+            if(isCellFinish(getX() + step, getY()))
+                return true;
+        return false;
+    }*/
 
+    public boolean getGameStatus(){
+        return gameFinished;
+    }
 
 
     // Helper functions
     private boolean isCellBlocked(float x, float y) {
         TiledMapTileLayer.Cell cell = collisionLayer.getCell((int) (x / collisionLayer.getTileWidth()), (int) (y / collisionLayer.getTileHeight()));
+        boolean isFinish = cell.getTile().getProperties().containsKey("finish");
+        if (isFinish){
+            this.gameFinished = true;
+        }
+        else {
+            this.gameFinished = false;
+        }
         return cell != null && cell.getTile() != null && cell.getTile().getProperties().containsKey("blocked");
     }
 
@@ -185,7 +208,6 @@ public class Item<T> extends Sprite implements IItem<T>{
             if(isCellBlocked(getX() + step, getY() + getHeight())) // getHeight() to check at top of player
                 return true;
         return false;
-
     }
 
     public boolean collidesBottom(double increment) {

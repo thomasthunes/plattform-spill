@@ -17,6 +17,7 @@ public class mainPlayer extends Player implements IMainPlayer, InputProcessor {
     private final int damage;
     private int health = 100;
     private int killStreak = 0;
+    private boolean hasKey = false;
 
     private List<IItem> inventory;
 
@@ -34,6 +35,7 @@ public class mainPlayer extends Player implements IMainPlayer, InputProcessor {
     public void update(){
         isAttacted();
         attack();
+        playerWon();
 
         if (!inBounds()){
             setMessage("You died from falling");
@@ -56,6 +58,15 @@ public class mainPlayer extends Player implements IMainPlayer, InputProcessor {
             }
         }
         return false;
+    }
+
+    public void playerWon(){
+        if (hasKey() && getGameStatus()){
+            setMessage("Player won!");
+        }
+        else if (!hasKey() && getGameStatus()){
+            setMessage("You need to find the key before you can finish!");
+        }
     }
 
     public void attack(){
@@ -158,7 +169,16 @@ public class mainPlayer extends Player implements IMainPlayer, InputProcessor {
                 setHealth(item.getAmount());
                 usedItems.add(item);
             }
+            else if (item.getName() == "key"){
+                hasKey = true;
+                item.setState();
+                setMessage("You found the key, get to the finish zone!");
+            }
         }
+    }
+
+    public boolean hasKey(){
+        return hasKey;
     }
 
     private void removeUsedItem(List<IItem> items){
@@ -182,11 +202,10 @@ public class mainPlayer extends Player implements IMainPlayer, InputProcessor {
 
             case Input.Keys.A:
             case Input.Keys.LEFT:
-//            	if(!GetCanJump())
-//            		getVelocity().x = -getSpeed() + 50; 
-//            	else
-//            		getVelocity().x = -getSpeed();
-            	getVelocity().x = -getSpeed();
+            	if(!GetCanJump())
+            		getVelocity().x = -getSpeed() + 50;
+            	else
+            		getVelocity().x = -getSpeed();
 
                 break;
             case Input.Keys.D:

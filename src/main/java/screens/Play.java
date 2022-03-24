@@ -78,6 +78,10 @@ public class Play implements Screen {
         medKit.setPosition(17 * medKit.getCollisionLayer().getTileWidth(), (player.getCollisionLayer().getHeight() - STARTPOSITION) * player.getCollisionLayer().getTileHeight());
         items.add(medKit);
 
+        Key key = new Key(new Sprite(new Texture("assets/maps/key.png")), (TiledMapTileLayer) map.getLayers().get(0));
+        key.setPosition(12 * key.getCollisionLayer().getTileWidth(), (key.getCollisionLayer().getHeight() - STARTPOSITION) * key.getCollisionLayer().getTileHeight());
+        items.add(key);
+
 
         Gdx.input.setInputProcessor((InputProcessor) player);
         createNewItems(medKit, "assets/maps/medkit.png");
@@ -152,6 +156,7 @@ public class Play implements Screen {
 
         font.draw(renderer.getBatch(), "Current Health: " + player.getHealth(), player.getX(), player.getY() - 30);
         font.draw(renderer.getBatch(), player.getMessage(), player.getX() + 200, player.getY() - 30);
+        font.draw(renderer.getBatch(), "FINISH ZONE!", 487 * player.getCollisionLayer().getTileWidth(), (player.getCollisionLayer().getHeight() - 18) * player.getCollisionLayer().getTileHeight());
 
 
         /*System.out.println("PLayer y: " + player.getY());
