@@ -127,6 +127,13 @@ Her vi valgt å fokusere på å oppnå målene fra MVP-listen som er gitt i oppg
 **Hvordan ny funksjonalitet prioriteres:**  
 
 ### 2.2.2 Brukerhistorier
+For beskrivelse av hva en brukerhistorie er og hvordan vi har satt dem opp se [innledende kommentar](https://git.app.uib.no/scrumbois/plattform-spill/-/blob/master/Deliverables/ObligatoriskOppgave1.md#32-brukerhistorier) fra første innlevering. Brukerhistoriene her følger samme format, og er oppsummert sammen med akseptansekriterier og arbeidsoppgaver i tabellen under. Etter tabellen følger det også en prioritert liste over hvilke brukerhistorier vi ønsker å ha med i første sprint/iterasjon.  
+
+| Brukerhistorier  | Akseptansekriterier | Arbeidsoppgaver |
+|---|---|---|
+| **Funksjonalitet her:**  | **Krav:** test  
+**Kriterie:** test  
+|  |  
 
  - Vise fiender/monstre; de skal interagere med terreng og spiller  
  - Fikse jump (lande raskere ved å justere farten på vei ned, bestemme én fart som gjelder for hopp og på bakken)  
