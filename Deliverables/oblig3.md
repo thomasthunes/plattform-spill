@@ -97,7 +97,7 @@ For beskrivelse av hva en brukerhistorie er og hvordan vi har satt dem opp se [i
 2. Keys og poenggjenstander  
 3. 
 
-Jobber også med å bytte map når spiller har kommet til mål/portal, og utbedre mappet.  
+Jobber også med å bytte map når spiller har kommet til mål/portal, utbedring mappet og mål for spillet.  
 
 **Hvor langt vi har kommet og hva vi har gjort siden forrige gang:** 
 
