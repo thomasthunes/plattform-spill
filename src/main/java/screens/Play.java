@@ -13,8 +13,11 @@ import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 
+import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.Event;
 import inf112.skeleton.app.Player;
 
+import inf112.skeleton.app.app;
 import objects.*;
 import org.lwjgl.opengl.GL20;
 
@@ -22,7 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Play implements Screen {
+public class Play extends Event implements Screen {
 
     // CONSTANTS
     private final int STARTPOSITION = 38;
@@ -37,13 +40,20 @@ public class Play implements Screen {
     private BitmapFont font;
     private List<Enemy> enemies = new ArrayList<>();
     private List<Item> items = new ArrayList<>();
+    private int gameCount = 0;
+    private String currentMap;
+    private app app;
 
+    public Play(String currentMap, app app){
+        this.currentMap = currentMap;
+        this.app = app;
+    }
 
     @Override
     public void show() {
     	//batch = new SpriteBatch();
         TmxMapLoader loader = new TmxMapLoader();
-        map = loader.load("assets/maps/map1.tmx");
+        map = loader.load(currentMap);//loader.load("assets/maps/map1.tmx");
 
         renderer = new OrthogonalTiledMapRenderer(map);
 
@@ -125,6 +135,7 @@ public class Play implements Screen {
 
     @Override
     public void render(float v) {
+        //nextMap();
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
@@ -226,5 +237,30 @@ public class Play implements Screen {
         map.dispose();
         renderer.dispose();
         player.getTexture().dispose();
+
     }
+
+    /*public void nextMap(){
+        if (player.playerWon()){
+            app.changeMap();
+            //new Play(currentMap, app);
+            //this.stop();
+            //dispose();
+            //gameCount++;
+            //this.app.create();
+            //return true;
+
+        }
+        //System.out.println(gameCount);
+        //return false;
+    }*/
 }
+
+
+
+
+
+
+
+
+
