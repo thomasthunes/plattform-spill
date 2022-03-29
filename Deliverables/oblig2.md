@@ -115,12 +115,6 @@ Her vi valgt å fokusere på å oppnå målene fra MVP-listen som er gitt i oppg
 
 ## 2.2 MVP og annet
 
-### 2.2.1 Krav og funksjonalitet
-*Hele 2.2.1 bør vurderes å sette inn under 2.2.2*
-
-*"Oppgave: Oppdater hvilke krav dere har prioritert, hvor langt dere har kommet og hva dere har gjort siden forrige gang. Er dere kommet forbi MVP? Forklar hvordan dere prioriterer ny funksjonalitet"*  
-
-
 ### 2.2.2 Brukerhistorier
 For beskrivelse av hva en brukerhistorie er og hvordan vi har satt dem opp se [innledende kommentar](https://git.app.uib.no/scrumbois/plattform-spill/-/blob/master/Deliverables/ObligatoriskOppgave1.md#32-brukerhistorier) fra første innlevering. Brukerhistoriene her følger samme format, og er oppsummert sammen med akseptansekriterier og arbeidsoppgaver i tabellen under. Etter tabellen følger det også en prioritert liste over hvilke brukerhistorier vi ønsker å ha med i første sprint/iterasjon.  
 
@@ -144,11 +138,11 @@ For beskrivelse av hva en brukerhistorie er og hvordan vi har satt dem opp se [i
 
 **Hvordan ny funksjonalitet prioriteres:** Ny funksjonalitet prioriteres etter hvordan koden kan gjenbrukes. For eksempel, har vi prioritert å legge til funksjonalitet for liv fremfor poenggjenstander da vi vet at mye av funksjonaliteten for liv kan gjenbrukes på poenggjenstander. Det gjelder for eksempel funksjonalitet for å plukke opp et objekt. På denne måten ser vi for oss at det vil være enkelt og raskt å legge til poenggjenstander etter at liv er implementert.   
 
- **Hvordan oppgavene fremover blir prioritert:** Fremover vil vi implementere funksjonalitet for poenggjenstander og meny-skjerm, og deretter starte på funksjonalitet for multiplayer.  
+**Hvordan oppgavene fremover blir prioritert:** Fremover vil vi implementere funksjonalitet for poenggjenstander og meny-skjerm, og deretter starte på funksjonalitet for multiplayer.  
 
- **Endringer i rekkefølge på MVP utfra det som er gitt fra kunde:** Poenggjenstander er nedprioritert da vi har fokusert på objekter som gir spilleren liv. Her tenker vi at vi enkelt vil kunne gjenbruke denne koden for å legge inn poenggjenstander også.  
+**Endringer i rekkefølge på MVP utfra det som er gitt fra kunde:** Poenggjenstander er nedprioritert da vi har fokusert på objekter som gir spilleren liv. Her tenker vi at vi enkelt vil kunne gjenbruke denne koden for å legge inn poenggjenstander også.  
 
- **Bugs i koden/kravene som er utført:**  
+**Bugs i koden/kravene som er utført:**  
  - Map'et følger ikke skjermen når spilleren går helt til enden av map'et. Da blir skjermen svart på sidene.  
  - Dersom du endrer størrelsen på skjermen til spillet så blir den svart og alle gjenstander forsvinner.  
  - Noen av datamaskinene vi har kjørt spillet på lar ikke spilleren hoppe på en fiende og deretter hoppe på en ny fiende. Den kan kun hoppe på én fiende.   
@@ -163,9 +157,6 @@ For beskrivelse av hva en brukerhistorie er og hvordan vi har satt dem opp se [i
 
 **Nåværende Prjoct Board:**  
 ![alt text](/assets/maps/trello2.png)
-
-Bilde av klassediagram her (kan muligens droppes til denne innleveringen)
-
 
 
 
