@@ -93,9 +93,11 @@ For beskrivelse av hva en brukerhistorie er og hvordan vi har satt dem opp se [i
 | **Brukerhistorie her:** Som spiller/utvikler ønsker jeg å ... når jeg ... slik at ... | <ul><li>**Krav:** </li><li>**Kriterie:** </li></ul>  | Liste på funksjonaliteter som må implementeres for å imøtekomme akseptansekriteriene: <ol type="1"><li>Noe her</li><li>Noe her</li><li>Noe her</li></ol> |
 
 **Prioritert liste på krav:**  
-1. 
-2. 
-3.  
+1. Start-skjerm og game over  
+2. Keys og poenggjenstander  
+3. 
+
+Jobber også med å bytte map når spiller har kommet til mål/portal, og utbedre mappet.  
 
 **Hvor langt vi har kommet og hva vi har gjort siden forrige gang:** 
 
