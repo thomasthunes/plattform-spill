@@ -1,4 +1,4 @@
-package inf112.skeleton.app;
+/*package inf112.skeleton.app;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -38,3 +38,4 @@ public class PlayerTest {
 		assertEquals(100, p.getHealth());
 	}
 }
+*/

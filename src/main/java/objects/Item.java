@@ -12,7 +12,7 @@ public class Item<T> extends Sprite implements IItem<T>{
     private TiledMapTileLayer collisionLayer;
     private Vector2 velocity = new Vector2();
 
-    private float speed = 60 * 2, gravity = 60 * 1f;
+    private float speed = 150 /*60 * 2*/, gravity = 140 * 1f;
 
     private boolean canJump;
 

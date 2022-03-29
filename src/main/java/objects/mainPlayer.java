@@ -60,13 +60,15 @@ public class mainPlayer extends Player implements IMainPlayer, InputProcessor {
         return false;
     }
 
-    public void playerWon(){
+    public boolean playerWon(){
         if (hasKey() && getGameStatus()){
             setMessage("Player won!");
+            return true;
         }
         else if (!hasKey() && getGameStatus()){
             setMessage("You need to find the key before you can finish!");
         }
+        return false;
     }
 
     public void attack(){
@@ -195,25 +197,25 @@ public class mainPlayer extends Player implements IMainPlayer, InputProcessor {
 
             case Input.Keys.SPACE:
                 if(GetCanJump())
-                    getVelocity().y = getSpeed()+250 / 1.8f;
+                    getVelocity().y = getSpeed()/*+250 / 1.8f*/;
                 SetCanJump(false);
 
                 break;
 
             case Input.Keys.A:
             case Input.Keys.LEFT:
-            	if(!GetCanJump())
+            	/*if(!GetCanJump())
             		getVelocity().x = -getSpeed() + 50;
-            	else
-            		getVelocity().x = -getSpeed();
+            	else*/
+                getVelocity().x = -getSpeed();
 
                 break;
             case Input.Keys.D:
             case Input.Keys.RIGHT:
-            	if(!GetCanJump())
+            	/*if(!GetCanJump())
             		getVelocity().x = getSpeed() - 50;
-            	else
-            		getVelocity().x = getSpeed();
+            	else*/
+                getVelocity().x = getSpeed();
                 break;
 
             case Input.Keys.P:

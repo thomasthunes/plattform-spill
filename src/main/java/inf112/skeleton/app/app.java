@@ -2,14 +2,39 @@ package inf112.skeleton.app;
 
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Game;
+import jdk.jfr.Event;
 import screens.Play;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class app extends Game {
+
+    private int currentMap;
+    private List<String> maps = new ArrayList<>();
+    private Play play;
+
+    public app(){
+        maps.add("assets/maps/map1.tmx");
+        maps.add("assets/maps/map2.tmx");
+        currentMap = 0;
+    }
+
     @Override
     public void create() {
-        setScreen(new Play());
+        this.play = new Play(maps.get(currentMap), this);
+        setScreen(play);
+        currentMap++;
+
+
 
     }
+
+    /*public void changeMap(){
+        this.play.dispose();
+        if (maps.size() > currentMap)
+            create();
+    }*/
 
     @Override
     public void resize(int width, int height) {
@@ -34,5 +59,8 @@ public class app extends Game {
     @Override
     public void dispose() {
         super.dispose();
+        //if (play.nextMap()){
+        //create();
+       // }
     }
 }
