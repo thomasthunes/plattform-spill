@@ -16,6 +16,12 @@ public class bombs extends Enemy{
         this.name = "bomb";
     }
 
+
+    @Override
+    public int getHealth() {
+        return hp;
+    }
+
     @Override
     public int getDamage() {
         return 0;
@@ -31,12 +37,12 @@ public class bombs extends Enemy{
         return name;
     }
 
-    public boolean isAlive(){
+    /*public boolean isAlive(){
         if (hp > 0){
             return true;
         }
         return false;
-    }
+    }*/
 
     @Override
     public void loseHealth(int damage) {
@@ -51,6 +57,6 @@ public class bombs extends Enemy{
         Player player = getGame().getPlayer();
         player.getVelocity().y = player.getSpeed()+250 / 1.8f;
         player.getVelocity().x = player.getSpeed()+50;
-        this.loseHealth(hp);
+        loseHealth(hp);
     }
 }

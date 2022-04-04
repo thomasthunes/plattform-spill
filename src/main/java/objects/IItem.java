@@ -26,7 +26,7 @@ public interface IItem<T> {
      * changes the isAlive field variable to false
      * letting the play know that the item should not be drawn
      */
-    public void setState();
+    public void setAliveToFalse();
 
     /**
      * boolean representing the state of the item

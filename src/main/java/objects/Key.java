@@ -9,6 +9,7 @@ public class Key extends Item{
 
     public Key(Sprite sprite, TiledMapTileLayer collisionLayer) {
         super(sprite, collisionLayer);
+        setSize((float) (getWidth()*0.2), (float) (getHeight()*0.2));
     }
 
     public String getName(){

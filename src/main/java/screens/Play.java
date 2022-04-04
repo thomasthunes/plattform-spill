@@ -13,7 +13,6 @@ import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 
-import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Event;
 import inf112.skeleton.app.Player;
 
@@ -23,7 +22,6 @@ import org.lwjgl.opengl.GL20;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class Play extends Event implements Screen {
 
@@ -39,14 +37,17 @@ public class Play extends Event implements Screen {
     //private Enemy enemy;
     private BitmapFont font;
     private List<Enemy> enemies = new ArrayList<>();
+    private List<Enemy> bats = new ArrayList<>();
     private List<Item> items = new ArrayList<>();
     private int gameCount = 0;
     private String currentMap;
     private app app;
+    private ItemFactory itemFactory;
 
     public Play(String currentMap, app app){
         this.currentMap = currentMap;
         this.app = app;
+        this.itemFactory = new ItemFactory();
     }
 
     @Override
@@ -67,57 +68,37 @@ public class Play extends Event implements Screen {
         //camera.update();
 
         player = new mainPlayer(new Sprite(new Texture("assets/maps/mario.png")), (TiledMapTileLayer) map.getLayers().get(0), this);//new Player(new Sprite(new Texture("assets/maps/mario.png")), (TiledMapTileLayer) map.getLayers().get(0));
-        player.setPosition(7 * player.getCollisionLayer().getTileWidth(), (player.getCollisionLayer().getHeight() - STARTPOSITION) * player.getCollisionLayer().getTileHeight());
+        player.setPosition(10 /*293*/ * player.getCollisionLayer().getTileWidth(), (player.getCollisionLayer().getHeight() - STARTPOSITION /*42*/) * player.getCollisionLayer().getTileHeight());
 
-        int numberOfEnemies = 50;
-        Random rand = new Random();
-        for (int n = 0; n < numberOfEnemies; n++) {
-            int xPos = rand.nextInt(317);
-            monster monster = new monster(new Sprite(new Texture("assets/maps/monster.png")), (TiledMapTileLayer) map.getLayers().get(0), this);
-            monster.setPosition(xPos * monster.getCollisionLayer().getTileWidth(), (monster.getCollisionLayer().getHeight() - 4) * monster.getCollisionLayer().getTileHeight());
-            enemies.add(monster);
-        }
+        /*
+        Player player2 = new mainPlayer(new Sprite(new Texture("assets/maps/mario.png")), (TiledMapTileLayer) map.getLayers().get(0), this);//new Player(new Sprite(new Texture("assets/maps/mario.png")), (TiledMapTileLayer) map.getLayers().get(0));
+        player2.setPosition(10 * player2.getCollisionLayer().getTileWidth(), (player2.getCollisionLayer().getHeight() - STARTPOSITION) * player2.getCollisionLayer().getTileHeight());
+         */
 
-        bombs bombs = new bombs(new Sprite(new Texture("assets/maps/bomb.png")), (TiledMapTileLayer) map.getLayers().get(0), this);//new Player(new Sprite(new Texture("assets/maps/mario.png")), (TiledMapTileLayer) map.getLayers().get(0));
-        bombs.setPosition(14 * bombs.getCollisionLayer().getTileWidth(), (bombs.getCollisionLayer().getHeight() - STARTPOSITION) * bombs.getCollisionLayer().getTileHeight());
+        Bat bat = new Bat(new Sprite(new Texture("assets/maps/mario.png")), (TiledMapTileLayer) map.getLayers().get(0), this);
+        bat.setPosition(325 * bat.getCollisionLayer().getTileWidth(), (bat.getCollisionLayer().getHeight() - 42) * bat.getCollisionLayer().getTileHeight());
 
-        enemies.add(bombs);
+        enemies = itemFactory.getNextBomb(20, map, this);
+        enemies = itemFactory.getNextMonster(30, map, this);
+        enemies = itemFactory.getNextBat(map, this, bats);
+        itemFactory.getVampire(map, this, enemies);
 
-
-        medKit = new medKit(new Sprite(new Texture("assets/maps/medkit.png")), (TiledMapTileLayer) map.getLayers().get(0));
-        medKit.setPosition(17 * medKit.getCollisionLayer().getTileWidth(), (player.getCollisionLayer().getHeight() - STARTPOSITION) * player.getCollisionLayer().getTileHeight());
-        items.add(medKit);
-
-        Key key = new Key(new Sprite(new Texture("assets/maps/key.png")), (TiledMapTileLayer) map.getLayers().get(0));
-        key.setPosition(12 * key.getCollisionLayer().getTileWidth(), (key.getCollisionLayer().getHeight() - STARTPOSITION) * key.getCollisionLayer().getTileHeight());
-        items.add(key);
-
+        items = itemFactory.getNextMedkit(30, map, this);
+        items = itemFactory.getKey(map, this);
 
         Gdx.input.setInputProcessor((InputProcessor) player);
-        createNewItems(medKit, "assets/maps/medkit.png");
     }
 
-    /*private <T> void createNewItems(Item<T> object, String picture){
-        int numberOfEnemies = 50;
-        Random rand = new Random();
-        for (int n = 0; n < numberOfEnemies; n++) {
-            int xPos = rand.nextInt(317);
-            object = new Item<T>(new Sprite(new Texture(picture)), (TiledMapTileLayer) map.getLayers().get(0));
-            object.setPosition(xPos * object.getCollisionLayer().getTileWidth(), (object.getCollisionLayer().getHeight() - 4) * object.getCollisionLayer().getTileHeight());
-            items.add(object);
-        }
+    public List<Enemy> getBats(){
+        return bats;
+    }
 
-    }*/
-    private <T> void createNewItems(medKit object, String picture){
-        int numberOfItems = 20;
-        Random rand = new Random();
-        for (int n = 0; n < numberOfItems; n++) {
-            int xPos = rand.nextInt(317);
-            object = new medKit(new Sprite(new Texture(picture)), (TiledMapTileLayer) map.getLayers().get(0));
-            object.setPosition(xPos * object.getCollisionLayer().getTileWidth(), (object.getCollisionLayer().getHeight() - 4) * object.getCollisionLayer().getTileHeight());
-            items.add(object);
-        }
+    public ItemFactory getItemFactory(){
+        return itemFactory;
+    }
 
+    public TiledMap getMap(){
+        return map;
     }
 
     public Player getPlayer(){ 
