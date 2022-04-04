@@ -56,19 +56,13 @@ public class Item<T> extends Sprite implements IItem<T>{
         return isAlive;
     }
 
-    public void setState(){
+    public void setAliveToFalse(){
         isAlive = false;
     }
 
     public int getAmount(){
         return 0;
     }
-    // -------------------------------------________---------------
-
-    //private ArrayList<TiledMapTileLayer.Cell> blockedCells = new ArrayList<>();
-    //private int health = getHealth();// = 100;
-
-    //private String message = "";
 
     @Override
     public void draw(Batch batch) {
@@ -79,9 +73,11 @@ public class Item<T> extends Sprite implements IItem<T>{
 
     public Boolean inBounds(){
         if (getX() / collisionLayer.getTileWidth() < 0 || getX() / collisionLayer.getTileWidth() >= collisionLayer.getWidth()){
+            this.setAliveToFalse();
             return false;
         }
         if (getY() / collisionLayer.getTileHeight() < 0 || getY() / collisionLayer.getTileHeight() >= collisionLayer.getHeight()) {
+            this.setAliveToFalse();
             return false;
         }
         return true;
@@ -175,7 +171,7 @@ public class Item<T> extends Sprite implements IItem<T>{
 
 
     // Helper functions
-    private boolean isCellBlocked(float x, float y) {
+    protected boolean isCellBlocked(float x, float y) {
         TiledMapTileLayer.Cell cell = collisionLayer.getCell((int) (x / collisionLayer.getTileWidth()), (int) (y / collisionLayer.getTileHeight()));
         boolean isFinish = cell.getTile().getProperties().containsKey("finish");
         if (isFinish){
@@ -216,17 +212,6 @@ public class Item<T> extends Sprite implements IItem<T>{
                 return true; // collidesBottom() is true if player collides with collision layer
         return false; // false if player do not collide with collision layer
     }
-
-	/*public ArrayList<TiledMapTileLayer.Cell> getBlockedCells(){
-		int widths = collisionLayer.getWidth();
-		int heights = collisionLayer.getHeight();
-		for (int width = 0; width < widths; width++){
-			for (int height = 0; height < heights; height++){
-				blockedCells.add(collisionLayer.getCell(width, height));
-			}
-		}
-		return blockedCells;
-	}*/
 
 
     public Vector2 getVelocity() {

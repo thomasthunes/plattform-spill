@@ -51,6 +51,7 @@ public abstract class Enemy extends Player implements IEnemy{
         }
     }
 
+
     @Override
     public abstract int getDamage();
 
@@ -77,7 +78,7 @@ public abstract class Enemy extends Player implements IEnemy{
     }
 
     public boolean isAlive(){
-        if (getHealth() > 0){
+        if (getHealth() > 0 && super.isAlive()){
             return true;
         }
         //setState();

@@ -47,12 +47,12 @@ public class monster extends Enemy{
         health = newHealth;
     }
 
-    public boolean isAlive(){
+    /*public boolean isAlive(){
         if (getHealth() > 0){
             return true;
         }
         return false;
-    }
+    }*/
 
     @Override
     public void loseHealth(int damage) {

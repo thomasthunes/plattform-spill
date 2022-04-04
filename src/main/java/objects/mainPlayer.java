@@ -82,22 +82,6 @@ public class mainPlayer extends Player implements IMainPlayer, InputProcessor {
         }
     }
 
-    /*public boolean collidesWithActorFromSide(Enemy enemy) {
-        if (this.getX() < enemy.getX() + 30 && this.getX() > enemy.getX() - 30){
-            return true;
-        }
-        return false;
-    }
-
-    public boolean collidesWithActorFromTop(Enemy enemy){
-        double thisY = Math.floor(this.getY());
-        double enemyY = Math.floor(enemy.getY());
-
-        if (thisY == enemyY + 30){
-            return true;
-        }
-        return false;
-    }*/
 
 
     @Override
@@ -167,13 +151,13 @@ public class mainPlayer extends Player implements IMainPlayer, InputProcessor {
         List<IItem> usedItems = new ArrayList<>();
         for (IItem item : inventory){
             if (item.getName() == "MedKit" && item.isAlive()){
-                item.setState();
+                item.setAliveToFalse();
                 setHealth(item.getAmount());
                 usedItems.add(item);
             }
             else if (item.getName() == "key"){
                 hasKey = true;
-                item.setState();
+                item.setAliveToFalse();
                 setMessage("You found the key, get to the finish zone!");
             }
         }
@@ -191,7 +175,9 @@ public class mainPlayer extends Player implements IMainPlayer, InputProcessor {
     @Override
     public boolean keyDown(int keycode) {
         for (Enemy enemy : game.getEnemies()){
-            enemy.move();
+            if (enemy.getName() != "bat") {
+                enemy.move();
+            }
         }
         switch(keycode) {
 
