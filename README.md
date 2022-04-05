@@ -7,7 +7,7 @@
  - Jonas Holgersen
  - Jon Kvinnsland  
 
-**Prosjektbeskrivelse:** I dette spillet styrer du en spiller med enten piltaster eller ASWD, og bruker space til å la spilleren hoppe. Målet er å ikke dø, det vil si å ikke miste så mye liv at liv blir 0. Spilleren mister liv når den er i kontakt med en fiende, men kan drepe fienden ved å hoppe oppå den. Spilleren kan også plukke opp liv ved å trykke på "P" når den står på et liv-objekt (en rød sekk med et hvitt kors på).For å vinne spillet må en først finne nøkkelen og så komme seg til målsonen.
+**Prosjektbeskrivelse:** I dette spillet styrer du en spiller med enten piltaster eller ASWD, og bruker space til å la spilleren hoppe. Målet er å ikke dø, det vil si å ikke miste så mye liv at liv blir 0. Spilleren mister liv når den er i kontakt med en fiende, men kan drepe fienden ved å hoppe oppå den. Spilleren kan også plukke opp liv ved å trykke på "P" når den står på et liv-objekt (en rød sekk med et hvitt kors på). For å vinne spillet må en først finne nøkkelen og så ta med seg nøkkelen til målsonen.
 
 
 # Teknisk produktoppsett
