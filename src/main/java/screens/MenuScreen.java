@@ -28,6 +28,8 @@ public class MenuScreen extends Game implements Screen  {
 	private Texture exitButton_inactive;
 	private Texture playButton;
 	
+	
+	
 	public List<String> maps = new ArrayList<>();
 	
 	public MenuScreen(app game) {
@@ -40,6 +42,7 @@ public class MenuScreen extends Game implements Screen  {
 		exitButton_active = new Texture("assets/maps/exit_button_active.png");
 		exitButton_inactive = new Texture("assets/maps/exit_button_inactive.png");
 		playButton = new Texture("assets/maps/playbutton.png");
+		
 		
 		
 		batch = new SpriteBatch();
