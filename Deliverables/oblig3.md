@@ -34,7 +34,7 @@ Møtereferatene oppsummerer hva som har blitt disuktert på de ulike møtene, ev
 
 **Deltakere:** Alle  
 
-**Diskusjon:** På dette møtet diskuterte vi hvordan vi ønsker å implementere funksjonalitet for poeng og poenggjenstander. Her fant vi ut at spillet blir mest interessant dersom fiendene er gjenstander for poeng, slik at spilleren må drepe fienden for å oppnå poeng. Videre drøftet Karl noen utfordringer knyttet til implementasjonen av meny-skjerm, og bidro Thomas og Magnus med innspill på hvordan disse utfordringene kunne løses. Vi diskuterte også implementasjonen av flere ulike spillebrett. Her så vi at det finnes flere ulike tilnærminger. Thomas sier han er usikker på hvilken implementasjon som vil passe best, men sier han vil undersøke det nærmere.  
+**Diskusjon:** På dette møtet diskuterte vi hvordan vi ønsker å implementere funksjonalitet for poeng og poenggjenstander. Her fant vi ut at spillet blir mest interessant dersom fiendene er gjenstander for poeng, slik at spilleren må drepe fienden for å oppnå poeng. Videre drøftet Karl noen utfordringer knyttet til implementasjonen av meny-skjerm, og bidro Thomas og Magnus med innspill på hvordan disse utfordringene kunne løses. Vi diskuterte også implementasjonen av flere ulike spillebrett. Her så vi at det finnes flere ulike tilnærminger. Thomas sier han er usikker på hvilken implementasjon som vil passe best, men at han vil undersøke dette nærmere.  
 
 **Avgjørelser:** Vi tok en avgjørelse på å la fiender være poenggjenstander der spilleren øker antall poeng etter å ha drept en fiende.   
 
@@ -71,35 +71,32 @@ Våre erfaringer når det gjelder gruppedynamikk er også de samme som sist. Uke
 Kommunikasjonen i gruppen har fortsatt fungert bra, og her har vi ikke merket oss noen spesifikke nye erfaringer siden sist. Vi bruker de samme informasjonskanalene som tidligere, og vi lytter og viser respekt til hverandres meninger i diskusjoner. De ukentlige møtene sørger også for god kommunikasjon i gruppen.  
 
 ### 1.2.5 Retrospektiv vurdering av prosjektstruktur
-**Vurdering av hva vi har klart til nå:**  
+**Vurdering av hva vi har klart til nå:** Frem til nå har vi brukt Scrum-rammeverket godt. Vi har hatt ukentlige møter og oppdatert vårt Project Board fortløpende med nye arbeidsoppgaver. På denne måten har vi hatt god kommunikasjon og god oversikt på utviklingen i prosjektet. Vi gjør oss ellers det samme bemerkninger som sist, nemlig at parkoding har vært effektivt for å øke kvaliteten i koden og få frem flere idéer. Se forøvrig svar på de andre deloppgavene over, tilsvarende deloppgaver fra forrige innlevering og møtereferatene for refleksjon på hvordan vi vurderer kommunikasjon og arbeid i gruppen.
 
-**Hva vi mener kan forbedres:**  
+Når det gjelder forbedringspotensialene vi har satt oss fra forrige innlevering så ser vi at vi har blitt vesentlig flinkere på samtlige. Vi opplever fortsatt noe problemer med push/pull av kode fra git, men vi har studert feilmeldingene nøye slik at vi har oppnådd en bedre forståelse av hvorfor vi opplever de problemene vi har. Blant annet har vi merket at vi må være nøye på å pulle kode fra git slik at en alltid har den siste versjonen av koden før en så pusher egne endringer til git. Når det gjelder fordeling av arbeidsoppgaver har vi også blitt mer effektiv og sørget for at alle har noe å jobbe med. For eksempel, så diskturer vi på hvert møte hvordan vi skal fordele arbeidsoppgavene fra Project Boardet frem mot neste møte. Vi har også blitt bedre på fordeling av ressurser gjennom å sette mer treffsikre tidsintervaller på hvor lang tid vi antar at det tar for å implementere en ny funksjonalitet. For eksempel, så har Karl både klart å fullføre brukerhistorien for meny-skjerm og samtidig begynt på brukerhistorien for lyd innenfor samme innleveringsperiode.  
+
+**Hva vi mener kan forbedres:** Frem mot neste innlevering mener vi at vi kan bli flinkere til å ...
 
 
 ### 1.2.6 Forskjeller i commits
-Vi har hatt noe forskjeller commits mellom teammedlemmer underveis i prosjektet. Dette skyldes at vi har brukt mye parkoding slik at det ofte kun er én av to som comitter koden til git. Videre har vi også fordelt arbeidet slik at noen fokuserer mer på å skrive rapport. Dette bidrar også til ulikheter i commits.  
+Fra oblig 1: "Vi har hatt noen forskjeller underveis i prosjektet i antall commits mellom teammedlemmer. Dette skyldes at vi har brukt mye parkoding slik at det ofte kun er én av to som comitter koden til git. Videre har vi også fordelt arbeidet slik at noen fokuserer mer på å skrive rapport. Dette bidrar også til ulikheter i commits."  
 
 ### 1.2.7 Forbedring
 Basert på den retrospektive vurderingen ([1.2.5](#125-retrospektiv-vurdering-av-prosjektstruktur)) har vi satt opp følgende liste med forbedringspotensialer til neste sprint:  
-1. 
-2. 
-3. 
+1. Forbedre beskrivelse på ulike arbeidsoppgaver i Project Board  
+2.  
+3.  
 
 # 2. Krav
-I denne delen av oppgaven vil vi gå gjennom (1) ... og (2) ...
+I denne delen av oppgaven vil vi gå gjennom (1) vårt stretch goal for oppgaven og (2) brukerhistorier fra MVP med tilhørende oppfølgingsspørsmål.  
 
 ## 2.1 "Stretch goal"
-
+Som stretch goal har vi valgt å fokusere på funksjonalitet for multiplayer. Vi har startet litt på å implentere denne funksjonaliteten, men har forsatt en del igjen. Videre fokuserer vi også på å ha høy kvalitet på koden, godt design og klare abstraksjoner.  
 
 ## 2.2 MVP og annet
+I denne delen av oppgaven vil vi (1) oppsummere brukerhistoriene og (2) svare på oppfølgingsspørsmål knyttet til brukerhistoriene og kommentere kjente bugs knyttet til dem.  
 
-### 2.2.1 Krav og funksjonalitet
-*Hele 2.2.1 bør vurderes å sette inn under 2.2.2*
-
-*"Oppgave: Oppdater hvilke krav dere har prioritert, hvor langt dere har kommet og hva dere har gjort siden forrige gang. Er dere kommet forbi MVP? Forklar hvordan dere prioriterer ny funksjonalitet"* 
-
-
-### 2.2.2 Brukerhistorier
+### 2.2.1 Brukerhistorier
 For beskrivelse av hva en brukerhistorie er og hvordan vi har satt dem opp se [innledende kommentar](https://git.app.uib.no/scrumbois/plattform-spill/-/blob/master/Deliverables/ObligatoriskOppgave1.md#32-brukerhistorier) fra første innlevering. Brukerhistoriene her følger samme format, og er oppsummert sammen med akseptansekriterier og arbeidsoppgaver i tabellen under. Etter tabellen følger det også en prioritert liste over hvilke brukerhistorier vi ønsker å ha med i første sprint/iterasjon.  
 
 | Brukerhistorier  | Akseptansekriterier | Arbeidsoppgaver |
@@ -119,27 +116,32 @@ For beskrivelse av hva en brukerhistorie er og hvordan vi har satt dem opp se [i
 | **Brukerhistorie her:** Som spiller/utvikler ønsker jeg å ... når jeg ... slik at ... | <ul><li>**Krav:** </li><li>**Kriterie:** </li></ul>  | Liste på funksjonaliteter som må implementeres for å imøtekomme akseptansekriteriene: <ol type="1"><li>Noe her</li><li>Noe her</li><li>Noe her</li></ol> |
 | **Brukerhistorie her:** Som spiller/utvikler ønsker jeg å ... når jeg ... slik at ... | <ul><li>**Krav:** </li><li>**Kriterie:** </li></ul>  | Liste på funksjonaliteter som må implementeres for å imøtekomme akseptansekriteriene: <ol type="1"><li>Noe her</li><li>Noe her</li><li>Noe her</li></ol> |
 
+### 2.2.2 Oppfølgingsspørsmål brukerhistorier
 **Prioritert liste på krav:**  
-1. Start-skjerm og game over  
-2. Keys og poenggjenstander (poeng = drepe fiende)  
-3. 
+1. Start-skjerm  
+2. Poeng  
+3. Nøkkel  
+4. Lyd  
+5. Game Over-skjerm  
 
-Jobber også med å bytte map når spiller har kommet til mål/portal, utbedring mappet, tester og mål for spillet.  
+**Hvor langt vi har kommet og hva vi har gjort siden forrige gang:** Siden forrige gang har vi implementert meny-skjerm og forbedret eksisterende kode som for eksempel å legge til flere typer fiender, i tillegg til å legge til en sone på spillebrettet for der spilleren er ferdig med spillet. Vi har også utvidet spillebrettet og lagt til flere spillebrett for spilleren.  
 
-**Hvor langt vi har kommet og hva vi har gjort siden forrige gang:** 
+**Hvordan ny funksjonalitet prioriteres:** Frem til denne innleveringen har vi valgt å prioritere alle kravene fra MVP bortsett fra vårt stretch goal om multiplayer. Vi har imidlertid startet på implementasjonen for multiplayer, men har hatt hovedfokuset på å sikre god kvalitet i spillet til de andre kravene fra MVP.    
 
-**Hvordan ny funksjonalitet prioriteres:**  
+**Hvordan oppgavene fremover blir prioritert:** Fremover vil vi prioritere implementasjonen av multiplayer, da dette er den siste viktige implementasjonen av spillet. Vi er godt fornøyde med de øvrige implementasjonen og vil dermed bruke lite ressurser på forbedring av disse fremover.  
 
-**Hvordan oppgavene fremover blir prioritert:**  
+**Endringer i rekkefølge på MVP utfra det som er gitt fra kunde:** I denne innleveringen har vi ikke foretatt nye endringer i rekkefølgen på MVP siden sist.  
 
-**Endringer i rekkefølge på MVP utfra det som er gitt fra kunde:**  
-
-**Bugs i koden/kravene som er utført:**
- - Når du resizer vinduet så faller spilleren ut av spillet.    
-
+**Bugs i koden/kravene som er utført:**  
+*Fra forrige innlevering:*  
+"
+ - Map'et følger ikke skjermen når spilleren går helt til enden av map'et. Da blir skjermen svart på sidene.  
+ - Dersom du endrer størrelsen på skjermen til spillet så blir den svart og alle gjenstander forsvinner. Når du resizer vinduet så faller spilleren ut av spillet  
+ - Noen av datamaskinene vi har kjørt spillet på lar ikke spilleren hoppe på en fiende og deretter hoppe på en ny fiende. Den kan kun hoppe på én fiende.  
+"  
 
 # 3. Produkt og kode
-I denne delen av oppgaven vil vi gjennomgå (1) ... og (2) ...  
+I denne delen av oppgaven vil vi gjennomgå (1) utbedring av feil fra forrige innlevering og (2) øvrige kommentarer.  
 
 ## 3.1 Utbedring av feil 
 **Feil fikset fra forrige innlevering:**   
