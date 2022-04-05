@@ -65,9 +65,10 @@ Våre drøftelser knyttet til erfaringer og valg er omtrent de samme som ved for
 **Valg underveis:** Når det gjelder valg underveis gjør vi oss de samme betraktninger som sist, nemlig at vi er fornøyde med hvordan vi har håndtert ulike valg. Gjennom diskusjoner av ulike valgalternativer og mulige konsekvenser har vi også denne gang vært trygge på de valgene vi har tatt. 
 
 ### 1.2.3 Gruppedynamikk
-
+Våre erfaringer når det gjelder gruppedynamikk er også de samme som sist. Ukentlige team-møter har gitt god oversikt på utviklingsprosessen, og åpenhet i diskusjonene har bidratt til god gruppedynamikk. Vi har fortsatt med å ha forventningsavklaringer til hverandre slik at vi unngår misfortåelser og opprettholder god kommunikasjon. Vi har også vært enda tydeligere på arbeidsoppgavene i vårt Project Board for å forbedre gruppedynamikken. Vi konkluderer med at valget av prosjektmetodikk (Scrum) lagt godt til rette for en god gruppedynamikk.  
 
 ### 1.2.4 Kommunikasjon
+Kommunikasjonen i gruppen har fortsatt fungert bra, og her har vi ikke merket oss noen spesifikke nye erfaringer siden sist. Vi bruker de samme informasjonskanalene som tidligere, og vi lytter og viser respekt til hverandres meninger i diskusjoner. De ukentlige møtene sørger også for god kommunikasjon i gruppen.  
 
 ### 1.2.5 Retrospektiv vurdering av prosjektstruktur
 **Vurdering av hva vi har klart til nå:**  
