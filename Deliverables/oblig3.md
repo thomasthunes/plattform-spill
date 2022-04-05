@@ -23,22 +23,22 @@ Møtereferatene oppsummerer hva som har blitt disuktert på de ulike møtene, ev
 
 **Deltakere:** Alle  
 
-**Diskusjon:** På dette møtet reflekterte vi kort over hvordan vi syntes at utviklingen i prosjektet har vært frem til nå. Vi diskuterer blant annet rollefordelingen og kommer frem til at denne har fungert bra. Vi blir dermed enige om å fortsette med samme rollefordeling. Videre diskuterte vi hvilke brukerhistorier vi vil fokusere på å implementere fram mot neste innlevering, og hvordan vi skulle fordele arbeidsoppgavene.   
+**Diskusjon:** På dette møtet reflekterte vi kort over hvordan vi syntes at utviklingen i prosjektet har vært frem til nå. Vi diskuterte blant annet rollefordelingen og om det var noe behov for å endre på denne. Her ble vi enige om å fortsette med samme rollefordeling da dette har fungert bra frem til nå. Videre diskuterte vi hvilke brukerhistorier vi vil fokusere på å implementere fram mot neste innlevering, og hvordan vi skulle fordele arbeidsoppgavene. Vi satte opp brukerhistoriene i en liste (se [2.2.2 Brukerhistorier](#222-brukerhistorier)) og oppdaterte vårt Project Board på de nye arbeidsoppgavene.   
 
 **Avgjørelser:** Vi tok en beslutning på å beholde samme rollefordeling som vi har hatt frem til nå.  
 
-**Arbeidsoppgaver til neste møte:**  
+**Arbeidsoppgaver til neste møte:** Karl fortsetter på å implementere Menu-screen. Jon starter på rapporten til neste innlevering. Thomas jobber med å forbedre koden slik at den blir mer oversiktlig, og jobber med å utvide spillebrettet. Jonas jobber videre med tester og Thomas avlaster de andre der det er behov.  
 
 ### 1.1.2 Møte 2
 **Dato:** 05.04  
 
 **Deltakere:** Alle  
 
-**Diskusjon:** På dette møtet diskuterte vi ...  
+**Diskusjon:** På dette møtet diskuterte vi hvordan vi ønsker å implementere funksjonalitet for poeng og poenggjenstander. Her fant vi ut at spillet blir mest interessant dersom fiendene er gjenstander for poeng, slik at spilleren må drepe fienden for å oppnå poeng. Videre drøftet Karl noen utfordringer knyttet til implementasjonen av meny-skjerm, og bidro Thomas og Magnus med innspill på hvordan disse utfordringene kunne løses. Vi diskuterte også implementasjonen av flere ulike spillebrett. Her så vi at det finnes flere ulike tilnærminger. Thomas sier han er usikker på hvilken implementasjon som vil passe best, men sier han vil undersøke det nærmere.  
 
-**Avgjørelser:**  
+**Avgjørelser:** Vi tok en avgjørelse på å la fiender være poenggjenstander der spilleren øker antall poeng etter å ha drept en fiende.   
 
-**Arbeidsoppgaver til neste møte:** 
+**Arbeidsoppgaver til neste møte/innlevering 08.04:** Thomas fokuserer på implementeringen av flere spillebrett. Jon ferdigstiller rapporten til innleveringen. Karl fikser de siste implementasjonene som trengs for at meny-skjermen skal fungere og starter på brukerhistorien om lyd. Jonas fortsetter å jobbe med tester og Magnus fikser forbedringspotensialer fra forrige innlevering slik som å oppdatere README-filen med prosjektbeskrivelse og teknisk produktoppsett.  
 
 ## 1.2 Oppsummering av team og prosjekt  
 I denne delen av oppgaven oppsummerer vi hvordan arbeidet i gruppen har vært og reflekterer over utviklingen i vårt prosjekt.  
