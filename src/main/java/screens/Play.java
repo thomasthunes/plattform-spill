@@ -61,12 +61,6 @@ public class Play extends Event implements Screen {
         camera = new OrthographicCamera();
         font = new BitmapFont();
 
-        //TiledMapTileLayer layer1 = (TiledMapTileLayer) map.getLayers().get("Board");
-
-        //camera.setToOrtho(false,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        //cam.position.set(cam.viewportWidth/2f, cam.viewportHeight/2f, 0);
-        //camera.update();
-
         player = new mainPlayer(new Sprite(new Texture("assets/maps/mario.png")), (TiledMapTileLayer) map.getLayers().get(0), this);//new Player(new Sprite(new Texture("assets/maps/mario.png")), (TiledMapTileLayer) map.getLayers().get(0));
         player.setPosition(10 /*293*/ * player.getCollisionLayer().getTileWidth(), (player.getCollisionLayer().getHeight() - STARTPOSITION /*42*/) * player.getCollisionLayer().getTileHeight());
 

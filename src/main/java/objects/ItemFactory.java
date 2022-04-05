@@ -16,6 +16,7 @@ public class ItemFactory {
     private final int LENGTH_OF_SPAWN = 317;
     private final int XVampire = 315;
     private final int YVampire = 16;
+    private final int NUMBEROFBATS = 100;
 
 
     private List<Enemy> enemies;
@@ -26,6 +27,13 @@ public class ItemFactory {
         items = new ArrayList<>();
     }
 
+    /**
+     *
+     * @param amount
+     * @param map
+     * @param play
+     * @return n number of monsters in a list
+     */
     public List<Enemy> getNextMonster(int amount, TiledMap map, Play play){
         for (int i = 0; i < amount; i++){
             int xPos = getNextXPos();
@@ -36,6 +44,13 @@ public class ItemFactory {
         return enemies;
     }
 
+    /**
+     *
+     * @param amount
+     * @param map
+     * @param play
+     * @return n number of bombs-objects in a list
+     */
     public List<Enemy> getNextBomb(int amount, TiledMap map, Play play){
         for (int i = 0; i < amount; i++){
             int xPos = getNextXPos();
@@ -46,6 +61,13 @@ public class ItemFactory {
         return enemies;
     }
 
+    /**
+     *
+     * @param map
+     * @param play
+     * @param enemies
+     * @return the vampire object
+     */
     public Vampire getVampire(TiledMap map, Play play, List<Enemy> enemies){
         int xPos = 316;
         int yPos = 36;
@@ -55,8 +77,15 @@ public class ItemFactory {
         return vampire;
     }
 
+    /**
+     *
+     * @param map
+     * @param play
+     * @param bats
+     * @return n bats in a list
+     */
     public List<Enemy> getNextBat(TiledMap map, Play play, List<Enemy> bats){
-        int amount = 100;
+        int amount = NUMBEROFBATS;
         int xPos = 316;
         int yPos = 36;
         for (int i = 0; i < amount; i++) {
@@ -69,6 +98,13 @@ public class ItemFactory {
 
     }
 
+    /**
+     *
+     * @param amount
+     * @param map
+     * @param play
+     * @return n number of medkit-objects in a list
+     */
     public List<Item> getNextMedkit(int amount, TiledMap map, Play play){
         for (int n = 0; n < amount; n++) {
             int xPos = getNextXPos();
@@ -83,7 +119,7 @@ public class ItemFactory {
      *
      * @param map
      * @param play
-     * @return
+     * @return  the key-object
      */
     public List<Item> getKey(TiledMap map, Play play){
         Key key = new Key(new Sprite(new Texture("assets/maps/key.png")), (TiledMapTileLayer) map.getLayers().get(0));
@@ -92,6 +128,10 @@ public class ItemFactory {
         return items;
     }
 
+    /**
+     *
+     * @return random x position for new objects to spawn
+     */
     public int getNextXPos(){
         Random rand = new Random();
         int xPos = rand.nextInt(LENGTH_OF_SPAWN);
