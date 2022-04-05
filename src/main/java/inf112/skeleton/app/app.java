@@ -2,7 +2,10 @@ package inf112.skeleton.app;
 
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Gdx;
+
 import jdk.jfr.Event;
+import screens.MenuScreen;
 import screens.Play;
 
 import java.util.ArrayList;
@@ -10,8 +13,8 @@ import java.util.List;
 
 public class app extends Game {
 
-    private int currentMap;
-    private List<String> maps = new ArrayList<>();
+    public int currentMap;
+    public List<String> maps = new ArrayList<>();
     private Play play;
 
     public app(){
@@ -22,9 +25,13 @@ public class app extends Game {
 
     @Override
     public void create() {
-        this.play = new Play(maps.get(currentMap), this);
-        setScreen(play);
+//        this.play = new Play(maps.get(currentMap), this);
+//
+//        setScreen(play);
+    	
+    	setScreen(new MenuScreen(this));
         currentMap++;
+        
 
 
 
