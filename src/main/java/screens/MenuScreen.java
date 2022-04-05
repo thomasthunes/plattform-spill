@@ -26,6 +26,7 @@ public class MenuScreen extends Game implements Screen  {
 	private Texture playButton_inactive;
 	private Texture exitButton_active;
 	private Texture exitButton_inactive;
+	private Texture playButton;
 	
 	public List<String> maps = new ArrayList<>();
 	
@@ -38,6 +39,7 @@ public class MenuScreen extends Game implements Screen  {
 		playButton_inactive = new Texture("assets/maps/play_button_inactive.png");
 		exitButton_active = new Texture("assets/maps/exit_button_active.png");
 		exitButton_inactive = new Texture("assets/maps/exit_button_inactive.png");
+		playButton = new Texture("assets/maps/playbutton.png");
 		
 		
 		batch = new SpriteBatch();
@@ -87,12 +89,16 @@ public class MenuScreen extends Game implements Screen  {
     	}
     	
     	
+    	batch.draw(playButton, 350, 600, 100, 100);
     	
+    	if(Gdx.input.getX() < 450 && Gdx.input.getX() > 350 && Gdx.input.getY() > 100 && Gdx.input.getY() < 200) {
+        	if(Gdx.input.isTouched()) {
+        		Gdx.app.exit();
+        		
+        	}
+    	}
     	
-//    	if(Gdx.input.isTouched()) {
-//    		this.dispose();
-//    		game.setScreen(new Play(maps.get(0), game));
-//    	}
+
 
     	batch.end();
 
@@ -129,6 +135,7 @@ public class MenuScreen extends Game implements Screen  {
 		playButton_inactive.dispose();
 		exitButton_active.dispose();
 		exitButton_inactive.dispose();
+		playButton.dispose();
 
 	}
 	@Override
