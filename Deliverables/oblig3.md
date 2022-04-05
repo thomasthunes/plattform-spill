@@ -29,6 +29,17 @@ Møtereferatene oppsummerer hva som har blitt disuktert på de ulike møtene, ev
 
 **Arbeidsoppgaver til neste møte:**  
 
+### 1.1.2 Møte 2
+**Dato:** 05.04  
+
+**Deltakere:** Alle  
+
+**Diskusjon:** På dette møtet diskuterte vi ...  
+
+**Avgjørelser:**  
+
+**Arbeidsoppgaver til neste møte:** 
+
 ## 1.2 Oppsummering av team og prosjekt  
 I denne delen av oppgaven oppsummerer vi hvordan arbeidet i gruppen har vært og reflekterer over utviklingen i vårt prosjekt.  
 ### 1.2.1 Roller  
@@ -90,11 +101,17 @@ For beskrivelse av hva en brukerhistorie er og hvordan vi har satt dem opp se [i
 | **Spiller kan dø:** Som spiller ønsker jeg mulighet til å kunne dø slik at implementasjonen av fiender blir meningsfull. Dette gir da et insentiv til å overkomme fiendene og gjør dermed spillet mer spennende. | <ul><li>**Krav:** Dersom spilleren dør kan den ikke lenger bevege seg i spillet og spillet er dermed over.  </li><li>**Kriterie:** Når spilleren har mistet en gitt mengde med liv skal den være død.</li></ul>  | Liste på funksjonaliteter som må implementeres for å imøtekomme akseptansekriteriene: <ol type="1"><li>Implementere metoden isAttacked. Denne metoden vil kalle på funksjonen getAttack når spilleren blir angrepet.</li><li>Implementere getAttack: Denne funksjonen vil enten sette ned liv på spiller eller forlytte spilleren, avhengig av om fienden er en bombe eller en fiende som dreper/setter ned liv.</li><li>Implementere metoden Attack: Denne metoden iterer over alle fiender og sjekker om spiller kolliderer med en fiende fra toppen eller fra siden.</li><li>Implementere metodene collidesWithActorFromTop og collidesWithActorFromSide i klassen Item som skal brukes i Attack.</li><li>Implementere metoden inBounds som sjekker om spiller faller ut av mappet, og i så fall la spilleren miste liv slik at den dør.</li></ol> |
 | **Liv:** Som spiller ønsker jeg å å kunne plukke opp liv slik at jeg kan helbrede meg selv etter å ha truffet på en fiende, og på denne måten unngå å dø. | <ul><li>**Krav:** Objekter som gir spilleren liv må være plassert på spillebrettet.  </li><li>**Kriterie:** Når spilleren går bort til et liv-objekt kan den plukke opp pakken med liv ved å trykke på "P" slik at liv til spilleren øker.</li></ul> | Liste på funksjonaliteter som må implementeres for å imøtekomme akseptansekriteriene: <ol type="1"><li>Implementere PickUpItem-funksjonen som (1) sjekker at spiller er på item, (2) sjekker om item er av typen *medkit* (liv) og (3) kaller på setHealth()-funksjonen.</li><li>Implementere klassen Medkits som extender Item-klassen. Denne klassen oppretter liv-objekter.</li><li>Implementere GetAmount()-funksjonen i Medkits som henter feltvariabelen som indikerer verdien til liv-objektet.</li><li>Implementere setHealth()-funksjonen som øker liv med den gitte mengden som liv-objektet har.</li></ol> |
 | **Spiller kan bli flyttet på av fiende:** Som spiller ønsker jeg å bli ufrivillig flyttet på spillebrettet når jeg treffer en fiende (bombe) slik at spillet blir mer utfordrene å spille. | <ul><li>**Krav:** Et fiende-objekt (bombe) må kunne flytte spilleren ved kontakt.  </li><li>**Kriterie:** Spilleren blir flyttet bortover spillebrettet uten at spilleren kan påvirke forflytningen.</li></ul> | Liste på funksjonaliteter som må implementeres for å imøtekomme akseptansekriteriene: <ol type="1"><li>Implementere klassen Bombs som extender klassen Enemy. Her defineres det som er spesielt for bombs-objektet, som f.eks type angrep.</li><li>Kalle på getAttack-funksjonen som deretter vil endre på *velocity* til spilleren slik at den flyttes på.</li></ol> |
+| **Nøkkel:** Som spiller ønsker jeg å kunne plukke opp en nøkkel når jeg beveger meg gjennom spillebrettet slik at spillet blir utfordrene og har et mål ved seg (plukke opp nøkkel og gå i mål). Nøkkelen kreves for å vinne spillet. | <ul><li>**Krav:** Spiller må ha plukket opp nøkkel <ins>før</ins> spilleren går i mål-området for å kunne vinne spillet.</li><li>**Kriterie:** Det må finnes en nøkkel på spillebrettet, og spilleren må ha mulighet til å plukke opp denne nøkkelen.</li></ul>  | Liste på funksjonaliteter som må implementeres for å imøtekomme akseptansekriteriene: <ol type="1"><li>Noe her</li><li>Noe her</li><li>Noe her</li></ol> |
+| **Start-skjerm:** Som spiller ønsker jeg å kunne se en start-skjerm med en meny når jeg starter spillet slik at jeg kan velge om jeg skal (1) starte spillet med én spiller (Play), eller om jeg (2) skal starte spillet med multiplayer eller (3) om jeg ønsker å avslutte spillet (Exit).  | <ul><li>**Krav:** En meny med ulike valgalternativer må komme opp på skjermen når spillet startes (kjører filen *Main*). </li><li>**Kriterie:** Spilleren må kunne et alternativ fra menyen. </li></ul>  | Liste på funksjonaliteter som må implementeres for å imøtekomme akseptansekriteriene: <ol type="1"><li>Noe her</li><li>Noe her</li><li>Noe her</li></ol> |
+| **Poeng:** Som spiller ønsker jeg å ha mulighet til å få poeng når jeg spiller slik at jeg kan sammenlikne min egen prestasjon mot tidligere spill av meg selv eller andre. På denne måten kan jeg som spiller måle om jeg har blitt flinkere i spillet. | <ul><li>**Krav:** Gjenstander som gir poeng må være plassert på spillebrettet. I vårt spill har vi valgt at fiender/monstre skal være gjenstander som gir poeng når spilleren dreper disse (hopper på de). </li><li>**Kriterie:** Spiller må ha mulighet til å interagere med gjenstandene som gir poeng, altså å hoppe på fienden slik at den dør. Videre må antall poeng for spilleren må oppdateres når spilleren interagerer med gjenstanden som gir poeng (hopper på fienden). </li></ul>  | Liste på funksjonaliteter som må implementeres for å imøtekomme akseptansekriteriene: <ol type="1"><li>Noe her</li><li>Noe her</li><li>Noe her</li></ol> |
+| **Lyd:** Som spiller ønsker jeg å kunne høre lyd når jeg spiller slik at det blir mer spennende og interessant å spille. | <ul><li>**Krav:** Det må være mulig å høre lyder fra spillet når spillet kjøres.</li><li>**Kriterie:** Det må være ulike lyder for ulike deler av spillet som tilfører en mening/verdi til spilleren. Dette gjelder egen bakgrunnslyd for meny-skjerm, egen bakgrunnslyd for første spillebrett, andre spillebrett osv. I tillegg må det også være lydeffekter når spilleren plukker opp gjenstander eller treffer en fiende.</li></ul>  | Liste på funksjonaliteter som må implementeres for å imøtekomme akseptansekriteriene: <ol type="1"><li>Noe her</li><li>Noe her</li><li>Noe her</li></ol> |
+| **Game Over-skjerm:** Som spiller ønsker jeg å se en skjerm som viser "Game Over" når jeg dør i spillet slik at det blir tydelig for spilleren at spillet er over. | <ul><li>**Krav:** En egen skjerm som viser "Game Over" må vises når spilleren dør.</li><li>**Kriterie:** Game Over-skjermen vises når spilleren har mistet alt liv og dermed er død.</li></ul>  | Liste på funksjonaliteter som må implementeres for å imøtekomme akseptansekriteriene: <ol type="1"><li>Noe her</li><li>Noe her</li><li>Noe her</li></ol> |
+| **Brukerhistorie her:** Som spiller/utvikler ønsker jeg å ... når jeg ... slik at ... | <ul><li>**Krav:** </li><li>**Kriterie:** </li></ul>  | Liste på funksjonaliteter som må implementeres for å imøtekomme akseptansekriteriene: <ol type="1"><li>Noe her</li><li>Noe her</li><li>Noe her</li></ol> |
 | **Brukerhistorie her:** Som spiller/utvikler ønsker jeg å ... når jeg ... slik at ... | <ul><li>**Krav:** </li><li>**Kriterie:** </li></ul>  | Liste på funksjonaliteter som må implementeres for å imøtekomme akseptansekriteriene: <ol type="1"><li>Noe her</li><li>Noe her</li><li>Noe her</li></ol> |
 
 **Prioritert liste på krav:**  
 1. Start-skjerm og game over  
-2. Keys og poenggjenstander  
+2. Keys og poenggjenstander (poeng = drepe fiende)  
 3. 
 
 Jobber også med å bytte map når spiller har kommet til mål/portal, utbedring mappet, tester og mål for spillet.  
@@ -107,7 +124,8 @@ Jobber også med å bytte map når spiller har kommet til mål/portal, utbedring
 
 **Endringer i rekkefølge på MVP utfra det som er gitt fra kunde:**  
 
-**Bugs i koden/kravene som er utført:**  
+**Bugs i koden/kravene som er utført:**
+ - Når du resizer vinduet så faller spilleren ut av spillet.    
 
 
 # 3. Produkt og kode
