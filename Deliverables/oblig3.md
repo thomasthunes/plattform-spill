@@ -23,9 +23,9 @@ Møtereferatene oppsummerer hva som har blitt disuktert på de ulike møtene, ev
 
 **Deltakere:** Alle  
 
-**Diskusjon:** På dette møtet diskuterte vi hvilke brukerhistorier vi vil fokusere på å implementere fram mot neste innlevering, og hvordan vi skulle fordele arbeidsoppgavene.  
+**Diskusjon:** På dette møtet reflekterte vi kort over hvordan vi syntes at utviklingen i prosjektet har vært frem til nå. Vi diskuterer blant annet rollefordelingen og kommer frem til at denne har fungert bra. Vi blir dermed enige om å fortsette med samme rollefordeling. Videre diskuterte vi hvilke brukerhistorier vi vil fokusere på å implementere fram mot neste innlevering, og hvordan vi skulle fordele arbeidsoppgavene.   
 
-**Avgjørelser:**  
+**Avgjørelser:** Vi tok en beslutning på å beholde samme rollefordeling som vi har hatt frem til nå.  
 
 **Arbeidsoppgaver til neste møte:**  
 
@@ -43,10 +43,17 @@ Møtereferatene oppsummerer hva som har blitt disuktert på de ulike møtene, ev
 ## 1.2 Oppsummering av team og prosjekt  
 I denne delen av oppgaven oppsummerer vi hvordan arbeidet i gruppen har vært og reflekterer over utviklingen i vårt prosjekt.  
 ### 1.2.1 Roller  
-*Kort oppsummering av roller her*  
+Siden forrige innlevering (25.03) har vi merket lite behov for endring i vår rollefordeling. Basert på den positive erfaringen vi har hatt frem til nå med rollefordelingen har vi besluttet å fortsette med den samme rollefordelingen. Fra forrige innlevering merker vi også nå at hver enkelt gruppemedlem har spesialisert seg enda bedre i sin egen rolle. På denne måten drar vi godt nytte av å beholde samme rollefordeling, da økt spesialisering i hver enkelt rolle har bidratt til enda bedre kvalitet og effektivitet i arbeidet. Når det gjelder hva de ulike rollene faktisk innebærer for oss er det lite endringer fra forrige innlevering (25.03). Likevel har vi merket oss følgende:  
 
-*Person1* har merket at sin rolle som *rolle* innebærer at han må ...  
+Thomas har merket at sin rolle som teamleder innebærer at han fortsatt må være tilstede på alle gruppemøter for å holde oversikt på utviklingsprosessen. Dette gjelder også spesielt nå som vi har startet på en ny innleveringsoppgave og skal implementere nye funksjonaliteter til spillet. Han merker også at han er blitt flinkere på å fordele arbeidsoppgaver fra sist.  
 
+Magnus har merket at sin rolle som prosjektansvarlig innebærer at han forsatt må ha god oversikt på brukerhistoriene og ressursbruken som kreves for å implementere de. Dette gjelder spesielt nå som vi har lagt til flere nye brukerhistorier i listen vår. Her merker også Magnus at han må samarbeide med Karl (Scrum Master) for å bistå Karl på hvilke detaljer som skal føres opp på de ulike arbeidsoppgavene i Project Boardet. Ellers merker også Magnus at han i rollen som prosjektansvarlig har blitt bedre på å fordele ressurser til implementasjonen av de ulike brukerhistoriene siden forrige innlevering.  
+
+Karl har merket rollen som Scrum Master innebærer at han må være nøye på å spesifisere arbeidsoppgavene i backloggen slik at det blir tydelig og klart for hver enkelt gruppemedlem hva som skal gjøres. Ellers gjør Karl seg sine samme betraktninger som sist, nemlig at han må holde de andre gruppemedlemmene oppdatert på hvilke arbeidsoppgaver vi har i backloggen til enhver tid. Dette gjelder også spesielt for alle de nye arbeidsoppgavene som er kommet som følge av flere nye brukerhistorier.  
+
+Jonas merker at sin rolle som testansvarlig innebærer at han fortsatt må ha god forståelse for hvordan koden fungerer. Her merker han også at han kontinuerlig må oppdatere seg på hvilke implementasjoner spillet inneholder, da dette stadig endres etter hvert som nye funksjonaliteter legges inn.  
+
+Jon har merket at rollen som kundekontakt innebærer at han må forsette å opprettholde kundekontakten frem mot neste innlevering. Han merker at han må være aktiv på å informere de andre gruppemedlemmene på hvilke forbedringspotensialer som kunden peker fra forrige innlevering, og sørge for at alle gruppemedlemmene vet hva som må gjøre for å imøtekomme kundens forslag til forbedringspotensialer.  
 
 ### 1.2.2 Erfaringer og valg  
 **Erfaringer team:**  
