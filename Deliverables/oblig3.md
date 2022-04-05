@@ -23,7 +23,7 @@ Møtereferatene oppsummerer hva som har blitt disuktert på de ulike møtene, ev
 
 **Deltakere:** Alle  
 
-**Diskusjon:** På dette møtet reflekterte vi kort over hvordan vi syntes at utviklingen i prosjektet har vært frem til nå. Vi diskuterte blant annet rollefordelingen og om det var noe behov for å endre på denne. Her ble vi enige om å fortsette med samme rollefordeling da dette har fungert bra frem til nå. Videre diskuterte vi hvilke brukerhistorier vi vil fokusere på å implementere fram mot neste innlevering, og hvordan vi skulle fordele arbeidsoppgavene. Vi satte opp brukerhistoriene i en liste (se [2.2.2 Brukerhistorier](#222-brukerhistorier)) og oppdaterte vårt Project Board på de nye arbeidsoppgavene.   
+**Diskusjon:** På dette møtet reflekterte vi kort over hvordan vi syntes at utviklingen i prosjektet har vært frem til nå. Vi diskuterte blant annet rollefordelingen og om det var noe behov for å endre på denne. Her ble vi enige om å fortsette med samme rollefordeling da dette har fungert bra frem til nå. Videre diskuterte vi hvilke brukerhistorier vi vil fokusere på å implementere fram mot neste innlevering, og hvordan vi skulle fordele arbeidsoppgavene. Vi satte opp brukerhistoriene i en liste (se [2.2.2 Brukerhistorier](#221-brukerhistorier)) og oppdaterte vårt Project Board på de nye arbeidsoppgavene.   
 
 **Avgjørelser:** Vi tok en beslutning på å beholde samme rollefordeling som vi har hatt frem til nå.  
 
