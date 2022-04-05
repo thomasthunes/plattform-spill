@@ -53,17 +53,19 @@ Karl har merket rollen som Scrum Master innebærer at han må være nøye på å
 
 Jonas merker at sin rolle som testansvarlig innebærer at han fortsatt må ha god forståelse for hvordan koden fungerer. Her merker han også at han kontinuerlig må oppdatere seg på hvilke implementasjoner spillet inneholder, da dette stadig endres etter hvert som nye funksjonaliteter legges inn.  
 
-Jon har merket at rollen som kundekontakt innebærer at han må forsette å opprettholde kundekontakten frem mot neste innlevering. Han merker at han må være aktiv på å informere de andre gruppemedlemmene på hvilke forbedringspotensialer som kunden peker fra forrige innlevering, og sørge for at alle gruppemedlemmene vet hva som må gjøre for å imøtekomme kundens forslag til forbedringspotensialer.  
+Jon har merket at rollen som kundekontakt innebærer at han må forsette å opprettholde kundekontakten frem mot neste innlevering. Han merker at han må være aktiv på å informere de andre gruppemedlemmene på hvilke forbedringspotensialer som kunden peker fra forrige innlevering, og sørge for at alle gruppemedlemmene vet hva som må gjøres for å imøtekomme kundens forslag til forbedringspotensialer.  
 
 ### 1.2.2 Erfaringer og valg  
-**Erfaringer team:**  
+Våre drøftelser knyttet til erfaringer og valg er omtrent de samme som ved forrige innlevering, da vi merker at vi ikke har jobbet lenge nok fra forrige innlevering til å gjøre oss noen vesentlige nye erfaringer.  
 
-**Erfaringer prosjektmetodikk:**   
+**Erfaringer team:** Erfaringene vi har gjort oss i teamet er at rollefordelingen har fungert bra, i tillegg til at vi har dratt nytte av samarbeid på tvers av roller som for eksempel mellom prosjektansvarlig og Scrum Master med tanke på brukerhistorier og arbeidsoppgaver i Project Board. Teammøtene har også bidratt til at vi kan diskutere mulige forbedringspotensialer fra forrige innlevering og hvordan vi kan løse disse. Ellers fortsetter vi også med parprogrammering da erfaringene har vist at dette gir gode resultater.  
 
-**Valg underveis:**   
+**Erfaringer prosjektmetodikk:** Når det gjelder erfaringer relatert til prosjektmetodikk har vi merket fra forrige innlevering at tydeligere beskrivelse av de konkrete arbeidsoppgaver i backloggen har bidratt til mer effektiv ressursutnyttelse da det blir enklere å estimere hvor lang tid en gitt arbeidsoppgave tar. Ellers er erfaringene knyttet til prosjektmetodikk de samme som sist, nemlig at Scrum-rammeverket med Project Board, backlogger og ukentlige møter legger godt til rette for et effektivt samarbeid.  
 
+**Valg underveis:** Når det gjelder valg underveis gjør vi oss de samme betraktninger som sist, nemlig at vi er fornøyde med hvordan vi har håndtert ulike valg. Gjennom diskusjoner av ulike valgalternativer og mulige konsekvenser har vi også denne gang vært trygge på de valgene vi har tatt. 
 
 ### 1.2.3 Gruppedynamikk
+
 
 ### 1.2.4 Kommunikasjon
 
