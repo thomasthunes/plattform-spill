@@ -39,6 +39,10 @@ public class Vampire extends Enemy{
 
     }
 
+    /**
+     * returns true if the player is within range of bats
+     * @return boolean
+     */
     public boolean playerInRange(){
         Player player = game.getPlayer();
         if (player.getX() > this.getX() - 500 && player.getX() < this.getX() + 500)
@@ -46,6 +50,10 @@ public class Vampire extends Enemy{
         return false;
     }
 
+    /**
+     * throws the bats by calling the move method from bats
+     * the vampire itself does not move
+     */
     @Override
     public void move(){
         //Stands still

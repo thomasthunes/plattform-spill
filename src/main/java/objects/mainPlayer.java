@@ -46,13 +46,17 @@ public class mainPlayer extends Player implements IMainPlayer, InputProcessor {
         }
     }
 
+    /**
+     * loops through all enemies to see if the player collides with any of them
+     * if true, the player is affected, with whatever attack specified in getAttack
+     * @return boolean
+     */
     private boolean isAttacted() {
         for (Enemy enemy : game.getEnemies()){
             double thisY = Math.floor(this.getY());
             double enemyY = Math.floor(enemy.getY());
 
             if (collidesWithActorFromSide(this, enemy) && thisY == enemyY && enemy.isAlive()){
-                //loseHealth(enemy.getDamage());
                 enemy.getAttack();
                 return true;
             }
@@ -60,6 +64,11 @@ public class mainPlayer extends Player implements IMainPlayer, InputProcessor {
         return false;
     }
 
+    /**
+     * displays "game over" if player has picked up the key, and the player is on the finish pad
+     * displays instructions if the player is on the finish pad, but does not have the key
+     * @return boolean
+     */
     public boolean playerWon(){
         if (hasKey() && getGameStatus()){
             setMessage("Player won!");
@@ -71,6 +80,9 @@ public class mainPlayer extends Player implements IMainPlayer, InputProcessor {
         return false;
     }
 
+    /**
+     * kills the enemy if the player jumps on the enemy
+     */
     public void attack(){
         for (Enemy enemy : game.getEnemies()) {
             if (collidesWithActorFromTop(this, enemy) && collidesWithActorFromSide(this, enemy) && getVelocity().y < 0) {
@@ -99,6 +111,10 @@ public class mainPlayer extends Player implements IMainPlayer, InputProcessor {
         return null;
     }
 
+    /**
+     * adds an item to the inventory list
+     * @param item
+     */
     @Override
     public void addItem(IItem item) {
         inventory.add(item);
@@ -126,16 +142,9 @@ public class mainPlayer extends Player implements IMainPlayer, InputProcessor {
         }
     }
 
-    /*@Override
-    public void setMessage(String newMessage){
-        message = newMessage;
-    }
-
-    @Override
-    public String getMessage() { 
-        return message;
-    }*/
-
+    /**
+     *
+     */
     public void pickUpItem(){
         for (Item item : game.getItems()) {
             double thisY = Math.floor(this.getY());
@@ -190,17 +199,11 @@ public class mainPlayer extends Player implements IMainPlayer, InputProcessor {
 
             case Input.Keys.A:
             case Input.Keys.LEFT:
-            	/*if(!GetCanJump())
-            		getVelocity().x = -getSpeed() + 50;
-            	else*/
                 getVelocity().x = -getSpeed();
 
                 break;
             case Input.Keys.D:
             case Input.Keys.RIGHT:
-            	/*if(!GetCanJump())
-            		getVelocity().x = getSpeed() - 50;
-            	else*/
                 getVelocity().x = getSpeed();
                 break;
 
