@@ -1,7 +1,9 @@
 package objects;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import inf112.skeleton.app.Player;
@@ -18,6 +20,8 @@ public class mainPlayer extends Player implements IMainPlayer, InputProcessor {
     private int health = 100;
     private int killStreak = 0;
     private boolean hasKey = false;
+    
+    public Sound jump;
 
     private List<IItem> inventory;
 
@@ -28,6 +32,7 @@ public class mainPlayer extends Player implements IMainPlayer, InputProcessor {
         game = play;
         this.damage = 50;
         this.inventory = new ArrayList<>();
+        jump = Gdx.audio.newSound(Gdx.files.internal("assets/sounds/jump.wav"));
     }
 
 
@@ -191,8 +196,11 @@ public class mainPlayer extends Player implements IMainPlayer, InputProcessor {
         switch(keycode) {
 
             case Input.Keys.SPACE:
-                if(GetCanJump())
+                if(GetCanJump()) {
                     getVelocity().y = getSpeed()/*+250 / 1.8f*/;
+                    jump.play();
+                }
+                
                 SetCanJump(false);
 
                 break;
