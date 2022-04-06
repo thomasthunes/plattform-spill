@@ -212,6 +212,8 @@ public class Play extends Event implements Screen {
         map.dispose();
         renderer.dispose();
         player.getTexture().dispose();
+        player.jump.dispose();
+        
 
     }
 

@@ -8,6 +8,7 @@ import org.lwjgl.opengl.GL20;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
@@ -26,7 +27,8 @@ public class MenuScreen extends Game implements Screen  {
 	private Texture playButton_inactive;
 	private Texture exitButton_active;
 	private Texture exitButton_inactive;
-	private Texture playButton;
+	private Texture twoPlayer_symbol;
+	private Music menu_music;
 	
 	
 	
@@ -36,14 +38,17 @@ public class MenuScreen extends Game implements Screen  {
 		
 		maps.add("assets/maps/map1.tmx");
 		this.game = game;
-		background = new Texture("assets/maps/background.png");
+		background = new Texture("assets/maps/game_background.png");
 		playButton_active = new Texture("assets/maps/play_button_active.png");
 		playButton_inactive = new Texture("assets/maps/play_button_inactive.png");
 		exitButton_active = new Texture("assets/maps/exit_button_active.png");
 		exitButton_inactive = new Texture("assets/maps/exit_button_inactive.png");
-		playButton = new Texture("assets/maps/playbutton.png");
+		twoPlayer_symbol = new Texture("assets/maps/twoplayer.png");
 		
-		
+		menu_music = Gdx.audio.newMusic(Gdx.files.internal("assets/sounds/menuscreen_audio.mp3"));
+		menu_music.setLooping(true);
+		menu_music.setVolume(0.3f);
+		menu_music.play();
 		
 		batch = new SpriteBatch();
 	}
@@ -67,41 +72,43 @@ public class MenuScreen extends Game implements Screen  {
     	batch.draw(background, 0, 0, 800, 800);
     	  	
     	
-    	if(Gdx.input.getX() < 500 && Gdx.input.getX() > 300 && Gdx.input.getY() < 500 && Gdx.input.getY() > 300) {
-    		batch.draw(playButton_active, 300, 300, 200, 200);
+    	if(Gdx.input.getX() < 500 && Gdx.input.getX() > 300 && Gdx.input.getY() < 400 && Gdx.input.getY() > 300) {
+    		batch.draw(playButton_active, 320, 380, 150, 120);
         	if(Gdx.input.isTouched()) {
         		this.dispose();
         		game.setScreen(new Play(maps.get(0), game));
         	}
     	}
     	else {
-    		batch.draw(playButton_inactive, 300, 300, 200, 200);
+    		batch.draw(playButton_inactive, 320, 380, 150, 120);
     	}
     	
-    	if(Gdx.input.getX() < 450 && Gdx.input.getX() > 350 && Gdx.input.getY() > 500 && Gdx.input.getY() < 600) {
-    		batch.draw(exitButton_active, 350, 200, 100, 100);
+    	if(Gdx.input.getX() < 450 && Gdx.input.getX() > 350 && Gdx.input.getY() > 440 && Gdx.input.getY() < 520) {
+    		batch.draw(exitButton_active, 350, 270, 100, 100);
         	if(Gdx.input.isTouched()) {
         		Gdx.app.exit();
         		
         	}  	
-
     		
     	}
     	else {
-    		batch.draw(exitButton_inactive, 350, 200, 100, 100);
+    		batch.draw(exitButton_inactive, 350, 270, 100, 100);
     	}
     	
     	
-    	batch.draw(playButton, 350, 600, 100, 100);
     	
-    	if(Gdx.input.getX() < 450 && Gdx.input.getX() > 350 && Gdx.input.getY() > 100 && Gdx.input.getY() < 200) {
+    	
+    	if(Gdx.input.getX() < 460 && Gdx.input.getX() > 350 && Gdx.input.getY() > 150 && Gdx.input.getY() < 260) {
+    		batch.draw(playButton_active, 350, 520, 100, 100);
         	if(Gdx.input.isTouched()) {
-        		Gdx.app.exit();
+        		//Gdx.app.exit();
         		
         	}
     	}
+    	else {
+    		batch.draw(twoPlayer_symbol, 350, 535, 100, 100);
+    	}
     	
-
 
     	batch.end();
 
@@ -138,7 +145,8 @@ public class MenuScreen extends Game implements Screen  {
 		playButton_inactive.dispose();
 		exitButton_active.dispose();
 		exitButton_inactive.dispose();
-		playButton.dispose();
+		twoPlayer_symbol.dispose();
+		menu_music.dispose();
 
 	}
 	@Override
