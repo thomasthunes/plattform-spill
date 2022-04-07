@@ -126,7 +126,7 @@ For beskrivelse av hva en brukerhistorie er og hvordan vi har satt dem opp se [i
 
 **Hvordan ny funksjonalitet prioriteres:** Frem til denne innleveringen har vi valgt å prioritere alle kravene fra MVP (1-10) bortsett fra vårt stretch goal om multiplayer som vi venter med til siste innlevering. Ettersom dette er den vanskeligste brukerhistorien har vi frem til nå hatt fokus på å sørge for god implementasjon av de andre brukerhistoriene. Vi har også startet på å implementere nye spillebrett for spilleren etter at spilleren er kommet i mål.  
 
-**Hvordan oppgavene fremover blir prioritert:** Fremover vil vi prioritere implementasjonen av multiplayer, da dette er den siste viktige implementasjonen av spillet. Vi er godt fornøyde med de øvrige implementasjonene og vil dermed bruke lite ressurser på forbedring av disse fremover.  
+**Hvordan oppgavene fremover blir prioritert:** Fremover vil vi prioritere implementasjonen av multiplayer, da dette er den siste viktige implementasjonen av spillet. Vi vil også implementere ferdig nye spillebrett. Ellers er vi er fornøyde med de øvrige implementasjonene, men vil også forbedre funksjonaliteten på noen av disse der vi ser at det er hensiktsmessig.  
 
 **Endringer i rekkefølge på MVP utfra det som er gitt fra kunde:** I denne innleveringen har vi ikke foretatt nye endringer i rekkefølgen på MVP siden sist.  
 
