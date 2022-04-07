@@ -145,7 +145,7 @@ For beskrivelse av hva en brukerhistorie er og hvordan vi har satt dem opp se [i
  
 
 **Nåværende Prjoct Board:**  
-![alt text](/assets/maps/trelloX.png)  
+![alt text](/assets/maps/trello3.png)  
 
 **Klassediagram:**  
 
