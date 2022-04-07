@@ -146,6 +146,7 @@ For beskrivelse av hva en brukerhistorie er og hvordan vi har satt dem opp se [i
 ![alt text](/assets/maps/trello3.png)  
 
 **Klassediagram:**  
+![alt text](/assets/maps/classDiagram.png)  
 
 
 
