@@ -173,6 +173,9 @@ public class Item<T> extends Sprite implements IItem<T>{
     // Helper functions
     protected boolean isCellBlocked(float x, float y) {
         TiledMapTileLayer.Cell cell = collisionLayer.getCell((int) (x / collisionLayer.getTileWidth()), (int) (y / collisionLayer.getTileHeight()));
+        if ((cell == null)) {
+            throw new IllegalArgumentException("cell is null");
+        }
         boolean isFinish = cell.getTile().getProperties().containsKey("finish");
         if (isFinish){
             this.gameFinished = true;

@@ -14,7 +14,7 @@ public class Bat extends Enemy {
 
     @Override
     public void update(){
-        move();
+        moveRandom();
     }
 
     @Override
@@ -47,7 +47,7 @@ public class Bat extends Enemy {
     }
 
     @Override
-    public void move() {
+    public void moveRandom() {
         //super.move();
         moveToPlayer();
         if (getVelocity().y == 0){

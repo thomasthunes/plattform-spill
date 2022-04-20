@@ -13,7 +13,7 @@ import java.util.Random;
 public class ItemFactory {
 
     // CONSTANTS
-    private final int LENGTH_OF_SPAWN = 317;
+    private final int LENGTH_OF_SPAWN = 496;
     private final int XVampire = 315;
     private final int YVampire = 16;
     private final int NUMBEROFBATS = 100;

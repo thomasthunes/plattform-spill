@@ -1,8 +1,6 @@
 package screens;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.InputProcessor;
-import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.*;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -33,6 +31,9 @@ public class Play extends Event implements Screen {
     private OrthographicCamera camera;
     //private SpriteBatch batch;
     private mainPlayer player;
+    private mainPlayer player2;
+    private List<mainPlayer> players = new ArrayList<>();
+    private Vampire vampire;
     private medKit medKit;
     //private Enemy enemy;
     private BitmapFont font;
@@ -61,12 +62,14 @@ public class Play extends Event implements Screen {
         camera = new OrthographicCamera();
         font = new BitmapFont();
 
-        player = new mainPlayer(new Sprite(new Texture("assets/maps/mario.png")), (TiledMapTileLayer) map.getLayers().get(0), this);//new Player(new Sprite(new Texture("assets/maps/mario.png")), (TiledMapTileLayer) map.getLayers().get(0));
+        player = new mainPlayer(new Sprite(new Texture("assets/maps/mario.png")), (TiledMapTileLayer) map.getLayers().get(0), this, players);//new Player(new Sprite(new Texture("assets/maps/mario.png")), (TiledMapTileLayer) map.getLayers().get(0));
         player.setPosition(10 /*293*/ * player.getCollisionLayer().getTileWidth(), (player.getCollisionLayer().getHeight() - STARTPOSITION /*42*/) * player.getCollisionLayer().getTileHeight());
+        players.add(player);
 
         /*
-        Player player2 = new mainPlayer(new Sprite(new Texture("assets/maps/mario.png")), (TiledMapTileLayer) map.getLayers().get(0), this);//new Player(new Sprite(new Texture("assets/maps/mario.png")), (TiledMapTileLayer) map.getLayers().get(0));
-        player2.setPosition(10 * player2.getCollisionLayer().getTileWidth(), (player2.getCollisionLayer().getHeight() - STARTPOSITION) * player2.getCollisionLayer().getTileHeight());
+        player2 = new mainPlayer(new Sprite(new Texture("assets/maps/mario.png")), (TiledMapTileLayer) map.getLayers().get(0), this, players);//new Player(new Sprite(new Texture("assets/maps/mario.png")), (TiledMapTileLayer) map.getLayers().get(0));
+        player2.setPosition(7 * player2.getCollisionLayer().getTileWidth(), (player2.getCollisionLayer().getHeight() - STARTPOSITION) * player2.getCollisionLayer().getTileHeight());
+        players.add(player2);
          */
 
         Bat bat = new Bat(new Sprite(new Texture("assets/maps/mario.png")), (TiledMapTileLayer) map.getLayers().get(0), this);
@@ -75,12 +78,21 @@ public class Play extends Event implements Screen {
         enemies = itemFactory.getNextBomb(20, map, this);
         enemies = itemFactory.getNextMonster(30, map, this);
         enemies = itemFactory.getNextBat(map, this, bats);
-        itemFactory.getVampire(map, this, enemies);
+        vampire = itemFactory.getVampire(map, this, enemies);
 
         items = itemFactory.getNextMedkit(30, map, this);
         items = itemFactory.getKey(map, this);
 
+        /*InputMultiplexer twoPlayer = new InputMultiplexer();
+        twoPlayer.addProcessor(player);
+        twoPlayer.addProcessor(player2);*/
+
+        //Gdx.input.setInputProcessor(twoPlayer);
         Gdx.input.setInputProcessor((InputProcessor) player);
+    }
+
+    public Vampire getVampire(){
+        return vampire;
     }
 
     public List<Enemy> getBats(){
@@ -120,12 +132,14 @@ public class Play extends Event implements Screen {
         camera.position.set(player.getX(), player.getY(), 0);
         camera.update();
         player.update();
-        
-        renderer.getBatch().begin();
-        player.draw(renderer.getBatch());
-        player.draw(renderer.getBatch());
 
-        //medKit.draw(renderer.getBatch());
+        renderer.getBatch().begin();
+
+        if (player.isAlive()) {
+            player.draw(renderer.getBatch());
+            player.draw(renderer.getBatch());
+        }
+
         drawItems();
 
         List<Enemy> enemiesToBeRemoved = new ArrayList<>();
@@ -143,10 +157,6 @@ public class Play extends Event implements Screen {
         font.draw(renderer.getBatch(), "Current Health: " + player.getHealth(), player.getX(), player.getY() - 30);
         font.draw(renderer.getBatch(), player.getMessage(), player.getX() + 200, player.getY() - 30);
         font.draw(renderer.getBatch(), "FINISH ZONE!", 487 * player.getCollisionLayer().getTileWidth(), (player.getCollisionLayer().getHeight() - 18) * player.getCollisionLayer().getTileHeight());
-
-
-        /*System.out.println("PLayer y: " + player.getY());
-        System.out.println("enemy y: " + enemy.getY());*/
 
 
         renderer.getBatch().end();
@@ -215,20 +225,6 @@ public class Play extends Event implements Screen {
 
     }
 
-    /*public void nextMap(){
-        if (player.playerWon()){
-            app.changeMap();
-            //new Play(currentMap, app);
-            //this.stop();
-            //dispose();
-            //gameCount++;
-            //this.app.create();
-            //return true;
-
-        }
-        //System.out.println(gameCount);
-        //return false;
-    }*/
 }
 
 

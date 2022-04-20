@@ -55,12 +55,12 @@ public class Vampire extends Enemy{
      * the vampire itself does not move
      */
     @Override
-    public void move(){
+    public void moveRandom(){
         //Stands still
         List<Enemy> stones = game.getBats();
         if (!stones.isEmpty() && playerInRange()) {
             Enemy stone = stones.get(0);
-            stone.move();
+            stone.moveRandom();
             game.getBats().remove(stone);
         }
     }

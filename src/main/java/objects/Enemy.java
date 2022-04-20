@@ -86,7 +86,7 @@ public abstract class Enemy extends Player implements IEnemy{
     }
 
     @Override
-    public void move() {
+    public void moveRandom() {
         Random rand = new Random();
         if (isAlive()){
             if (rand.nextBoolean()){
@@ -96,6 +96,17 @@ public abstract class Enemy extends Player implements IEnemy{
                 moveRight();
             }
         }
+    }
+
+    public void move(){
+        // Todo: save the start value in a map,
+        //  and move the enemy n-length to left
+        //  and then n-length to the right when it has reached the n-left pos
+        /*for (Enemy enemy : game.getEnemies()){
+            if (enemy.isAlive()){
+                if ()
+            }
+        }*/
     }
 
     public void setHealth(int newHealth) {
