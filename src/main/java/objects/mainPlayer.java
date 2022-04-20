@@ -1,11 +1,12 @@
 package objects;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import inf112.skeleton.app.Player;
-import org.lwjgl.system.CallbackI;
 import screens.Play;
 
 import java.util.ArrayList;
@@ -19,21 +20,19 @@ public class mainPlayer extends Player implements IMainPlayer, InputProcessor {
     private int health = 100;
     private int killStreak = 0;
     private boolean hasKey = false;
-    private List<mainPlayer> players;
-    private int jump;
-    private int left;
-    private int right;
+    
+    public Sound jump;
 
     private List<IItem> inventory;
 
     private Enemy currentEnemy;
 
-    public mainPlayer(Sprite sprite, TiledMapTileLayer collisionLayer, Play play, List<mainPlayer> players) {
+    public mainPlayer(Sprite sprite, TiledMapTileLayer collisionLayer, Play play) {
         super(sprite, collisionLayer);
         game = play;
         this.damage = 50;
         this.inventory = new ArrayList<>();
-        this.players = players;
+        jump = Gdx.audio.newSound(Gdx.files.internal("assets/sounds/jump.wav"));
     }
 
 
@@ -70,10 +69,6 @@ public class mainPlayer extends Player implements IMainPlayer, InputProcessor {
         return false;
     }
 
-    public void nextLevel(){
-        this.setX(509 * this.getCollisionLayer().getTileWidth());
-    }
-
     /**
      * displays "game over" if player has picked up the key, and the player is on the finish pad
      * displays instructions if the player is on the finish pad, but does not have the key
@@ -85,7 +80,6 @@ public class mainPlayer extends Player implements IMainPlayer, InputProcessor {
             return true;
         }
         else if (!hasKey() && getGameStatus()){
-            nextLevel();
             setMessage("You need to find the key before you can finish!");
         }
         return false;
@@ -119,7 +113,7 @@ public class mainPlayer extends Player implements IMainPlayer, InputProcessor {
 
     @Override
     public String getName() {
-        return "player";
+        return null;
     }
 
     /**
@@ -128,12 +122,7 @@ public class mainPlayer extends Player implements IMainPlayer, InputProcessor {
      */
     @Override
     public void addItem(IItem item) {
-        if (item.getName() != "key"){
-            inventory.add(item);
-        }
-        else if (!game.getVampire().isAlive() && item.getName() == "key"){
-            inventory.add(item);
-        }
+        inventory.add(item);
     }
 
     @Override
@@ -156,9 +145,6 @@ public class mainPlayer extends Player implements IMainPlayer, InputProcessor {
             int newHealth = health - damage;
             health = newHealth;
         }
-        /*else {
-            setAliveToFalse();
-        }*/
     }
 
     /**
@@ -202,56 +188,36 @@ public class mainPlayer extends Player implements IMainPlayer, InputProcessor {
 
     @Override
     public boolean keyDown(int keycode) {
-        for (Enemy enemy : game.getEnemies()) {
+        for (Enemy enemy : game.getEnemies()){
             if (enemy.getName() != "bat") {
-                enemy.moveRandom();
+                enemy.move();
             }
         }
-        if (players.get(0).equals(this)) {
-            System.out.println("first case");
-            switch (keycode) {
-                case Input.Keys.SPACE:
-                    if (GetCanJump())
-                        getVelocity().y = getSpeed();
-                    SetCanJump(false);
-                    break;
+        switch(keycode) {
 
-                case Input.Keys.A:
-                    //case Input.Keys.LEFT:
-                    getVelocity().x = -getSpeed();
-                    break;
-                case Input.Keys.D:
-                    //case Input.Keys.RIGHT:
-                    getVelocity().x = getSpeed();
-                    break;
+            case Input.Keys.SPACE:
+                if(GetCanJump()) {
+                    getVelocity().y = getSpeed()/*+250 / 1.8f*/;
+                    jump.play();
+                }
+                
+                SetCanJump(false);
 
-                case Input.Keys.P:
-                    pickUpItem();
-                    break;
-            }
-        } else if (players.get(1).equals(this)){
-            System.out.println("second case");
-            switch (keycode) {
-                case Input.Keys.UP:
-                    if (GetCanJump())
-                        getVelocity().y = getSpeed()/*+250 / 1.8f*/;
-                    SetCanJump(false);
-                    break;
+                break;
 
-                //case Input.Keys.A:
-                case Input.Keys.LEFT:
-                    getVelocity().x = -getSpeed();
-                    break;
+            case Input.Keys.A:
+            case Input.Keys.LEFT:
+                getVelocity().x = -getSpeed();
 
-                //case Input.Keys.D:
-                case Input.Keys.RIGHT:
-                    getVelocity().x = getSpeed();
-                    break;
+                break;
+            case Input.Keys.D:
+            case Input.Keys.RIGHT:
+                getVelocity().x = getSpeed();
+                break;
 
-                case Input.Keys.F:
-                    pickUpItem();
-                    break;
-            }
+            case Input.Keys.P:
+                pickUpItem();
+                break;
         }
         return true;
     }
