@@ -133,27 +133,22 @@ public class Play extends Event implements Screen {
 
         renderer.setView(camera);
         renderer.render();
-
-        if (player1.isAlive()) {
-            camera.position.set(player1.getX(), player1.getY(), 0);
-        }
-        else if (player2 != null){
-            camera.position.set(player2.getX(), player2.getY(), 0);
-        }
         camera.update();
-        if (player2 != null)
-            player2.update();
-
-        player1.update();
-
         renderer.getBatch().begin();
 
+        if (!player1.isAlive() && player2 != null)
+            camera.position.set(player2.getX(), player2.getY(), 0);
+        else
+            camera.position.set(player1.getX(), player1.getY(), 0);
+
         if (player1.isAlive()) {
+            player1.update();
             player1.draw(renderer.getBatch());
             player1.draw(renderer.getBatch());
         }
 
-        if (player2 != null) {
+        if (player2 != null && player2.isAlive()) {
+            player2.update();
             player2.draw(renderer.getBatch());
             player2.draw(renderer.getBatch());
         }
@@ -173,10 +168,12 @@ public class Play extends Event implements Screen {
 
 
         font.draw(renderer.getBatch(), "Player1 Health: " + player1.getHealth(), player1.getX(), player1.getY() - 30);
-        if (player2 != null) font.draw(renderer.getBatch(), "Player2 Health: " + player2.getHealth(), player2.getX(), player2.getY() - 50);
         font.draw(renderer.getBatch(), player1.getMessage(), player1.getX() + 200, player1.getY() - 30);
         font.draw(renderer.getBatch(), "FINISH ZONE!", 487 * player1.getCollisionLayer().getTileWidth(), (player1.getCollisionLayer().getHeight() - 18) * player1.getCollisionLayer().getTileHeight());
-
+        if (player2 != null) {
+            font.draw(renderer.getBatch(), "Player2 Health: " + player2.getHealth(), player2.getX(), player2.getY() - 50);
+            font.draw(renderer.getBatch(), player2.getMessage(), player2.getX() + 200, player1.getY() - 50);
+        }
 
         renderer.getBatch().end();
 
