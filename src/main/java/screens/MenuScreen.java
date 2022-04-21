@@ -29,6 +29,8 @@ public class MenuScreen extends Game implements Screen  {
 	private Texture exitButton_inactive;
 	private Texture twoPlayer_symbol;
 	private Music menu_music;
+	private final int onePlayer = 1;
+	private final int twoPlayer = 2;
 	
 	
 	
@@ -76,7 +78,7 @@ public class MenuScreen extends Game implements Screen  {
     		batch.draw(playButton_active, 320, 380, 150, 120);
         	if(Gdx.input.isTouched()) {
         		this.dispose();
-        		game.setScreen(new Play(maps.get(0), game));
+        		game.setScreen(new Play(maps.get(0), game, onePlayer));
         	}
     	}
     	else {
@@ -101,7 +103,8 @@ public class MenuScreen extends Game implements Screen  {
     	if(Gdx.input.getX() < 460 && Gdx.input.getX() > 350 && Gdx.input.getY() > 150 && Gdx.input.getY() < 260) {
     		batch.draw(playButton_active, 350, 520, 100, 100);
         	if(Gdx.input.isTouched()) {
-        		//Gdx.app.exit();
+				this.dispose();
+				game.setScreen(new Play(maps.get(0), game, twoPlayer));
         		
         	}
     	}

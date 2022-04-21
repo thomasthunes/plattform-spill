@@ -2,6 +2,7 @@ package objects;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
+import inf112.skeleton.app.Player;
 import screens.Play;
 
 public class Bat extends Enemy {
@@ -14,7 +15,7 @@ public class Bat extends Enemy {
 
     @Override
     public void update(){
-        moveRandom();
+        attack();
     }
 
     @Override
@@ -33,27 +34,30 @@ public class Bat extends Enemy {
     }
 
     @Override
-    public void getAttack() {
-        getGame().getPlayer().loseHealth(this.damage);
+    public void getAttack(mainPlayer mainPlayer) {
+        mainPlayer.loseHealth(this.damage);
     }
 
-    public void moveToPlayer(){
-        if (getGame().getPlayer().getX() < this.getX()){
+    public void moveToPlayer() {
+        Player player = getGame().getPlayers().get(0);
+        boolean left = player.getX() < this.getX();
+        boolean right = player.getX() > this.getX();
+        if (left) {
             moveLeft();
         }
-        else {
+        if (right) {
             moveRight();
+        }
+    }
+
+    public void attack(){
+        moveToPlayer();
+        if (getVelocity().y == 0){
+            getVelocity().y = getSpeed();
         }
     }
 
     @Override
     public void moveRandom() {
-        //super.move();
-        moveToPlayer();
-        if (getVelocity().y == 0){
-            System.out.println(true);
-            getVelocity().y = getSpeed();
-            //moveToPlayer();
-        }
     }
 }

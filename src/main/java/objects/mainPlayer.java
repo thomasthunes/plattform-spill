@@ -12,7 +12,7 @@ import screens.Play;
 import java.util.ArrayList;
 import java.util.List;
 
-public class mainPlayer extends Player implements IMainPlayer, InputProcessor {
+public class mainPlayer extends Player implements IMainPlayer/*, InputProcessor*/ {
 
     private String message = "";
     private Play game;
@@ -20,6 +20,8 @@ public class mainPlayer extends Player implements IMainPlayer, InputProcessor {
     private int health = 100;
     private int killStreak = 0;
     private boolean hasKey = false;
+
+    private int currentLevel = 0;
     
     public Sound jump;
 
@@ -51,6 +53,14 @@ public class mainPlayer extends Player implements IMainPlayer, InputProcessor {
         }
     }
 
+    public Player getPlayer(){
+        return this;
+    }
+
+    public Play getGame(){
+        return game;
+    }
+
     /**
      * loops through all enemies to see if the player collides with any of them
      * if true, the player is affected, with whatever attack specified in getAttack
@@ -62,7 +72,7 @@ public class mainPlayer extends Player implements IMainPlayer, InputProcessor {
             double enemyY = Math.floor(enemy.getY());
 
             if (collidesWithActorFromSide(this, enemy) && thisY == enemyY && enemy.isAlive()){
-                enemy.getAttack();
+                enemy.getAttack(this);
                 return true;
             }
         }
@@ -75,14 +85,29 @@ public class mainPlayer extends Player implements IMainPlayer, InputProcessor {
      * @return boolean
      */
     public boolean playerWon(){
-        if (hasKey() && getGameStatus()){
+
+        if (hasKey() && getGameStatus() && currentLevel() > 0){
             setMessage("Player won!");
+        }
+        else if (hasKey() && getGameStatus() && currentLevel() == 0){
+            setMessage("You have reached level 1");
+            nextLevel();
+            setPosition(488  * getCollisionLayer().getTileWidth(), (getCollisionLayer().getHeight() - 44) * getCollisionLayer().getTileHeight());
             return true;
         }
         else if (!hasKey() && getGameStatus()){
             setMessage("You need to find the key before you can finish!");
+            setPosition(288  * getCollisionLayer().getTileWidth(), (getCollisionLayer().getHeight() - 43) * getCollisionLayer().getTileHeight());
         }
         return false;
+    }
+
+    private void nextLevel() {
+        currentLevel++;
+    }
+
+    public int currentLevel(){
+        return currentLevel;
     }
 
     /**
@@ -155,7 +180,12 @@ public class mainPlayer extends Player implements IMainPlayer, InputProcessor {
             double thisY = Math.floor(this.getY());
             double itemY = Math.floor(item.getY());
             if (collidesWithActorFromSide(this, item) && thisY == itemY) {
-                addItem(item);
+                if (item.getName() == "key" && game.getVampire().isAlive()){
+                    continue;
+                }
+                else {
+                    addItem(item);
+                }
             }
         }
         checkInventory();
@@ -186,51 +216,86 @@ public class mainPlayer extends Player implements IMainPlayer, InputProcessor {
     }
 
 
-    @Override
+    /*@Override
     public boolean keyDown(int keycode) {
         for (Enemy enemy : game.getEnemies()){
             if (enemy.getName() != "bat") {
-                enemy.move();
+                enemy.moveRandom();
             }
         }
-        switch(keycode) {
 
-            case Input.Keys.SPACE:
-                if(GetCanJump()) {
-                    getVelocity().y = getSpeed()/*+250 / 1.8f*/;
-                    jump.play();
-                }
-                
-                SetCanJump(false);
+        //if (id == 0) {
+            switch (keycode) {
+                case 0:
+                case Input.Keys.SPACE:
+                    if (GetCanJump()) {
+                        getVelocity().y = getSpeed();
+                        jump.play();
+                    }
 
-                break;
+                    SetCanJump(false);
+                    break;
 
-            case Input.Keys.A:
-            case Input.Keys.LEFT:
-                getVelocity().x = -getSpeed();
+                case Input.Keys.A:
+                    getVelocity().x = -getSpeed();
 
-                break;
-            case Input.Keys.D:
-            case Input.Keys.RIGHT:
-                getVelocity().x = getSpeed();
-                break;
+                    break;
+                case Input.Keys.D:
+                    getVelocity().x = getSpeed();
+                    break;
 
-            case Input.Keys.P:
-                pickUpItem();
-                break;
+                case Input.Keys.F:
+                    pickUpItem();
+                    break;
+            }
+        //}
+        if (id == 1) {
+            System.out.println("ID is 1");
+            switch (keycode) {
+
+                case Input.Keys.UP:
+                    if (GetCanJump()) {
+                        getVelocity().y = getSpeed();
+                        jump.play();
+                    }
+
+                    SetCanJump(false);
+                    break;
+
+                case Input.Keys.LEFT:
+                    getVelocity().x = -getSpeed();
+
+                    break;
+                case Input.Keys.RIGHT:
+                    getVelocity().x = getSpeed();
+                    break;
+
+                case Input.Keys.P:
+                    pickUpItem();
+                    break;
+            }
         }
         return true;
     }
 
     @Override
     public boolean keyUp(int keycode) {
-        switch(keycode) {
-            case Input.Keys.A:
-            case Input.Keys.LEFT:
+        if (id == 0) {
+            switch (keycode) {
+                case Input.Keys.A:
 
-            case Input.Keys.D:
-            case Input.Keys.RIGHT:
-                getVelocity().x = 0;
+                case Input.Keys.D:
+                    getVelocity().x = 0;
+            }
+        }
+
+        if (id == 1) {
+            switch (keycode) {
+                case Input.Keys.LEFT:
+
+                case Input.Keys.RIGHT:
+                    getVelocity().x = 0;
+            }
         }
         return true;
     }
@@ -263,5 +328,5 @@ public class mainPlayer extends Player implements IMainPlayer, InputProcessor {
     @Override
     public boolean scrolled(float v, float v1) {
         return false;
-    }
+    }*/
 }
