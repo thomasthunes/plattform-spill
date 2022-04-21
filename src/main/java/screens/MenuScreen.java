@@ -3,6 +3,10 @@ package screens;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.badlogic.gdx.Input;
+import com.badlogic.gdx.assets.loaders.AssetLoader;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import org.lwjgl.opengl.GL20;
 
 import com.badlogic.gdx.Game;
@@ -18,7 +22,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import inf112.skeleton.app.app;
 import screens.Play;
 
-public class MenuScreen extends Game implements Screen  {
+public class MenuScreen extends Game implements Screen {
 	
 	app game;
     private SpriteBatch batch;
@@ -51,7 +55,6 @@ public class MenuScreen extends Game implements Screen  {
 		menu_music.setLooping(true);
 		menu_music.setVolume(0.3f);
 		menu_music.play();
-		
 		batch = new SpriteBatch();
 	}
 	
@@ -77,7 +80,7 @@ public class MenuScreen extends Game implements Screen  {
     	if(Gdx.input.getX() < 500 && Gdx.input.getX() > 300 && Gdx.input.getY() < 400 && Gdx.input.getY() > 300) {
     		batch.draw(playButton_active, 320, 380, 150, 120);
         	if(Gdx.input.isTouched()) {
-        		this.dispose();
+				this.dispose();
         		game.setScreen(new Play(maps.get(0), game, onePlayer));
         	}
     	}
@@ -157,5 +160,4 @@ public class MenuScreen extends Game implements Screen  {
 		// TODO Auto-generated method stub
 		
 	}
-
 }

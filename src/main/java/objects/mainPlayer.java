@@ -12,7 +12,7 @@ import screens.Play;
 import java.util.ArrayList;
 import java.util.List;
 
-public class mainPlayer extends Player implements IMainPlayer/*, InputProcessor*/ {
+public class mainPlayer extends Player implements IMainPlayer {
 
     private String message = "";
     private Play game;
@@ -215,118 +215,4 @@ public class mainPlayer extends Player implements IMainPlayer/*, InputProcessor*
         inventory.remove(items);
     }
 
-
-    /*@Override
-    public boolean keyDown(int keycode) {
-        for (Enemy enemy : game.getEnemies()){
-            if (enemy.getName() != "bat") {
-                enemy.moveRandom();
-            }
-        }
-
-        //if (id == 0) {
-            switch (keycode) {
-                case 0:
-                case Input.Keys.SPACE:
-                    if (GetCanJump()) {
-                        getVelocity().y = getSpeed();
-                        jump.play();
-                    }
-
-                    SetCanJump(false);
-                    break;
-
-                case Input.Keys.A:
-                    getVelocity().x = -getSpeed();
-
-                    break;
-                case Input.Keys.D:
-                    getVelocity().x = getSpeed();
-                    break;
-
-                case Input.Keys.F:
-                    pickUpItem();
-                    break;
-            }
-        //}
-        if (id == 1) {
-            System.out.println("ID is 1");
-            switch (keycode) {
-
-                case Input.Keys.UP:
-                    if (GetCanJump()) {
-                        getVelocity().y = getSpeed();
-                        jump.play();
-                    }
-
-                    SetCanJump(false);
-                    break;
-
-                case Input.Keys.LEFT:
-                    getVelocity().x = -getSpeed();
-
-                    break;
-                case Input.Keys.RIGHT:
-                    getVelocity().x = getSpeed();
-                    break;
-
-                case Input.Keys.P:
-                    pickUpItem();
-                    break;
-            }
-        }
-        return true;
-    }
-
-    @Override
-    public boolean keyUp(int keycode) {
-        if (id == 0) {
-            switch (keycode) {
-                case Input.Keys.A:
-
-                case Input.Keys.D:
-                    getVelocity().x = 0;
-            }
-        }
-
-        if (id == 1) {
-            switch (keycode) {
-                case Input.Keys.LEFT:
-
-                case Input.Keys.RIGHT:
-                    getVelocity().x = 0;
-            }
-        }
-        return true;
-    }
-
-    @Override
-    public boolean keyTyped(char c) {
-        return false;
-    }
-
-    @Override
-    public boolean touchDown(int i, int i1, int i2, int i3) {
-        return false;
-    }
-
-    @Override
-    public boolean touchUp(int i, int i1, int i2, int i3) {
-        return false;
-    }
-
-    @Override
-    public boolean touchDragged(int i, int i1, int i2) {
-        return false;
-    }
-
-    @Override
-    public boolean mouseMoved(int i, int i1) {
-        return false;
-    }
-
-    @Override
-    public boolean scrolled(float v, float v1) {
-        return false;
-    }*/
 }
