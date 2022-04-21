@@ -35,7 +35,7 @@ public class Vampire extends Enemy{
     }
 
     @Override
-    public void getAttack() {
+    public void getAttack(mainPlayer mainPlayer) {
 
     }
 
@@ -44,9 +44,10 @@ public class Vampire extends Enemy{
      * @return boolean
      */
     public boolean playerInRange(){
-        Player player = game.getPlayer();
-        if (player.getX() > this.getX() - 500 && player.getX() < this.getX() + 500)
-            return true;
+        for (mainPlayer player : getGame().getPlayers()) {
+            if (player.getX() > this.getX() - 500 && player.getX() < this.getX() + 500)
+                return true;
+        }
         return false;
     }
 
@@ -55,13 +56,13 @@ public class Vampire extends Enemy{
      * the vampire itself does not move
      */
     @Override
-    public void move(){
+    public void moveRandom(){
         //Stands still
         List<Enemy> stones = game.getBats();
         if (!stones.isEmpty() && playerInRange()) {
-            Enemy stone = stones.get(0);
-            stone.move();
-            game.getBats().remove(stone);
+            Enemy bat = stones.get(0);
+            bat.update();
+            game.getBats().remove(bat);
         }
     }
 }

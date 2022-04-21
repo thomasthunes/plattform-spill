@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.math.Vector2;
+import inf112.skeleton.app.Player;
 
 public class Item<T> extends Sprite implements IItem<T>{
 
@@ -35,7 +36,7 @@ public class Item<T> extends Sprite implements IItem<T>{
 
     @Override
     public boolean collidesWithActorFromSide(Item thisItem, Item item) {
-        if (this.getX() < item.getX() + 35 && this.getX() > item.getX() - 35){
+        if (this.getX() < item.getX() + 40 && this.getX() > item.getX() - 40){
             return true;
         }
         return false;
@@ -46,7 +47,7 @@ public class Item<T> extends Sprite implements IItem<T>{
         double thisY = Math.floor(this.getY());
         double enemyY = Math.floor(item.getY());
 
-        if (thisY == enemyY + 40){
+        if (thisY > enemyY + 20 && thisY < enemyY + 50){
             return true;
         }
         return false;
@@ -173,6 +174,9 @@ public class Item<T> extends Sprite implements IItem<T>{
     // Helper functions
     protected boolean isCellBlocked(float x, float y) {
         TiledMapTileLayer.Cell cell = collisionLayer.getCell((int) (x / collisionLayer.getTileWidth()), (int) (y / collisionLayer.getTileHeight()));
+        if ((cell == null)) {
+            return false; //throw new IllegalArgumentException("cell is null");
+        }
         boolean isFinish = cell.getTile().getProperties().containsKey("finish");
         if (isFinish){
             this.gameFinished = true;

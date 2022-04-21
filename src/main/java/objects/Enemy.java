@@ -12,6 +12,7 @@ public abstract class Enemy extends Player implements IEnemy{
     private final int damage = 1;
     private int health = 25;
     private Play game;
+    private mainPlayer mainPlayer;
 
     public Enemy(Sprite sprite, TiledMapTileLayer collisionLayer, Play play) {
         super(sprite, collisionLayer);
@@ -39,7 +40,7 @@ public abstract class Enemy extends Player implements IEnemy{
 
     @Override
     public void update() {
-        Player player = game.getPlayer();
+        Player player = mainPlayer.getPlayer();
 
         System.out.println("player y: " + player.getY());
         System.out.println("enemy y: " + this.getY());
@@ -61,7 +62,7 @@ public abstract class Enemy extends Player implements IEnemy{
     @Override
     public abstract String getName();
 
-    public abstract void getAttack();
+    public abstract void getAttack(mainPlayer mainPlayer);
 
     @Override
     public void moveRight() {
@@ -86,7 +87,7 @@ public abstract class Enemy extends Player implements IEnemy{
     }
 
     @Override
-    public void move() {
+    public void moveRandom() {
         Random rand = new Random();
         if (isAlive()){
             if (rand.nextBoolean()){
@@ -98,7 +99,19 @@ public abstract class Enemy extends Player implements IEnemy{
         }
     }
 
+    /*public void move(){
+        // Todo: save the start value in a map,
+        //  and move the enemy n-length to left
+        //  and then n-length to the right when it has reached the n-left pos
+        /*for (Enemy enemy : game.getEnemies()){
+            if (enemy.isAlive()){
+                if ()
+            }
+        }
+    }*/
+
     public void setHealth(int newHealth) {
 
     }
+
 }

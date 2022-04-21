@@ -21,5 +21,5 @@ public interface IEnemy {
     /**
      * moves the player to right and the left
      */
-    public void move();
+    public void moveRandom();
 }
