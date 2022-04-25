@@ -5,7 +5,7 @@ Merk at alle testene i denne filen forutsetter at du har startet spillet. Se [Do
 
 [[_TOC_]]
 
-## 1. Tester for mainPlayer
+# 1. Tester for mainPlayer
 I denne delen av oppgaven tester vi hvordan spilleren interagerer med objekter på spillebrettet. For å teste dette må vi teste funksjoner fra klassen *mainPlayer*.  
 
 | Test | Single Player | Multiplayer | Funksjonalitet i koden |
