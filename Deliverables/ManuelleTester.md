@@ -1,7 +1,7 @@
 # Tester
 I denne filen følger det ulike tester som er ment til å teste sentrale funksjonaliteter ved spillet vårt. Dette gjelder blant annet tester for hvordan spilleren interagerer med objekter på spillebrettet, og hvordan attributter ved spilleren endres gjennom spillet. Vi har oppsummert testene i to tabeller, den første tabellen skiller mellom Single Player og Multiplayer, mens den andre tabellen er universal og gjelder for både Single Player og Multiplayer.
 
-**MERK:** Alle testene i under forutsetter at du har startet spillet. Se [Dokumentasjon om teknisk produktoppsett](https://git.app.uib.no/scrumbois/plattform-spill/-/blob/master/README.md#teknisk-produktoppsett) for hvordan du skal starte spillet.  
+**MERK:** Alle testene under forutsetter at du har startet spillet. Se [Dokumentasjon om teknisk produktoppsett](https://git.app.uib.no/scrumbois/plattform-spill/-/blob/master/README.md#teknisk-produktoppsett) for hvordan du skal starte spillet.  
 
 ## 1. Tester for Single Player og Multiplayer   
 | Test | Single Player | Multiplayer | Funksjonalitet i koden |
