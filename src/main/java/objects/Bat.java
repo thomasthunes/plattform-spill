@@ -5,9 +5,12 @@ import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import inf112.skeleton.app.Player;
 import screens.Play;
 
+import java.util.List;
+import java.util.Random;
+
 public class Bat extends Enemy {
 
-    private final int damage = 2;
+    private final int damage = 10;
 
     public Bat(Sprite sprite, TiledMapTileLayer collisionLayer, Play play) {
         super(sprite, collisionLayer, play);
@@ -39,7 +42,16 @@ public class Bat extends Enemy {
     }
 
     public void moveToPlayer() {
-        Player player = getGame().getPlayers().get(0);
+        List<mainPlayer> players = getGame().getPlayers();
+        Player player = null;
+        if (players.size() == 1) {
+            player = getGame().getPlayers().get(0);
+        }
+        else {
+            Random rand = new Random();
+            player = getGame().getPlayers().get(rand.nextInt(2));
+        }
+
         boolean left = player.getX() < this.getX();
         boolean right = player.getX() > this.getX();
         if (left) {
