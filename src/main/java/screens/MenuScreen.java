@@ -59,9 +59,7 @@ public class MenuScreen extends Game implements Screen {
 	private int twoPB_x_pos_max = screenWidth/2 + (playButton_width/2)/2;
 	private int twoPB_y_pos_min = pb_y_pos_max + 40;
 	private int twoPB_y_pos_max = twoPB_y_pos_min + twoPButton_height;
-	
 
-	
 	
 	
 	public MenuScreen(app game) {
@@ -75,13 +73,6 @@ public class MenuScreen extends Game implements Screen {
 		exitButton_inactive = new Texture("assets/maps/exit_button_inactive.png");
 		twoPlayer_symbol = new Texture("assets/maps/twoplayer.png");
 		
-//		System.out.println(eb_x_pos_max);
-//		System.out.println(eb_x_pos_min);
-//		System.out.println(eb_y_pos_max);
-//		System.out.println(eb_y_pos_min);
-		
-
-		
 		
 		menu_music = Gdx.audio.newMusic(Gdx.files.internal("assets/sounds/menuscreen_audio.mp3"));
 		menu_music.setLooping(true);
@@ -89,7 +80,6 @@ public class MenuScreen extends Game implements Screen {
 		menu_music.play();
 		batch = new SpriteBatch();
 	}
-	
 	
 
 	@Override
@@ -108,18 +98,8 @@ public class MenuScreen extends Game implements Screen {
     	batch.begin();
     	batch.draw(background, 0, 0, screenWidth, screenHeight);
     	
-    	if(Gdx.input.isTouched()) {
-//    		System.out.println(Gdx.input.getX());
-    		System.out.println(Gdx.input.getY());
-//    		System.out.println(Gdx.graphics.getWidth());
-//    		System.out.println(Gdx.graphics.getHeight());
-		
-	}
-    	  	
-    	
-//    	if(Gdx.input.getX() < 500 && Gdx.input.getX() > 300 && Gdx.input.getY() < 400 && Gdx.input.getY() > 300) {
+    	  	 	
     	if(Gdx.input.getX() < pb_x_pos_max && Gdx.input.getX() > pb_x_pos_min && Gdx.input.getY() < pb_y_pos_max && Gdx.input.getY() > pb_y_pos_min) {
-//    		batch.draw(playButton_active, 320, 380, 150, 120);
     		batch.draw(playButton_active, pb_x_pos_min, pb_y_pos_min, playButton_width, playButton_height);
         	if(Gdx.input.isTouched()) {
 				this.dispose();
@@ -127,7 +107,6 @@ public class MenuScreen extends Game implements Screen {
         	}
     	}
     	else {
-    		//batch.draw(playButton_inactive, 320, 380, 150, 120);
     		batch.draw(playButton_inactive, pb_x_pos_min , pb_y_pos_min, playButton_width, playButton_height);
     	}
     	

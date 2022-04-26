@@ -65,8 +65,10 @@ Drøftelsene vi har gjort med tanke på erfaringer og valg tilsvarer de samme so
 **Valg underveis:** Her gjør vi oss det samme refleksjoner som tidligere, nemlig at reflekterte diskusjoner over valgalternativer og mulige konsekvenser har ført til at vi er samstemte i de valgene vi tar. Dersom et valg skulle vise seg i etterkant å ikke være optimalt har vi tatt en diskusjon på dette for å finne ut hvordan vi kan ta bedre valg. Dette gjelder for eksempel valget om skjermstørrelse der vi tidligere hadde valgt å ha mulighet til å velge fullskjerm, men som vi i etterkant endret til kun være en fast skjermstørrelse. Dette førte til at vi ikke lenger fikk problemer med plassering av knappene på meny-skjermen slik som vi tidligere fikk etter å ha resizet skjermen til fullskjerm. Av dette lærte vi dermed at vi drar nytte av å ha gode diskusjoner underveis på valgene vi tar, og at det også kan være hensiktsmessig å ta opp enkelte diskusjoner på nytt for å forbedre produktkvaliteten.  
 
 ### 1.2.3 Gruppedynamikk
+Når det gjelder våre erfaringer knyttet til gruppedynamikken merker vi som tidligere at Scrum rammeverket legger godt til rette for en god gruppedynamikk. Dette gjelder blant annet de ukentlige Scrum-møtene der vi møtes for å diskutere progresjon i prosjektet og hvilke endringer som eventuelt må gjøres. Gjennom vårt project board og sprinter klarer vi også å oppnå en klar forventning til hva hver enkelt skal jobbe med, slik at det blir enklere for alle å holde oversikt på utviklingen i prosjektet. Vi har også merket at vi har hatt god nok gruppedynamikk til å kunne samarbeide om arbeidsoppgaver knyttet til en spesifikk rolle, slik som for eksempel testing.  
 
 ### 1.2.4 Kommunikasjon
+Når det gjelder våre erfaringer knyttet til kommunikasjon i gruppen så merker vi oss de samme erfaringer som tidligere. Dette gjelder blant annet at vi opprettholder god kommunikasjon utenom gruppemøtene via våre informasjonskanaler Messenger og Discord. På denne måten blir det enklere for alle å holde oversikt på fremgangen i prosjektet også utenfor gruppemøtene. På gruppemøtene har vi også hatt åpenhet i diskusjonene og gode forventningsavklaringer til hverandre slik at vi unngår misfortåelser. På denne måten oppnår vi god kommunikasjon.  
 
 ### 1.2.5 Retrospektiv vurdering av prosjektstruktur
 **Vurdering av hva vi har klart til nå:**  
@@ -88,7 +90,8 @@ Basert på den retrospektive vurderingen ([1.2.5](#125-retrospektiv-vurdering-av
 
 **Hva har vi gjort bra:**  
 
-**Hva vi ville ha gjort annereledes (dersom vi startet på nytt):** Mer abskraskjon mellom sprite og klassen for player, slik at funksjonaliteten i koden kan testes uten GUI. På denne måten kunne vi fått brukt JUNIT-tester.  
+**Hva vi ville ha gjort annereledes (dersom vi startet på nytt):** Mer abskraskjon mellom sprite og klassen for player, slik at funksjonaliteten i koden kan testes uten GUI. På denne måten kunne vi fått brukt JUNIT-tester. 
+Push/pull av kode til git.  
 
 # 2. Krav
 I denne delen av oppgaven vil vi gå gjennom (1) vårt stretch goal for oppgaven og (2) brukerhistorier fra MVP med tilhørende oppfølgingsspørsmål.  
