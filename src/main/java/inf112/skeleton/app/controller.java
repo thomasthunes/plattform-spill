@@ -9,6 +9,7 @@ public class controller implements InputProcessor {
 
     private mainPlayer player1;
     private mainPlayer player2;
+    private boolean gameOver;
 
     public controller(mainPlayer player1, mainPlayer player2){
         this.player1 = player1;
@@ -19,11 +20,17 @@ public class controller implements InputProcessor {
         this.player1 = player1;
     }
 
+    public void setGameOver(boolean status){
+        gameOver = status;
+    }
+
     @Override
     public boolean keyDown(int keycode) {
-        for (Enemy enemy : player1.getGame().getEnemies()){
-            if (enemy.getName() != "bat") {
-                enemy.moveRandom();
+        if (!gameOver) {
+            for (Enemy enemy : player1.getGame().getEnemies()) {
+                if (enemy.getName() != "bat") {
+                    enemy.moveRandom();
+                }
             }
         }
 

@@ -13,7 +13,7 @@ import java.util.Random;
 public class ItemFactory {
 
     // CONSTANTS
-    private final int LENGTH_OF_SPAWN = 496;
+    private final int LENGTH_OF_SPAWN = 703;
     private final int XVampire = 315;
     private final int YVampire = 16;
     private final int NUMBEROFBATS = 100;
@@ -41,6 +41,13 @@ public class ItemFactory {
             monster.setPosition(xPos * monster.getCollisionLayer().getTileWidth(), (monster.getCollisionLayer().getHeight() - 4) * monster.getCollisionLayer().getTileHeight());
             enemies.add(monster);
         }
+        return enemies;
+    }
+
+    public List<Enemy> getNextWizard(TiledMap map, Play play) {
+        Wizard wizard = new Wizard(new Sprite(new Texture("assets/maps/wizard.png")), (TiledMapTileLayer) map.getLayers().get(0), play);
+        wizard.setPosition(91 * wizard.getCollisionLayer().getTileWidth(), (wizard.getCollisionLayer().getHeight() - 4) * wizard.getCollisionLayer().getTileHeight());
+        enemies.add(wizard);
         return enemies;
     }
 
