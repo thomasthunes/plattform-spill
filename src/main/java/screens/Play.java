@@ -66,16 +66,15 @@ public class Play extends Event implements Screen {
     private BitmapFont font2;
     private BitmapFont font3;
     
-    private HashMap<Enemy, Float> enemyVelocity = new HashMap<>();
+    private HashMap<abstractEnemy, Float> enemyVelocity = new HashMap<>();
 
     private ShapeRenderer shapeRenderer;
     private boolean gameActive;
     private boolean DBSaved = false;
     private List<Integer> topTen = new ArrayList<>();
-<<<<<<< src/main/java/screens/Play.java
 
-=======
->>>>>>> src/main/java/screens/Play.java
+
+
     private final int gameMode;
 
     public Play(String currentMap, app app, int gameMode){
@@ -371,7 +370,7 @@ public class Play extends Event implements Screen {
         	
         	
         	if(!pauseActive) {
-        		for(Enemy enemy : enemies){
+        		for(abstractEnemy enemy : enemies){
         			enemyVelocity.put(enemy, enemy.getVelocity().x);
         			enemy.setGravity(0);
         			enemy.setSpeed(0);
@@ -392,7 +391,7 @@ public class Play extends Event implements Screen {
         	}
         	else {
         		
-        		for(Map.Entry<Enemy, Float> entry: enemyVelocity.entrySet()) {
+        		for(Map.Entry<abstractEnemy, Float> entry: enemyVelocity.entrySet()) {
         			entry.getKey().setGravity(140 * 1f);
         			entry.getKey().setSpeed(150);
         			entry.getKey().getVelocity().x = entry.getValue();
