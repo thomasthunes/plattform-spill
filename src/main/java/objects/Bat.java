@@ -2,16 +2,24 @@ package objects;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
-import inf112.skeleton.app.Player;
+import inf112.skeleton.app.abstractEnemy;
+import inf112.skeleton.app.abstractPlayer;
 import screens.Play;
 
 import java.util.List;
 import java.util.Random;
 
-public class Bat extends Enemy {
+public class Bat extends abstractEnemy {
 
     private final int damage = 10;
+    private final String name = "bat";
 
+    /**
+     * Creates a new bat instance
+     * @param sprite
+     * @param collisionLayer
+     * @param play
+     */
     public Bat(Sprite sprite, TiledMapTileLayer collisionLayer, Play play) {
         super(sprite, collisionLayer, play);
     }
@@ -21,6 +29,9 @@ public class Bat extends Enemy {
         attack();
     }
 
+    /**
+     * @return Damage
+     */
     @Override
     public int getDamage() {
         return damage;
@@ -31,19 +42,29 @@ public class Bat extends Enemy {
         return 0;
     }
 
+    /**
+     * @return Name
+     */
     @Override
     public String getName() {
-        return "bat";
+        return name;
     }
 
+    /**
+     * Inflicts the damage given from a player
+     * @param mainPlayer
+     */
     @Override
-    public void getAttack(mainPlayer mainPlayer) {
+    public void getAttack(objects.mainPlayer mainPlayer) {
         mainPlayer.loseHealth(this.damage);
     }
 
+    /**
+     * moves a bat towards the players directions
+     */
     public void moveToPlayer() {
-        List<mainPlayer> players = getGame().getPlayers();
-        Player player = null;
+        List<objects.mainPlayer> players = getGame().getPlayers();
+        abstractPlayer player = null;
         if (players.size() == 1) {
             player = getGame().getPlayers().get(0);
         }
@@ -62,6 +83,9 @@ public class Bat extends Enemy {
         }
     }
 
+    /**
+     * runs moveToPlayer method
+     */
     public void attack(){
         moveToPlayer();
         if (getVelocity().y == 0){
