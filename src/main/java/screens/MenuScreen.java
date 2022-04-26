@@ -123,7 +123,7 @@ public class MenuScreen extends Game implements Screen {
     		batch.draw(playButton_active, pb_x_pos_min, pb_y_pos_min, playButton_width, playButton_height);
         	if(Gdx.input.isTouched()) {
 				this.dispose();
-        		game.setScreen(new Play(maps.get(0), game, onePlayer));
+        		game.setScreen(new Play("assets/maps/map1.tmx", game, onePlayer));
         	}
     	}
     	else {
@@ -151,7 +151,7 @@ public class MenuScreen extends Game implements Screen {
     		batch.draw(playButton_active, twoPB_x_pos_min, twoPB_y_pos_min, twoPButton_width, twoPButton_height);
         	if(Gdx.input.isTouched()) {
 				this.dispose();
-				game.setScreen(new Play(maps.get(0), game, twoPlayer));
+				game.setScreen(new Play("assets/maps/map1.tmx", game, twoPlayer));
         		
         	}
     	}
