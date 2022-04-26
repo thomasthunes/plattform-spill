@@ -1,6 +1,7 @@
 package screens;
 
 import com.badlogic.gdx.*;
+import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -24,7 +25,10 @@ import org.lwjgl.system.CallbackI;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 public class Play extends Event implements Screen {
 
@@ -34,6 +38,8 @@ public class Play extends Event implements Screen {
     private static final Color TEXT_COLOR = Color.WHITE;
     private static final String GAME_OVER_MSG = "Game Over";
     private static final String GAME_FINISHED_MSG = "You Won";
+    private static final String GAME_PAUSED_MSG = "GAME PAUSED";
+    private static final String GAME_RESUME_MSG = "Press enter to resume game";
 
     private TiledMap map;
     private OrthogonalTiledMapRenderer renderer;
@@ -58,6 +64,12 @@ public class Play extends Event implements Screen {
     private boolean gameActive;
     private boolean DBSaved = false;
     private List<Integer> topTen = new ArrayList<>();
+    private boolean pauseActive; 
+    
+    private BitmapFont font2;
+    private BitmapFont font3;
+    
+    private HashMap<Enemy, Float> enemyVelocity = new HashMap<>();
 
     private final int gameMode;
 
@@ -197,9 +209,36 @@ public class Play extends Event implements Screen {
                 font.draw(renderer.getBatch(), "Player2 Health: " + player2.getHealth(), player2.getX(), player2.getY() - 50);
                 font.draw(renderer.getBatch(), player2.getMessage(), player2.getX() + 200, player1.getY() - 50);
             }
+            
+            printPausedMsg();
+            
+            
             gameOver();
+            
+
+            
+            pause();
+            
             renderer.getBatch().end();
         }
+    }
+    
+    public void printPausedMsg() {
+    	font2 = new BitmapFont();
+    	font2.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
+    	font2.getData().setScale(5, 5);
+    	font2.setColor(com.badlogic.gdx.graphics.Color.RED);
+    	
+    	font3 = new BitmapFont();
+    	font3.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
+    	font3.getData().setScale(2, 2);
+    	font3.setColor(com.badlogic.gdx.graphics.Color.WHITE);
+    	
+    
+    	if(pauseActive) {
+    		font2.draw(renderer.getBatch(), GAME_PAUSED_MSG, player1.getX()-250, Gdx.graphics.getHeight()/2);
+    		font3.draw(renderer.getBatch(), GAME_RESUME_MSG, player1.getX()-160, (Gdx.graphics.getHeight()/2)-100);
+    	}
     }
 
     /**
@@ -226,6 +265,8 @@ public class Play extends Event implements Screen {
             paintOverlayMessage(GAME_FINISHED_MSG);
         }
     }
+    
+    
 
     public void runDB(){
         if (!DBSaved){
@@ -314,6 +355,49 @@ public class Play extends Event implements Screen {
 
     @Override
     public void pause() {
+    	
+
+    	
+        if(Gdx.input.isKeyJustPressed(Keys.ENTER)) {
+        	
+        	
+        	if(!pauseActive) {
+        		for(Enemy enemy : enemies){
+        			enemyVelocity.put(enemy, enemy.getVelocity().x);
+        			enemy.setGravity(0);
+        			enemy.setSpeed(0);
+        			enemy.getVelocity().x = 0;
+
+        			
+        		}
+        		for(mainPlayer player : players) {
+        			player.setGravity(0);
+        			player.setSpeed(0);
+        		
+        		}
+        	
+        		pauseActive = true;
+        		
+        		
+        		
+        	}
+        	else {
+        		
+        		for(Map.Entry<Enemy, Float> entry: enemyVelocity.entrySet()) {
+        			entry.getKey().setGravity(140 * 1f);
+        			entry.getKey().setSpeed(150);
+        			entry.getKey().getVelocity().x = entry.getValue();
+        		}
+
+        			
+        		for(mainPlayer player : players) {
+        			player.setGravity(140 * 1f);
+        			player.setSpeed(150);          	
+        		}
+
+        		pauseActive = false;
+        	}
+        }
     }
 
     @Override
