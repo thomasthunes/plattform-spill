@@ -2,10 +2,7 @@ package objects;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
-import inf112.skeleton.app.Player;
 import screens.Play;
-
-import java.util.Random;
 
 
 public class monster extends Enemy{
@@ -39,20 +36,13 @@ public class monster extends Enemy{
         return name;
     }
 
-    public void getAttack(){
-        getGame().getPlayer().loseHealth(this.damage);
+    public void getAttack(mainPlayer mainPlayer){
+        mainPlayer.loseHealth(this.damage);
     }
 
     public void setHealth(int newHealth) {
         health = newHealth;
     }
-
-    /*public boolean isAlive(){
-        if (getHealth() > 0){
-            return true;
-        }
-        return false;
-    }*/
 
     @Override
     public void loseHealth(int damage) {

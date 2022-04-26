@@ -2,11 +2,15 @@ package objects;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
+import inf112.skeleton.app.Player;
 import screens.Play;
+
+import java.util.List;
+import java.util.Random;
 
 public class Bat extends Enemy {
 
-    private final int damage = 2;
+    private final int damage = 10;
 
     public Bat(Sprite sprite, TiledMapTileLayer collisionLayer, Play play) {
         super(sprite, collisionLayer, play);
@@ -14,7 +18,7 @@ public class Bat extends Enemy {
 
     @Override
     public void update(){
-        move();
+        attack();
     }
 
     @Override
@@ -33,27 +37,39 @@ public class Bat extends Enemy {
     }
 
     @Override
-    public void getAttack() {
-        getGame().getPlayer().loseHealth(this.damage);
+    public void getAttack(mainPlayer mainPlayer) {
+        mainPlayer.loseHealth(this.damage);
     }
 
-    public void moveToPlayer(){
-        if (getGame().getPlayer().getX() < this.getX()){
-            moveLeft();
+    public void moveToPlayer() {
+        List<mainPlayer> players = getGame().getPlayers();
+        Player player = null;
+        if (players.size() == 1) {
+            player = getGame().getPlayers().get(0);
         }
         else {
+            Random rand = new Random();
+            player = getGame().getPlayers().get(rand.nextInt(2));
+        }
+
+        boolean left = player.getX() < this.getX();
+        boolean right = player.getX() > this.getX();
+        if (left) {
+            moveLeft();
+        }
+        if (right) {
             moveRight();
         }
     }
 
-    @Override
-    public void move() {
-        //super.move();
+    public void attack(){
         moveToPlayer();
         if (getVelocity().y == 0){
-            System.out.println(true);
             getVelocity().y = getSpeed();
-            //moveToPlayer();
         }
+    }
+
+    @Override
+    public void moveRandom() {
     }
 }

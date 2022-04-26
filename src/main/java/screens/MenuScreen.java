@@ -3,6 +3,10 @@ package screens;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.badlogic.gdx.Input;
+import com.badlogic.gdx.assets.loaders.AssetLoader;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import org.lwjgl.opengl.GL20;
 
 import com.badlogic.gdx.Game;
@@ -18,7 +22,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import inf112.skeleton.app.app;
 import screens.Play;
 
-public class MenuScreen extends Game implements Screen  {
+public class MenuScreen extends Game implements Screen {
 	
 	app game;
     private SpriteBatch batch;
@@ -29,6 +33,8 @@ public class MenuScreen extends Game implements Screen  {
 	private Texture exitButton_inactive;
 	private Texture twoPlayer_symbol;
 	private Music menu_music;
+	private final int onePlayer = 1;
+	private final int twoPlayer = 2;
 	
 	public int screenWidth = Gdx.graphics.getWidth();
 	public int screenHeight = Gdx.graphics.getHeight();
@@ -81,7 +87,6 @@ public class MenuScreen extends Game implements Screen  {
 		menu_music.setLooping(true);
 		menu_music.setVolume(0.3f);
 		menu_music.play();
-		
 		batch = new SpriteBatch();
 	}
 	
@@ -117,8 +122,8 @@ public class MenuScreen extends Game implements Screen  {
 //    		batch.draw(playButton_active, 320, 380, 150, 120);
     		batch.draw(playButton_active, pb_x_pos_min, pb_y_pos_min, playButton_width, playButton_height);
         	if(Gdx.input.isTouched()) {
-        		this.dispose();
-        		game.setScreen(new Play("assets/maps/map1.tmx", game));
+				this.dispose();
+        		game.setScreen(new Play(maps.get(0), game, onePlayer));
         	}
     	}
     	else {
@@ -145,7 +150,8 @@ public class MenuScreen extends Game implements Screen  {
     	if(Gdx.input.getX() < twoPB_x_pos_max && Gdx.input.getX() > twoPB_x_pos_min && Gdx.input.getY() > 230 && Gdx.input.getY() < 360) {
     		batch.draw(playButton_active, twoPB_x_pos_min, twoPB_y_pos_min, twoPButton_width, twoPButton_height);
         	if(Gdx.input.isTouched()) {
-        		//Gdx.app.exit();
+				this.dispose();
+				game.setScreen(new Play(maps.get(0), game, twoPlayer));
         		
         	}
     	}
@@ -198,5 +204,4 @@ public class MenuScreen extends Game implements Screen  {
 		// TODO Auto-generated method stub
 		
 	}
-
 }

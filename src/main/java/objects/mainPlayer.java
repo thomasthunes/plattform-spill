@@ -12,7 +12,10 @@ import screens.Play;
 import java.util.ArrayList;
 import java.util.List;
 
-public class mainPlayer extends Player implements IMainPlayer, InputProcessor {
+public class mainPlayer extends Player implements IMainPlayer {
+
+    //Constants
+    private final int MAXHEALTH = 120;
 
     private String message = "";
     private Play game;
@@ -20,6 +23,9 @@ public class mainPlayer extends Player implements IMainPlayer, InputProcessor {
     private int health = 100;
     private int killStreak = 0;
     private boolean hasKey = false;
+
+    private int currentLevel = 0;
+    private boolean playerWon = false;
     
     public Sound jump;
 
@@ -51,6 +57,14 @@ public class mainPlayer extends Player implements IMainPlayer, InputProcessor {
         }
     }
 
+    public Player getPlayer(){
+        return this;
+    }
+
+    public Play getGame(){
+        return game;
+    }
+
     /**
      * loops through all enemies to see if the player collides with any of them
      * if true, the player is affected, with whatever attack specified in getAttack
@@ -62,7 +76,7 @@ public class mainPlayer extends Player implements IMainPlayer, InputProcessor {
             double enemyY = Math.floor(enemy.getY());
 
             if (collidesWithActorFromSide(this, enemy) && thisY == enemyY && enemy.isAlive()){
-                enemy.getAttack();
+                enemy.getAttack(this);
                 return true;
             }
         }
@@ -74,15 +88,45 @@ public class mainPlayer extends Player implements IMainPlayer, InputProcessor {
      * displays instructions if the player is on the finish pad, but does not have the key
      * @return boolean
      */
-    public boolean playerWon(){
-        if (hasKey() && getGameStatus()){
+    private boolean playerWon(){
+
+        if (hasKey() && getGameStatus() && currentLevel() > 0){
             setMessage("Player won!");
+            playerWon = true;
+            //getOtherPlayer().setPlayerWon(true);
+        }
+        else if (hasKey() && getGameStatus() && currentLevel() == 0){
+            setMessage("You have reached level 1");
+            nextLevel();
+            setPosition(514  * getCollisionLayer().getTileWidth(), (getCollisionLayer().getHeight() - 8) * getCollisionLayer().getTileHeight());
             return true;
         }
         else if (!hasKey() && getGameStatus()){
             setMessage("You need to find the key before you can finish!");
+            setPosition(288  * getCollisionLayer().getTileWidth(), (getCollisionLayer().getHeight() - 43) * getCollisionLayer().getTileHeight());
         }
         return false;
+    }
+
+    public boolean getPlayerWon(){
+        return playerWon;
+    }
+
+    public void setPlayerWon(boolean arg){
+        playerWon = arg;
+    }
+
+
+    private void nextLevel() {
+        currentLevel++;
+    }
+
+    /**
+     *
+     * @return the level player is on
+     */
+    public int currentLevel(){
+        return currentLevel;
     }
 
     /**
@@ -99,8 +143,15 @@ public class mainPlayer extends Player implements IMainPlayer, InputProcessor {
         }
     }
 
+    public int getKillStreak(){
+        return killStreak;
+    }
 
 
+    /**
+     *
+     * @return damage
+     */
     @Override
     public int getDamage() {
         return damage;
@@ -113,7 +164,7 @@ public class mainPlayer extends Player implements IMainPlayer, InputProcessor {
 
     @Override
     public String getName() {
-        return null;
+        return "player";
     }
 
     /**
@@ -125,42 +176,92 @@ public class mainPlayer extends Player implements IMainPlayer, InputProcessor {
         inventory.add(item);
     }
 
+    /**
+     *
+     * @return list containing picked up items
+     */
     @Override
     public List<IItem> getInventory() {
         return inventory;
     }
 
+    /**
+     *
+     * @return current health
+     */
     @Override
     public int getHealth() {
         return health;
     }
 
+    /**
+     * health is boosted by the given amount
+     * @param amount
+     */
     public void setHealth(int amount){
         health += amount;
+        if (health > MAXHEALTH)
+            health = MAXHEALTH;
     }
 
+
+    /**
+     * health reduced by enemy's damage
+     * if health is 0 or less, player dies
+     * @param damage
+     */
     @Override
     public void loseHealth(int damage) {
         if (health > 0) {
             int newHealth = health - damage;
             health = newHealth;
         }
+        if (health < 1){
+            setAliveToFalse();
+        }
     }
 
     /**
-     *
+     * adds an item to the player inventory, if the player is close enough
      */
     public void pickUpItem(){
         for (Item item : game.getItems()) {
             double thisY = Math.floor(this.getY());
             double itemY = Math.floor(item.getY());
             if (collidesWithActorFromSide(this, item) && thisY == itemY) {
-                addItem(item);
+                if (item.getName() == "key" && game.getVampire().isAlive()){
+                    continue;
+                }
+                else {
+                    addItem(item);
+                }
             }
         }
         checkInventory();
     }
 
+    /**
+     * gets the other player if there are two players
+     * @return the other mainPlayer
+     */
+    public mainPlayer getOtherPlayer(){
+        List<mainPlayer> players = game.getPlayers();
+        if (players.size() < 2){
+            return null;
+        }
+        mainPlayer otherPlayer = this;
+        for (mainPlayer player : players){
+            if (!player.equals(this)){
+                otherPlayer = player;
+            }
+        }
+        return otherPlayer;
+
+    }
+
+    /**
+     * checks the inventory of the player and initiates interaction with the items
+     */
     private void checkInventory() {
         List<IItem> usedItems = new ArrayList<>();
         for (IItem item : inventory){
@@ -170,98 +271,37 @@ public class mainPlayer extends Player implements IMainPlayer, InputProcessor {
                 usedItems.add(item);
             }
             else if (item.getName() == "key"){
-                hasKey = true;
+                this.setKey(true);
+                if (getOtherPlayer() != null)
+                    getOtherPlayer().setKey(true);
                 item.setAliveToFalse();
                 setMessage("You found the key, get to the finish zone!");
             }
         }
     }
 
+    /**
+     * set key to true or false
+     * @param bool
+     */
+    public void setKey(boolean bool) {
+        hasKey = bool;
+    }
+
+    /**
+     *
+     * @return true or false
+     */
     public boolean hasKey(){
         return hasKey;
     }
 
+    /**
+     * removes items that have been used
+     * @param items that have not been used
+     */
     private void removeUsedItem(List<IItem> items){
         inventory.remove(items);
     }
 
-
-    @Override
-    public boolean keyDown(int keycode) {
-        for (Enemy enemy : game.getEnemies()){
-            if (enemy.getName() != "bat") {
-                enemy.move();
-            }
-        }
-        switch(keycode) {
-
-            case Input.Keys.SPACE:
-                if(GetCanJump()) {
-                    getVelocity().y = getSpeed()/*+250 / 1.8f*/;
-                    jump.play();
-                }
-                
-                SetCanJump(false);
-
-                break;
-
-            case Input.Keys.A:
-            case Input.Keys.LEFT:
-                getVelocity().x = -getSpeed();
-
-                break;
-            case Input.Keys.D:
-            case Input.Keys.RIGHT:
-                getVelocity().x = getSpeed();
-                break;
-
-            case Input.Keys.P:
-                pickUpItem();
-                break;
-        }
-        return true;
-    }
-
-    @Override
-    public boolean keyUp(int keycode) {
-        switch(keycode) {
-            case Input.Keys.A:
-            case Input.Keys.LEFT:
-
-            case Input.Keys.D:
-            case Input.Keys.RIGHT:
-                getVelocity().x = 0;
-        }
-        return true;
-    }
-
-    @Override
-    public boolean keyTyped(char c) {
-        return false;
-    }
-
-    @Override
-    public boolean touchDown(int i, int i1, int i2, int i3) {
-        return false;
-    }
-
-    @Override
-    public boolean touchUp(int i, int i1, int i2, int i3) {
-        return false;
-    }
-
-    @Override
-    public boolean touchDragged(int i, int i1, int i2) {
-        return false;
-    }
-
-    @Override
-    public boolean mouseMoved(int i, int i1) {
-        return false;
-    }
-
-    @Override
-    public boolean scrolled(float v, float v1) {
-        return false;
-    }
 }

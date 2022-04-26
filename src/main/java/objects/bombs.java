@@ -53,8 +53,8 @@ public class bombs extends Enemy{
     }
 
     @Override
-    public void getAttack() {
-        Player player = getGame().getPlayer();
+    public void getAttack(objects.mainPlayer mainPlayer) {
+        Player player = mainPlayer;
         player.getVelocity().y = player.getSpeed()+250 / 1.8f;
         player.getVelocity().x = player.getSpeed()+50;
         loseHealth(hp);
