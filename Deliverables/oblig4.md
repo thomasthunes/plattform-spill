@@ -43,10 +43,17 @@ Møtereferatene oppsummerer hva som har blitt disuktert på de ulike møtene, ev
 ## 1.2 Oppsummering av team og prosjekt  
 I denne delen av oppgaven oppsummerer vi hvordan arbeidet i gruppen har vært og reflekterer over utviklingen i vårt prosjekt.  
 ### 1.2.1 Roller  
-*Kort oppsummering av roller her*  
+Fra forrige innlevering (08.04) har vi omtrent det samme behovet for rollefordeling. Vi velger å fortsette med de samme rollene da vi drar godt nytte av spesialiseringen som hver enkelt gruppemedlem har oppnådd i hver sin respektive rolle. Målet er å sikre god kvalitet og effektivitet i arbeidet, og dette mener vi at vi oppnår med denne rollefordelingen. Dermed er det også lite endringer når det gjelder hva de ulike rollene faktisk innebærer for oss. Etter det siste møte vi hadde (26.04) har vi imidlertid kanalisert ressrusene slik at 3 gruppemedlemmer jobber med tester. Dette er frem til nå det største avviket vi har hatt når det gjelder rollefordeling. Rollefordelingen for hvert enkelt gruppemedlem er oppsummert som følgende:  
 
-*Person1* har merket at sin rolle som *rolle* innebærer at han må ...  
+Thomas har merket at sin rolle som teamleder innebærer at fortsatt må holde god oversikt på utviklingsprosessen, og spesielt hva som mangler i listen på MVP. Dette merker han også er ekstra krevende fram mot siste innlevering, da siste innlevering krever at alt med prosjektet er ferdig. Dermed må han ha en komplett oversikt på prosjketet.  
 
+Magnus har merket at sin rolle som prosjektansvarlig innebærer at han må være fokusert på hvordan ressursfordelingen skal være fram mot siste innlevering. Dette gjelder spsesielt må ettersom mange arbeidsoppgaver begynner å bli ferdige. Dermed må roller og tilhørende arbeidsoppgaver omfordeles slik at alle har noe å jobbe med. Dette gjelder spesielt på testing der to ekstra ressurser (gruppemedlemmer) er satt inn på dette.  
+
+Karl har merket at sin rolle som Scrum Master innebærer at han må ha en god oversikt på prosessene i Scrum rammeverket. Dette gjelder også spesielt for siste innlevering der vi nå skal reflektere over hva vi mener har fungert bra og hva vi ville ha endret på om vi startet på nytt. Her merker Karl at han som Scrum Master har mange innspill og refleksjoner som han må bidra med i denne diskusjonen (se [1.2.8 Retrospektiv vurdering av hele prosjektet](#128-retrospektiv-vurdering-av-hele-prosjektet)).
+
+Jonas har merket at sin rolle som testansvarlig innebærer at han må fortsette å holde god oversikt på innholdet i koden for å sikre god testdekning. Her merker han at rollen som testansvarlig blir ekstra krevende etterhvert som kompleksisteten i spillet blir større. Dette fordi det kreves mer omfattende testing for å sørge for at hele prosjektet har god testdekning. På bakgrunn av dette har dermed Jonas bedt om ekstra ressurser på testdekningen, altså hjelp fra de andre gruppemedlemmene for at vi skal komme i mål på god testdekning.  
+
+Jon har merket at sin rolle som kundekontakt innebærer at han må fortsette å oppretteholde kommunikasjon med kunden for å sikre at det endelige prosjektleveransen imøtekommer de krav og forventninger som kunden måtte ha. Jon merker dermed at det er viktig at han sørger for at informasjon og tilbakemeldinger fra kunden blir formidlet til de rette rollene i gruppen, slik at hver enkelt gruppemedlem er inneforstått med hva de må gjøre for å tilfredsstille kunden.  
 
 ### 1.2.2 Erfaringer og valg  
 **Erfaringer team:**  
@@ -80,7 +87,7 @@ Basert på den retrospektive vurderingen ([1.2.5](#125-retrospektiv-vurdering-av
 
 **Hva har vi gjort bra:**  
 
-**Hva vi ville ha gjort annereledes (dersom vi startet på nytt):** Mer abskraskjon mellom sprite og klassen for player.   
+**Hva vi ville ha gjort annereledes (dersom vi startet på nytt):** Mer abskraskjon mellom sprite og klassen for player, slik at funksjonaliteten i koden kan testes uten GUI. På denne måten kunne vi fått brukt JUNIT-tester.  
 
 # 2. Krav
 I denne delen av oppgaven vil vi gå gjennom (1) vårt stretch goal for oppgaven og (2) brukerhistorier fra MVP med tilhørende oppfølgingsspørsmål.  
