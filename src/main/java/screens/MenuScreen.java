@@ -36,13 +36,37 @@ public class MenuScreen extends Game implements Screen {
 	private final int onePlayer = 1;
 	private final int twoPlayer = 2;
 	
+	public int screenWidth = Gdx.graphics.getWidth();
+	public int screenHeight = Gdx.graphics.getHeight();
+	
+	private int playButton_height = 120;
+	private int playButton_width = 220;
+	private int pb_x_pos_min = screenWidth/2 - playButton_width/2;
+	private int pb_x_pos_max = screenWidth/2 + playButton_width/2;
+	private int pb_y_pos_min = screenHeight/2 - playButton_height/2;
+	private int pb_y_pos_max = screenHeight/2 + playButton_height/2;
+	
+	private int exitButton_height = 100;
+	private int exitButton_width = 100;
+	private int eb_x_pos_min = screenWidth/2 - (playButton_width/2)/2;
+	private int eb_x_pos_max = screenWidth/2 + (playButton_width/2)/2;
+	private int eb_y_pos_max = pb_y_pos_min - 20;
+	private int eb_y_pos_min = eb_y_pos_max - exitButton_height;
+	
+	private int twoPButton_height = 100;
+	private int twoPButton_width = 100;
+	private int twoPB_x_pos_min = screenWidth/2 - (playButton_width/2)/2;
+	private int twoPB_x_pos_max = screenWidth/2 + (playButton_width/2)/2;
+	private int twoPB_y_pos_min = pb_y_pos_max + 40;
+	private int twoPB_y_pos_max = twoPB_y_pos_min + twoPButton_height;
+	
+
 	
 	
-	public List<String> maps = new ArrayList<>();
 	
 	public MenuScreen(app game) {
 		
-		maps.add("assets/maps/map1.tmx");
+		
 		this.game = game;
 		background = new Texture("assets/maps/game_background.png");
 		playButton_active = new Texture("assets/maps/play_button_active.png");
@@ -50,6 +74,14 @@ public class MenuScreen extends Game implements Screen {
 		exitButton_active = new Texture("assets/maps/exit_button_active.png");
 		exitButton_inactive = new Texture("assets/maps/exit_button_inactive.png");
 		twoPlayer_symbol = new Texture("assets/maps/twoplayer.png");
+		
+//		System.out.println(eb_x_pos_max);
+//		System.out.println(eb_x_pos_min);
+//		System.out.println(eb_y_pos_max);
+//		System.out.println(eb_y_pos_min);
+		
+
+		
 		
 		menu_music = Gdx.audio.newMusic(Gdx.files.internal("assets/sounds/menuscreen_audio.mp3"));
 		menu_music.setLooping(true);
@@ -74,45 +106,57 @@ public class MenuScreen extends Game implements Screen {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         
     	batch.begin();
-    	batch.draw(background, 0, 0, 800, 800);
+    	batch.draw(background, 0, 0, screenWidth, screenHeight);
+    	
+    	if(Gdx.input.isTouched()) {
+//    		System.out.println(Gdx.input.getX());
+    		System.out.println(Gdx.input.getY());
+//    		System.out.println(Gdx.graphics.getWidth());
+//    		System.out.println(Gdx.graphics.getHeight());
+		
+	}
     	  	
     	
-    	if(Gdx.input.getX() < 500 && Gdx.input.getX() > 300 && Gdx.input.getY() < 400 && Gdx.input.getY() > 300) {
-    		batch.draw(playButton_active, 320, 380, 150, 120);
+//    	if(Gdx.input.getX() < 500 && Gdx.input.getX() > 300 && Gdx.input.getY() < 400 && Gdx.input.getY() > 300) {
+    	if(Gdx.input.getX() < pb_x_pos_max && Gdx.input.getX() > pb_x_pos_min && Gdx.input.getY() < pb_y_pos_max && Gdx.input.getY() > pb_y_pos_min) {
+//    		batch.draw(playButton_active, 320, 380, 150, 120);
+    		batch.draw(playButton_active, pb_x_pos_min, pb_y_pos_min, playButton_width, playButton_height);
         	if(Gdx.input.isTouched()) {
 				this.dispose();
-        		game.setScreen(new Play(maps.get(0), game, onePlayer));
+        		game.setScreen(new Play("assets/maps/map1.tmx", game, onePlayer));
         	}
     	}
     	else {
-    		batch.draw(playButton_inactive, 320, 380, 150, 120);
+    		//batch.draw(playButton_inactive, 320, 380, 150, 120);
+    		batch.draw(playButton_inactive, pb_x_pos_min , pb_y_pos_min, playButton_width, playButton_height);
     	}
     	
-    	if(Gdx.input.getX() < 450 && Gdx.input.getX() > 350 && Gdx.input.getY() > 440 && Gdx.input.getY() < 520) {
-    		batch.draw(exitButton_active, 350, 270, 100, 100);
+    	if(Gdx.input.getX() < eb_x_pos_max && Gdx.input.getX() > eb_x_pos_min && Gdx.input.getY() < 620 && Gdx.input.getY() > 540) {
+    		batch.draw(exitButton_active, eb_x_pos_min, eb_y_pos_min, exitButton_width, exitButton_height);
         	if(Gdx.input.isTouched()) {
+        		
         		Gdx.app.exit();
         		
         	}  	
     		
     	}
     	else {
-    		batch.draw(exitButton_inactive, 350, 270, 100, 100);
+    		batch.draw(exitButton_inactive, eb_x_pos_min, eb_y_pos_min, exitButton_width, exitButton_height);
     	}
     	
     	
     	
     	
-    	if(Gdx.input.getX() < 460 && Gdx.input.getX() > 350 && Gdx.input.getY() > 150 && Gdx.input.getY() < 260) {
-    		batch.draw(playButton_active, 350, 520, 100, 100);
+    	if(Gdx.input.getX() < twoPB_x_pos_max && Gdx.input.getX() > twoPB_x_pos_min && Gdx.input.getY() > 230 && Gdx.input.getY() < 360) {
+    		batch.draw(playButton_active, twoPB_x_pos_min, twoPB_y_pos_min, twoPButton_width, twoPButton_height);
         	if(Gdx.input.isTouched()) {
 				this.dispose();
-				game.setScreen(new Play(maps.get(0), game, twoPlayer));
+				game.setScreen(new Play("assets/maps/map1.tmx", game, twoPlayer));
         		
         	}
     	}
     	else {
-    		batch.draw(twoPlayer_symbol, 350, 535, 100, 100);
+    		batch.draw(twoPlayer_symbol, twoPB_x_pos_min, twoPB_y_pos_min, twoPButton_width, twoPButton_height);
     	}
     	
 
