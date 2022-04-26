@@ -16,6 +16,10 @@ public class ScoreDB {
     private List<Integer> scores;
 
 
+    /**
+     * Creates a file with the all-time top ten best scores
+     * @param players
+     */
     public ScoreDB(List<mainPlayer> players){
         this.players = players;
         this.scores = new ArrayList<>();
@@ -24,6 +28,9 @@ public class ScoreDB {
         write();
     }
 
+    /**
+     * creates a new file if it does not already exist
+     */
     public void create() {
         try {
             scoreDB = new File("filename.txt");
@@ -38,6 +45,11 @@ public class ScoreDB {
         }
     }
 
+    /**
+     * 1. Adds the new scores to the list of scores
+     * 2. Sorts the list in descending order and adds the first ten scores to topTen
+     * @return top ten best scores
+     */
     public List<Integer> getTopTen(){
         List<Integer> topTen = new ArrayList<>();
         for (mainPlayer player : players){
@@ -54,6 +66,9 @@ public class ScoreDB {
         return topTen;
     }
 
+    /**
+     * Writes the top ten best scores to the created or existing file
+     */
     public void write(){
         try {
             printWriter = new PrintWriter("filename.txt");
@@ -71,6 +86,9 @@ public class ScoreDB {
         }
     }
 
+    /**
+     * adds the existing scores to a list
+     */
     public void read(){
         try {
             Scanner myReader = new Scanner(scoreDB);

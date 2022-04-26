@@ -180,29 +180,70 @@ public class Play extends Event implements Screen {
             }
 
             drawItems();
-
-            List<abstractEnemy> enemiesToBeRemoved = new ArrayList<>();
-            for (abstractEnemy enemy : enemies) {
-                if (enemy.isAlive()) {
-                    enemy.draw(renderer.getBatch());
-                } else {
-                    enemiesToBeRemoved.add(enemy);
-                }
-            }
-            removeDeadEnemies(enemiesToBeRemoved);
-
-
-            font.draw(renderer.getBatch(), "Mario's Health: " + player1.getHealth(), player1.getX(), player1.getY() - 30);
-            font.draw(renderer.getBatch(), player1.getMessage(), player1.getX() + 200, player1.getY() - 30);
-            font.draw(renderer.getBatch(), "FINISH ZONE!", 633 * player1.getCollisionLayer().getTileWidth(), (player1.getCollisionLayer().getHeight() - 45) * player1.getCollisionLayer().getTileHeight());
-            font.draw(renderer.getBatch(), "LEVEL 2!", 440 * player1.getCollisionLayer().getTileWidth(), (player1.getCollisionLayer().getHeight() - 9) * player1.getCollisionLayer().getTileHeight());
-
-            if (player2 != null) {
-                font.draw(renderer.getBatch(), "Luigi's Health: " + player2.getHealth(), player2.getX(), player2.getY() - 50);
-                font.draw(renderer.getBatch(), player2.getMessage(), player2.getX() + 200, player1.getY() - 50);
-            }
+            drawEnemies();
+            drawFont();
             gameOver();
+
             renderer.getBatch().end();
+        }
+    }
+
+    /**
+     * draws the items
+     */
+    private void drawItems(){
+        List<Item> usedItems = new ArrayList<>();
+        for (Item object : items) {
+            if (object.isAlive()) {
+                object.draw(renderer.getBatch());
+            }
+            else {
+                usedItems.add(object);
+            }
+        }
+        removeUsedItems(usedItems);
+    }
+
+    /**
+     * draws the enemies
+     */
+    private void drawEnemies(){
+        List<abstractEnemy> enemiesToBeRemoved = new ArrayList<>();
+        for (abstractEnemy enemy : enemies) {
+            if (enemy.isAlive()) {
+                enemy.draw(renderer.getBatch());
+            } else {
+                enemiesToBeRemoved.add(enemy);
+            }
+        }
+        removeDeadEnemies(enemiesToBeRemoved);
+    }
+
+    /**
+     * removes the dead enemies
+     * @param enemiesToBeRemoved
+     */
+    private void removeDeadEnemies(List<abstractEnemy> enemiesToBeRemoved){
+        enemies.removeAll(enemiesToBeRemoved);
+    }
+
+    /**
+     * removes the dead enemies
+     * @param usedItems
+     */
+    private void removeUsedItems(List<Item> usedItems){
+        enemies.removeAll(usedItems);
+    }
+
+    private void drawFont() {
+        font.draw(renderer.getBatch(), "Mario's Health: " + player1.getHealth(), player1.getX(), player1.getY() - 30);
+        font.draw(renderer.getBatch(), player1.getMessage(), player1.getX() + 200, player1.getY() - 30);
+        font.draw(renderer.getBatch(), "FINISH ZONE!", 633 * player1.getCollisionLayer().getTileWidth(), (player1.getCollisionLayer().getHeight() - 45) * player1.getCollisionLayer().getTileHeight());
+        font.draw(renderer.getBatch(), "LEVEL 2!", 440 * player1.getCollisionLayer().getTileWidth(), (player1.getCollisionLayer().getHeight() - 9) * player1.getCollisionLayer().getTileHeight());
+
+        if (player2 != null) {
+            font.draw(renderer.getBatch(), "Luigi's Health: " + player2.getHealth(), player2.getX(), player2.getY() - 50);
+            font.draw(renderer.getBatch(), player2.getMessage(), player2.getX() + 200, player1.getY() - 50);
         }
     }
 
@@ -231,6 +272,9 @@ public class Play extends Event implements Screen {
         }
     }
 
+    /**
+     * Initiates the database and saves the top ten best scores in a field variable
+     */
     public void runDB(){
         if (!DBSaved){
             ScoreDB scoreDB = new ScoreDB(players);
@@ -239,6 +283,9 @@ public class Play extends Event implements Screen {
         }
     }
 
+    /**
+     * Displays the top ten scores after the game has ended
+     */
     public void scoreBoard(){
         float x = Gdx.graphics.getWidth()/2;
         float y = Gdx.graphics.getHeight()/2;
@@ -278,36 +325,6 @@ public class Play extends Event implements Screen {
         font.getData().setScale(2);
     }
 
-    private void drawItems(){
-        List<Item> usedItems = new ArrayList<>();
-        for (Item object : items) {
-            if (object.isAlive()) {
-                object.draw(renderer.getBatch());
-            }
-            else {
-                usedItems.add(object);
-            }
-        }
-        removeUsedItems(usedItems);
-    }
-
-    /**
-     * removes the dead enemies
-     * @param enemiesToBeRemoved
-     */
-    private void removeDeadEnemies(List<abstractEnemy> enemiesToBeRemoved){
-        enemies.removeAll(enemiesToBeRemoved);
-    }
-
-    /**
-     * removes the dead enemies
-     * @param usedItems
-     */
-    private void removeUsedItems(List<Item> usedItems){
-        enemies.removeAll(usedItems);
-    }
-
-
     @Override
     public void resize(int width, int height) {
         camera.viewportWidth = width;
@@ -335,8 +352,6 @@ public class Play extends Event implements Screen {
         map.dispose();
         renderer.dispose();
         player1.getTexture().dispose();
-        //player2.getTexture().dispose();
-        //player.jump.dispose();
     }
 
 

@@ -32,7 +32,6 @@ public class application extends InputAdapter implements ApplicationListener {
         layer1 = (TiledMapTileLayer) map.getLayers().get("Board");
 
         cam.setToOrtho(false,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        //cam.position.set(cam.viewportWidth/2f, cam.viewportHeight/2f, 0);
         cam.update();
         
         renderer = new OrthoCachedTiledMapRenderer(map, 1, 3000);
@@ -41,10 +40,6 @@ public class application extends InputAdapter implements ApplicationListener {
 
     @Override
     public void resize(int i, int i1) {
-        /*cam.viewportHeight = mapHeight;
-        cam.viewportWidth = mapWidth;
-        cam.update();*/
-
     }
 
     @Override
