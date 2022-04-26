@@ -2,10 +2,11 @@ package objects;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
-import inf112.skeleton.app.Player;
+import inf112.skeleton.app.abstractEnemy;
+import inf112.skeleton.app.abstractPlayer;
 import screens.Play;
 
-public class bombs extends Enemy{
+public class bombs extends abstractEnemy {
 
     private final String name;
     private final boolean isAlive = true;
@@ -54,7 +55,7 @@ public class bombs extends Enemy{
 
     @Override
     public void getAttack(objects.mainPlayer mainPlayer) {
-        Player player = mainPlayer;
+        abstractPlayer player = mainPlayer;
         player.getVelocity().y = player.getSpeed()+250 / 1.8f;
         player.getVelocity().x = player.getSpeed()+50;
         loseHealth(hp);

@@ -5,7 +5,6 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.math.Vector2;
-import inf112.skeleton.app.Player;
 
 public class Item<T> extends Sprite implements IItem<T>{
 
@@ -13,18 +12,27 @@ public class Item<T> extends Sprite implements IItem<T>{
     private TiledMapTileLayer collisionLayer;
     private Vector2 velocity = new Vector2();
 
-    private float speed = 150 /*60 * 2*/, gravity = 140 * 1f;
+    private float speed = 150, gravity = 140 * 1f;
 
     private boolean canJump;
 
     private boolean gameFinished = false;
 
+    /**
+     * common properties for all items in the game (players, enemies and props)
+     * @param sprite
+     * @param collisionLayer
+     */
     public Item(Sprite sprite, TiledMapTileLayer collisionLayer) {
         super(sprite);
         this.collisionLayer = collisionLayer;
         setSize((float) (getWidth()*0.2), (float) (getHeight()*0.2));
     }
 
+    /**
+     *
+     * @return the collisionLayer
+     */
     public TiledMapTileLayer getCollisionLayer() {
         return collisionLayer;
     }
@@ -34,6 +42,12 @@ public class Item<T> extends Sprite implements IItem<T>{
         return null;
     }
 
+    /**
+     *
+     * @param thisItem
+     * @param item
+     * @return true if two items are within an interval of each other from on the x-axis
+     */
     @Override
     public boolean collidesWithActorFromSide(Item thisItem, Item item) {
         if (this.getX() < item.getX() + 40 && this.getX() > item.getX() - 40){
@@ -42,6 +56,12 @@ public class Item<T> extends Sprite implements IItem<T>{
         return false;
     }
 
+    /**
+     *
+     * @param thisItem
+     * @param item
+     * @return true if two items are within an interval of each other from on the y-axis
+     */
     @Override
     public boolean collidesWithActorFromTop(Item thisItem, Item item){
         double thisY = Math.floor(this.getY());
@@ -53,10 +73,17 @@ public class Item<T> extends Sprite implements IItem<T>{
         return false;
     }
 
+    /**
+     *
+     * @return isAlive boolean
+     */
     public boolean isAlive() {
         return isAlive;
     }
 
+    /**
+     * changes the alive boolean to false
+     */
     public void setAliveToFalse(){
         isAlive = false;
     }
@@ -72,6 +99,10 @@ public class Item<T> extends Sprite implements IItem<T>{
         super.draw(batch);
     }
 
+    /**
+     *
+     * @return true if item is withing the bounds of the map
+     */
     public Boolean inBounds(){
         if (getX() / collisionLayer.getTileWidth() < 0 || getX() / collisionLayer.getTileWidth() >= collisionLayer.getWidth()){
             this.setAliveToFalse();
@@ -91,7 +122,7 @@ public class Item<T> extends Sprite implements IItem<T>{
             velocity.x = 0;
             return;
         }
-// Rescueline heihei
+
         velocity.y -= gravity * delta;
 
         //clamp velocity
@@ -153,25 +184,22 @@ public class Item<T> extends Sprite implements IItem<T>{
         // Update animation
     }
 
-    /*public boolean isCellFinish(float x, float y){
-        TiledMapTileLayer.Cell cell = collisionLayer.getCell((int) (x / collisionLayer.getTileWidth()), (int) (y / collisionLayer.getTileHeight()));
-        return cell.getTile().getProperties().containsKey("finish");
-    }
-
-    public boolean finishZone() {
-        int increment = collisionLayer.getTileHeight()/2;
-        for(float step = 0; step <= getWidth(); step += increment)
-            if(isCellFinish(getX() + step, getY()))
-                return true;
-        return false;
-    }*/
-
+    /**
+     *
+     * @return gameFinished boolean
+     */
     public boolean getGameStatus(){
         return gameFinished;
     }
 
 
-    // Helper functions
+    /**
+     * true if a cell has the property of blocked
+     * sets the gameFinished boolean to true if a cell contains the property of finish
+     * @param x
+     * @param y
+     * @return
+     */
     protected boolean isCellBlocked(float x, float y) {
         TiledMapTileLayer.Cell cell = collisionLayer.getCell((int) (x / collisionLayer.getTileWidth()), (int) (y / collisionLayer.getTileHeight()));
         if ((cell == null)) {
@@ -187,6 +215,11 @@ public class Item<T> extends Sprite implements IItem<T>{
         return cell != null && cell.getTile() != null && cell.getTile().getProperties().containsKey("blocked");
     }
 
+    /**
+     * true if item collides with blocked cell to the right
+     * @param increment
+     * @return
+     */
     public boolean collidesRight(int increment) {
         for(float step = 0; step <= getHeight(); step += increment)
             if(isCellBlocked(getX() + getWidth(), getY() + step))
@@ -194,6 +227,11 @@ public class Item<T> extends Sprite implements IItem<T>{
         return false;
     }
 
+    /**
+     * true if item collides with blocked cell to the left
+     * @param increment
+     * @return
+     */
     public boolean collidesLeft(int increment) {
         // Iterates over every cell
         for(float step = 0; step <= getHeight(); step += increment)
@@ -202,7 +240,11 @@ public class Item<T> extends Sprite implements IItem<T>{
         return false;
     }
 
-    // collidesTop() is true if player collides with collision layer at top
+    /**
+     * true if item collides from below with blocked cell
+     * @param increment
+     * @return
+     */
     public boolean collidesTop(int increment) {
         for(float step = 0; step <= getWidth(); step += increment)
             if(isCellBlocked(getX() + step, getY() + getHeight())) // getHeight() to check at top of player
@@ -210,6 +252,11 @@ public class Item<T> extends Sprite implements IItem<T>{
         return false;
     }
 
+    /**
+     * true if item collides from above with blocked cell
+     * @param increment
+     * @return
+     */
     public boolean collidesBottom(double increment) {
         for(float step = 0; step <= getWidth(); step += increment)
             if(isCellBlocked(getX() + step, getY())) // getY() without any additional increment to check on bottom
@@ -242,7 +289,6 @@ public class Item<T> extends Sprite implements IItem<T>{
     public void setGravity(float gravity) {
         this.gravity = gravity;
     }
-
 
     public void setCollisionLayer(TiledMapTileLayer collisionLayer) {
         this.collisionLayer = collisionLayer;

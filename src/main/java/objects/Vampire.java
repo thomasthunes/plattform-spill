@@ -2,12 +2,12 @@ package objects;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
-import inf112.skeleton.app.Player;
+import inf112.skeleton.app.abstractEnemy;
 import screens.Play;
 
 import java.util.List;
 
-public class Vampire extends Enemy{
+public class Vampire extends abstractEnemy {
 
     private final int health = 75;
     private final int damage = 2;
@@ -35,7 +35,7 @@ public class Vampire extends Enemy{
     }
 
     @Override
-    public void getAttack(mainPlayer mainPlayer) {
+    public void getAttack(objects.mainPlayer mainPlayer) {
 
     }
 
@@ -44,7 +44,7 @@ public class Vampire extends Enemy{
      * @return boolean
      */
     public boolean playerInRange(){
-        for (mainPlayer player : getGame().getPlayers()) {
+        for (objects.mainPlayer player : getGame().getPlayers()) {
             if (player.getX() > this.getX() - 500 && player.getX() < this.getX() + 500)
                 return true;
         }
@@ -58,9 +58,9 @@ public class Vampire extends Enemy{
     @Override
     public void moveRandom(){
         //Stands still
-        List<Enemy> stones = game.getBats();
+        List<abstractEnemy> stones = game.getBats();
         if (!stones.isEmpty() && playerInRange()) {
-            Enemy bat = stones.get(0);
+            abstractEnemy bat = stones.get(0);
             bat.update();
             game.getBats().remove(bat);
         }

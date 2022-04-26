@@ -15,14 +15,13 @@ import com.badlogic.gdx.graphics.Color;
 
 import com.badlogic.gdx.scenes.scene2d.Event;
 
+import inf112.skeleton.app.abstractEnemy;
 import inf112.skeleton.app.ScoreDB;
 import inf112.skeleton.app.app;
 import inf112.skeleton.app.controller;
 import objects.*;
 import org.lwjgl.opengl.GL20;
-import org.lwjgl.system.CallbackI;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,27 +37,28 @@ public class Play extends Event implements Screen {
     private TiledMap map;
     private OrthogonalTiledMapRenderer renderer;
     private OrthographicCamera camera;
-    //private SpriteBatch batch;
+    private BitmapFont font;
+
     private mainPlayer player1;
     private mainPlayer player2;
-    private List<mainPlayer> players = new ArrayList<>();
     private Vampire vampire;
     private Wizard wizard;
     private medKit medKit;
-    //private Enemy enemy;
-    private BitmapFont font;
-    private List<Enemy> enemies = new ArrayList<>();
-    private List<Enemy> bats = new ArrayList<>();
+    // Lists for actors
+    private List<mainPlayer> players = new ArrayList<>();
+    private List<abstractEnemy> enemies = new ArrayList<>();
+    private List<abstractEnemy> bats = new ArrayList<>();
     private List<Item> items = new ArrayList<>();
+
     private int gameCount = 0;
     private String currentMap;
     private app app;
     private ItemFactory itemFactory;
+
     private ShapeRenderer shapeRenderer;
     private boolean gameActive;
     private boolean DBSaved = false;
     private List<Integer> topTen = new ArrayList<>();
-
     private final int gameMode;
 
     public Play(String currentMap, app app, int gameMode){
@@ -90,15 +90,27 @@ public class Play extends Event implements Screen {
         }
 
         else if (gameMode == 2) {
-            player2 = new mainPlayer(new Sprite(new Texture("assets/maps/mario.png")), (TiledMapTileLayer) map.getLayers().get(0), this);//new Player(new Sprite(new Texture("assets/maps/mario.png")), (TiledMapTileLayer) map.getLayers().get(0));
+            player2 = new mainPlayer(new Sprite(new Texture("assets/maps/luigi.png")), (TiledMapTileLayer) map.getLayers().get(0), this);//new Player(new Sprite(new Texture("assets/maps/mario.png")), (TiledMapTileLayer) map.getLayers().get(0));
             player2.setPosition(7 * player2.getCollisionLayer().getTileWidth(), (player2.getCollisionLayer().getHeight() - STARTPOSITION) * player2.getCollisionLayer().getTileHeight());
+            player2.setSize((float) (player2.getWidth()*0.15), (float) (player2.getHeight()*0.2));;
             players.add(player2);
 
             controller controller = new controller(player1, player2);
             Gdx.input.setInputProcessor(controller);
         }
 
+        createObjects();
 
+        shapeRenderer = new ShapeRenderer();
+        shapeRenderer.setAutoShapeType(true);
+
+    }
+
+    /**
+     * creates the new instances of the different objects
+     * adds the respective instances to their lists
+     */
+    private void createObjects(){
         enemies = itemFactory.getNextBomb(20, map, this);
         enemies = itemFactory.getNextMonster(30, map, this);
         enemies = itemFactory.getNextBat(map, this, bats);
@@ -107,21 +119,13 @@ public class Play extends Event implements Screen {
 
         items = itemFactory.getNextMedkit(30, map, this);
         items = itemFactory.getKey(map, this);
-
-        shapeRenderer = new ShapeRenderer();
-        shapeRenderer.setAutoShapeType(true);
-
-        if (enemies.contains(vampire)){
-            System.out.println(true);
-        }
-
     }
 
     public Vampire getVampire(){
         return vampire;
     }
 
-    public List<Enemy> getBats(){
+    public List<abstractEnemy> getBats(){
         return bats;
     }
 
@@ -137,7 +141,7 @@ public class Play extends Event implements Screen {
         return players;
     }
 
-    public List<Enemy> getEnemies(){
+    public List<abstractEnemy> getEnemies(){
         return enemies;
     }
 
@@ -177,8 +181,8 @@ public class Play extends Event implements Screen {
 
             drawItems();
 
-            List<Enemy> enemiesToBeRemoved = new ArrayList<>();
-            for (Enemy enemy : enemies) {
+            List<abstractEnemy> enemiesToBeRemoved = new ArrayList<>();
+            for (abstractEnemy enemy : enemies) {
                 if (enemy.isAlive()) {
                     enemy.draw(renderer.getBatch());
                 } else {
@@ -188,13 +192,13 @@ public class Play extends Event implements Screen {
             removeDeadEnemies(enemiesToBeRemoved);
 
 
-            font.draw(renderer.getBatch(), "Player1 Health: " + player1.getHealth(), player1.getX(), player1.getY() - 30);
+            font.draw(renderer.getBatch(), "Mario's Health: " + player1.getHealth(), player1.getX(), player1.getY() - 30);
             font.draw(renderer.getBatch(), player1.getMessage(), player1.getX() + 200, player1.getY() - 30);
             font.draw(renderer.getBatch(), "FINISH ZONE!", 633 * player1.getCollisionLayer().getTileWidth(), (player1.getCollisionLayer().getHeight() - 45) * player1.getCollisionLayer().getTileHeight());
             font.draw(renderer.getBatch(), "LEVEL 2!", 440 * player1.getCollisionLayer().getTileWidth(), (player1.getCollisionLayer().getHeight() - 9) * player1.getCollisionLayer().getTileHeight());
 
             if (player2 != null) {
-                font.draw(renderer.getBatch(), "Player2 Health: " + player2.getHealth(), player2.getX(), player2.getY() - 50);
+                font.draw(renderer.getBatch(), "Luigi's Health: " + player2.getHealth(), player2.getX(), player2.getY() - 50);
                 font.draw(renderer.getBatch(), player2.getMessage(), player2.getX() + 200, player1.getY() - 50);
             }
             gameOver();
@@ -269,7 +273,7 @@ public class Play extends Event implements Screen {
         scoreBoard();
 
         font.setColor(com.badlogic.gdx.graphics.Color.BLACK);
-        font.draw(renderer.getBatch(), msg, x-50, y+50);
+        font.draw(renderer.getBatch(), msg, x-50, y+100);
         font.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
         font.getData().setScale(2);
     }
@@ -291,7 +295,7 @@ public class Play extends Event implements Screen {
      * removes the dead enemies
      * @param enemiesToBeRemoved
      */
-    private void removeDeadEnemies(List<Enemy> enemiesToBeRemoved){
+    private void removeDeadEnemies(List<abstractEnemy> enemiesToBeRemoved){
         enemies.removeAll(enemiesToBeRemoved);
     }
 
