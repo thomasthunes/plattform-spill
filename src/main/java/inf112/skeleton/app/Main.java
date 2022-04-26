@@ -10,7 +10,9 @@ public class Main {
     public static void main(String[] args) {
         Lwjgl3ApplicationConfiguration cfg = new Lwjgl3ApplicationConfiguration();
         cfg.setTitle("map");
-        cfg.setWindowedMode(800, 800);
+        cfg.setWindowedMode(1440, 900);
+        cfg.setResizable(false);
+        cfg.setInitialVisible(true);
 
         //new Lwjgl3Application(new HelloWorld(), cfg);
         //new Lwjgl3Application(new application(), cfg);
