@@ -221,6 +221,10 @@ public class Play extends Event implements Screen {
             runDB();
             paintOverlayMessage(GAME_FINISHED_MSG);
         }
+        if (player2 != null && player2.getPlayerWon()){
+            runDB();
+            paintOverlayMessage(GAME_FINISHED_MSG);
+        }
     }
 
     public void runDB(){

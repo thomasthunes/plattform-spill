@@ -14,6 +14,9 @@ import java.util.List;
 
 public class mainPlayer extends Player implements IMainPlayer {
 
+    //Constants
+    private final int MAXHEALTH = 120;
+
     private String message = "";
     private Play game;
     private final int damage;
@@ -197,6 +200,8 @@ public class mainPlayer extends Player implements IMainPlayer {
      */
     public void setHealth(int amount){
         health += amount;
+        if (health > MAXHEALTH)
+            health = MAXHEALTH;
     }
 
 
