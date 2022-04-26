@@ -87,7 +87,6 @@ public class Play extends Event implements Screen {
 
     @Override
     public void show() {
-    	//batch = new SpriteBatch();
         TmxMapLoader loader = new TmxMapLoader();
         map = loader.load(currentMap);
 
@@ -207,6 +206,9 @@ public class Play extends Event implements Screen {
         }
     }
 
+    /**
+     * draws the font to be displayed on the screen
+     */
     private void drawFont() {
         font.draw(renderer.getBatch(), "Mario's Health: " + player1.getHealth(), player1.getX(), player1.getY() - 30);
         font.draw(renderer.getBatch(), player1.getMessage(), player1.getX() + 200, player1.getY() - 30);
@@ -215,10 +217,13 @@ public class Play extends Event implements Screen {
 
         if (player2 != null) {
             font.draw(renderer.getBatch(), "Luigi's Health: " + player2.getHealth(), player2.getX(), player2.getY() - 50);
-            font.draw(renderer.getBatch(), player2.getMessage(), player2.getX() + 200, player1.getY() - 50);
+            font.draw(renderer.getBatch(), player2.getMessage(), player2.getX() + 200, player2.getY() - 50);
         }
     }
 
+    /**
+     * draws the enemies
+     */
     private void drawEnemies() {
         List<abstractEnemy> enemiesToBeRemoved = new ArrayList<>();
         for (abstractEnemy enemy : enemies) {
@@ -230,6 +235,7 @@ public class Play extends Event implements Screen {
         }
         removeDeadEnemies(enemiesToBeRemoved);
     }
+
 
     public void printPausedMsg() {
     	font2 = new BitmapFont();
@@ -277,9 +283,11 @@ public class Play extends Event implements Screen {
             paintOverlayMessage(GAME_FINISHED_MSG);
         }
     }
-    
-    
 
+
+    /**
+     * updates the file containing the scores
+     */
     public void runDB(){
         if (!DBSaved){
             ScoreDB scoreDB = new ScoreDB(players);
@@ -288,6 +296,9 @@ public class Play extends Event implements Screen {
         }
     }
 
+    /**
+     * draws the all-time top ten best scores on the gameOver/finished screen
+     */
     public void scoreBoard(){
         float x = Gdx.graphics.getWidth()/2;
         float y = Gdx.graphics.getHeight()/2;
@@ -327,6 +338,9 @@ public class Play extends Event implements Screen {
         font.getData().setScale(2);
     }
 
+    /**
+     * draws the items to be on the board
+     */
     private void drawItems(){
         List<Item> usedItems = new ArrayList<>();
         for (Item object : items) {
@@ -415,8 +429,6 @@ public class Play extends Event implements Screen {
         map.dispose();
         renderer.dispose();
         player1.getTexture().dispose();
-        //player2.getTexture().dispose();
-        //player.jump.dispose();
     }
 
 
