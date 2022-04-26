@@ -16,10 +16,21 @@
 I denne delen av oppgaven vil vi gjennomgå (1) møtereferater og (2) en oppsummering av team og prosjekt.  
 
 ## 1.1 Møtereferater  
-Møtereferatene oppsummerer hva som har blitt disuktert på de ulike møtene, eventuelle avgjørelser som er tatt og hvilke arbeidsoppgaver vi har fordelt frem til neste møte.  
+Møtereferatene oppsummerer hva som har blitt disuktert på de ulike møtene, eventuelle avgjørelser som er tatt og hvilke arbeidsoppgaver vi har fordelt frem til neste møte. Under følger det møtereferater fra den forrige innleveringen frem til nå. Alle møtereferatene gjennom hele prosjektet er også oppsummert i et eget dokument [her](https://git.app.uib.no/scrumbois/plattform-spill/-/blob/master/Deliverables/M%C3%B8tereferater.md).  
 
 ### 1.1.1 Møte 1
-**Dato:**    
+**Dato:** 19.04   
+
+**Deltakere:** Alle  
+
+**Diskusjon:** På dette møtet hadde vi en samtale der vi kartlegget hva som blir de viktigste leveransene ved prosjektet frem mot den siste innleveringen (29.04). 
+
+**Avgjørelser:**  
+
+**Arbeidsoppgaver til neste møte:**  
+
+### 1.1.2 Møte 2
+**Dato:** 26.04  
 
 **Deltakere:** Alle  
 
@@ -63,6 +74,13 @@ Basert på den retrospektive vurderingen ([1.2.5](#125-retrospektiv-vurdering-av
 1.  
 2.  
 3.  
+
+### 1.2.8 Retrospektiv vurdering av hele prosjektet
+*For siste innlevering (Oblig 4): Gjør et retrospektiv hvor dere vurderer prosjektet har gått. Hva har dere gjort bra, hva hadde dere gjort annerledes hvis dere begynte på nytt?*  
+
+**Hva har vi gjort bra:**  
+
+**Hva vi ville ha gjort annereledes (dersom vi startet på nytt):** Mer abskraskjon mellom sprite og klassen for player.   
 
 # 2. Krav
 I denne delen av oppgaven vil vi gå gjennom (1) vårt stretch goal for oppgaven og (2) brukerhistorier fra MVP med tilhørende oppfølgingsspørsmål.  
