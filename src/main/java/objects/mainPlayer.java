@@ -1,18 +1,17 @@
 package objects;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
-import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
-import inf112.skeleton.app.Player;
+import inf112.skeleton.app.abstractEnemy;
+import inf112.skeleton.app.abstractPlayer;
 import screens.Play;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class mainPlayer extends Player implements IMainPlayer {
+public class mainPlayer extends abstractPlayer implements IMainPlayer {
 
     //Constants
     private final int MAXHEALTH = 120;
@@ -31,7 +30,7 @@ public class mainPlayer extends Player implements IMainPlayer {
 
     private List<IItem> inventory;
 
-    private Enemy currentEnemy;
+    private abstractEnemy currentEnemy;
 
     public mainPlayer(Sprite sprite, TiledMapTileLayer collisionLayer, Play play) {
         super(sprite, collisionLayer);
@@ -57,7 +56,7 @@ public class mainPlayer extends Player implements IMainPlayer {
         }
     }
 
-    public Player getPlayer(){
+    public abstractPlayer getPlayer(){
         return this;
     }
 
@@ -71,7 +70,7 @@ public class mainPlayer extends Player implements IMainPlayer {
      * @return boolean
      */
     private boolean isAttacted() {
-        for (Enemy enemy : game.getEnemies()){
+        for (abstractEnemy enemy : game.getEnemies()){
             double thisY = Math.floor(this.getY());
             double enemyY = Math.floor(enemy.getY());
 
@@ -133,12 +132,15 @@ public class mainPlayer extends Player implements IMainPlayer {
      * kills the enemy if the player jumps on the enemy
      */
     public void attack(){
-        for (Enemy enemy : game.getEnemies()) {
+        for (abstractEnemy enemy : game.getEnemies()) {
             if (collidesWithActorFromTop(this, enemy) && collidesWithActorFromSide(this, enemy) && getVelocity().y < 0) {
                 enemy.loseHealth(this.damage);
-                killStreak++;
                 getVelocity().y = getSpeed()+250 / 1.8f;
-                setMessage("You have killed " + killStreak + " enemies!");
+
+                if (!enemy.isAlive()) {
+                    killStreak++;
+                    setMessage("You have killed " + killStreak + " enemies!");
+                }
             }
         }
     }

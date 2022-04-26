@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
+import inf112.skeleton.app.abstractEnemy;
 import screens.Play;
 
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ public class ItemFactory {
     private final int NUMBEROFBATS = 100;
 
 
-    private List<Enemy> enemies;
+    private List<abstractEnemy> enemies;
     private List<Item> items;
 
     public ItemFactory(){
@@ -34,7 +35,7 @@ public class ItemFactory {
      * @param play
      * @return n number of monsters in a list
      */
-    public List<Enemy> getNextMonster(int amount, TiledMap map, Play play){
+    public List<abstractEnemy> getNextMonster(int amount, TiledMap map, Play play){
         for (int i = 0; i < amount; i++){
             int xPos = getNextXPos();
             monster monster = new monster(new Sprite(new Texture("assets/maps/monster.png")), (TiledMapTileLayer) map.getLayers().get(0), play);
@@ -44,7 +45,13 @@ public class ItemFactory {
         return enemies;
     }
 
-    public List<Enemy> getNextWizard(TiledMap map, Play play) {
+    /**
+     * creates a new Wizard instance
+     * @param map
+     * @param play
+     * @return the updated enemies list
+     */
+    public List<abstractEnemy> getNextWizard(TiledMap map, Play play) {
         Wizard wizard = new Wizard(new Sprite(new Texture("assets/maps/wizard.png")), (TiledMapTileLayer) map.getLayers().get(0), play);
         wizard.setPosition(91 * wizard.getCollisionLayer().getTileWidth(), (wizard.getCollisionLayer().getHeight() - 4) * wizard.getCollisionLayer().getTileHeight());
         enemies.add(wizard);
@@ -58,7 +65,7 @@ public class ItemFactory {
      * @param play
      * @return n number of bombs-objects in a list
      */
-    public List<Enemy> getNextBomb(int amount, TiledMap map, Play play){
+    public List<abstractEnemy> getNextBomb(int amount, TiledMap map, Play play){
         for (int i = 0; i < amount; i++){
             int xPos = getNextXPos();
             bombs bomb = new bombs(new Sprite(new Texture("assets/maps/bomb.png")), (TiledMapTileLayer) map.getLayers().get(0), play);
@@ -75,7 +82,7 @@ public class ItemFactory {
      * @param enemies
      * @return the vampire object
      */
-    public Vampire getVampire(TiledMap map, Play play, List<Enemy> enemies){
+    public Vampire getVampire(TiledMap map, Play play, List<abstractEnemy> enemies){
         int xPos = 316;
         int yPos = 36;
         Vampire vampire = new Vampire(new Sprite(new Texture("assets/maps/vampire.png")), (TiledMapTileLayer) map.getLayers().get(0), play);
@@ -91,7 +98,7 @@ public class ItemFactory {
      * @param bats
      * @return n bats in a list
      */
-    public List<Enemy> getNextBat(TiledMap map, Play play, List<Enemy> bats){
+    public List<abstractEnemy> getNextBat(TiledMap map, Play play, List<abstractEnemy> bats){
         int amount = NUMBEROFBATS;
         int xPos = 316;
         int yPos = 36;

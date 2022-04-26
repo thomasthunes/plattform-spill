@@ -2,7 +2,6 @@ package inf112.skeleton.app;
 
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
-import objects.Enemy;
 import objects.mainPlayer;
 
 public class controller implements InputProcessor {
@@ -27,7 +26,7 @@ public class controller implements InputProcessor {
     @Override
     public boolean keyDown(int keycode) {
         if (!gameOver) {
-            for (Enemy enemy : player1.getGame().getEnemies()) {
+            for (abstractEnemy enemy : player1.getGame().getEnemies()) {
                 if (enemy.getName() != "bat") {
                     enemy.moveRandom();
                 }
