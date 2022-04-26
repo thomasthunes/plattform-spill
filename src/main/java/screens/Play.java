@@ -143,6 +143,7 @@ public class Play extends Event implements Screen {
         font.draw(renderer.getBatch(), "Current Health: " + player.getHealth(), player.getX(), player.getY() - 30);
         font.draw(renderer.getBatch(), player.getMessage(), player.getX() + 200, player.getY() - 30);
         font.draw(renderer.getBatch(), "FINISH ZONE!", 487 * player.getCollisionLayer().getTileWidth(), (player.getCollisionLayer().getHeight() - 18) * player.getCollisionLayer().getTileHeight());
+        
 
 
         /*System.out.println("PLayer y: " + player.getY());
