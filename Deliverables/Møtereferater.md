@@ -72,7 +72,25 @@ Denne filen inneholder møtereferater fra alle møter som gruppen har hatt under
 
 
 ## Møte 7
+**Dato:** 19.04   
 
+**Deltakere:** Alle  
+
+**Diskusjon:** På dette møtet hadde vi en samtale der vi kartla hva som blir de viktigste leveransene ved prosjektet frem mot den siste innleveringen (29.04). Her identifiserte vi at vi trenger å få implementert ferdig funksjonalitet for multiplayer, legge inn nye brukerhistorier og ferdigstille den siste rapporten. Vi identifiserte også mindre endringer slik som å legge til et ekstra spillebrett/level når spilleren er ferdig med det første og legge til lydeffekter når spilleren hopper.  
+
+**Avgjørelser:** Vi tok en avgjørelse på å ha lydeffekt når spilleren hopper og at vi skulle legge til et ekstra level i spillet.  
+
+**Arbeidsoppgaver til neste møte:** Thomas jobber med implementasjonen av multiplayer, Karl jobber med implementasjonen av lydeffekt for hopping, Jonas jobber videre med testing, Magnus starter på de nye brukerhistoriene og Jon starter på rapporten til siste innlevering.  
 
 ## Møte 8
+**Dato:** 26.04  
+
+**Deltakere:** Alle  
+
+**Diskusjon:** På dette møtet diskuterte vi hva som er de resterende arbeidsoppgavene som må bli gjort til innleveringen på fredag 29.04. Her fant vi ut at å sikre god testdekning var det viktigste som gjenstår, og vi ble dermed enige om å legge inn flere ressurser på dette for å komme i mål. Videre hadde vi også en retrospektiv diskusjon på hvordan vi syntes at prosjektet har vært, hva vi har lært og hva vi ville gjort annereledes om vi hadde startet på nytt. Denne diskusjonen er oppsummert i [1.2.8 Retrospektiv vurdering av hele prosjektet](). Hovedpunktene er at vi syntes prosjektet har vært en lærerik prosess der vi har lært mer om hvordan arbeide sammen med andre i et utviklingsprosjekt, i tillegg til at alle har fått fordypet seg i hver sin respekive rolle og bli flinkere på å håndtere arbeidsoppgavene knyttet til denne rollen.  
+
+**Avgjørelser:** På dette møtet blir vi enige om å legge mye ressurser inn på å sikre god testdekning frem mot siste innlevering. Det innebærer at 3/5 gruppemedlemmer jobber med testing (Jonas, Magnus og Jon).  
+
+**Arbeidsoppgaver til neste møte:** Thomas rydder opp i koden, fjerner ubrukte funksjoner og skriver javadocs. Karl forbedrer de eksisterende funksjonene. Jonas, Magnus og Jon jobber med tester. Jon jobber også med å ferdigstille rapporten.  
+
 
