@@ -60,25 +60,20 @@ Vi har hatt noe forskjeller commits mellom teammedlemmer underveis i prosjektet.
 
 ### 1.2.7 Forbedring
 Basert på den retrospektive vurderingen ([1.2.5](#125-retrospektiv-vurdering-av-prosjektstruktur)) har vi satt opp følgende liste med forbedringspotensialer til neste sprint:  
-1. 
-2. 
-3. 
+1.  
+2.  
+3.  
 
 # 2. Krav
-I denne delen av oppgaven vil vi gå gjennom (1) ... og (2) ...
+I denne delen av oppgaven vil vi gå gjennom (1) vårt stretch goal for oppgaven og (2) brukerhistorier fra MVP med tilhørende oppfølgingsspørsmål.  
 
 ## 2.1 "Stretch goal"
-
+Som stretch goal har vi valgt å fokusere på funksjonalitet for multiplayer. Vi startet på implementasjonen for multiplayer ved forrige innlevering, og har nå implementert den ferdig. Vi fokuserer også på å ha høy kvalitet på koden, godt design og klare abstraksjoner.  
 
 ## 2.2 MVP og annet
+I denne delen av oppgaven vil vi (1) oppsummere brukerhistoriene og (2) svare på oppfølgingsspørsmål knyttet til brukerhistoriene og kommentere kjente bugs knyttet til dem.  
 
-### 2.2.1 Krav og funksjonalitet
-*Hele 2.2.1 bør vurderes å sette inn under 2.2.2*
-
-*"Oppgave: Oppdater hvilke krav dere har prioritert, hvor langt dere har kommet og hva dere har gjort siden forrige gang. Er dere kommet forbi MVP? Forklar hvordan dere prioriterer ny funksjonalitet"* 
-
-
-### 2.2.2 Brukerhistorier
+### 2.2.1 Brukerhistorier
 For beskrivelse av hva en brukerhistorie er og hvordan vi har satt dem opp se [innledende kommentar](https://git.app.uib.no/scrumbois/plattform-spill/-/blob/master/Deliverables/ObligatoriskOppgave1.md#32-brukerhistorier) fra første innlevering. Brukerhistoriene her følger samme format, og er oppsummert sammen med akseptansekriterier og arbeidsoppgaver i tabellen under. Etter tabellen følger det også en prioritert liste over hvilke brukerhistorier vi ønsker å ha med i første sprint/iterasjon.  
 
 | Brukerhistorier  | Akseptansekriterier | Arbeidsoppgaver |
@@ -99,9 +94,10 @@ For beskrivelse av hva en brukerhistorie er og hvordan vi har satt dem opp se [i
 | **Brukerhistorie:** Som spiller ønsker jeg å ... når jeg ... slik at ... | <ul><li>**Krav:**  </li><li>**Kriterie:**  </li></ul>  | Liste på funksjonaliteter som må implementeres for å imøtekomme akseptansekriteriene: <ol type="1"><li> ... </li><li> ... </li><li> ... </li></ol> |
 | **Brukerhistorie:** Som spiller ønsker jeg å ... når jeg ... slik at ... | <ul><li>**Krav:**  </li><li>**Kriterie:**  </li></ul>  | Liste på funksjonaliteter som må implementeres for å imøtekomme akseptansekriteriene: <ol type="1"><li> ... </li><li> ... </li><li> ... </li></ol> |
 
+### 2.2.2 Oppfølgingsspørsmål brukerhistorier
 **Prioritert liste på krav:**  
-1. 
-2. 
+1.  
+2.  
 3.  
 
 **Hvor langt vi har kommet og hva vi har gjort siden forrige gang:** 
@@ -116,7 +112,6 @@ For beskrivelse av hva en brukerhistorie er og hvordan vi har satt dem opp se [i
 
 
 # 3. Produkt og kode
-I denne delen av oppgaven vil vi gjennomgå (1) ... og (2) ...  
 
 ## 3.1 Utbedring av feil 
 **Feil fikset fra forrige innlevering:**   
@@ -125,10 +120,10 @@ I denne delen av oppgaven vil vi gjennomgå (1) ... og (2) ...
 **Dokumentasjon om teknisk produktoppsett (hvordan bygge og kjøre programmet):** For å kjøre dette spillet trenger du først å laste ned en IDE (Integrated Development Environment) på din datamaskin og installere programvaren. En IDE er en programvare for å skrive og lage annen programvare, og det er her du kan kjøre koden for spillet som vi har laget. Noen av de mest populære IDE'ene å bruke er for eksempel [IntelliJ](https://www.jetbrains.com/idea/download/#section=mac) eller [VSCode](https://code.visualstudio.com/download). Husk å laste ned riktig versjon basert på om du bruker Mac, Windows eller Linux. Etter at du har lastet ned programvaren og installert den på din datamaskin gjenstår det å åpne filkoden til spillet og kjøre programmet. For å åpne filkoden må du først starte din IDE, deretter gå til "File" -> "Open" og deretter navigere deg fram til mappen som inneholder koden til spillet. Deretter markerer du denne mappen og trykker på "Open". Du skal nå kunne se hele koden til spillet i din IDE, med mulighet til å bla gjennom de ulike klassene i menyen til venstre. For å kjøre koden må du kjøre filen som heter *Main*. Denne ligger i package *inf112.skeleton.app*. For å kjøre *Main* kan du høyre-klikke på filen i menyen til venstre og velge *Run 'Main.main()'*. Dersom du har gjort dette riktig skal det komme opp et nytt vindu der spillet starter. Du kan nå spille spillet ved å bevege spilleren med piltastene eller ASWD og bruke space for å hoppe. Pass på å ikke gå inn i fiendene, men hopp heller oppå de for å drepe dem.  
 
 **Nåværende Prjoct Board:**  
-![alt text](/assets/maps/trelloX.png)  
+![alt text](/assets/maps/trello4.png)  
 
 **Klassediagram:**  
-
+![alt text](/assets/maps/classDiagram.png)  
 
 
 
