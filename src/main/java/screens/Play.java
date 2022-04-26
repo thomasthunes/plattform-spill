@@ -87,7 +87,6 @@ public class Play extends Event implements Screen {
 
     @Override
     public void show() {
-    	//batch = new SpriteBatch();
         TmxMapLoader loader = new TmxMapLoader();
         map = loader.load(currentMap);
 
@@ -196,41 +195,48 @@ public class Play extends Event implements Screen {
             }
 
             drawItems();
-
-            List<abstractEnemy> enemiesToBeRemoved = new ArrayList<>();
-            for (abstractEnemy enemy : enemies) {
-                if (enemy.isAlive()) {
-                    enemy.draw(renderer.getBatch());
-                } else {
-                    enemiesToBeRemoved.add(enemy);
-                }
-            }
-            removeDeadEnemies(enemiesToBeRemoved);
-
-
-            font.draw(renderer.getBatch(), "Mario's Health: " + player1.getHealth(), player1.getX(), player1.getY() - 30);
-            font.draw(renderer.getBatch(), player1.getMessage(), player1.getX() + 200, player1.getY() - 30);
-            font.draw(renderer.getBatch(), "FINISH ZONE!", 633 * player1.getCollisionLayer().getTileWidth(), (player1.getCollisionLayer().getHeight() - 45) * player1.getCollisionLayer().getTileHeight());
-            font.draw(renderer.getBatch(), "LEVEL 2!", 440 * player1.getCollisionLayer().getTileWidth(), (player1.getCollisionLayer().getHeight() - 9) * player1.getCollisionLayer().getTileHeight());
-
-            if (player2 != null) {
-                font.draw(renderer.getBatch(), "Luigi's Health: " + player2.getHealth(), player2.getX(), player2.getY() - 50);
-                font.draw(renderer.getBatch(), player2.getMessage(), player2.getX() + 200, player1.getY() - 50);
-            }
+            drawEnemies();
+            drawFont();
             
             printPausedMsg();
-            
-            
             gameOver();
-            
-
-            
             pause();
             
             renderer.getBatch().end();
         }
     }
-    
+
+    /**
+     * draws the font to be displayed on the screen
+     */
+    private void drawFont() {
+        font.draw(renderer.getBatch(), "Mario's Health: " + player1.getHealth(), player1.getX(), player1.getY() - 30);
+        font.draw(renderer.getBatch(), player1.getMessage(), player1.getX() + 200, player1.getY() - 30);
+        font.draw(renderer.getBatch(), "FINISH ZONE!", 633 * player1.getCollisionLayer().getTileWidth(), (player1.getCollisionLayer().getHeight() - 45) * player1.getCollisionLayer().getTileHeight());
+        font.draw(renderer.getBatch(), "LEVEL 2!", 440 * player1.getCollisionLayer().getTileWidth(), (player1.getCollisionLayer().getHeight() - 9) * player1.getCollisionLayer().getTileHeight());
+
+        if (player2 != null) {
+            font.draw(renderer.getBatch(), "Luigi's Health: " + player2.getHealth(), player2.getX(), player2.getY() - 50);
+            font.draw(renderer.getBatch(), player2.getMessage(), player2.getX() + 200, player2.getY() - 50);
+        }
+    }
+
+    /**
+     * draws the enemies
+     */
+    private void drawEnemies() {
+        List<abstractEnemy> enemiesToBeRemoved = new ArrayList<>();
+        for (abstractEnemy enemy : enemies) {
+            if (enemy.isAlive()) {
+                enemy.draw(renderer.getBatch());
+            } else {
+                enemiesToBeRemoved.add(enemy);
+            }
+        }
+        removeDeadEnemies(enemiesToBeRemoved);
+    }
+
+
     public void printPausedMsg() {
     	font2 = new BitmapFont();
     	font2.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
@@ -243,10 +249,14 @@ public class Play extends Event implements Screen {
     	font3.setColor(com.badlogic.gdx.graphics.Color.WHITE);
     	
     
-    	if(pauseActive) {
+    	if(pauseActive && player1.isAlive()) {
     		font2.draw(renderer.getBatch(), GAME_PAUSED_MSG, player1.getX()-250, Gdx.graphics.getHeight()/2);
     		font3.draw(renderer.getBatch(), GAME_RESUME_MSG, player1.getX()-160, (Gdx.graphics.getHeight()/2)-100);
     	}
+        else if (pauseActive && player2 != null){
+            font2.draw(renderer.getBatch(), GAME_PAUSED_MSG, player2.getX()-250, Gdx.graphics.getHeight()/2);
+            font3.draw(renderer.getBatch(), GAME_RESUME_MSG, player2.getX()-160, (Gdx.graphics.getHeight()/2)-100);
+        }
     }
 
     /**
@@ -273,9 +283,11 @@ public class Play extends Event implements Screen {
             paintOverlayMessage(GAME_FINISHED_MSG);
         }
     }
-    
-    
 
+
+    /**
+     * updates the file containing the scores
+     */
     public void runDB(){
         if (!DBSaved){
             ScoreDB scoreDB = new ScoreDB(players);
@@ -284,6 +296,9 @@ public class Play extends Event implements Screen {
         }
     }
 
+    /**
+     * draws the all-time top ten best scores on the gameOver/finished screen
+     */
     public void scoreBoard(){
         float x = Gdx.graphics.getWidth()/2;
         float y = Gdx.graphics.getHeight()/2;
@@ -323,6 +338,9 @@ public class Play extends Event implements Screen {
         font.getData().setScale(2);
     }
 
+    /**
+     * draws the items to be on the board
+     */
     private void drawItems(){
         List<Item> usedItems = new ArrayList<>();
         for (Item object : items) {
@@ -363,11 +381,8 @@ public class Play extends Event implements Screen {
 
     @Override
     public void pause() {
-    	
 
-    	
         if(Gdx.input.isKeyJustPressed(Keys.ENTER)) {
-        	
         	
         	if(!pauseActive) {
         		for(abstractEnemy enemy : enemies){
@@ -375,34 +390,25 @@ public class Play extends Event implements Screen {
         			enemy.setGravity(0);
         			enemy.setSpeed(0);
         			enemy.getVelocity().x = 0;
-
-        			
         		}
         		for(mainPlayer player : players) {
         			player.setGravity(0);
         			player.setSpeed(0);
-        		
+                    player.getVelocity().x = 0;
         		}
-        	
         		pauseActive = true;
-        		
-        		
-        		
         	}
         	else {
-        		
         		for(Map.Entry<abstractEnemy, Float> entry: enemyVelocity.entrySet()) {
         			entry.getKey().setGravity(140 * 1f);
         			entry.getKey().setSpeed(150);
         			entry.getKey().getVelocity().x = entry.getValue();
         		}
 
-        			
         		for(mainPlayer player : players) {
         			player.setGravity(140 * 1f);
-        			player.setSpeed(150);          	
+        			player.setSpeed(150);
         		}
-
         		pauseActive = false;
         	}
         }
@@ -423,8 +429,6 @@ public class Play extends Event implements Screen {
         map.dispose();
         renderer.dispose();
         player1.getTexture().dispose();
-        //player2.getTexture().dispose();
-        //player.jump.dispose();
     }
 
 

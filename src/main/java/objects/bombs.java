@@ -38,13 +38,6 @@ public class bombs extends abstractEnemy {
         return name;
     }
 
-    /*public boolean isAlive(){
-        if (hp > 0){
-            return true;
-        }
-        return false;
-    }*/
-
     @Override
     public void loseHealth(int damage) {
         if (hp > 0) {
@@ -53,6 +46,10 @@ public class bombs extends abstractEnemy {
         }
     }
 
+    /**
+     * Bomb explodes and the player is thrown away
+     * @param mainPlayer
+     */
     @Override
     public void getAttack(objects.mainPlayer mainPlayer) {
         abstractPlayer player = mainPlayer;

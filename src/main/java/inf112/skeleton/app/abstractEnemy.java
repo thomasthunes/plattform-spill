@@ -27,6 +27,7 @@ public abstract class abstractEnemy extends abstractPlayer implements IEnemy {
 
     }
 
+
     @Override
     public int getHealth() {
         return health;
@@ -36,6 +37,10 @@ public abstract class abstractEnemy extends abstractPlayer implements IEnemy {
         return game;
     }
 
+    /**
+     * Reduces the health by the amount of damage
+     * @param damage
+     */
     @Override
     public void loseHealth(int damage) {
         if (health > 0) {
@@ -49,13 +54,20 @@ public abstract class abstractEnemy extends abstractPlayer implements IEnemy {
     public void update() {
     }
 
-
+    /**
+     *
+     * @return the damage given by this enemy
+     */
     @Override
     public abstract int getDamage();
 
     @Override
     public abstract int getAmount();
 
+    /**
+     *
+     * @return The name of the enemy
+     */
     @Override
     public abstract String getName();
 
