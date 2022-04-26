@@ -1,5 +1,7 @@
 # Tester
-I denne filen følger det ulike tester som er ment til å teste sentrale funksjonaliteter ved spillet vårt. Dette gjelder blant annet tester for hvordan spilleren interagerer med objekter på spillebrettet, og hvordan attributter ved spilleren endres gjennom spillet. Vi har oppsummert testene i to tabeller, den første tabellen skiller mellom Single Player og Multiplayer, mens den andre tabellen er universal og gjelder for både Single Player og Multiplayer.
+I denne filen følger det ulike tester som er ment til å teste sentrale funksjonaliteter ved spillet vårt. Dette gjelder blant annet tester for hvordan spilleren interagerer med objekter på spillebrettet, og hvordan attributter ved spilleren endres gjennom spillet. Vi har oppsummert testene i to tabeller, den første tabellen skiller mellom Single Player og Multiplayer, mens den andre tabellen er universal og gjelder for både Single Player og Multiplayer.  
+
+I samråd med studentassitent har vi valgt å kun lage manuelle tester, da formatet på koden vår gjør det vanskelig å lage JUNIT tester. Dette er fordi abstraksjonen mellom sprite og klassen som styrer spilleren (*player*) ikke er klar nok. Vi mener likevel at de manuelle testene vi har laget er godt dekkene for funksjonaliteten i koden vår, da de dekker blant annet alle mulige interaksjoner mellom spiller og de ulike objektene som er i spillet.  
 
 **MERK:** Alle testene under forutsetter at du har startet spillet. Se [Dokumentasjon om teknisk produktoppsett](https://git.app.uib.no/scrumbois/plattform-spill/-/blob/master/README.md#teknisk-produktoppsett) for hvordan du skal starte spillet.  
 
