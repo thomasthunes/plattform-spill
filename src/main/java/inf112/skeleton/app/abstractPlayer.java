@@ -23,10 +23,18 @@ public abstract class abstractPlayer extends Item {
 
 	public abstract void loseHealth(int damage);
 
+	/**
+	 * Sets the message to be displayed
+	 * @param newMessage
+	 */
 	public void setMessage(String newMessage){
 		message = newMessage;
 	}
 
+	/**
+	 * Gets the message to be displayed
+	 * @return
+	 */
 	public String getMessage() {
 		return message;
 	}
