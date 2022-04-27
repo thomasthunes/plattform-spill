@@ -1,6 +1,6 @@
 package objects;
 
-public interface IItem<T> {
+public interface IItem {
 
     /**
      *
