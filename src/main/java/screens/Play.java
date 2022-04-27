@@ -253,12 +253,12 @@ public class Play extends Event implements Screen {
     	
     
     	if(pauseActive && player1.isAlive()) {
-    		font2.draw(renderer.getBatch(), GAME_PAUSED_MSG, player1.getX()-250, Gdx.graphics.getHeight()/2);
-    		font3.draw(renderer.getBatch(), GAME_RESUME_MSG, player1.getX()-160, (Gdx.graphics.getHeight()/2)-100);
+    		font4.draw(renderer.getBatch(), GAME_PAUSED_MSG, player1.getX()-250, Gdx.graphics.getHeight()/2);
+    		font5.draw(renderer.getBatch(), GAME_RESUME_MSG, player1.getX()-160, (Gdx.graphics.getHeight()/2)-80);
     	}
         else if (pauseActive && player2 != null){
-            font2.draw(renderer.getBatch(), GAME_PAUSED_MSG, player2.getX()-250, Gdx.graphics.getHeight()/2);
-            font3.draw(renderer.getBatch(), GAME_RESUME_MSG, player2.getX()-160, (Gdx.graphics.getHeight()/2)-100);
+            font4.draw(renderer.getBatch(), GAME_PAUSED_MSG, player2.getX()-250, Gdx.graphics.getHeight()/2);
+            font5.draw(renderer.getBatch(), GAME_RESUME_MSG, player2.getX()-160, (Gdx.graphics.getHeight()/2)-80);
         }
     }
 
