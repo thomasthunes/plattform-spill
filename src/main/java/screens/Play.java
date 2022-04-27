@@ -75,6 +75,7 @@ public class Play extends Event implements Screen {
     private boolean gameActive;
     private boolean DBSaved = false;
     private List<Integer> topTen = new ArrayList<>();
+    private boolean cameraViewSwiched;
     
 
     private final int gameMode;
@@ -85,6 +86,8 @@ public class Play extends Event implements Screen {
         this.itemFactory = new ItemFactory();
         this.gameMode = gameMode;
         this.gameActive = true;
+        this.cameraViewSwiched = false;
+
        
     }
 
@@ -180,10 +183,18 @@ public class Play extends Event implements Screen {
             camera.update();
             renderer.getBatch().begin();
 
-            if (!player1.isAlive() && player2 != null)
-                camera.position.set(player2.getX(), player2.getY(), 0);
-            else
+            if (gameMode == 1){
                 camera.position.set(player1.getX(), player1.getY(), 0);
+            }
+            else if (!player1.isAlive() || cameraViewSwiched) {
+                if (player2 != null) {
+                    camera.position.set(player2.getX(), player2.getY(), 0);
+                }
+            }
+            else {
+                camera.position.set(player1.getX(), player1.getY(), 0);
+            }
+
 
             if (player1.isAlive()) {
                 player1.update();
@@ -204,6 +215,7 @@ public class Play extends Event implements Screen {
             printPausedMsg();
             gameOver();
             pause();
+            setCameraViewSwiched();
             
             renderer.getBatch().end();
         }
@@ -361,8 +373,6 @@ public class Play extends Event implements Screen {
         	
         	if(Gdx.input.isTouched()) {
         		app.create();
-
-      
         }
       }
         
@@ -442,6 +452,17 @@ public class Play extends Event implements Screen {
         		}
         		pauseActive = false;
         	}
+        }
+    }
+
+    public void setCameraViewSwiched(){
+        if(Gdx.input.isKeyJustPressed(Keys.C)) {
+            if (!cameraViewSwiched){
+                cameraViewSwiched = true;
+            }
+            else {
+                cameraViewSwiched = false;
+            }
         }
     }
 
