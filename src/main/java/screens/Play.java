@@ -23,6 +23,7 @@ import inf112.skeleton.app.controller;
 import objects.*;
 import org.lwjgl.opengl.GL20;
 
+import java.security.Key;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -72,10 +73,9 @@ public class Play extends Event implements Screen {
     private boolean gameActive;
     private boolean DBSaved = false;
     private List<Integer> topTen = new ArrayList<>();
-
-
-
     private final int gameMode;
+    private boolean cameraSwichedPlayer;
+
 
     public Play(String currentMap, app app, int gameMode){
         this.currentMap = currentMap;
@@ -83,6 +83,7 @@ public class Play extends Event implements Screen {
         this.itemFactory = new ItemFactory();
         this.gameMode = gameMode;
         this.gameActive = true;
+        this.cameraSwichedPlayer = false;
     }
 
     @Override
@@ -177,10 +178,18 @@ public class Play extends Event implements Screen {
             camera.update();
             renderer.getBatch().begin();
 
-            if (!player1.isAlive() && player2 != null)
-                camera.position.set(player2.getX(), player2.getY(), 0);
-            else
+
+            if (gameMode == 1){
                 camera.position.set(player1.getX(), player1.getY(), 0);
+            }
+            else if (!player1.isAlive() || cameraSwichedPlayer) {
+                if (player2 != null) {
+                    camera.position.set(player2.getX(), player2.getY(), 0);
+                }
+            }
+            else {
+                camera.position.set(player1.getX(), player1.getY(), 0);
+            }
 
             if (player1.isAlive()) {
                 player1.update();
@@ -201,6 +210,7 @@ public class Play extends Event implements Screen {
             printPausedMsg();
             gameOver();
             pause();
+            switchCameraView();
             
             renderer.getBatch().end();
         }
@@ -411,6 +421,17 @@ public class Play extends Event implements Screen {
         		}
         		pauseActive = false;
         	}
+        }
+    }
+
+    public void switchCameraView(){
+        if (Gdx.input.isKeyJustPressed(Keys.C)){
+            if (!cameraSwichedPlayer){
+                cameraSwichedPlayer = true;
+            }
+            else {
+                cameraSwichedPlayer = false;
+            }
         }
     }
 

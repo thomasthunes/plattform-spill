@@ -45,6 +45,10 @@ public class ItemFactory {
         return enemies;
     }
 
+    public List<abstractEnemy> getEnemies(){
+        return enemies;
+    }
+
     /**
      * creates a new Wizard instance
      * @param map

@@ -145,6 +145,10 @@ public class mainPlayer extends abstractPlayer implements IMainPlayer {
         }
     }
 
+    /**
+     * the amount of kills a player has
+     * @return Integer
+     */
     public int getKillStreak(){
         return killStreak;
     }
