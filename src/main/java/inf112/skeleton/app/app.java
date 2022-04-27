@@ -30,6 +30,7 @@ public class app extends Game {
 //        setScreen(play);
     	
     	setScreen(new MenuScreen(this));
+
         currentMap++;
         
 

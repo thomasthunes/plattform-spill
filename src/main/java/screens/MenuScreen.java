@@ -63,6 +63,7 @@ public class MenuScreen extends Game implements Screen {
 	
 	
 	public MenuScreen(app game) {
+
 		
 		
 		this.game = game;
@@ -76,7 +77,7 @@ public class MenuScreen extends Game implements Screen {
 		
 		menu_music = Gdx.audio.newMusic(Gdx.files.internal("assets/sounds/menuscreen_audio.mp3"));
 		menu_music.setLooping(true);
-		menu_music.setVolume(0.3f);
+		menu_music.setVolume(0.8f);
 		menu_music.play();
 		batch = new SpriteBatch();
 	}
@@ -87,7 +88,6 @@ public class MenuScreen extends Game implements Screen {
 		
 	}
 		
-
 
 	@Override
 	public void render(float delta) {
@@ -181,6 +181,5 @@ public class MenuScreen extends Game implements Screen {
 	@Override
 	public void create() {
 		// TODO Auto-generated method stub
-		
 	}
 }
