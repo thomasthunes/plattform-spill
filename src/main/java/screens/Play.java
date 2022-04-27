@@ -23,11 +23,7 @@ import inf112.skeleton.app.controller;
 import objects.*;
 import org.lwjgl.opengl.GL20;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Play extends Event implements Screen {
 
@@ -76,8 +72,8 @@ public class Play extends Event implements Screen {
     private boolean DBSaved = false;
     private List<Integer> topTen = new ArrayList<>();
     private boolean cameraViewSwiched;
-    
 
+    private final long timerStart;
     private final int gameMode;
 
     public Play(String currentMap, app app, int gameMode){
@@ -87,7 +83,9 @@ public class Play extends Event implements Screen {
         this.gameMode = gameMode;
         this.gameActive = true;
         this.cameraViewSwiched = false;
-
+        this.timerStart = System.currentTimeMillis();
+        this.font5 = new BitmapFont();
+        this.font4 = new BitmapFont();
        
     }
 
@@ -230,10 +228,22 @@ public class Play extends Event implements Screen {
         font.draw(renderer.getBatch(), "FINISH ZONE!", 633 * player1.getCollisionLayer().getTileWidth(), (player1.getCollisionLayer().getHeight() - 45) * player1.getCollisionLayer().getTileHeight());
         font.draw(renderer.getBatch(), "LEVEL 2!", 440 * player1.getCollisionLayer().getTileWidth(), (player1.getCollisionLayer().getHeight() - 9) * player1.getCollisionLayer().getTileHeight());
 
+
+        if (player1.isAlive() && !cameraViewSwiched)
+            font5.draw(renderer.getBatch(), getTime() , player1.getX() - 500, player1.getY() + 400);
+        else if (player2 != null || cameraViewSwiched)
+            font5.draw(renderer.getBatch(), getTime() , player2.getX() - 500, player2.getY() + 400);
+
+
         if (player2 != null) {
             font.draw(renderer.getBatch(), "Luigi's Health: " + player2.getHealth(), player2.getX(), player2.getY() - 50);
             font.draw(renderer.getBatch(), player2.getMessage(), player2.getX() + 200, player2.getY() - 50);
         }
+    }
+
+    private String getTime(){
+        long nowTime = System.currentTimeMillis();
+        return (int)((nowTime - this.timerStart) / 1000) + " Seconds";
     }
 
     /**
@@ -253,12 +263,10 @@ public class Play extends Event implements Screen {
 
 
     public void printPausedMsg() {
-    	font4 = new BitmapFont();
     	font4.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
     	font4.getData().setScale(5, 5);
     	font4.setColor(com.badlogic.gdx.graphics.Color.RED);
     	
-    	font5 = new BitmapFont();
     	font5.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
     	font5.getData().setScale(2, 2);
     	font5.setColor(com.badlogic.gdx.graphics.Color.WHITE);
@@ -453,11 +461,12 @@ public class Play extends Event implements Screen {
 
     public void setCameraViewSwiched(){
         if(Gdx.input.isKeyJustPressed(Keys.C)) {
-            if (!cameraViewSwiched){
-                cameraViewSwiched = true;
-            }
-            else {
-                cameraViewSwiched = false;
+            if (gameMode == 2) {
+                if (!cameraViewSwiched) {
+                    cameraViewSwiched = true;
+                } else {
+                    cameraViewSwiched = false;
+                }
             }
         }
     }
