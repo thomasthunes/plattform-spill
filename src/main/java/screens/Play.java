@@ -35,10 +35,11 @@ public class Play extends Event implements Screen {
     private final int STARTPOSITION = 36;
     private static final com.badlogic.gdx.graphics.Color GAME_SCREEN_OVERLAY_COLOR = new com.badlogic.gdx.graphics.Color(0, 0, 0, 128);
     private static final Color TEXT_COLOR = Color.WHITE;
-    private static final String GAME_OVER_MSG = "Game Over";
-    private static final String GAME_FINISHED_MSG = "You Won";
+    private static final String GAME_OVER_MSG = "Game Over!";
+    private static final String GAME_FINISHED_MSG = "You Won!";
     private static final String GAME_PAUSED_MSG = "GAME PAUSED";
     private static final String GAME_RESUME_MSG = "Press enter to resume game";
+    private static final String BACK_TO_MENU = "<-- main menu";
 
     private TiledMap map;
     private OrthogonalTiledMapRenderer renderer;
@@ -65,6 +66,8 @@ public class Play extends Event implements Screen {
     
     private BitmapFont font2;
     private BitmapFont font3;
+    private BitmapFont font4;
+    private BitmapFont font5;
     
     private HashMap<abstractEnemy, Float> enemyVelocity = new HashMap<>();
 
@@ -72,8 +75,7 @@ public class Play extends Event implements Screen {
     private boolean gameActive;
     private boolean DBSaved = false;
     private List<Integer> topTen = new ArrayList<>();
-
-
+    
 
     private final int gameMode;
 
@@ -83,6 +85,7 @@ public class Play extends Event implements Screen {
         this.itemFactory = new ItemFactory();
         this.gameMode = gameMode;
         this.gameActive = true;
+       
     }
 
     @Override
@@ -238,15 +241,15 @@ public class Play extends Event implements Screen {
 
 
     public void printPausedMsg() {
-    	font2 = new BitmapFont();
-    	font2.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
-    	font2.getData().setScale(5, 5);
-    	font2.setColor(com.badlogic.gdx.graphics.Color.RED);
+    	font4 = new BitmapFont();
+    	font4.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
+    	font4.getData().setScale(5, 5);
+    	font4.setColor(com.badlogic.gdx.graphics.Color.RED);
     	
-    	font3 = new BitmapFont();
-    	font3.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
-    	font3.getData().setScale(2, 2);
-    	font3.setColor(com.badlogic.gdx.graphics.Color.WHITE);
+    	font5 = new BitmapFont();
+    	font5.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
+    	font5.getData().setScale(2, 2);
+    	font5.setColor(com.badlogic.gdx.graphics.Color.WHITE);
     	
     
     	if(pauseActive && player1.isAlive()) {
@@ -282,6 +285,7 @@ public class Play extends Event implements Screen {
             runDB();
             paintOverlayMessage(GAME_FINISHED_MSG);
         }
+
     }
 
 
@@ -302,7 +306,7 @@ public class Play extends Event implements Screen {
     public void scoreBoard(){
         float x = Gdx.graphics.getWidth()/2;
         float y = Gdx.graphics.getHeight()/2;
-        font.draw(renderer.getBatch(), "Global Scoreboard", x-90, y);
+        font5.draw(renderer.getBatch(), "Global Scoreboard", x-120, y+50);
 
         int count = 0;
         for (int score : topTen){
@@ -332,10 +336,37 @@ public class Play extends Event implements Screen {
         camera.position.set(x, y, 0);
         scoreBoard();
 
-        font.setColor(com.badlogic.gdx.graphics.Color.BLACK);
-        font.draw(renderer.getBatch(), msg, x-50, y+100);
-        font.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
-        font.getData().setScale(2);
+//        font.setColor(com.badlogic.gdx.graphics.Color.BLACK);
+//        font.draw(renderer.getBatch(), msg, x-50, y+100);
+//        font.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
+//        font.getData().setScale(2);
+        font2 = new BitmapFont();
+        font2.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
+        font2.setColor(com.badlogic.gdx.graphics.Color.BLACK);
+        font2.getData().setScale(5, 5);    
+        font2.draw(renderer.getBatch(), msg, x - 200, y+250);
+        
+        font3 = new BitmapFont();
+        font3.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
+        font3.setColor(com.badlogic.gdx.graphics.Color.YELLOW);
+        font3.getData().setScale(2, 2);    
+
+        
+        font5.draw(renderer.getBatch(), BACK_TO_MENU, 40, 120);
+        
+
+        if(Gdx.input.getX() < 230 && Gdx.input.getX() > 40 && Gdx.input.getY() > 780 && Gdx.input.getY() < 810) {
+            
+        	font3.draw(renderer.getBatch(), BACK_TO_MENU, 40, 120);      
+        	
+        	if(Gdx.input.isTouched()) {
+        		app.create();
+
+      
+        }
+      }
+        
+        
     }
 
     /**
