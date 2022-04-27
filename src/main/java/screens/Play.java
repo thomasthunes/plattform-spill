@@ -348,10 +348,6 @@ public class Play extends Event implements Screen {
         camera.position.set(x, y, 0);
         scoreBoard();
 
-//        font.setColor(com.badlogic.gdx.graphics.Color.BLACK);
-//        font.draw(renderer.getBatch(), msg, x-50, y+100);
-//        font.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
-//        font.getData().setScale(2);
         font2 = new BitmapFont();
         font2.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
         font2.setColor(com.badlogic.gdx.graphics.Color.BLACK);
