@@ -3,7 +3,7 @@ package objects;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 
-public class medKit extends Item {
+public class medKit extends Item/*Player*/ {
 
     private final int hp;
     private final String name;

@@ -7,7 +7,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 public class AppTest {
-
 	/**
 	 * Static method run before everything else
 	 */

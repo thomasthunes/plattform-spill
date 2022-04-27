@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.math.Vector2;
 
-public class Item extends Sprite implements IItem{
+public class Item<T> extends Sprite implements IItem<T>{
 
     private boolean isAlive = true;
     private TiledMapTileLayer collisionLayer;

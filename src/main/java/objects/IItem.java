@@ -1,10 +1,10 @@
 package objects;
 
-public interface IItem {
+public interface IItem<T> {
 
     /**
      *
-     * @return string containing the item's name (e.g "MedKit")
+     * @return string containing the items name (e.g "MedKit")
      */
     public String getName();
 
