@@ -1,4 +1,4 @@
-# Obligatorisk oppgave 4 - Navn på prosjekt: *Game*
+# Obligatorisk oppgave 4 - Navn på prosjekt: *Super Java bros*
 **Team**: *Scrumbois* (Gruppe 3)  
 **Gruppemedlemmer:**  
  - Thomas Thunes
@@ -9,7 +9,7 @@
 
 **Prosjektbeskrivelse:** I dette spillet styrer du en spiller med enten piltaster eller ASWD, og bruker space til å la spilleren hoppe. Målet er å ikke dø, det vil si å ikke miste så mye liv at liv blir 0. Spilleren mister liv når den er i kontakt med en fiende, men kan drepe fienden ved å hoppe oppå den. Spilleren kan også plukke opp liv ved å trykke på "P" når den står på et liv-objekt (en rød sekk med et hvitt kors på).  
 
-**Beskrivelse av spillet:** *Hvem er spiller, fiender, mål etc. Legge denne også inn på README.*
+**Beskrivelse av spillet:** Rørleggeren Mario har fått influensa, og har en forferdelig feberdrøm. Sammen med den oppdiktede kameraten sin Luigi, må de finne nøkkelen til neste nivå. Nøkkelen er tungt bevoktet av den onde vampyren Georg Von Gram, som febrilsk hiver de blodtørste flaggermusene sine mot Mario og Luigi. En grusom og mektig trollmann bruker magien sin til å teleportere heltene til starten av drømmen, samtidig som en av spillerne mister 50 liv. Drømmen er fylt av farlige monstre som forsøker å drepe heltene, samtidig som levende bomber eksploderer ved kontakt. Dersom Mario og Luigi lykkes i å manøvrere seg gjennom drømmen, og komme seg til «finish padden» uten å bli drept eller falle i lavaen – vil drømmen avsluttes, og Mario kan fortsette dagen sin. Dersom Mario nok engang sovner inn i feberdrømmen, vil han få en oversikt over de ti beste «killstreakene» sine.  
 
 ## Innholdsfortegnelse  
 [[_TOC_]]  
