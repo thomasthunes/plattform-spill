@@ -149,6 +149,7 @@ For beskrivelse av hva en brukerhistorie er og hvordan vi har satt dem opp se [i
 
 ## 3.1 Utbedring av feil 
 **Feil fikset fra forrige innlevering:**   
+ - Fikset resize av vinduet. Nå er det ikke lenger mulig å resize vinduet, og dermed blir det heller ikke problemer med knappene på meny-skjermen.  
 
 ## 3.2 Tester
 For testing av funksjonalitetene i koden se eget dokument [her](https://git.app.uib.no/scrumbois/plattform-spill/-/blob/master/Deliverables/ManuelleTester.md).  
