@@ -9,7 +9,7 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         Lwjgl3ApplicationConfiguration cfg = new Lwjgl3ApplicationConfiguration();
-        cfg.setTitle("map");
+        cfg.setTitle("Super Java Bros");
         cfg.setWindowedMode(1440, 900);
         cfg.setResizable(false);
         cfg.setInitialVisible(true);
