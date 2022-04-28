@@ -16,7 +16,6 @@ public class mainPlayer extends abstractPlayer implements IMainPlayer {
     //Constants
     private final int MAXHEALTH = 120;
 
-    private String message = "";
     private Play game;
     private final int damage;
     private int health = 100;
@@ -92,7 +91,6 @@ public class mainPlayer extends abstractPlayer implements IMainPlayer {
         if (hasKey() && getGameStatus() && currentLevel() > 0){
             setMessage("Player won!");
             playerWon = true;
-            //getOtherPlayer().setPlayerWon(true);
         }
         else if (hasKey() && getGameStatus() && currentLevel() == 0){
             setMessage("You have reached level 1");
@@ -176,15 +174,6 @@ public class mainPlayer extends abstractPlayer implements IMainPlayer {
     @Override
     public void addItem(IItem item) {
         inventory.add(item);
-    }
-
-    /**
-     *
-     * @return list containing picked up items
-     */
-    @Override
-    public List<IItem> getInventory() {
-        return inventory;
     }
 
     /**
@@ -296,14 +285,6 @@ public class mainPlayer extends abstractPlayer implements IMainPlayer {
      */
     public boolean hasKey(){
         return hasKey;
-    }
-
-    /**
-     * removes items that have been used
-     * @param items that have not been used
-     */
-    private void removeUsedItem(List<IItem> items){
-        inventory.remove(items);
     }
 
 }

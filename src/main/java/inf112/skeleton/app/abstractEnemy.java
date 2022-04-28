@@ -61,9 +61,6 @@ public abstract class abstractEnemy extends abstractPlayer implements IEnemy {
     @Override
     public abstract int getDamage();
 
-    @Override
-    public abstract int getAmount();
-
     /**
      *
      * @return The name of the enemy
@@ -94,13 +91,6 @@ public abstract class abstractEnemy extends abstractPlayer implements IEnemy {
     }
 
     /**
-     * sets velocity x to zero
-     */
-    public void stopMoving(){
-        getVelocity().x = 0;
-    }
-
-    /**
      *
      * @return true if health is above 0 and item isAlive
      */
@@ -125,10 +115,6 @@ public abstract class abstractEnemy extends abstractPlayer implements IEnemy {
                 moveRight();
             }
         }
-    }
-
-    public void setHealth(int newHealth) {
-
     }
 
 }

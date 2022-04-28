@@ -1,10 +1,12 @@
 package objects;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import inf112.skeleton.app.abstractEnemy;
+import inf112.skeleton.app.controller;
 import screens.Play;
 
 import java.util.ArrayList;
@@ -18,14 +20,17 @@ public class ItemFactory {
     private final int XVampire = 315;
     private final int YVampire = 16;
     private final int NUMBEROFBATS = 100;
+    private final int STARTPOSITION = 36;
 
 
     private List<abstractEnemy> enemies;
     private List<Item> items;
+    List<mainPlayer> players;
 
     public ItemFactory(){
         enemies = new ArrayList<>();
         items = new ArrayList<>();
+        players = new ArrayList<>();
     }
 
     /**
