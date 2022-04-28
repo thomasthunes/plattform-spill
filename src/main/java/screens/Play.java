@@ -2,6 +2,7 @@ package screens;
 
 import com.badlogic.gdx.*;
 import com.badlogic.gdx.Input.Keys;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -53,13 +54,16 @@ public class Play extends Event implements Screen {
     private final String currentMap;
     private app app;
     private ItemFactory itemFactory;
+    
+    private Music menu_music;
 
     private boolean pauseActive;
-    
+        
     private BitmapFont font2;
     private BitmapFont font3;
     private BitmapFont font4;
     private BitmapFont font5;
+   
     
     private HashMap<abstractEnemy, Float> enemyVelocity = new HashMap<>();
 
@@ -70,7 +74,6 @@ public class Play extends Event implements Screen {
     private boolean cameraViewSwiched;
 
     private final long timerStart;
-    private long pausedStart;
     private final int gameMode;
 
     public Play(String currentMap, app app, int gameMode){
@@ -83,6 +86,11 @@ public class Play extends Event implements Screen {
         this.timerStart = System.currentTimeMillis();
         this.font5 = new BitmapFont();
         this.font4 = new BitmapFont();
+        
+		menu_music = Gdx.audio.newMusic(Gdx.files.internal("assets/sounds/menuscreen_audio.mp3"));
+		menu_music.setLooping(true);
+		menu_music.setVolume(0.2f);
+		menu_music.play();
        
     }
 
@@ -282,13 +290,14 @@ public class Play extends Event implements Screen {
     public void scoreBoard(){
         float x = Gdx.graphics.getWidth()/2;
         float y = Gdx.graphics.getHeight()/2;
-        font5.draw(renderer.getBatch(), "Global Scoreboard", x-120, y+50);
+        
+        font5.draw(renderer.getBatch(), "Global Scoreboard", x-120, y+150);
 
         int count = 0;
         for (int score : topTen){
             count++;
             y -= 30;
-            font.draw(renderer.getBatch(), count + ". " + score + " kills", x-30, y);
+            font.draw(renderer.getBatch(), count + ". " + score + " kills", x-30, y+100);
         }
     }
 
@@ -297,26 +306,27 @@ public class Play extends Event implements Screen {
      * @param msg
      */
     public void paintOverlayMessage(String msg){
-        renderer.getBatch().end();
+//        renderer.getBatch().end();
         float x = Gdx.graphics.getWidth()/2;
         float y = Gdx.graphics.getHeight()/2;
 
-        Color color = msg == GAME_OVER_MSG ? Color.RED : Color.GREEN;
+//        Color color = msg == GAME_OVER_MSG ? Color.RED : Color.GREEN;
 
-        shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
-        shapeRenderer.setColor(color);
-        shapeRenderer.rect(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        shapeRenderer.end();
+//        shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
+//        shapeRenderer.setColor(color);
+//        shapeRenderer.rect(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+//        shapeRenderer.end();
+        renderer.getBatch().draw(new Texture("assets/maps/about_background.png"), 0, 30, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+//        renderer.getBatch().begin();
 
-        renderer.getBatch().begin();
         camera.position.set(x, y, 0);
         scoreBoard();
 
         font2 = new BitmapFont();
         font2.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
-        font2.setColor(com.badlogic.gdx.graphics.Color.BLACK);
-        font2.getData().setScale(5, 5);    
-        font2.draw(renderer.getBatch(), msg, x - 200, y+250);
+        font2.setColor(com.badlogic.gdx.graphics.Color.RED);
+        font2.getData().setScale(4, 4);    
+        font2.draw(renderer.getBatch(), msg, x - 150, y+300);
         
         font3 = new BitmapFont();
         font3.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
@@ -485,6 +495,7 @@ public class Play extends Event implements Screen {
         map.dispose();
         renderer.dispose();
         player1.getTexture().dispose();
+        menu_music.dispose();
     }
 
 
