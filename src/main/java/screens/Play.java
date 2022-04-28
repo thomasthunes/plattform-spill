@@ -3,6 +3,7 @@ package screens;
 import com.badlogic.gdx.*;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -55,7 +56,9 @@ public class Play extends Event implements Screen {
     private app app;
     private ItemFactory itemFactory;
     
-    private Music menu_music;
+    private Music game_music;
+    private Sound gameover;
+    private Sound victory;
 
     private boolean pauseActive;
         
@@ -86,11 +89,13 @@ public class Play extends Event implements Screen {
         this.timerStart = System.currentTimeMillis();
         this.font5 = new BitmapFont();
         this.font4 = new BitmapFont();
+        gameover = Gdx.audio.newSound(Gdx.files.internal("assets/sounds/gameover.mp3"));
         
-		menu_music = Gdx.audio.newMusic(Gdx.files.internal("assets/sounds/menuscreen_audio.mp3"));
-		menu_music.setLooping(true);
-		menu_music.setVolume(0.2f);
-		menu_music.play();
+        
+		game_music = Gdx.audio.newMusic(Gdx.files.internal("assets/sounds/gamemusic.wav"));
+		game_music.setLooping(true);
+		game_music.setVolume(0.2f);
+		game_music.play();
        
     }
 
@@ -165,6 +170,7 @@ public class Play extends Event implements Screen {
             
             printPausedMsg();
             gameOver();
+           
             pause();
             setCameraViewSwiched();
             
@@ -250,6 +256,8 @@ public class Play extends Event implements Screen {
      * checks if all players are dead
      */
     public void gameOver(){
+        
+    	
         int deadCount = 0;
         for (mainPlayer player : players){
             if (!player.isAlive()){
@@ -269,6 +277,7 @@ public class Play extends Event implements Screen {
             runDB();
             paintOverlayMessage(GAME_FINISHED_MSG);
         }
+
 
     }
 
@@ -306,18 +315,15 @@ public class Play extends Event implements Screen {
      * @param msg
      */
     public void paintOverlayMessage(String msg){
-//        renderer.getBatch().end();
+    	
+    	game_music.stop();
+    	
         float x = Gdx.graphics.getWidth()/2;
         float y = Gdx.graphics.getHeight()/2;
+          
 
-//        Color color = msg == GAME_OVER_MSG ? Color.RED : Color.GREEN;
-
-//        shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
-//        shapeRenderer.setColor(color);
-//        shapeRenderer.rect(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-//        shapeRenderer.end();
         renderer.getBatch().draw(new Texture("assets/maps/about_background.png"), 0, 30, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-//        renderer.getBatch().begin();
+
 
         camera.position.set(x, y, 0);
         scoreBoard();
@@ -416,6 +422,8 @@ public class Play extends Event implements Screen {
         if(Gdx.input.isKeyJustPressed(Keys.ENTER)) {
         	
         	if(!pauseActive) {
+        		game_music.pause();
+        		
         		for(abstractEnemy enemy : enemies){
         			enemyVelocity.put(enemy, enemy.getVelocity().x);
         			enemy.setGravity(0);
@@ -430,6 +438,9 @@ public class Play extends Event implements Screen {
         		pauseActive = true;
         	}
         	else {
+        		
+        		game_music.play();
+        		
         		for(Map.Entry<abstractEnemy, Float> entry: enemyVelocity.entrySet()) {
         			entry.getKey().setGravity(140 * 1f);
         			entry.getKey().setSpeed(150);
@@ -495,7 +506,8 @@ public class Play extends Event implements Screen {
         map.dispose();
         renderer.dispose();
         player1.getTexture().dispose();
-        menu_music.dispose();
+        game_music.dispose();
+        gameover.dispose();
     }
 
 

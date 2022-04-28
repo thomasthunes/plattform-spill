@@ -1,6 +1,7 @@
 package objects;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
@@ -21,11 +22,18 @@ public class mainPlayer extends abstractPlayer implements IMainPlayer {
     private int health = 100;
     private int killStreak = 0;
     private boolean hasKey = false;
+	private boolean playerWin = false;
 
     private int currentLevel = 0;
     private boolean playerWon = false;
     
     public Sound jump;
+    public Sound hurt;
+    public Sound attack;
+    public Sound pickup;
+    public Sound gameover;
+    public Sound victory;
+    public Sound levelup;
 
     private List<IItem> inventory;
 
@@ -36,7 +44,14 @@ public class mainPlayer extends abstractPlayer implements IMainPlayer {
         game = play;
         this.damage = 50;
         this.inventory = new ArrayList<>();
+        
         jump = Gdx.audio.newSound(Gdx.files.internal("assets/sounds/jump.wav"));
+        hurt = Gdx.audio.newSound(Gdx.files.internal("assets/sounds/hurt.wav"));
+        attack = Gdx.audio.newSound(Gdx.files.internal("assets/sounds/jumponenemy.wav"));
+        pickup = Gdx.audio.newSound(Gdx.files.internal("assets/sounds/pickup.wav"));
+        gameover = Gdx.audio.newSound(Gdx.files.internal("assets/sounds/gameover.mp3"));
+        victory = Gdx.audio.newSound(Gdx.files.internal("assets/sounds/victory_sound.wav"));
+        levelup = Gdx.audio.newSound(Gdx.files.internal("assets/sounds/levelup.wav"));
     }
 
 
@@ -45,15 +60,20 @@ public class mainPlayer extends abstractPlayer implements IMainPlayer {
         isAttacted();
         attack();
         playerWon();
+        
 
         if (!inBounds()){
+        	gameover.play();
             setMessage("You died from falling");
             loseHealth(100);
         }
         else if (this.getHealth() == 0){
+        	gameover.play();
             setMessage("You were defeated by the enemy");
+            
         }
     }
+
 
     public abstractPlayer getPlayer(){
         return this;
@@ -74,7 +94,8 @@ public class mainPlayer extends abstractPlayer implements IMainPlayer {
             double enemyY = Math.floor(enemy.getY());
 
             if (collidesWithActorFromSide(this, enemy) && thisY == enemyY && enemy.isAlive()){
-                enemy.getAttack(this);
+                hurt.play();                             
+            	enemy.getAttack(this);
                 return true;
             }
         }
@@ -89,8 +110,9 @@ public class mainPlayer extends abstractPlayer implements IMainPlayer {
     private boolean playerWon(){
 
         if (hasKey() && getGameStatus() && currentLevel() > 0){
-            setMessage("Player won!");
+        	setMessage("Player won!");
             playerWon = true;
+
         }
         else if (hasKey() && getGameStatus() && currentLevel() == 0){
             setMessage("You have reached level 1");
@@ -115,6 +137,7 @@ public class mainPlayer extends abstractPlayer implements IMainPlayer {
 
 
     private void nextLevel() {
+    	levelup.play();
         currentLevel++;
     }
 
@@ -132,7 +155,9 @@ public class mainPlayer extends abstractPlayer implements IMainPlayer {
     public void attack(){
         for (abstractEnemy enemy : game.getEnemies()) {
             if (collidesWithActorFromTop(this, enemy) && collidesWithActorFromSide(this, enemy) && getVelocity().y < 0) {
-                enemy.loseHealth(this.damage);
+                
+            	attack.play();
+            	enemy.loseHealth(this.damage);
                 getVelocity().y = getSpeed()+250 / 1.8f;
 
                 if (!enemy.isAlive()) {
@@ -224,6 +249,7 @@ public class mainPlayer extends abstractPlayer implements IMainPlayer {
                     continue;
                 }
                 else {
+                	pickup.play();
                     addItem(item);
                 }
             }
