@@ -54,7 +54,7 @@ public class Play extends Event implements Screen {
     private app app;
     private ItemFactory itemFactory;
 
-    private boolean pauseActive; 
+    private boolean pauseActive;
     
     private BitmapFont font2;
     private BitmapFont font3;
@@ -70,6 +70,7 @@ public class Play extends Event implements Screen {
     private boolean cameraViewSwiched;
 
     private final long timerStart;
+    private long pausedStart;
     private final int gameMode;
 
     public Play(String currentMap, app app, int gameMode){
