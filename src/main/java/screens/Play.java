@@ -6,8 +6,8 @@ import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 //import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
@@ -24,18 +24,12 @@ import inf112.skeleton.app.controller;
 import objects.*;
 import org.lwjgl.opengl.GL20;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Play extends Event implements Screen {
 
     // CONSTANTS
     private final int STARTPOSITION = 36;
-    private static final com.badlogic.gdx.graphics.Color GAME_SCREEN_OVERLAY_COLOR = new com.badlogic.gdx.graphics.Color(0, 0, 0, 128);
-    private static final Color TEXT_COLOR = Color.WHITE;
     private static final String GAME_OVER_MSG = "Game Over!";
     private static final String GAME_FINISHED_MSG = "You Won!";
     private static final String GAME_PAUSED_MSG = "GAME PAUSED";
@@ -50,16 +44,14 @@ public class Play extends Event implements Screen {
     private mainPlayer player1;
     private mainPlayer player2;
     private Vampire vampire;
-    private Wizard wizard;
-    private medKit medKit;
+
     // Lists for actors
     private List<mainPlayer> players = new ArrayList<>();
     private List<abstractEnemy> enemies = new ArrayList<>();
     private List<abstractEnemy> bats = new ArrayList<>();
     private List<Item> items = new ArrayList<>();
 
-    private int gameCount = 0;
-    private String currentMap;
+    private final String currentMap;
     private app app;
     private ItemFactory itemFactory;
     
@@ -79,7 +71,9 @@ public class Play extends Event implements Screen {
     private boolean gameActive;
     private boolean DBSaved = false;
     private List<Integer> topTen = new ArrayList<>();
-    
+    private boolean cameraViewSwiched;
+
+    private final long timerStart;
     private final int gameMode;
 
     public Play(String currentMap, app app, int gameMode){
@@ -88,11 +82,10 @@ public class Play extends Event implements Screen {
         this.itemFactory = new ItemFactory();
         this.gameMode = gameMode;
         this.gameActive = true;
-        
-		menu_music = Gdx.audio.newMusic(Gdx.files.internal("assets/sounds/menuscreen_audio.mp3"));
-		menu_music.setLooping(true);
-		menu_music.setVolume(0.2f);
-		menu_music.play();
+        this.cameraViewSwiched = false;
+        this.timerStart = System.currentTimeMillis();
+        this.font5 = new BitmapFont();
+        this.font4 = new BitmapFont();
        
     }
 
@@ -106,6 +99,7 @@ public class Play extends Event implements Screen {
         camera = new OrthographicCamera();
         font = new BitmapFont();
 
+        // Creates the player(s) and sets the controllers
         player1 = new mainPlayer(new Sprite(new Texture("assets/maps/mario.png")), (TiledMapTileLayer) map.getLayers().get(0), this);//new Player(new Sprite(new Texture("assets/maps/mario.png")), (TiledMapTileLayer) map.getLayers().get(0));
         player1.setPosition(10 * player1.getCollisionLayer().getTileWidth(), (player1.getCollisionLayer().getHeight() - STARTPOSITION) * player1.getCollisionLayer().getTileHeight());
         players.add(player1);
@@ -118,7 +112,7 @@ public class Play extends Event implements Screen {
         else if (gameMode == 2) {
             player2 = new mainPlayer(new Sprite(new Texture("assets/maps/luigi.png")), (TiledMapTileLayer) map.getLayers().get(0), this);//new Player(new Sprite(new Texture("assets/maps/mario.png")), (TiledMapTileLayer) map.getLayers().get(0));
             player2.setPosition(7 * player2.getCollisionLayer().getTileWidth(), (player2.getCollisionLayer().getHeight() - STARTPOSITION) * player2.getCollisionLayer().getTileHeight());
-            player2.setSize((float) (player2.getWidth()*0.15), (float) (player2.getHeight()*0.2));;
+            player2.setSize((float) (player2.getWidth()*0.15), (float) (player2.getHeight()*0.2));
             players.add(player2);
 
             controller controller = new controller(player1, player2);
@@ -147,35 +141,6 @@ public class Play extends Event implements Screen {
         items = itemFactory.getKey(map, this);
     }
 
-    public Vampire getVampire(){
-        return vampire;
-    }
-
-    public List<abstractEnemy> getBats(){
-        return bats;
-    }
-
-    public ItemFactory getItemFactory(){
-        return itemFactory;
-    }
-
-    public TiledMap getMap(){
-        return map;
-    }
-
-    public List<mainPlayer> getPlayers(){
-        return players;
-    }
-
-    public List<abstractEnemy> getEnemies(){
-        return enemies;
-    }
-
-    public List<Item> getItems(){
-        return items;
-    }
-
-
     @Override
     public void render(float v) {
         if (gameActive == true) {
@@ -188,23 +153,7 @@ public class Play extends Event implements Screen {
             camera.update();
             renderer.getBatch().begin();
 
-            if (!player1.isAlive() && player2 != null)
-                camera.position.set(player2.getX(), player2.getY(), 0);
-            else
-                camera.position.set(player1.getX(), player1.getY(), 0);
-
-            if (player1.isAlive()) {
-                player1.update();
-                player1.draw(renderer.getBatch());
-                player1.draw(renderer.getBatch());
-            }
-
-            if (player2 != null && player2.isAlive()) {
-                player2.update();
-                player2.draw(renderer.getBatch());
-                player2.draw(renderer.getBatch());
-            }
-
+            drawPlayers();
             drawItems();
             drawEnemies();
             drawFont();
@@ -212,8 +161,40 @@ public class Play extends Event implements Screen {
             printPausedMsg();
             gameOver();
             pause();
+            setCameraViewSwiched();
             
             renderer.getBatch().end();
+        }
+    }
+
+    /**
+     * draws player1 and player2 if there are two players
+     * determines which player to focus the camera on
+     */
+    private void drawPlayers(){
+        if (gameMode == 1){
+            camera.position.set(player1.getX(), player1.getY(), 0);
+        }
+        else if (!player1.isAlive() || cameraViewSwiched) {
+            if (player2 != null) {
+                camera.position.set(player2.getX(), player2.getY(), 0);
+            }
+        }
+        else {
+            camera.position.set(player1.getX(), player1.getY(), 0);
+        }
+
+
+        if (player1.isAlive()) {
+            player1.update();
+            player1.draw(renderer.getBatch());
+            player1.draw(renderer.getBatch());
+        }
+
+        if (player2 != null && player2.isAlive()) {
+            player2.update();
+            player2.draw(renderer.getBatch());
+            player2.draw(renderer.getBatch());
         }
     }
 
@@ -226,35 +207,25 @@ public class Play extends Event implements Screen {
         font.draw(renderer.getBatch(), "FINISH ZONE!", 633 * player1.getCollisionLayer().getTileWidth(), (player1.getCollisionLayer().getHeight() - 45) * player1.getCollisionLayer().getTileHeight());
         font.draw(renderer.getBatch(), "LEVEL 2!", 440 * player1.getCollisionLayer().getTileWidth(), (player1.getCollisionLayer().getHeight() - 9) * player1.getCollisionLayer().getTileHeight());
 
+
+        if (player1.isAlive() && !cameraViewSwiched)
+            font5.draw(renderer.getBatch(), getTime() , player1.getX() - 500, player1.getY() + 400);
+        else if (player2 != null || cameraViewSwiched)
+            font5.draw(renderer.getBatch(), getTime() , player2.getX() - 500, player2.getY() + 400);
+
+
         if (player2 != null) {
             font.draw(renderer.getBatch(), "Luigi's Health: " + player2.getHealth(), player2.getX(), player2.getY() - 50);
             font.draw(renderer.getBatch(), player2.getMessage(), player2.getX() + 200, player2.getY() - 50);
         }
     }
 
-    /**
-     * draws the enemies
-     */
-    private void drawEnemies() {
-        List<abstractEnemy> enemiesToBeRemoved = new ArrayList<>();
-        for (abstractEnemy enemy : enemies) {
-            if (enemy.isAlive()) {
-                enemy.draw(renderer.getBatch());
-            } else {
-                enemiesToBeRemoved.add(enemy);
-            }
-        }
-        removeDeadEnemies(enemiesToBeRemoved);
-    }
-
 
     public void printPausedMsg() {
-    	font4 = new BitmapFont();
     	font4.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
     	font4.getData().setScale(5, 5);
     	font4.setColor(com.badlogic.gdx.graphics.Color.RED);
     	
-    	font5 = new BitmapFont();
     	font5.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
     	font5.getData().setScale(2, 2);
     	font5.setColor(com.badlogic.gdx.graphics.Color.WHITE);
@@ -367,12 +338,30 @@ public class Play extends Event implements Screen {
         	
         	if(Gdx.input.isTouched()) {
         		app.create();
-
-      
         }
       }
         
         
+    }
+
+    private String getTime(){
+        long nowTime = System.currentTimeMillis();
+        return (int)((nowTime - this.timerStart) / 1000) + " Seconds";
+    }
+
+    /**
+     * draws the enemies
+     */
+    private void drawEnemies() {
+        List<abstractEnemy> enemiesToBeRemoved = new ArrayList<>();
+        for (abstractEnemy enemy : enemies) {
+            if (enemy.isAlive()) {
+                enemy.draw(renderer.getBatch());
+            } else {
+                enemiesToBeRemoved.add(enemy);
+            }
+        }
+        removeDeadEnemies(enemiesToBeRemoved);
     }
 
     /**
@@ -449,6 +438,41 @@ public class Play extends Event implements Screen {
         		pauseActive = false;
         	}
         }
+    }
+
+    /**
+     * Switches camera focus to the other player
+     */
+    public void setCameraViewSwiched(){
+        if(Gdx.input.isKeyJustPressed(Keys.C)) {
+            if (gameMode == 2) {
+                if (!cameraViewSwiched) {
+                    cameraViewSwiched = true;
+                } else {
+                    cameraViewSwiched = false;
+                }
+            }
+        }
+    }
+
+    public Vampire getVampire(){
+        return vampire;
+    }
+
+    public List<abstractEnemy> getBats(){
+        return bats;
+    }
+
+    public List<mainPlayer> getPlayers(){
+        return players;
+    }
+
+    public List<abstractEnemy> getEnemies(){
+        return enemies;
+    }
+
+    public List<Item> getItems(){
+        return items;
     }
 
     @Override

@@ -37,11 +37,6 @@ public class Wizard extends abstractEnemy {
     }
 
     @Override
-    public int getAmount() {
-        return 0;
-    }
-
-    @Override
     public String getName() {
         return name;
     }
@@ -58,7 +53,7 @@ public class Wizard extends abstractEnemy {
         mainPlayer.setPosition(startX, startY);
         mainPlayer.loseHealth(this.damage);
         if (mainPlayer.getOtherPlayer() != null){
-            mainPlayer.getOtherPlayer().setPosition(10 * startX, startY);
+            mainPlayer.getOtherPlayer().setPosition(startX, startY);
         }
         Random rand = new Random();
         this.setPosition(rand.nextInt(700) * startX, startY);

@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.math.Vector2;
 
-public class Item<T> extends Sprite implements IItem<T>{
+public class Item extends Sprite implements IItem{
 
     private boolean isAlive = true;
     private TiledMapTileLayer collisionLayer;
@@ -260,18 +260,13 @@ public class Item<T> extends Sprite implements IItem<T>{
     public boolean collidesBottom(double increment) {
         for(float step = 0; step <= getWidth(); step += increment)
             if(isCellBlocked(getX() + step, getY())) // getY() without any additional increment to check on bottom
-                return true; // collidesBottom() is true if player collides with collision layer
-        return false; // false if player do not collide with collision layer
+                return true;                            // collidesBottom() is true if player collides with collision layer
+        return false;                                   // false if player do not collide with collision layer
     }
 
 
     public Vector2 getVelocity() {
         return velocity;
-    }
-
-
-    public void setVelocity(Vector2 velocity) {
-        this.velocity = velocity;
     }
 
     public float getSpeed() {
@@ -282,16 +277,8 @@ public class Item<T> extends Sprite implements IItem<T>{
         this.speed = speed;
     }
 
-    public float getGravity() {
-        return gravity;
-    }
-
     public void setGravity(float gravity) {
         this.gravity = gravity;
-    }
-
-    public void setCollisionLayer(TiledMapTileLayer collisionLayer) {
-        this.collisionLayer = collisionLayer;
     }
 
     public boolean GetCanJump(){

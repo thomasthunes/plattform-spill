@@ -27,10 +27,4 @@ public interface IMainPlayer {
      */
     public void addItem(IItem item);
 
-    /**
-     * the inventory
-     * @return a list containing items
-     */
-    public List<IItem> getInventory();
-
 }
