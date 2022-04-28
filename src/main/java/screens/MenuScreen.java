@@ -30,11 +30,6 @@ public class MenuScreen extends Game implements Screen {
 	app game;
     private SpriteBatch batch;
 	private Texture background;
-	private Texture playButton_active;
-	private Texture playButton_inactive;
-	private Texture exitButton_active;
-	private Texture exitButton_inactive;
-	private Texture twoPlayer_symbol;
 	private Music menu_music;
 	private final int onePlayer = 1;
 	private final int twoPlayer = 2;
@@ -53,6 +48,8 @@ public class MenuScreen extends Game implements Screen {
 	private int twoPB_x_pos_min = 595;
 	private int twoPB_x_pos_max = 870;
 	private int twoPB_y_pos_min = 600;
+	
+
 	
 	private final String ABOUT_CNTRL_TXT = 
 			  "\n"
@@ -78,7 +75,8 @@ public class MenuScreen extends Game implements Screen {
 		  + "is heavily guarded by the intimidating vampire,\n"
 		  + "to get to the next level and to reach the finish-\n"
 		  + "pad. If you kill enough sleazy enemies you\n"
-		  + "might enter the top ten scoreboard.";
+		  + "might enter the top ten scoreboard.\n"
+		  + "P.S. avoid the red burning lava!";
 	
 
 	private final String ABOUT_BACK_BTN = "<-- BACK";	
@@ -106,11 +104,6 @@ public class MenuScreen extends Game implements Screen {
 		
 		this.game = game;
 		background = new Texture("assets/maps/game_background.png");
-		playButton_active = new Texture("assets/maps/play_button_active.png");
-		playButton_inactive = new Texture("assets/maps/play_button_inactive.png");
-		exitButton_active = new Texture("assets/maps/exit_button_active.png");
-		exitButton_inactive = new Texture("assets/maps/exit_button_inactive.png");
-		twoPlayer_symbol = new Texture("assets/maps/twoplayer.png");
 		
 		
 		menu_music = Gdx.audio.newMusic(Gdx.files.internal("assets/sounds/menuscreen_audio.mp3"));
@@ -211,6 +204,8 @@ public class MenuScreen extends Game implements Screen {
     	batch.end();
 
 	}
+	
+	
     	
 	
 	
@@ -306,11 +301,6 @@ public class MenuScreen extends Game implements Screen {
 	@Override
 	public void dispose() {
 		background.dispose();
-		playButton_active.dispose();
-		playButton_inactive.dispose();
-		exitButton_active.dispose();
-		exitButton_inactive.dispose();
-		twoPlayer_symbol.dispose();
 		menu_music.dispose();
 
 	}
