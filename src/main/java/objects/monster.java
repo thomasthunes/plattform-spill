@@ -10,7 +10,6 @@ public class monster extends abstractEnemy {
 
     private final int damage = 1;
     private int health = 25;
-    private Play game;
     private final String name = "monster";
 
     /**
@@ -34,11 +33,6 @@ public class monster extends abstractEnemy {
     }
 
     @Override
-    public int getAmount() {
-        return 0;
-    }
-
-    @Override
     public String getName() {
         return name;
     }
@@ -49,14 +43,6 @@ public class monster extends abstractEnemy {
      */
     public void getAttack(objects.mainPlayer mainPlayer){
         mainPlayer.loseHealth(this.damage);
-    }
-
-    /**
-     * Sets the health to newHealth
-     * @param newHealth
-     */
-    public void setHealth(int newHealth) {
-        health = newHealth;
     }
 
     /**

@@ -37,11 +37,6 @@ public class Bat extends abstractEnemy {
         return damage;
     }
 
-    @Override
-    public int getAmount() {
-        return 0;
-    }
-
     /**
      * @return Name
      */

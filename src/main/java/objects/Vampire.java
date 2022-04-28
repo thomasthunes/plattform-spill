@@ -25,11 +25,6 @@ public class Vampire extends abstractEnemy {
     }
 
     @Override
-    public int getAmount() {
-        return 0;
-    }
-
-    @Override
     public String getName() {
         return "vampire";
     }

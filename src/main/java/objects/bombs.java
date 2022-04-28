@@ -29,11 +29,6 @@ public class bombs extends abstractEnemy {
     }
 
     @Override
-    public int getAmount() {
-        return 0;
-    }
-
-    @Override
     public String getName() {
         return name;
     }
