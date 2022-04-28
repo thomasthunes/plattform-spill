@@ -86,6 +86,11 @@ public class Play extends Event implements Screen {
         this.timerStart = System.currentTimeMillis();
         this.font5 = new BitmapFont();
         this.font4 = new BitmapFont();
+        
+		menu_music = Gdx.audio.newMusic(Gdx.files.internal("assets/sounds/menuscreen_audio.mp3"));
+		menu_music.setLooping(true);
+		menu_music.setVolume(0.2f);
+		menu_music.play();
        
     }
 
