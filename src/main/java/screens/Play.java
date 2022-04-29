@@ -14,14 +14,13 @@ import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
-import com.badlogic.gdx.graphics.Color;
 
 import com.badlogic.gdx.scenes.scene2d.Event;
 
 import inf112.skeleton.app.abstractEnemy;
 import inf112.skeleton.app.ScoreDB;
 import inf112.skeleton.app.app;
-import inf112.skeleton.app.controller;
+import inf112.skeleton.app.Controller;
 import objects.*;
 import org.lwjgl.opengl.GL20;
 
@@ -115,7 +114,7 @@ public class Play extends Event implements Screen {
         players.add(player1);
 
         if (gameMode == 1) {
-            controller controller1 = new controller(player1);
+            Controller controller1 = new Controller(player1);
             Gdx.input.setInputProcessor(controller1);
         }
 
@@ -125,7 +124,7 @@ public class Play extends Event implements Screen {
             player2.setSize((float) (player2.getWidth()*0.15), (float) (player2.getHeight()*0.2));
             players.add(player2);
 
-            controller controller = new controller(player1, player2);
+            Controller controller = new Controller(player1, player2);
             Gdx.input.setInputProcessor(controller);
         }
 
