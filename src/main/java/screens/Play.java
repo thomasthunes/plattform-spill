@@ -94,7 +94,7 @@ public class Play extends Event implements Screen {
         
 		game_music = Gdx.audio.newMusic(Gdx.files.internal("assets/sounds/gamemusic.wav"));
 		game_music.setLooping(true);
-		game_music.setVolume(0.2f);
+		game_music.setVolume(0.4f);
 		game_music.play();
        
     }
@@ -351,8 +351,6 @@ public class Play extends Event implements Screen {
         		app.create();
         }
       }
-        
-        
     }
 
     private String getTime(){

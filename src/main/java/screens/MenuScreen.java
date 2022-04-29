@@ -108,7 +108,7 @@ public class MenuScreen extends Game implements Screen {
 		
 		menu_music = Gdx.audio.newMusic(Gdx.files.internal("assets/sounds/menuscreen_audio.mp3"));
 		menu_music.setLooping(true);
-		menu_music.setVolume(0.2f);
+		menu_music.setVolume(0.4f);
 		menu_music.play();
 		batch = new SpriteBatch();
 		
@@ -143,6 +143,7 @@ public class MenuScreen extends Game implements Screen {
     	
     	if(!aboutScreenActive) {
     	
+    	//Creating the menuscreen
     	
     	aboutButton();
     	
@@ -270,8 +271,6 @@ public class MenuScreen extends Game implements Screen {
        
 		
 	}
-        
-
     
 
 	@Override
