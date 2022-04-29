@@ -88,10 +88,10 @@ public class Play extends Event implements Screen {
         this.timerStart = System.currentTimeMillis();
         this.font5 = new BitmapFont();
         this.font4 = new BitmapFont();
-        gameover = Gdx.audio.newSound(Gdx.files.internal("assets/sounds/gameover.mp3"));
+        gameover = Gdx.audio.newSound(Gdx.files.internal("sounds/gameover.mp3"));
         
         
-		game_music = Gdx.audio.newMusic(Gdx.files.internal("assets/sounds/gamemusic.wav"));
+		game_music = Gdx.audio.newMusic(Gdx.files.internal("sounds/gamemusic.wav"));
 		game_music.setLooping(true);
 		game_music.setVolume(0.4f);
 		game_music.play();
@@ -109,7 +109,7 @@ public class Play extends Event implements Screen {
         font = new BitmapFont();
 
         // Creates the player(s) and sets the controllers
-        player1 = new MainPlayer(new Sprite(new Texture("assets/maps/mario.png")), (TiledMapTileLayer) map.getLayers().get(0), this);//new Player(new Sprite(new Texture("assets/maps/mario.png")), (TiledMapTileLayer) map.getLayers().get(0));
+        player1 = new MainPlayer(new Sprite(new Texture("maps/mario.png")), (TiledMapTileLayer) map.getLayers().get(0), this);//new Player(new Sprite(new Texture("assets/maps/mario.png")), (TiledMapTileLayer) map.getLayers().get(0));
         player1.setPosition(10 * player1.getCollisionLayer().getTileWidth(), (player1.getCollisionLayer().getHeight() - STARTPOSITION) * player1.getCollisionLayer().getTileHeight());
         players.add(player1);
 
@@ -119,7 +119,7 @@ public class Play extends Event implements Screen {
         }
 
         else if (gameMode == 2) {
-            player2 = new MainPlayer(new Sprite(new Texture("assets/maps/luigi.png")), (TiledMapTileLayer) map.getLayers().get(0), this);//new Player(new Sprite(new Texture("assets/maps/mario.png")), (TiledMapTileLayer) map.getLayers().get(0));
+            player2 = new MainPlayer(new Sprite(new Texture("maps/luigi.png")), (TiledMapTileLayer) map.getLayers().get(0), this);//new Player(new Sprite(new Texture("assets/maps/mario.png")), (TiledMapTileLayer) map.getLayers().get(0));
             player2.setPosition(7 * player2.getCollisionLayer().getTileWidth(), (player2.getCollisionLayer().getHeight() - STARTPOSITION) * player2.getCollisionLayer().getTileHeight());
             player2.setSize((float) (player2.getWidth()*0.15), (float) (player2.getHeight()*0.2));
             players.add(player2);
@@ -323,7 +323,7 @@ public class Play extends Event implements Screen {
         float y = Gdx.graphics.getHeight()/2;
           
 
-        renderer.getBatch().draw(new Texture("assets/maps/about_background.png"), 0, 30, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        renderer.getBatch().draw(new Texture("maps/about_background.png"), 0, 30, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 
 
         camera.position.set(x, y, 0);
