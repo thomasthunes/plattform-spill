@@ -43,12 +43,12 @@ public class MainPlayer extends AbstractPlayer implements IMainPlayer {
         this.damage = 50;
         this.inventory = new ArrayList<>();
         
-        jump = Gdx.audio.newSound(Gdx.files.internal("assets/sounds/jump.wav"));
-        hurt = Gdx.audio.newSound(Gdx.files.internal("assets/sounds/hurt.wav"));
-        attack = Gdx.audio.newSound(Gdx.files.internal("assets/sounds/jumponenemy.wav"));
-        pickup = Gdx.audio.newSound(Gdx.files.internal("assets/sounds/pickup.wav"));
-        gameover = Gdx.audio.newSound(Gdx.files.internal("assets/sounds/gameover.mp3"));
-        levelup = Gdx.audio.newSound(Gdx.files.internal("assets/sounds/levelup.wav"));
+        jump = Gdx.audio.newSound(Gdx.files.internal("sounds/jump.wav"));
+        hurt = Gdx.audio.newSound(Gdx.files.internal("sounds/hurt.wav"));
+        attack = Gdx.audio.newSound(Gdx.files.internal("sounds/jumponenemy.wav"));
+        pickup = Gdx.audio.newSound(Gdx.files.internal("sounds/pickup.wav"));
+        gameover = Gdx.audio.newSound(Gdx.files.internal("sounds/gameover.mp3"));
+        levelup = Gdx.audio.newSound(Gdx.files.internal("sounds/levelup.wav"));
     }
 
 
