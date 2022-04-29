@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import inf112.skeleton.app.AbstractEnemy;
-import inf112.skeleton.app.controller;
+import inf112.skeleton.app.Controller;
 import screens.Play;
 
 import java.util.ArrayList;

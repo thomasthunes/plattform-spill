@@ -21,7 +21,7 @@ import com.badlogic.gdx.scenes.scene2d.Event;
 import inf112.skeleton.app.AbstractEnemy;
 import inf112.skeleton.app.ScoreDB;
 import inf112.skeleton.app.App;
-import inf112.skeleton.app.controller;
+import inf112.skeleton.app.Controller;
 import objects.*;
 import org.lwjgl.opengl.GL20;
 
@@ -114,7 +114,7 @@ public class Play extends Event implements Screen {
         players.add(player1);
 
         if (gameMode == 1) {
-            controller controller1 = new controller(player1);
+            Controller controller1 = new Controller(player1);
             Gdx.input.setInputProcessor(controller1);
         }
 
@@ -124,7 +124,7 @@ public class Play extends Event implements Screen {
             player2.setSize((float) (player2.getWidth()*0.15), (float) (player2.getHeight()*0.2));
             players.add(player2);
 
-            controller controller = new controller(player1, player2);
+            Controller controller = new Controller(player1, player2);
             Gdx.input.setInputProcessor(controller);
         }
 
@@ -230,7 +230,9 @@ public class Play extends Event implements Screen {
         }
     }
 
-
+    /**
+     * Prints pausemessage to screen
+     */
     public void printPausedMsg() {
     	font4.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
     	font4.getData().setScale(5, 5);
@@ -420,6 +422,7 @@ public class Play extends Event implements Screen {
         	
         	if(!pauseActive) {
         		game_music.pause();
+        		
         		
         		for(AbstractEnemy enemy : enemies){
         			enemyVelocity.put(enemy, enemy.getVelocity().x);
