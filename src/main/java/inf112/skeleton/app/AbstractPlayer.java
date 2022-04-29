@@ -4,7 +4,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import objects.Item;
 
-public abstract class abstractPlayer extends Item {
+public abstract class AbstractPlayer extends Item {
 
 	private String message = "";
 	private TiledMapTileLayer collisionLayer;
@@ -14,7 +14,7 @@ public abstract class abstractPlayer extends Item {
 	 * @param sprite
 	 * @param collisionLayer
 	 */
-	public abstractPlayer(Sprite sprite, TiledMapTileLayer collisionLayer) {
+	public AbstractPlayer(Sprite sprite, TiledMapTileLayer collisionLayer) {
 		super(sprite, collisionLayer);
 		this.collisionLayer = collisionLayer;
 	}

@@ -11,9 +11,9 @@ import screens.Play;
 import java.util.ArrayList;
 import java.util.List;
 
-public class app extends Game {
+public class App extends Game {
 
-    public app(){
+    public App(){
     }
 
     @Override

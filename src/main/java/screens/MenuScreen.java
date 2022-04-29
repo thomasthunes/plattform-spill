@@ -22,12 +22,12 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
-import inf112.skeleton.app.app;
+import inf112.skeleton.app.App;
 import screens.Play;
 
 public class MenuScreen extends Game implements Screen {
 	
-	app game;
+	App game;
     private SpriteBatch batch;
 	private Texture background;
 	private Music menu_music;
@@ -99,7 +99,7 @@ public class MenuScreen extends Game implements Screen {
 	private ShapeRenderer shapeRenderer;
 	private boolean aboutScreenActive;
 	
-	public MenuScreen(app game) {
+	public MenuScreen(App game) {
 
 		
 		this.game = game;

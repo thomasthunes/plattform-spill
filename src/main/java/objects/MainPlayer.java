@@ -5,14 +5,14 @@ import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
-import inf112.skeleton.app.abstractEnemy;
-import inf112.skeleton.app.abstractPlayer;
+import inf112.skeleton.app.AbstractEnemy;
+import inf112.skeleton.app.AbstractPlayer;
 import screens.Play;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class mainPlayer extends abstractPlayer implements IMainPlayer {
+public class MainPlayer extends AbstractPlayer implements IMainPlayer {
 
     //Constants
     private final int MAXHEALTH = 120;
@@ -22,7 +22,6 @@ public class mainPlayer extends abstractPlayer implements IMainPlayer {
     private int health = 100;
     private int killStreak = 0;
     private boolean hasKey = false;
-	private boolean playerWin = false;
 
     private int currentLevel = 0;
     private boolean playerWon = false;
@@ -32,14 +31,13 @@ public class mainPlayer extends abstractPlayer implements IMainPlayer {
     public Sound attack;
     public Sound pickup;
     public Sound gameover;
-    public Sound victory;
     public Sound levelup;
 
     private List<IItem> inventory;
 
-    private abstractEnemy currentEnemy;
+    private AbstractEnemy currentEnemy;
 
-    public mainPlayer(Sprite sprite, TiledMapTileLayer collisionLayer, Play play) {
+    public MainPlayer(Sprite sprite, TiledMapTileLayer collisionLayer, Play play) {
         super(sprite, collisionLayer);
         game = play;
         this.damage = 50;
@@ -50,7 +48,6 @@ public class mainPlayer extends abstractPlayer implements IMainPlayer {
         attack = Gdx.audio.newSound(Gdx.files.internal("assets/sounds/jumponenemy.wav"));
         pickup = Gdx.audio.newSound(Gdx.files.internal("assets/sounds/pickup.wav"));
         gameover = Gdx.audio.newSound(Gdx.files.internal("assets/sounds/gameover.mp3"));
-        victory = Gdx.audio.newSound(Gdx.files.internal("assets/sounds/victory_sound.wav"));
         levelup = Gdx.audio.newSound(Gdx.files.internal("assets/sounds/levelup.wav"));
     }
 
@@ -75,7 +72,7 @@ public class mainPlayer extends abstractPlayer implements IMainPlayer {
     }
 
 
-    public abstractPlayer getPlayer(){
+    public AbstractPlayer getPlayer(){
         return this;
     }
 
@@ -89,7 +86,7 @@ public class mainPlayer extends abstractPlayer implements IMainPlayer {
      * @return boolean
      */
     private boolean isAttacted() {
-        for (abstractEnemy enemy : game.getEnemies()){
+        for (AbstractEnemy enemy : game.getEnemies()){
             double thisY = Math.floor(this.getY());
             double enemyY = Math.floor(enemy.getY());
 
@@ -153,7 +150,7 @@ public class mainPlayer extends abstractPlayer implements IMainPlayer {
      * kills the enemy if the player jumps on the enemy
      */
     public void attack(){
-        for (abstractEnemy enemy : game.getEnemies()) {
+        for (AbstractEnemy enemy : game.getEnemies()) {
             if (collidesWithActorFromTop(this, enemy) && collidesWithActorFromSide(this, enemy) && getVelocity().y < 0) {
                 
             	attack.play();
@@ -261,13 +258,13 @@ public class mainPlayer extends abstractPlayer implements IMainPlayer {
      * gets the other player if there are two players
      * @return the other mainPlayer
      */
-    public mainPlayer getOtherPlayer(){
-        List<mainPlayer> players = game.getPlayers();
+    public MainPlayer getOtherPlayer(){
+        List<MainPlayer> players = game.getPlayers();
         if (players.size() < 2){
             return null;
         }
-        mainPlayer otherPlayer = this;
-        for (mainPlayer player : players){
+        MainPlayer otherPlayer = this;
+        for (MainPlayer player : players){
             if (!player.equals(this)){
                 otherPlayer = player;
             }

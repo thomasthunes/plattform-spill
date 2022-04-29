@@ -2,14 +2,13 @@ package objects;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
-import inf112.skeleton.app.abstractEnemy;
-import inf112.skeleton.app.abstractPlayer;
+import inf112.skeleton.app.AbstractEnemy;
+import inf112.skeleton.app.AbstractPlayer;
 import screens.Play;
 
-public class bombs extends abstractEnemy {
+public class bombs extends AbstractEnemy {
 
     private final String name;
-    private final boolean isAlive = true;
     private int hp = 1;
 
     public bombs(Sprite sprite, TiledMapTileLayer collisionLayer, Play play) {
@@ -46,8 +45,8 @@ public class bombs extends abstractEnemy {
      * @param mainPlayer
      */
     @Override
-    public void getAttack(objects.mainPlayer mainPlayer) {
-        abstractPlayer player = mainPlayer;
+    public void getAttack(objects.MainPlayer mainPlayer) {
+        AbstractPlayer player = mainPlayer;
         player.getVelocity().y = player.getSpeed()+250 / 1.8f;
         player.getVelocity().x = player.getSpeed()+50;
         loseHealth(hp);

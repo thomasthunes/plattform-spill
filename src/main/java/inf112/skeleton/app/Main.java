@@ -14,6 +14,6 @@ public class Main {
         cfg.setResizable(false);
         cfg.setInitialVisible(true);
 
-        new Lwjgl3Application(new app(), cfg);
+        new Lwjgl3Application(new App(), cfg);
     }
 }

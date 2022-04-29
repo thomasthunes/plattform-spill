@@ -3,12 +3,12 @@ package objects;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 
-public class medKit extends Item {
+public class MedKit extends Item {
 
     private final int hp;
     private final String name;
 
-    public medKit(Sprite sprite, TiledMapTileLayer tiledMapTileLayer) {
+    public MedKit(Sprite sprite, TiledMapTileLayer tiledMapTileLayer) {
         super(sprite, tiledMapTileLayer);
         this.hp = 20;
         this.name = "MedKit";

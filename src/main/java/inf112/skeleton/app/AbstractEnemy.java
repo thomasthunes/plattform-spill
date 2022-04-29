@@ -7,12 +7,12 @@ import screens.Play;
 
 import java.util.Random;
 
-public abstract class abstractEnemy extends abstractPlayer implements IEnemy {
+public abstract class AbstractEnemy extends AbstractPlayer implements IEnemy {
 
     private final int damage = 1;
     private int health = 25;
     private Play game;
-    private objects.mainPlayer mainPlayer;
+    private objects.MainPlayer mainPlayer;
 
     /**
      * specifies the common properties of all enemies
@@ -20,7 +20,7 @@ public abstract class abstractEnemy extends abstractPlayer implements IEnemy {
      * @param collisionLayer
      * @param play
      */
-    public abstractEnemy(Sprite sprite, TiledMapTileLayer collisionLayer, Play play) {
+    public AbstractEnemy(Sprite sprite, TiledMapTileLayer collisionLayer, Play play) {
         super(sprite, collisionLayer);
         this.game = play;
         setSize((float) (getWidth()*0.4), (float) (getHeight()*0.3));
@@ -72,7 +72,7 @@ public abstract class abstractEnemy extends abstractPlayer implements IEnemy {
      * abstract method specifying each the attack of a specific enemy
      * @param mainPlayer
      */
-    public abstract void getAttack(objects.mainPlayer mainPlayer);
+    public abstract void getAttack(objects.MainPlayer mainPlayer);
 
     /**
      * sets velocity x to positive speed, moving the enemy to the right

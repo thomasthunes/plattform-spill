@@ -1,6 +1,6 @@
 package inf112.skeleton.app;
 
-import objects.mainPlayer;
+import objects.MainPlayer;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class ScoreDB {
 
-    private List<mainPlayer> players;
+    private List<MainPlayer> players;
     private File scoreDB;
     private PrintWriter printWriter;
     private List<Integer> scores;
@@ -20,7 +20,7 @@ public class ScoreDB {
      * Creates a file with the all-time top ten best scores
      * @param players
      */
-    public ScoreDB(List<mainPlayer> players){
+    public ScoreDB(List<MainPlayer> players){
         this.players = players;
         this.scores = new ArrayList<>();
         create();
@@ -52,7 +52,7 @@ public class ScoreDB {
      */
     public List<Integer> getTopTen(){
         List<Integer> topTen = new ArrayList<>();
-        for (mainPlayer player : players){
+        for (MainPlayer player : players){
             if (player.isAlive())
                 scores.add(player.getKillStreak());
         }

@@ -5,7 +5,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
-import inf112.skeleton.app.abstractEnemy;
+import inf112.skeleton.app.AbstractEnemy;
 import inf112.skeleton.app.controller;
 import screens.Play;
 
@@ -23,9 +23,9 @@ public class ItemFactory {
     private final int STARTPOSITION = 36;
 
 
-    private List<abstractEnemy> enemies;
+    private List<AbstractEnemy> enemies;
     private List<Item> items;
-    List<mainPlayer> players;
+    List<MainPlayer> players;
 
     public ItemFactory(){
         enemies = new ArrayList<>();
@@ -40,10 +40,10 @@ public class ItemFactory {
      * @param play
      * @return n number of monsters in a list
      */
-    public List<abstractEnemy> getNextMonster(int amount, TiledMap map, Play play){
+    public List<AbstractEnemy> getNextMonster(int amount, TiledMap map, Play play){
         for (int i = 0; i < amount; i++){
             int xPos = getNextXPos();
-            monster monster = new monster(new Sprite(new Texture("assets/maps/monster.png")), (TiledMapTileLayer) map.getLayers().get(0), play);
+            Monster monster = new Monster(new Sprite(new Texture("assets/maps/monster.png")), (TiledMapTileLayer) map.getLayers().get(0), play);
             monster.setPosition(xPos * monster.getCollisionLayer().getTileWidth(), (monster.getCollisionLayer().getHeight() - 4) * monster.getCollisionLayer().getTileHeight());
             enemies.add(monster);
         }
@@ -56,7 +56,7 @@ public class ItemFactory {
      * @param play
      * @return the updated enemies list
      */
-    public List<abstractEnemy> getNextWizard(TiledMap map, Play play) {
+    public List<AbstractEnemy> getNextWizard(TiledMap map, Play play) {
         Wizard wizard = new Wizard(new Sprite(new Texture("assets/maps/wizard.png")), (TiledMapTileLayer) map.getLayers().get(0), play);
         wizard.setPosition(91 * wizard.getCollisionLayer().getTileWidth(), (wizard.getCollisionLayer().getHeight() - 4) * wizard.getCollisionLayer().getTileHeight());
         enemies.add(wizard);
@@ -70,7 +70,7 @@ public class ItemFactory {
      * @param play
      * @return n number of bombs-objects in a list
      */
-    public List<abstractEnemy> getNextBomb(int amount, TiledMap map, Play play){
+    public List<AbstractEnemy> getNextBomb(int amount, TiledMap map, Play play){
         for (int i = 0; i < amount; i++){
             int xPos = getNextXPos();
             bombs bomb = new bombs(new Sprite(new Texture("assets/maps/bomb.png")), (TiledMapTileLayer) map.getLayers().get(0), play);
@@ -87,7 +87,7 @@ public class ItemFactory {
      * @param enemies
      * @return the vampire object
      */
-    public Vampire getVampire(TiledMap map, Play play, List<abstractEnemy> enemies){
+    public Vampire getVampire(TiledMap map, Play play, List<AbstractEnemy> enemies){
         int xPos = 316;
         int yPos = 36;
         Vampire vampire = new Vampire(new Sprite(new Texture("assets/maps/vampire.png")), (TiledMapTileLayer) map.getLayers().get(0), play);
@@ -103,7 +103,7 @@ public class ItemFactory {
      * @param bats
      * @return n bats in a list
      */
-    public List<abstractEnemy> getNextBat(TiledMap map, Play play, List<abstractEnemy> bats){
+    public List<AbstractEnemy> getNextBat(TiledMap map, Play play, List<AbstractEnemy> bats){
         int amount = NUMBEROFBATS;
         int xPos = 316;
         int yPos = 36;
@@ -127,7 +127,7 @@ public class ItemFactory {
     public List<Item> getNextMedkit(int amount, TiledMap map, Play play){
         for (int n = 0; n < amount; n++) {
             int xPos = getNextXPos();
-            medKit medKit = new medKit(new Sprite(new Texture("assets/maps/medkit.png")), (TiledMapTileLayer) map.getLayers().get(0));
+            MedKit medKit = new MedKit(new Sprite(new Texture("assets/maps/medkit.png")), (TiledMapTileLayer) map.getLayers().get(0));
             medKit.setPosition(xPos * medKit.getCollisionLayer().getTileWidth(), (medKit.getCollisionLayer().getHeight() - 4) * medKit.getCollisionLayer().getTileHeight());
             items.add(medKit);
         }

@@ -11,7 +11,7 @@ import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthoCachedTiledMapRenderer;
 
-public class application extends InputAdapter implements ApplicationListener {
+public class Application extends InputAdapter implements ApplicationListener {
     private TiledMap map;
     private TmxMapLoader mapLoader;
     private SpriteBatch batch;

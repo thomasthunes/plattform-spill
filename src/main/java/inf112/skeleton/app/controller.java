@@ -2,20 +2,20 @@ package inf112.skeleton.app;
 
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
-import objects.mainPlayer;
+import objects.MainPlayer;
 
 public class controller implements InputProcessor {
 
-    private mainPlayer player1;
-    private mainPlayer player2;
+    private MainPlayer player1;
+    private MainPlayer player2;
     private boolean gameOver;
 
-    public controller(mainPlayer player1, mainPlayer player2){
+    public controller(MainPlayer player1, MainPlayer player2){
         this.player1 = player1;
         this.player2 = player2;
     }
 
-    public controller(mainPlayer player1){
+    public controller(MainPlayer player1){
         this.player1 = player1;
     }
 
@@ -26,7 +26,7 @@ public class controller implements InputProcessor {
     @Override
     public boolean keyDown(int keycode) {
         if (!gameOver) {
-            for (abstractEnemy enemy : player1.getGame().getEnemies()) {
+            for (AbstractEnemy enemy : player1.getGame().getEnemies()) {
                 if (enemy.getName() != "bat") {
                     enemy.moveRandom();
                 }

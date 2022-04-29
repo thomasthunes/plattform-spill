@@ -2,14 +2,14 @@ package objects;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
-import inf112.skeleton.app.abstractEnemy;
-import inf112.skeleton.app.abstractPlayer;
+import inf112.skeleton.app.AbstractEnemy;
+import inf112.skeleton.app.AbstractPlayer;
 import screens.Play;
 
 import java.util.List;
 import java.util.Random;
 
-public class Bat extends abstractEnemy {
+public class Bat extends AbstractEnemy {
 
     private final int damage = 10;
     private final String name = "bat";
@@ -50,7 +50,7 @@ public class Bat extends abstractEnemy {
      * @param mainPlayer
      */
     @Override
-    public void getAttack(objects.mainPlayer mainPlayer) {
+    public void getAttack(objects.MainPlayer mainPlayer) {
         mainPlayer.loseHealth(this.damage);
     }
 
@@ -58,8 +58,8 @@ public class Bat extends abstractEnemy {
      * moves a bat towards the players directions
      */
     public void moveToPlayer() {
-        List<objects.mainPlayer> players = getGame().getPlayers();
-        abstractPlayer player = null;
+        List<objects.MainPlayer> players = getGame().getPlayers();
+        AbstractPlayer player = null;
         if (players.size() == 1) {
             player = getGame().getPlayers().get(0);
         }

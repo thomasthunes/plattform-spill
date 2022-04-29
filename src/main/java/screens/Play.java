@@ -18,9 +18,9 @@ import com.badlogic.gdx.graphics.Color;
 
 import com.badlogic.gdx.scenes.scene2d.Event;
 
-import inf112.skeleton.app.abstractEnemy;
+import inf112.skeleton.app.AbstractEnemy;
 import inf112.skeleton.app.ScoreDB;
-import inf112.skeleton.app.app;
+import inf112.skeleton.app.App;
 import inf112.skeleton.app.controller;
 import objects.*;
 import org.lwjgl.opengl.GL20;
@@ -42,23 +42,22 @@ public class Play extends Event implements Screen {
     private OrthographicCamera camera;
     private BitmapFont font;
 
-    private mainPlayer player1;
-    private mainPlayer player2;
+    private MainPlayer player1;
+    private MainPlayer player2;
     private Vampire vampire;
 
     // Lists for actors
-    private List<mainPlayer> players = new ArrayList<>();
-    private List<abstractEnemy> enemies = new ArrayList<>();
-    private List<abstractEnemy> bats = new ArrayList<>();
+    private List<MainPlayer> players = new ArrayList<>();
+    private List<AbstractEnemy> enemies = new ArrayList<>();
+    private List<AbstractEnemy> bats = new ArrayList<>();
     private List<Item> items = new ArrayList<>();
 
     private final String currentMap;
-    private app app;
+    private App app;
     private ItemFactory itemFactory;
     
     private Music game_music;
     private Sound gameover;
-    private Sound victory;
 
     private boolean pauseActive;
         
@@ -68,7 +67,7 @@ public class Play extends Event implements Screen {
     private BitmapFont font5;
    
     
-    private HashMap<abstractEnemy, Float> enemyVelocity = new HashMap<>();
+    private HashMap<AbstractEnemy, Float> enemyVelocity = new HashMap<>();
 
     private ShapeRenderer shapeRenderer;
     private boolean gameActive;
@@ -79,7 +78,7 @@ public class Play extends Event implements Screen {
     private final long timerStart;
     private final int gameMode;
 
-    public Play(String currentMap, app app, int gameMode){
+    public Play(String currentMap, App app, int gameMode){
         this.currentMap = currentMap;
         this.app = app;
         this.itemFactory = new ItemFactory();
@@ -110,7 +109,7 @@ public class Play extends Event implements Screen {
         font = new BitmapFont();
 
         // Creates the player(s) and sets the controllers
-        player1 = new mainPlayer(new Sprite(new Texture("assets/maps/mario.png")), (TiledMapTileLayer) map.getLayers().get(0), this);//new Player(new Sprite(new Texture("assets/maps/mario.png")), (TiledMapTileLayer) map.getLayers().get(0));
+        player1 = new MainPlayer(new Sprite(new Texture("assets/maps/mario.png")), (TiledMapTileLayer) map.getLayers().get(0), this);//new Player(new Sprite(new Texture("assets/maps/mario.png")), (TiledMapTileLayer) map.getLayers().get(0));
         player1.setPosition(10 * player1.getCollisionLayer().getTileWidth(), (player1.getCollisionLayer().getHeight() - STARTPOSITION) * player1.getCollisionLayer().getTileHeight());
         players.add(player1);
 
@@ -120,7 +119,7 @@ public class Play extends Event implements Screen {
         }
 
         else if (gameMode == 2) {
-            player2 = new mainPlayer(new Sprite(new Texture("assets/maps/luigi.png")), (TiledMapTileLayer) map.getLayers().get(0), this);//new Player(new Sprite(new Texture("assets/maps/mario.png")), (TiledMapTileLayer) map.getLayers().get(0));
+            player2 = new MainPlayer(new Sprite(new Texture("assets/maps/luigi.png")), (TiledMapTileLayer) map.getLayers().get(0), this);//new Player(new Sprite(new Texture("assets/maps/mario.png")), (TiledMapTileLayer) map.getLayers().get(0));
             player2.setPosition(7 * player2.getCollisionLayer().getTileWidth(), (player2.getCollisionLayer().getHeight() - STARTPOSITION) * player2.getCollisionLayer().getTileHeight());
             player2.setSize((float) (player2.getWidth()*0.15), (float) (player2.getHeight()*0.2));
             players.add(player2);
@@ -259,7 +258,7 @@ public class Play extends Event implements Screen {
         
     	
         int deadCount = 0;
-        for (mainPlayer player : players){
+        for (MainPlayer player : players){
             if (!player.isAlive()){
                 deadCount++;
             }
@@ -362,8 +361,8 @@ public class Play extends Event implements Screen {
      * draws the enemies
      */
     private void drawEnemies() {
-        List<abstractEnemy> enemiesToBeRemoved = new ArrayList<>();
-        for (abstractEnemy enemy : enemies) {
+        List<AbstractEnemy> enemiesToBeRemoved = new ArrayList<>();
+        for (AbstractEnemy enemy : enemies) {
             if (enemy.isAlive()) {
                 enemy.draw(renderer.getBatch());
             } else {
@@ -393,7 +392,7 @@ public class Play extends Event implements Screen {
      * removes the dead enemies
      * @param enemiesToBeRemoved
      */
-    private void removeDeadEnemies(List<abstractEnemy> enemiesToBeRemoved){
+    private void removeDeadEnemies(List<AbstractEnemy> enemiesToBeRemoved){
         enemies.removeAll(enemiesToBeRemoved);
     }
 
@@ -422,13 +421,13 @@ public class Play extends Event implements Screen {
         	if(!pauseActive) {
         		game_music.pause();
         		
-        		for(abstractEnemy enemy : enemies){
+        		for(AbstractEnemy enemy : enemies){
         			enemyVelocity.put(enemy, enemy.getVelocity().x);
         			enemy.setGravity(0);
         			enemy.setSpeed(0);
         			enemy.getVelocity().x = 0;
         		}
-        		for(mainPlayer player : players) {
+        		for(MainPlayer player : players) {
         			player.setGravity(0);
         			player.setSpeed(0);
                     player.getVelocity().x = 0;
@@ -439,13 +438,13 @@ public class Play extends Event implements Screen {
         		
         		game_music.play();
         		
-        		for(Map.Entry<abstractEnemy, Float> entry: enemyVelocity.entrySet()) {
+        		for(Map.Entry<AbstractEnemy, Float> entry: enemyVelocity.entrySet()) {
         			entry.getKey().setGravity(140 * 1f);
         			entry.getKey().setSpeed(150);
         			entry.getKey().getVelocity().x = entry.getValue();
         		}
 
-        		for(mainPlayer player : players) {
+        		for(MainPlayer player : players) {
         			player.setGravity(140 * 1f);
         			player.setSpeed(150);
         		}
@@ -473,15 +472,15 @@ public class Play extends Event implements Screen {
         return vampire;
     }
 
-    public List<abstractEnemy> getBats(){
+    public List<AbstractEnemy> getBats(){
         return bats;
     }
 
-    public List<mainPlayer> getPlayers(){
+    public List<MainPlayer> getPlayers(){
         return players;
     }
 
-    public List<abstractEnemy> getEnemies(){
+    public List<AbstractEnemy> getEnemies(){
         return enemies;
     }
 

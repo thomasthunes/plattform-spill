@@ -2,12 +2,12 @@ package objects;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
-import inf112.skeleton.app.abstractEnemy;
+import inf112.skeleton.app.AbstractEnemy;
 import screens.Play;
 
 import java.util.Random;
 
-public class Wizard extends abstractEnemy {
+public class Wizard extends AbstractEnemy {
 
     private final String name = "wizard";
     private final int damage = 50;
@@ -49,7 +49,7 @@ public class Wizard extends abstractEnemy {
      * @param mainPlayer
      */
     @Override
-    public void getAttack(objects.mainPlayer mainPlayer) {
+    public void getAttack(objects.MainPlayer mainPlayer) {
         mainPlayer.setPosition(startX, startY);
         mainPlayer.loseHealth(this.damage);
         if (mainPlayer.getOtherPlayer() != null){
