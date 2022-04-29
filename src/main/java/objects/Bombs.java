@@ -6,12 +6,12 @@ import inf112.skeleton.app.AbstractEnemy;
 import inf112.skeleton.app.AbstractPlayer;
 import screens.Play;
 
-public class bombs extends AbstractEnemy {
+public class Bombs extends AbstractEnemy {
 
     private final String name;
     private int hp = 1;
 
-    public bombs(Sprite sprite, TiledMapTileLayer collisionLayer, Play play) {
+    public Bombs(Sprite sprite, TiledMapTileLayer collisionLayer, Play play) {
         super(sprite, collisionLayer, play);
         this.name = "bomb";
     }

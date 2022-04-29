@@ -73,7 +73,7 @@ public class ItemFactory {
     public List<AbstractEnemy> getNextBomb(int amount, TiledMap map, Play play){
         for (int i = 0; i < amount; i++){
             int xPos = getNextXPos();
-            bombs bomb = new bombs(new Sprite(new Texture("assets/maps/bomb.png")), (TiledMapTileLayer) map.getLayers().get(0), play);
+            Bombs bomb = new Bombs(new Sprite(new Texture("assets/maps/bomb.png")), (TiledMapTileLayer) map.getLayers().get(0), play);
             bomb.setPosition(xPos * bomb.getCollisionLayer().getTileWidth(), (bomb.getCollisionLayer().getHeight() - 4) * bomb.getCollisionLayer().getTileHeight());
             enemies.add(bomb);
         }
