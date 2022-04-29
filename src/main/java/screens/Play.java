@@ -21,7 +21,7 @@ import com.badlogic.gdx.scenes.scene2d.Event;
 import inf112.skeleton.app.AbstractEnemy;
 import inf112.skeleton.app.ScoreDB;
 import inf112.skeleton.app.App;
-import inf112.skeleton.app.controller;
+import inf112.skeleton.app.Controller;
 import objects.*;
 import org.lwjgl.opengl.GL20;
 
@@ -88,10 +88,10 @@ public class Play extends Event implements Screen {
         this.timerStart = System.currentTimeMillis();
         this.font5 = new BitmapFont();
         this.font4 = new BitmapFont();
-        gameover = Gdx.audio.newSound(Gdx.files.internal("assets/sounds/gameover.mp3"));
+        gameover = Gdx.audio.newSound(Gdx.files.internal("sounds/gameover.mp3"));
         
         
-		game_music = Gdx.audio.newMusic(Gdx.files.internal("assets/sounds/gamemusic.wav"));
+		game_music = Gdx.audio.newMusic(Gdx.files.internal("sounds/gamemusic.wav"));
 		game_music.setLooping(true);
 		game_music.setVolume(0.4f);
 		game_music.play();
@@ -109,22 +109,22 @@ public class Play extends Event implements Screen {
         font = new BitmapFont();
 
         // Creates the player(s) and sets the controllers
-        player1 = new MainPlayer(new Sprite(new Texture("assets/maps/mario.png")), (TiledMapTileLayer) map.getLayers().get(0), this);//new Player(new Sprite(new Texture("assets/maps/mario.png")), (TiledMapTileLayer) map.getLayers().get(0));
+        player1 = new MainPlayer(new Sprite(new Texture("maps/mario.png")), (TiledMapTileLayer) map.getLayers().get(0), this);//new Player(new Sprite(new Texture("assets/maps/mario.png")), (TiledMapTileLayer) map.getLayers().get(0));
         player1.setPosition(10 * player1.getCollisionLayer().getTileWidth(), (player1.getCollisionLayer().getHeight() - STARTPOSITION) * player1.getCollisionLayer().getTileHeight());
         players.add(player1);
 
         if (gameMode == 1) {
-            controller controller1 = new controller(player1);
+            Controller controller1 = new Controller(player1);
             Gdx.input.setInputProcessor(controller1);
         }
 
         else if (gameMode == 2) {
-            player2 = new MainPlayer(new Sprite(new Texture("assets/maps/luigi.png")), (TiledMapTileLayer) map.getLayers().get(0), this);//new Player(new Sprite(new Texture("assets/maps/mario.png")), (TiledMapTileLayer) map.getLayers().get(0));
+            player2 = new MainPlayer(new Sprite(new Texture("maps/luigi.png")), (TiledMapTileLayer) map.getLayers().get(0), this);//new Player(new Sprite(new Texture("assets/maps/mario.png")), (TiledMapTileLayer) map.getLayers().get(0));
             player2.setPosition(7 * player2.getCollisionLayer().getTileWidth(), (player2.getCollisionLayer().getHeight() - STARTPOSITION) * player2.getCollisionLayer().getTileHeight());
             player2.setSize((float) (player2.getWidth()*0.15), (float) (player2.getHeight()*0.2));
             players.add(player2);
 
-            controller controller = new controller(player1, player2);
+            Controller controller = new Controller(player1, player2);
             Gdx.input.setInputProcessor(controller);
         }
 

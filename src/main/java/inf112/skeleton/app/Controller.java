@@ -4,18 +4,18 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
 import objects.MainPlayer;
 
-public class controller implements InputProcessor {
+public class Controller implements InputProcessor {
 
     private MainPlayer player1;
     private MainPlayer player2;
     private boolean gameOver;
 
-    public controller(MainPlayer player1, MainPlayer player2){
+    public Controller(MainPlayer player1, MainPlayer player2){
         this.player1 = player1;
         this.player2 = player2;
     }
 
-    public controller(MainPlayer player1){
+    public Controller(MainPlayer player1){
         this.player1 = player1;
     }
 

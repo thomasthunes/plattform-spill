@@ -103,10 +103,10 @@ public class MenuScreen extends Game implements Screen {
 
 		
 		this.game = game;
-		background = new Texture("assets/maps/game_background.png");
+		background = new Texture("maps/game_background.png");
 		
 		
-		menu_music = Gdx.audio.newMusic(Gdx.files.internal("assets/sounds/menuscreen_audio.mp3"));
+		menu_music = Gdx.audio.newMusic(Gdx.files.internal("sounds/menuscreen_audio.mp3"));
 		menu_music.setLooping(true);
 		menu_music.setVolume(0.4f);
 		menu_music.play();
@@ -169,7 +169,7 @@ public class MenuScreen extends Game implements Screen {
         	
             if(Gdx.input.isTouched()) {
 				this.dispose();
-        		game.setScreen(new Play("assets/maps/map1.tmx", game, onePlayer));
+        		game.setScreen(new Play("maps/map1.tmx", game, onePlayer));
         	}
     	}
 
@@ -195,7 +195,7 @@ public class MenuScreen extends Game implements Screen {
         	
             if(Gdx.input.isTouched()) {
 				this.dispose();
-				game.setScreen(new Play("assets/maps/map1.tmx", game, twoPlayer));
+				game.setScreen(new Play("maps/map1.tmx", game, twoPlayer));
         		
         	}
     	}
@@ -230,7 +230,7 @@ public class MenuScreen extends Game implements Screen {
 	
 	public void aboutScreen() {
 		
-        batch.draw(new Texture("assets/maps/about_background.png"), 0, 30, screenWidth, screenHeight);
+        batch.draw(new Texture("maps/about_background.png"), 0, 30, screenWidth, screenHeight);
         
         font4.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
         font4.setColor(com.badlogic.gdx.graphics.Color.RED);

@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import inf112.skeleton.app.AbstractEnemy;
-import inf112.skeleton.app.controller;
+import inf112.skeleton.app.Controller;
 import screens.Play;
 
 import java.util.ArrayList;
@@ -43,7 +43,7 @@ public class ItemFactory {
     public List<AbstractEnemy> getNextMonster(int amount, TiledMap map, Play play){
         for (int i = 0; i < amount; i++){
             int xPos = getNextXPos();
-            Monster monster = new Monster(new Sprite(new Texture("assets/maps/monster.png")), (TiledMapTileLayer) map.getLayers().get(0), play);
+            Monster monster = new Monster(new Sprite(new Texture("maps/monster.png")), (TiledMapTileLayer) map.getLayers().get(0), play);
             monster.setPosition(xPos * monster.getCollisionLayer().getTileWidth(), (monster.getCollisionLayer().getHeight() - 4) * monster.getCollisionLayer().getTileHeight());
             enemies.add(monster);
         }
@@ -57,7 +57,7 @@ public class ItemFactory {
      * @return the updated enemies list
      */
     public List<AbstractEnemy> getNextWizard(TiledMap map, Play play) {
-        Wizard wizard = new Wizard(new Sprite(new Texture("assets/maps/wizard.png")), (TiledMapTileLayer) map.getLayers().get(0), play);
+        Wizard wizard = new Wizard(new Sprite(new Texture("maps/wizard.png")), (TiledMapTileLayer) map.getLayers().get(0), play);
         wizard.setPosition(91 * wizard.getCollisionLayer().getTileWidth(), (wizard.getCollisionLayer().getHeight() - 4) * wizard.getCollisionLayer().getTileHeight());
         enemies.add(wizard);
         return enemies;
@@ -73,7 +73,7 @@ public class ItemFactory {
     public List<AbstractEnemy> getNextBomb(int amount, TiledMap map, Play play){
         for (int i = 0; i < amount; i++){
             int xPos = getNextXPos();
-            Bombs bomb = new Bombs(new Sprite(new Texture("assets/maps/bomb.png")), (TiledMapTileLayer) map.getLayers().get(0), play);
+            Bombs bomb = new Bombs(new Sprite(new Texture("maps/bomb.png")), (TiledMapTileLayer) map.getLayers().get(0), play);
             bomb.setPosition(xPos * bomb.getCollisionLayer().getTileWidth(), (bomb.getCollisionLayer().getHeight() - 4) * bomb.getCollisionLayer().getTileHeight());
             enemies.add(bomb);
         }
@@ -90,7 +90,7 @@ public class ItemFactory {
     public Vampire getVampire(TiledMap map, Play play, List<AbstractEnemy> enemies){
         int xPos = 316;
         int yPos = 36;
-        Vampire vampire = new Vampire(new Sprite(new Texture("assets/maps/vampire.png")), (TiledMapTileLayer) map.getLayers().get(0), play);
+        Vampire vampire = new Vampire(new Sprite(new Texture("maps/vampire.png")), (TiledMapTileLayer) map.getLayers().get(0), play);
         vampire.setPosition(XVampire * vampire.getCollisionLayer().getTileWidth(), (vampire.getCollisionLayer().getHeight() - YVampire) * vampire.getCollisionLayer().getTileHeight());
         enemies.add(vampire);
         return vampire;
@@ -108,7 +108,7 @@ public class ItemFactory {
         int xPos = 316;
         int yPos = 36;
         for (int i = 0; i < amount; i++) {
-            Bat bat = new Bat(new Sprite(new Texture("assets/maps/bat.png")), (TiledMapTileLayer) map.getLayers().get(0), play);
+            Bat bat = new Bat(new Sprite(new Texture("maps/bat.png")), (TiledMapTileLayer) map.getLayers().get(0), play);
             bat.setPosition(XVampire * bat.getCollisionLayer().getTileWidth(), (bat.getCollisionLayer().getHeight() - YVampire) * bat.getCollisionLayer().getTileHeight());
             enemies.add(bat);
             bats.add(bat);
@@ -127,7 +127,7 @@ public class ItemFactory {
     public List<Item> getNextMedkit(int amount, TiledMap map, Play play){
         for (int n = 0; n < amount; n++) {
             int xPos = getNextXPos();
-            MedKit medKit = new MedKit(new Sprite(new Texture("assets/maps/medkit.png")), (TiledMapTileLayer) map.getLayers().get(0));
+            MedKit medKit = new MedKit(new Sprite(new Texture("maps/medkit.png")), (TiledMapTileLayer) map.getLayers().get(0));
             medKit.setPosition(xPos * medKit.getCollisionLayer().getTileWidth(), (medKit.getCollisionLayer().getHeight() - 4) * medKit.getCollisionLayer().getTileHeight());
             items.add(medKit);
         }
@@ -141,7 +141,7 @@ public class ItemFactory {
      * @return  the key-object
      */
     public List<Item> getKey(TiledMap map, Play play){
-        Key key = new Key(new Sprite(new Texture("assets/maps/key.png")), (TiledMapTileLayer) map.getLayers().get(0));
+        Key key = new Key(new Sprite(new Texture("maps/key.png")), (TiledMapTileLayer) map.getLayers().get(0));
         key.setPosition(XVampire * key.getCollisionLayer().getTileWidth(), (key.getCollisionLayer().getHeight() - YVampire) * key.getCollisionLayer().getTileHeight());
         items.add(key);
         return items;
