@@ -45,10 +45,14 @@ public class controller implements InputProcessor {
 
             case Input.Keys.A:
                 player1.getVelocity().x = -player1.getSpeed();
+                if (!player1.isFlipX())
+                    player1.flip(true, false);
                 break;
 
             case Input.Keys.D:
                 player1.getVelocity().x = player1.getSpeed();
+                if (player1.isFlipX())
+                    player1.flip(true, false);
                 break;
 
             case Input.Keys.F:
@@ -67,10 +71,14 @@ public class controller implements InputProcessor {
 
                 case Input.Keys.LEFT:
                     player2.getVelocity().x = -player2.getSpeed();
+                    if (!player2.isFlipX())
+                        player2.flip(true, false);
                     break;
 
                 case Input.Keys.RIGHT:
                     player2.getVelocity().x = player2.getSpeed();
+                    if (player2.isFlipX())
+                        player2.flip(true, false);
                     break;
 
                 case Input.Keys.P:
